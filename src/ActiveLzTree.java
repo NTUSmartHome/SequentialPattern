@@ -5,35 +5,49 @@ import java.util.List;
  * Created by g2525_000 on 2015/8/31.
  */
 public class ActiveLzTree {
-    Node root;
+    private Node root;
 
-    List<String> window;
-    List<String> phase;
-    List<String> seenActivity;
+    private List<String> window;
+    private List<String> phase;
     int maxLength;
 
-    class Node {
+    private class Node {
         List<Node> children;
         int fre;
+        int sumFreOfSon;
         String activity;
-
         Node(String activity) {
             this.activity = activity;
             children = new ArrayList<>();
         }
 
     }
-
+    public int getMaxLength(){
+        return maxLength;
+    }
     public void init() {
         window = new ArrayList<>();
         phase = new ArrayList<>();
-        seenActivity = new ArrayList<>();
         root = new Node("root");
     }
-
+    public void finish(){
+        --maxLength;
+        window.clear();
+        phase.clear();
+        calSumFre(root);
+    }
+    private void calSumFre(Node x) {
+        if (x == null) return;
+        for (int i = 0; i < x.children.size(); i++) {
+            Node child = x.children.get(i);
+            x.sumFreOfSon += child.fre;
+        }
+        for (int i = 0; i < x.children.size(); i++) {
+            Node child = x.children.get(i);
+           new Thread(()->calSumFre(child)).start();
+        }
+    }
     public void step(String activity) {
-        if (!seenActivity.contains(activity))
-            seenActivity.add(activity);
 
         List<String> newPattern = new ArrayList<>(phase);
         newPattern.add(activity);
@@ -75,7 +89,6 @@ public class ActiveLzTree {
             parentNode.children.add(new Node(lastActivity));
             node = parentNode.children.get(parentNode.children.size() - 1);
         }
-        //parentNode.fre++;
         node.fre++;
     }
 
@@ -106,9 +119,11 @@ public class ActiveLzTree {
 
     }
 
-    private Node findActivityNode(List<String> phase) {
+    private Node findActivityNode(List<String> phase, boolean update) {
         Node x = root;
         boolean isFind = false;
+        List<Node> updateNodes;
+        if (update) updateNodes = new ArrayList<>();
         for (int i = 0; i < phase.size(); i++) {
             for (int j = 0; j < x.children.size(); j++) {
                 Node child = x.children.get(j);
@@ -132,6 +147,9 @@ public class ActiveLzTree {
         for (int i = 0; i < ss.length; i++) {
             alz.step(ss[i]);
         }
+        alz.finish();
+
     }
+
 
 }
