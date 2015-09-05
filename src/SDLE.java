@@ -10,7 +10,7 @@ public class SDLE {
 
     String InputFile;
     String OutputFile;
-    final double printThreshold = 0.00001;
+    final double printThreshold = 0.0001;
     Activity A = new Activity();
     int t = 1;
     double rh;
@@ -57,13 +57,13 @@ public class SDLE {
         try {
             FileWriter fw = new FileWriter(OutputFile);
             double value = A.getQOfActs(1);
-            double sum = value;
+            double sum = beta / (((1 - Math.pow(1 - rh, t)) / rh) + k * beta);
 
             for(int i=1; i<A.getPossibleActSet(); i++) {
                 value = A.getQOfActs(i);
                 if(value > printThreshold ) {
                     NumberFormat nf = NumberFormat.getInstance();
-                    nf.setMaximumFractionDigits(5);
+                    nf.setMaximumFractionDigits(8);
 
                     String[] occurActs = A.getNameOfActs(i);
                     fw.write(Arrays.toString(occurActs));
@@ -94,11 +94,13 @@ public class SDLE {
     public void updateDiscountingOfQ(){
         t--;
         for(int i=1; i<A.getPossibleActSet(); i++){
-            A.setQOfActs(i, (A.getTOfActs(i) + beta) / ((1 - Math.pow(1 - rh, t)) / rh + k * beta));
+            A.setQOfActs(i, (A.getTOfActs(i) + beta) / (((1 - Math.pow(1 - rh, t)) / rh) + k * beta));
         }
     }
 
+
+
     public static void main(String[] args) {
-        new SDLE("db/SDLE0.txt","result.txt",0.01,0.0001);
+        new SDLE("db/SDLE1.txt","result.txt",0.01,0.0001);
     }
 }

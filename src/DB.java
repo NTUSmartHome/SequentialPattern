@@ -107,7 +107,13 @@ public class DB {
         }
         instanceLabel.get(belongToWhichSDLE(unixTimestamp)).add(instance);
     }
-
+    public void addInstance(String[] label, int NoSDLE){
+        ArrayList<String> instance = new ArrayList<String>();
+        for(int i=0; i<label.length; i++){
+            instance.add(label[i]);
+        }
+        instanceLabel.get(NoSDLE).add(instance);
+    }
 
     public void printDB(){
         String SDLEDBName = "db/SDLE";

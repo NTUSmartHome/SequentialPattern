@@ -13,6 +13,8 @@ public class WSUParser {
         this.option = option;
         DB db = new DB(timeInterval,option);
 
+        //boolean nonOccurNewAct = false;
+
         FileReader fr;
 
         try{
@@ -22,7 +24,7 @@ public class WSUParser {
             int lastNoSDLE = -1;
             long lastUnixTimestamp = 0;
             ArrayList<String> instance = new ArrayList<String>();
-
+            ArrayList<String> preInstance = new ArrayList<String>();
             String line;
             while((line = br.readLine())!=null){
                 line = line.replace("{","").replace("\"","").replace(" ","");
@@ -48,15 +50,30 @@ public class WSUParser {
                     instance.add(label);
                 }
                 else if(lastNoSDLE != belongToWhichSDLE && lastNoSDLE!=-1){
-                    String[] instanceLable = new String[instance.size()];
-                    for (int i=0; i<instance.size(); i++){
-                        instanceLable[i] = instance.get(i);
-                    }
-                    db.addInstance(instanceLable, lastUnixTimestamp);
-                    instance.clear();
-                    instance.add(label);
+                    //if(!nonOccurNewAct) {
+
+                        String[] instanceLable = new String[instance.size()];
+                        for (int i = 0; i < instance.size(); i++) {
+                            instanceLable[i] = instance.get(i);
+                        }
+                        db.addInstance(instanceLable, lastUnixTimestamp);
+                        preInstance = instance;
+                        instance.clear();
+                        instance.add(label);
+                    //}
+                    /*
+                    else{
+                        String[] instanceLable = new String[preInstance.size()];
+                        for (int i = 0; i < preInstance.size(); i++) {
+                            instanceLable[i] = preInstance.get(i);
+                        }
+                        db.addInstance(instanceLable, lastUnixTimestamp);
+                        //System.out.println(instance.toString());
+                    }*/
+                    //nonOccurNewAct = true;
                 }
                 else{
+                    //nonOccurNewAct = false;
                     boolean exist = false;
                     for(int i=0; i<instance.size(); i++){
                         if(label.equals(instance.get(i))) {
@@ -66,6 +83,25 @@ public class WSUParser {
                     }
                     if(!exist)
                         instance.add(label);
+                }
+
+
+                int tmpNoSDLE = lastNoSDLE+1;
+
+                if(lastUnixTimestamp!=0) {
+                    if((belongToWhichSDLE-tmpNoSDLE)>0) {
+                        String[] instanceLable = new String[preInstance.size()];
+                        for (int i = 0; i < preInstance.size(); i++) {
+                            instanceLable[i] = preInstance.get(i);
+                        }
+
+                        while ((belongToWhichSDLE-tmpNoSDLE) > 0) {
+                            db.addInstance(instanceLable, tmpNoSDLE);
+
+                            tmpNoSDLE ++;
+
+                        }
+                    }
                 }
                 lastNoSDLE = belongToWhichSDLE;
                 lastUnixTimestamp = unixTimestamp;

@@ -9,10 +9,8 @@ import java.io.FileReader;
 public class buildSDEL {
 
     int timeInterval;
-    String timeUnit;
 
-    public buildSDEL(){
-
+    public buildSDEL(double rh, double beta){
         DB db = new DB();
         this.timeInterval = db.getTimeInterval();
         int id = 0;
@@ -20,19 +18,15 @@ public class buildSDEL {
         File file = new File(inputFile);
         while(file.exists()){
 
+            String outputFile = getOutputFilename(id);
 
-            String outputFile = getOutputFilename(id);//"report/SDLE" + id + ".txt";
-
-
-
-            SDLE sdle = new SDLE(inputFile,outputFile,0.01,0.0001);
+            SDLE sdle = new SDLE(inputFile,outputFile,rh,beta);
             id++;
             inputFile = "db/SDLE" + id + ".txt";
             file = new File(inputFile);
         }
 
     }
-
 
     private String getOutputFilename(int id){
         String time = "";
@@ -47,9 +41,8 @@ public class buildSDEL {
         return "report/SDLE_" + h + "h" + m + "m.txt";
     }
 
-
     public static void main(String[] args) {
-        new buildSDEL();
+        new buildSDEL(0.01, 0.01);
     }
 
 

@@ -149,6 +149,31 @@ public class Activity {
         QOfActs.set(index, value);
     }
 
+    public int getQuantityOfOccurActs(int index){
+        boolean[] occurActs = new boolean[Activities.size()];
+        for(int i=0; i<occurActs.length; i++) {
+            occurActs[i] = false;
+        }
+        int quantityOfOccurActs = 0;
+        int record = index;
+
+        for(int i=(int)Math.pow(2,Activities.size()-1),id= Activities.size()-1; i>0; i/=2, id--){
+            if(record>=i){
+                occurActs[id] = true;
+                record -= i;
+                quantityOfOccurActs ++;
+            }
+        }
+        String[] occurActsStr = new String[quantityOfOccurActs];
+        for(int i=0, j=0; i<Activities.size(); i++){
+            if(occurActs[i]){
+                occurActsStr[j] = Activities.get(i);
+                j++;
+            }
+        }
+        return occurActsStr.length;
+    }
+
 
     private void randomGenerateTest() {
         FileWriter fw = null;

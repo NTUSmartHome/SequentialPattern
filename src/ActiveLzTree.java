@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by g2525_000 on 2015/8/31.
@@ -9,45 +8,42 @@ public class ActiveLzTree {
 
     private List<String> window;
     private List<String> phase;
+    private List<String> allActivity;
     int maxLength;
 
-    private class Node {
+    public static class Node {
         List<Node> children;
-        int fre;
-        int sumFreOfSon;
+        Node parent;
+        int inFre;
+        int outFre;
         String activity;
+
         Node(String activity) {
             this.activity = activity;
             children = new ArrayList<>();
         }
 
     }
-    public int getMaxLength(){
+
+    public List<String> getAllActivity() {
+        return allActivity;
+    }
+
+    public int getMaxLength() {
         return maxLength;
     }
+
     public void init() {
         window = new ArrayList<>();
         phase = new ArrayList<>();
         root = new Node("root");
+        allActivity = new ArrayList<>();
     }
-    public void finish(){
-        --maxLength;
-        window.clear();
-        phase.clear();
-        calSumFre(root);
-    }
-    private void calSumFre(Node x) {
-        if (x == null) return;
-        for (int i = 0; i < x.children.size(); i++) {
-            Node child = x.children.get(i);
-            x.sumFreOfSon += child.fre;
-        }
-        for (int i = 0; i < x.children.size(); i++) {
-            Node child = x.children.get(i);
-           new Thread(()->calSumFre(child)).start();
-        }
-    }
+
+
     public void step(String activity) {
+
+        if (!allActivity.contains(activity)) allActivity.add(activity);
 
         List<String> newPattern = new ArrayList<>(phase);
         newPattern.add(activity);
@@ -69,7 +65,6 @@ public class ActiveLzTree {
 
     private void incrementAllSuffixes() {
         List<List<String>> suffixList = getAllSuffixes();
-
         for (int i = 0; i < suffixList.size(); i++) {
             incrementSuffix(suffixList.get(i));
         }
@@ -78,18 +73,26 @@ public class ActiveLzTree {
     private void incrementSuffix(List<String> suffix) {
         String lastActivity = suffix.remove(suffix.size() - 1);
         Node parentNode = findActivityNode(suffix);
+        Node node = getChild(parentNode, lastActivity);
+        if (node == null) {
+            node = new Node(lastActivity);
+            parentNode.children.add(node);
+        }
+        ++parentNode.outFre;
+        ++node.inFre;
+        root.inFre = root.outFre;
+    }
+
+    private Node getChild(Node parent, String childActivity) {
         Node node = null;
-        for (int i = 0; i < parentNode.children.size(); i++) {
-            Node tmp = parentNode.children.get(i);
-            if (tmp.activity.equals(lastActivity)) {
+        for (int i = 0; i < parent.children.size(); i++) {
+            Node tmp = parent.children.get(i);
+            if (tmp.activity.equals(childActivity)) {
                 node = tmp;
+                break;
             }
         }
-        if (node == null) {
-            parentNode.children.add(new Node(lastActivity));
-            node = parentNode.children.get(parentNode.children.size() - 1);
-        }
-        node.fre++;
+        return node;
     }
 
     private List<List<String>> getAllSuffixes() {
@@ -106,24 +109,22 @@ public class ActiveLzTree {
     }
 
     private Node addActivity(List<String> phase) {
-        if (phase.size() == 1) {
-            root.children.add(new Node(phase.get(0)));
-            return root.children.get(root.children.size() - 1);
-        } else {
-            String lastActivity = phase.remove(phase.size() - 1);
-            Node x = findActivityNode(phase);
-            x.children.add(new Node(lastActivity));
-            phase.add(lastActivity);
-            return x.children.get(x.children.size() - 1);
-        }
+        String lastActivity = phase.remove(phase.size() - 1);
+        Node x = findActivityNode(phase);
+        Node child = new Node(lastActivity);
+        child.parent = x;
+        x.children.add(new Node(lastActivity));
+        phase.add(lastActivity);
+        return child;
+
 
     }
 
-    private Node findActivityNode(List<String> phase, boolean update) {
+    public Node findActivityNode(List<String> phase) {
+        if (phase.size() == 0) return root;
         Node x = root;
         boolean isFind = false;
-        List<Node> updateNodes;
-        if (update) updateNodes = new ArrayList<>();
+
         for (int i = 0; i < phase.size(); i++) {
             for (int j = 0; j < x.children.size(); j++) {
                 Node child = x.children.get(j);
@@ -139,6 +140,36 @@ public class ActiveLzTree {
         return x;
     }
 
+    public ArrayDeque<Node> findActivityNodePath(List<String> phase) {
+        ArrayDeque<Node> s = new ArrayDeque<>();
+        s.add(root);
+        if (phase.size() == 0) return s;
+
+
+        Node x = root;
+        boolean isFind = false;
+
+        for (int i = 0; i < phase.size(); i++) {
+            for (int j = 0; j < x.children.size(); j++) {
+                Node child = x.children.get(j);
+                s.add(child);
+                if (child.activity.equals(phase.get(i))) {
+                    x = child;
+                    isFind = true;
+                    break;
+                }
+            }
+            if (!isFind) {
+                s.clear();
+                s.add(root);
+                return s;
+            }
+            isFind = false;
+        }
+        return s;
+
+    }
+
     public static void main(String[] args) {
         ActiveLzTree alz = new ActiveLzTree();
         alz.init();
@@ -147,7 +178,11 @@ public class ActiveLzTree {
         for (int i = 0; i < ss.length; i++) {
             alz.step(ss[i]);
         }
-        alz.finish();
+
+        PPM.init(alz);
+        PPM.addSeenActivity("a", 0);
+        PPM.addSeenActivity("a", 0);
+        Map<String, Double> pre = PPM.prediction(0);
 
     }
 
