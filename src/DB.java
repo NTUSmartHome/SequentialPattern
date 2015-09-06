@@ -8,16 +8,20 @@ public class DB {
     final int daySecond = 86400;
 
     int SDLEQuantity;
-    /**unit is must second*/
+    /**
+     * unit is must second
+     */
     int timeInterval;
-    /**0:second, 1:minute, 2:hour, 3:day*/
+    /**
+     * 0:second, 1:minute, 2:hour, 3:day
+     */
     int option;
 
     ArrayList<ArrayList<ArrayList<String>>> instanceLabel = new ArrayList<ArrayList<ArrayList<String>>>();
 
-    DB(){
+    DB() {
         File file = new File("db/readme.txt");
-        if(file.exists()) {
+        if (file.exists()) {
             try {
                 FileReader fr = new FileReader("db/readme.txt");
                 BufferedReader br = new BufferedReader(fr);
@@ -30,69 +34,91 @@ public class DB {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        else{
+        } else {
             System.out.println("There is no database in the directory....");
         }
     }
 
-    /**Generate Database
-     * @param  timeInterval set time interval
-     * @param  option 0:second, 1:minute, 2:hour, 3:day*/
-    DB(int timeInterval, int option){
-        this.option = option;
-        this.timeInterval = timeInterval;
-        switch(option){
-            case 0:
-                SDLEQuantity = daySecond/timeInterval;
-                this.timeInterval = timeInterval;
-                break;
-            case 1:
-                SDLEQuantity = (daySecond/60)/timeInterval;
-                this.timeInterval = timeInterval*60;
-                break;
-            case 2:
-                SDLEQuantity = ((daySecond/60)/60)/timeInterval;
-                this.timeInterval = timeInterval*60*60;
-                break;
-            case 3:
-                SDLEQuantity = 7/timeInterval;
-                this.timeInterval = timeInterval*60*60*24;
-                break;
-            case 4:
-                SDLEQuantity = 365/timeInterval;
-                this.timeInterval = timeInterval*60*60*24;
-                break;
+    /**
+     * Generate Database
+     *
+     * @param timeInterval set time interval
+     * @param option       0:second, 1:minute, 2:hour, 3:day
+     */
+    DB(int timeInterval, int option, boolean isRead) {
+        if (isRead) {
+
+            switch (option) {
+                case 1:
+                    timeInterval *= 60;
+                    break;
+                case 2:
+                    timeInterval *= 60 * 60;
+                    break;
+                case 3:
+                    timeInterval *= 60 * 60 * 24;
+                    break;
+
+            }
+            this.timeInterval = timeInterval;
+            this.option = option;
+
+        } else {
+            this.option = option;
+            this.timeInterval = timeInterval;
+            switch (option) {
+                case 0:
+                    SDLEQuantity = daySecond / timeInterval;
+                    this.timeInterval = timeInterval;
+                    break;
+                case 1:
+                    SDLEQuantity = (daySecond / 60) / timeInterval;
+                    this.timeInterval = timeInterval * 60;
+                    break;
+                case 2:
+                    SDLEQuantity = ((daySecond / 60) / 60) / timeInterval;
+                    this.timeInterval = timeInterval * 60 * 60;
+                    break;
+                case 3:
+                    SDLEQuantity = 7 / timeInterval;
+                    this.timeInterval = timeInterval * 60 * 60 * 24;
+                    break;
+                case 4:
+                    SDLEQuantity = 365 / timeInterval;
+                    this.timeInterval = timeInterval * 60 * 60 * 24;
+                    break;
+            }
+
+            for (int i = 0; i < SDLEQuantity; i++) {
+                ArrayList<ArrayList<String>> SDLEModel = new ArrayList<ArrayList<String>>();
+                instanceLabel.add(SDLEModel);
+            }
         }
 
-        for(int i=0; i<SDLEQuantity; i++){
-            ArrayList<ArrayList<String>> SDLEModel= new ArrayList<ArrayList<String>>();
-            instanceLabel.add(SDLEModel);
-        }
     }
 
-    private int[] getDate(long unixTimestamp){
+    private int[] getDate(long unixTimestamp) {
         String date = new java.text.SimpleDateFormat("yyyy:MM:dd:HH:mm:ss").format(new java.util.Date(unixTimestamp * 1000));
         String[] dateStr = date.split(":");
-        int[] dateInt = new int [dateStr.length];
-        for(int i=0; i<dateInt.length; i++){
+        int[] dateInt = new int[dateStr.length];
+        for (int i = 0; i < dateInt.length; i++) {
             dateInt[i] = Integer.valueOf(dateStr[i]);
         }
         return dateInt;
     }
 
-    private int getDaySecond(int[] date){
+    private int getDaySecond(int[] date) {
         int second = date[5];
         int minute = date[4];
         int hour = date[3];
-        return hour*60*60+minute*60+second;
+        return hour * 60 * 60 + minute * 60 + second;
     }
 
-    public int belongToWhichSDLE(long unixTimestamp){
+    public int belongToWhichSDLE(long unixTimestamp) {
         int daySecond = getDaySecond(getDate(unixTimestamp));
         int No = 0;
-        for(int i=0, t=timeInterval; t<=this.daySecond; i++, t+=timeInterval){
-            if(daySecond<=t){
+        for (int i = 0, t = timeInterval; t <= this.daySecond; i++, t += timeInterval) {
+            if (daySecond <= t) {
                 No = i;
                 break;
             }
@@ -100,50 +126,75 @@ public class DB {
         return No;
     }
 
-    public void addInstance(String[] label, long unixTimestamp){
+    public void addInstance(String[] label, long unixTimestamp) {
         ArrayList<String> instance = new ArrayList<String>();
-        for(int i=0; i<label.length; i++){
+        for (int i = 0; i < label.length; i++) {
             instance.add(label[i]);
         }
         instanceLabel.get(belongToWhichSDLE(unixTimestamp)).add(instance);
     }
-    public void addInstance(String[] label, int NoSDLE){
+
+    public void addInstance(String[] label, int NoSDLE) {
         ArrayList<String> instance = new ArrayList<String>();
-        for(int i=0; i<label.length; i++){
+        for (int i = 0; i < label.length; i++) {
             instance.add(label[i]);
         }
         instanceLabel.get(NoSDLE).add(instance);
     }
 
-    public void printDB(){
-        String SDLEDBName = "db/SDLE";
+    public void printDB() {
+        StringBuilder SDLEDBName = new StringBuilder();
+        SDLEDBName.append("db/");
+
+        switch (option) {
+            case 0:
+                SDLEDBName.append((int) (timeInterval / Math.pow(60, option)));
+                SDLEDBName.append("second/");
+                break;
+            case 1:
+                SDLEDBName.append((int) (timeInterval / Math.pow(60, option)));
+                SDLEDBName.append("minute/");
+                break;
+            case 2:
+                SDLEDBName.append((int) (timeInterval / Math.pow(60, option)));
+                SDLEDBName.append("hour/");
+                break;
+            case 3:
+                SDLEDBName.append((int) (timeInterval / Math.pow(60, option)));
+                SDLEDBName.append("day/");
+                break;
+
+        }
         try {
             for (int i = 0; i < SDLEQuantity; i++) {
-                FileWriter fw = new FileWriter(SDLEDBName + i + ".txt");
-                for(int j=0; j< instanceLabel.get(i).size(); j++){
+                new File(SDLEDBName.toString()).mkdir();
+                FileWriter fw = new FileWriter(SDLEDBName.toString() + i + ".txt");
+                for (int j = 0; j < instanceLabel.get(i).size(); j++) {
                     String instance = "";
-                    for(int k=0; k< instanceLabel.get(i).get(j).size()-1; k++){
+                    for (int k = 0; k < instanceLabel.get(i).get(j).size() - 1; k++) {
                         instance += instanceLabel.get(i).get(j).get(k) + ",";
                     }
-                    instance += instanceLabel.get(i).get(j).get(instanceLabel.get(i).get(j).size()-1) + "\r\n";
+                    instance += instanceLabel.get(i).get(j).get(instanceLabel.get(i).get(j).size() - 1) + "\r\n";
                     fw.write(instance);
                 }
                 fw.close();
             }
-            FileWriter fw_readme = new FileWriter("db/readme.txt");
-            fw_readme.write("time interval:"+timeInterval+"\r\n");
+            FileWriter fw_readme = new FileWriter(SDLEDBName.toString() + "readme.txt");
+            fw_readme.write("time interval:" + timeInterval + "\r\n");
             fw_readme.write("accumulated day:");
             fw_readme.close();
-        }
-        catch(Exception e){
-
+        } catch (Exception e) {
+            System.out.println("printDB");
         }
     }
 
 
-    public int getTimeInterval(){
+    public int getTimeInterval() {
         return timeInterval;
     }
 
+    public int getOption() {
+        return option;
+    }
 
 }

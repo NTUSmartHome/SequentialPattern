@@ -11,7 +11,7 @@ public class WSUParser {
     WSUParser(int timeInterval, int option){
         this.timeInterval = timeInterval;
         this.option = option;
-        DB db = new DB(timeInterval,option);
+        DB db = new DB(timeInterval,option, false);
 
         //boolean nonOccurNewAct = false;
 
@@ -121,7 +121,7 @@ public class WSUParser {
         /**Generate Database
          * timeInterval set time interval
          * option 0:second, 1:minute, 2:hour, 3:day*/
-        new WSUParser(5,1);
+        new WSUParser(1,2);
     }
 
 }

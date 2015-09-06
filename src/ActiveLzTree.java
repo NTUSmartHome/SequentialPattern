@@ -145,7 +145,9 @@ public class ActiveLzTree {
         s.add(root);
         if (phase.size() == 0) return s;
 
+        for(String d : phase) {
 
+        }
         Node x = root;
         boolean isFind = false;
 
@@ -183,7 +185,6 @@ public class ActiveLzTree {
         PPM.addSeenActivity("a", 0);
         PPM.addSeenActivity("a", 0);
         Map<String, Double> pre = PPM.prediction(0);
-
     }
 
 
