@@ -10,7 +10,7 @@ public class SDLE {
 
     String InputFile;
     String OutputFile;
-    final double printThreshold = 0.01;
+    final double printThreshold = 0.0;
     Activity A = new Activity();
     int t = 1;
     double rh;

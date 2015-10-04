@@ -7,10 +7,10 @@ public class buildSDLE {
 
     int timeInterval;
 
-    public buildSDLE(double rh, double beta) {
-        DB db = new DB(1, 2, true);
+    public buildSDLE(int interval, int option, double rh, double beta) {
+        DB db = new DB(interval, option, true);
         this.timeInterval = db.getTimeInterval();
-        int option = db.getOption();
+       // int option = db.getOption();
         int id = 0;
         StringBuilder inputFile = new StringBuilder("db/");
 
@@ -61,7 +61,12 @@ public class buildSDLE {
     }
 
     public static void main(String[] args) {
-        new buildSDLE(0.01, 0.01);
+        final int option = 1;
+        final int timeInterval = 5;
+        final double rh = 0.01;
+        final double beta = 0.01;
+       // new WSUParser(timeInterval, option);
+        new buildSDLE(timeInterval, option, rh, beta);
     }
 
 

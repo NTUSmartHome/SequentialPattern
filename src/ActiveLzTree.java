@@ -11,18 +11,27 @@ public class ActiveLzTree {
     private List<String> allActivity;
     int maxLength;
 
-    public static class Node {
+    public static class Node implements Comparable<Node> {
         List<Node> children;
         Node parent;
         int inFre;
         int outFre;
         String activity;
+        int duration;
 
         Node(String activity) {
             this.activity = activity;
             children = new ArrayList<>();
         }
 
+
+        @Override
+        public int compareTo(Node o) {
+            int c = this.activity.compareTo(o.activity);
+            if (c != 0) return c;
+            c = this.duration - o.duration;
+            return c;
+        }
     }
 
     public List<String> getAllActivity() {
@@ -145,7 +154,7 @@ public class ActiveLzTree {
         s.add(root);
         if (phase.size() == 0) return s;
 
-        for(String d : phase) {
+        for (String d : phase) {
 
         }
         Node x = root;

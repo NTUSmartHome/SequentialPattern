@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.TimeZone;
 
 /**
  * Created by YaHung on 2015/8/27.
@@ -14,7 +15,7 @@ public class WSUParser {
         DB db = new DB(timeInterval,option, false);
 
         //boolean nonOccurNewAct = false;
-
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         FileReader fr;
 
         try{
@@ -121,7 +122,7 @@ public class WSUParser {
         /**Generate Database
          * timeInterval set time interval
          * option 0:second, 1:minute, 2:hour, 3:day*/
-        new WSUParser(1,2);
+        new WSUParser(5,1);
     }
 
 }

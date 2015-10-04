@@ -1,726 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1a91a9b-284d-4c05-aebf-69aa866e6ac1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/13 (自動儲存) (自動儲存).xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE_discount.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE_nodiscount.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/0.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/10.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/11.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/12.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/13 (自動儲存).txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/13.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/14.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/15.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/16.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/17.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/18.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/19.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/2.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/20.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/21.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/22.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/23.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/4.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/5.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/6.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/7.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/8.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/9.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE0h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE0h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE0h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE0h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE10h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE10h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE10h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE10h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE11h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE11h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE11h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE11h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE12h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE12h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE12h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE12h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE13h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE13h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE13h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE13h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE14h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE14h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE14h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE14h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE15h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE15h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE15h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE15h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE16h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE16h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE16h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE16h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE17h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE17h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE17h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE17h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE18h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE18h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE18h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE18h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE19h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE19h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE19h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE19h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE1h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE1h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE1h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE1h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE20h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE20h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE20h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE20h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE21h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE21h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE21h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE21h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE22h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE22h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE22h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE22h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE23h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE23h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE23h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE23h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE2h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE2h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE2h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE2h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE3h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE3h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE3h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE3h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE4h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE4h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE4h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE4h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE5h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE5h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE5h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE5h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE6h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE6h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE6h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE6h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE7h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE7h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE7h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE7h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE8h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE8h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE8h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE8h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/SDLE9h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE9h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE9h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE9h0m.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/SDLEResultParser.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/buildSDLE.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/1hour/readme.txt" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE100.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE101.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE102.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE103.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE104.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE105.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE106.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE107.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE108.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE109.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE110.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE111.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE112.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE113.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE114.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE115.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE116.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE117.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE118.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE119.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE120.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE121.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE122.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE123.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE124.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE125.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE126.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE127.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE128.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE129.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE130.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE131.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE132.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE133.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE134.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE135.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE136.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE137.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE138.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE139.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE140.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE141.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE142.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE143.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE144.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE145.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE146.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE147.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE148.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE149.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE150.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE151.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE152.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE153.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE154.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE155.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE156.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE157.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE158.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE159.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE160.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE161.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE162.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE163.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE164.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE165.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE166.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE167.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE168.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE169.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE170.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE171.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE172.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE173.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE174.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE175.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE176.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE177.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE178.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE179.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE180.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE181.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE182.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE183.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE184.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE185.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE186.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE187.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE188.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE189.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE190.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE191.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE192.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE193.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE194.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE195.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE196.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE197.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE198.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE199.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE200.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE201.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE202.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE203.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE204.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE205.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE206.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE207.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE208.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE209.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE210.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE211.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE212.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE213.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE214.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE215.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE216.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE217.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE218.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE219.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE220.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE221.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE222.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE223.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE224.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE225.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE226.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE227.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE228.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE229.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE230.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE231.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE232.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE233.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE234.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE235.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE236.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE237.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE238.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE239.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE24.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE240.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE241.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE242.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE243.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE244.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE245.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE246.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE247.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE248.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE249.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE25.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE250.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE251.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE252.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE253.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE254.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE255.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE256.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE257.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE258.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE259.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE26.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE260.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE261.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE262.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE263.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE264.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE265.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE266.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE267.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE268.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE269.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE27.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE270.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE271.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE272.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE273.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE274.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE275.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE276.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE277.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE278.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE279.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE28.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE280.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE281.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE282.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE283.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE284.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE285.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE286.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE287.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE29.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE30.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE31.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE32.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE33.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE34.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE35.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE36.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE37.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE38.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE39.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE40.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE41.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE42.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE43.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE44.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE45.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE46.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE47.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE48.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE49.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE50.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE51.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE52.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE53.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE54.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE55.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE56.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE57.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE58.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE59.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE60.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE61.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE62.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE63.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE64.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE65.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE66.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE67.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE68.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE69.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE70.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE71.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE72.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE73.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE74.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE75.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE76.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE77.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE78.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE79.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE80.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE81.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE82.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE83.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE84.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE85.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE86.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE87.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE88.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE89.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE90.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE91.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE92.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE93.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE94.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE95.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE96.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE97.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE98.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE99.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\test123.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\out\production\SDLE\buildSDEL.class" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_0h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_0h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_0h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_0h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_0h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_0h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_0h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_0h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_0h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_0h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_0h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_0h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_10h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_10h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_10h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_10h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_10h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_10h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_10h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_10h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_10h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_10h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_10h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_10h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_11h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_11h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_11h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_11h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_11h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_11h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_11h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_11h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_11h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_11h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_11h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_11h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_12h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_12h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_12h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_12h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_12h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_12h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_12h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_12h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_12h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_12h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_12h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_12h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_13h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_13h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_13h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_13h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_13h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_13h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_13h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_13h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_13h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_13h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_13h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_13h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_14h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_14h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_14h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_14h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_14h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_14h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_14h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_14h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_14h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_14h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_14h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_14h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_15h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_15h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_15h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_15h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_15h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_15h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_15h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_15h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_15h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_15h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_15h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_15h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_16h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_16h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_16h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_16h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_16h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_16h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_16h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_16h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_16h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_16h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_16h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_16h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_17h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_17h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_17h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_17h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_17h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_17h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_17h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_17h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_17h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_17h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_17h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_17h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_18h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_18h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_18h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_18h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_18h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_18h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_18h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_18h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_18h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_18h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_18h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_18h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_19h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_19h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_19h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_19h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_19h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_19h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_19h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_19h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_19h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_19h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_19h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_19h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_1h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_1h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_1h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_1h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_1h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_1h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_1h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_1h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_1h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_1h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_1h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_1h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_20h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_20h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_20h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_20h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_20h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_20h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_20h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_20h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_20h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_20h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_20h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_20h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_21h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_21h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_21h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_21h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_21h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_21h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_21h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_21h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_21h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_21h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_21h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_21h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_22h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_22h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_22h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_22h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_22h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_22h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_22h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_22h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_22h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_22h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_22h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_22h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_23h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_23h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_23h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_23h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_23h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_23h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_23h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_23h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_23h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_23h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_23h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_23h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_2h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_2h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_2h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_2h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_2h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_2h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_2h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_2h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_2h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_2h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_2h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_2h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_3h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_3h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_3h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_3h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_3h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_3h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_3h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_3h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_3h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_3h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_3h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_3h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_4h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_4h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_4h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_4h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_4h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_4h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_4h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_4h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_4h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_4h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_4h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_4h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_5h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_5h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_5h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_5h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_5h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_5h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_5h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_5h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_5h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_5h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_5h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_5h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_6h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_6h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_6h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_6h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_6h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_6h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_6h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_6h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_6h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_6h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_6h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_6h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_7h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_7h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_7h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_7h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_7h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_7h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_7h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_7h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_7h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_7h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_7h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_7h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_8h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_8h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_8h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_8h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_8h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_8h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_8h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_8h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_8h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_8h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_8h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_8h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_9h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_9h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_9h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_9h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_9h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_9h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_9h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_9h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_9h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_9h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_9h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\report\SDLE_9h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\src\buildSDEL.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SDLE/DB.class" afterPath="$PROJECT_DIR$/out/production/SDLE/DB.class" />
+    <list default="true" id="f1a91a9b-284d-4c05-aebf-69aa866e6ac1" name="Default" comment="Experiment result of 220 day SDLE and statistics model per hour">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/LifePattern.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SequentialPattern.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/WSUFeatureExtraction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/WSUFeatureVector.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SDLE/SDLE.class" afterPath="$PROJECT_DIR$/out/production/SDLE/SDLE.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SDLE/WSUParser.class" afterPath="$PROJECT_DIR$/out/production/SDLE/WSUParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ActiveLzTree.java" afterPath="$PROJECT_DIR$/src/ActiveLzTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DB.java" afterPath="$PROJECT_DIR$/src/DB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SDLE.iml" afterPath="$PROJECT_DIR$/SDLE.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SDLE.java" afterPath="$PROJECT_DIR$/src/SDLE.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE0.txt" afterPath="$PROJECT_DIR$/db/SDLE0.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE1.txt" afterPath="$PROJECT_DIR$/db/SDLE1.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE10.txt" afterPath="$PROJECT_DIR$/db/SDLE10.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE11.txt" afterPath="$PROJECT_DIR$/db/SDLE11.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE12.txt" afterPath="$PROJECT_DIR$/db/SDLE12.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE13.txt" afterPath="$PROJECT_DIR$/db/SDLE13.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE14.txt" afterPath="$PROJECT_DIR$/db/SDLE14.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE15.txt" afterPath="$PROJECT_DIR$/db/SDLE15.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE16.txt" afterPath="$PROJECT_DIR$/db/SDLE16.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE17.txt" afterPath="$PROJECT_DIR$/db/SDLE17.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE18.txt" afterPath="$PROJECT_DIR$/db/SDLE18.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE19.txt" afterPath="$PROJECT_DIR$/db/SDLE19.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE2.txt" afterPath="$PROJECT_DIR$/db/SDLE2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE20.txt" afterPath="$PROJECT_DIR$/db/SDLE20.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE21.txt" afterPath="$PROJECT_DIR$/db/SDLE21.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE22.txt" afterPath="$PROJECT_DIR$/db/SDLE22.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE23.txt" afterPath="$PROJECT_DIR$/db/SDLE23.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE3.txt" afterPath="$PROJECT_DIR$/db/SDLE3.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE4.txt" afterPath="$PROJECT_DIR$/db/SDLE4.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE5.txt" afterPath="$PROJECT_DIR$/db/SDLE5.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE6.txt" afterPath="$PROJECT_DIR$/db/SDLE6.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE7.txt" afterPath="$PROJECT_DIR$/db/SDLE7.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE8.txt" afterPath="$PROJECT_DIR$/db/SDLE8.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/SDLE9.txt" afterPath="$PROJECT_DIR$/db/SDLE9.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WSUParser.java" afterPath="$PROJECT_DIR$/src/WSUParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/readme.txt" afterPath="$PROJECT_DIR$/db/readme.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/buildSDLE.java" afterPath="$PROJECT_DIR$/src/buildSDLE.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SDLE.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/../ActivityAwaring/datumbox-framework-master/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -738,12 +37,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="buildSDLE.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/buildSDLE.java">
+      <file leaf-file-name="SDLE.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/SDLE.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
-              <folding />
+              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#3075#3076#0" expanded="false" />
+                <element signature="e#3143#3144#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -752,47 +55,45 @@
         <entry file="file://$PROJECT_DIR$/src/DB.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="32" />
-              <folding />
+              <caret line="191" column="15" selection-start-line="191" selection-start-column="15" selection-end-line="191" selection-end-column="15" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#6512#6513#0" expanded="false" />
+                <element signature="e#6541#6542#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActiveLzTree.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ActiveLzTree.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44235033">
-              <caret line="149" column="9" selection-start-line="147" selection-start-column="8" selection-end-line="149" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Activity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Activity.java">
+      <file leaf-file-name="WSUFeatureVector.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WSUFeatureVector.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WSUParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WSUParser.java">
+      <file leaf-file-name="WSUFeatureExtraction.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/WSUFeatureExtraction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="123" selection-start-line="41" selection-start-column="110" selection-end-line="41" selection-end-column="123" />
-              <folding />
+            <state vertical-scroll-proportion="0.21836506">
+              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2659#2660#0" expanded="true" />
+                <element signature="e#2719#2720#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SDLE.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDLE.java">
+      <file leaf-file-name="buildSDLE.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/buildSDLE.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -802,7 +103,7 @@
         <entry file="file://$PROJECT_DIR$/src/SDLEResultParser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+              <caret line="49" column="58" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -832,12 +133,18 @@
         <option value="$PROJECT_DIR$/src/Activity.java" />
         <option value="$PROJECT_DIR$/src/buildSDEL.java" />
         <option value="$PROJECT_DIR$/src/PPM.java" />
-        <option value="$PROJECT_DIR$/src/WSUParser.java" />
         <option value="$PROJECT_DIR$/src/DB.java" />
         <option value="$PROJECT_DIR$/src/SDLEResultParser.java" />
+        <option value="$PROJECT_DIR$/src/ActiveLzTree.java" />
+        <option value="$PROJECT_DIR$/src/WSUParser.java" />
         <option value="$PROJECT_DIR$/src/buildSDLE.java" />
         <option value="$PROJECT_DIR$/src/SDLE.java" />
-        <option value="$PROJECT_DIR$/src/ActiveLzTree.java" />
+        <option value="$PROJECT_DIR$/src/SDLEFetureExtraction.java" />
+        <option value="$PROJECT_DIR$/src/SDLEFeatureExtraction.java" />
+        <option value="$PROJECT_DIR$/src/SDLEFeatureVector.java" />
+        <option value="$PROJECT_DIR$/src/SDLEFeartureExtraction.java" />
+        <option value="$PROJECT_DIR$/src/WSUFeatureVector.java" />
+        <option value="$PROJECT_DIR$/src/WSUFeatureExtraction.java" />
       </list>
     </option>
   </component>
@@ -852,10 +159,9 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="954" />
+    <option name="width" value="973" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -902,7 +208,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -921,67 +226,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SDLE" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SequentialPattern" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SDLE" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SequentialPattern" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ActivityAwaring/ActivityAwareSystem" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
   </component>
-  <component name="RunManager" selected="Application.SDLEResultParser">
-    <configuration default="false" name="SDLE" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="SDLE" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="SDLE" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Application.WSUFeatureExtraction">
     <configuration default="false" name="WSUParser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="WSUParser" />
@@ -1030,6 +293,21 @@
     <configuration default="false" name="SDLEResultParser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="SDLEResultParser" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="SDLE" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="WSUFeatureExtraction" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="WSUFeatureExtraction" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1105,19 +383,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.SDLE" />
-      <item index="1" class="java.lang.String" itemvalue="Application.WSUParser" />
-      <item index="2" class="java.lang.String" itemvalue="Application.buildSDLE" />
-      <item index="3" class="java.lang.String" itemvalue="Application.ActiveLzTree" />
-      <item index="4" class="java.lang.String" itemvalue="Application.SDLEResultParser" />
+      <item index="0" class="java.lang.String" itemvalue="Application.WSUParser" />
+      <item index="1" class="java.lang.String" itemvalue="Application.buildSDLE" />
+      <item index="2" class="java.lang.String" itemvalue="Application.ActiveLzTree" />
+      <item index="3" class="java.lang.String" itemvalue="Application.SDLEResultParser" />
+      <item index="4" class="java.lang.String" itemvalue="Application.WSUFeatureExtraction" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.SDLEResultParser" />
+        <item index="0" class="java.lang.String" itemvalue="Application.WSUFeatureExtraction" />
         <item index="1" class="java.lang.String" itemvalue="Application.buildSDLE" />
         <item index="2" class="java.lang.String" itemvalue="Application.WSUParser" />
-        <item index="3" class="java.lang.String" itemvalue="Application.ActiveLzTree" />
-        <item index="4" class="java.lang.String" itemvalue="Application.SDLE" />
+        <item index="3" class="java.lang.String" itemvalue="Application.SDLEResultParser" />
+        <item index="4" class="java.lang.String" itemvalue="Application.ActiveLzTree" />
       </list>
     </recent_temporary>
   </component>
@@ -1138,25 +416,30 @@
       <option name="project" value="LOCAL" />
       <updated>1441485570412</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Experiment result of 220 day SDLE and statistics model per hour">
+      <created>1441557468829</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1441557468829</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="954" y="0" width="973" height="1047" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32799146" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14583333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37304077" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -1165,10 +448,11 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="5.2083336E-4" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39957264" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279396" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3792735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3149946" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1185,11 +469,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Accomplish ALZ&#10;Accomplish PPM For ALZ" />
-    <option name="LAST_COMMIT_MESSAGE" value="Accomplish ALZ&#10;Accomplish PPM For ALZ" />
+    <MESSAGE value="Experiment result of 220 day SDLE and statistics model per hour" />
+    <option name="LAST_COMMIT_MESSAGE" value="Experiment result of 220 day SDLE and statistics model per hour" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="38" />
+      <option name="time" value="55" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1198,30 +483,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/buildSDLE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActiveLzTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="184" column="52" selection-start-line="184" selection-start-column="52" selection-end-line="184" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Activity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1242,7 +503,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3075#3076#0" expanded="false" />
+            <element signature="e#3143#3144#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1266,7 +531,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="140" column="5" selection-start-line="140" selection-start-column="5" selection-end-line="140" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#6512#6513#0" expanded="false" />
+            <element signature="e#6541#6542#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1282,7 +551,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3075#3076#0" expanded="false" />
+            <element signature="e#3143#3144#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1512,14 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PPM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78409094">
-          <caret line="32" column="62" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_25/src.zip!/java/io/FileInputStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1484795">
@@ -1530,31 +795,46 @@
     <entry file="file://$PROJECT_DIR$/src/SDLEResultParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+          <caret line="49" column="58" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DB.java">
+    <entry file="file://$PROJECT_DIR$/src/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.1431227">
+          <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PPM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0167286">
+          <caret line="45" column="23" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ActiveLzTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6449814">
+          <caret line="184" column="21" selection-start-line="184" selection-start-column="21" selection-end-line="184" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ActivityAwaring/datumbox-framework-master/accel_feature2">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="32" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WSUParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="123" selection-start-line="41" selection-start-column="110" selection-end-line="41" selection-end-column="123" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/buildSDLE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.7144457">
+          <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1562,24 +842,52 @@
     <entry file="file://$PROJECT_DIR$/src/SDLE.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-          <folding />
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3075#3076#0" expanded="false" />
+            <element signature="e#3143#3144#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activity.java">
+    <entry file="file://$PROJECT_DIR$/src/buildSDLE.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActiveLzTree.java">
+    <entry file="file://$PROJECT_DIR$/src/DB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44235033">
-          <caret line="149" column="9" selection-start-line="147" selection-start-column="8" selection-end-line="149" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="191" column="15" selection-start-line="191" selection-start-column="15" selection-end-line="191" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#6512#6513#0" expanded="false" />
+            <element signature="e#6541#6542#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WSUFeatureVector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WSUFeatureExtraction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21836506">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2659#2660#0" expanded="true" />
+            <element signature="e#2719#2720#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1589,6 +897,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>unnamed</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1612,7 +921,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>lib</last-edited>
+          <last-edited>groovy-2.4.3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1660,6 +969,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Maven: com.datumbox:lpsolve:5.5.2.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
