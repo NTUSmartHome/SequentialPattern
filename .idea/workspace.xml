@@ -1,49 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1a91a9b-284d-4c05-aebf-69aa866e6ac1" name="Default" comment="Experiment result of 220 day SDLE and statistics model per hour">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/alz/ActiveLzTree.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/alz/PPM.java" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE0.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE1.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE10.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE11.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE12.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE13.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE14.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE15.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE16.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE17.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE18.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE19.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE2.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE20.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE21.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE22.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE23.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE3.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE4.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE5.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE6.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE7.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE8.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\db\SDLE9.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\out\production\SDLE\Activity.class" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\out\production\SDLE\DB.class" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\out\production\SDLE\SDLE.class" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\out\production\SDLE\WSUParser.class" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\result.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\src\ActiveLzTree.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\src\Activity.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\src\DB.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\src\PPM.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\src\SDLE.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\src\SDLEResultParser.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\src\WSUFeatureExtraction.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\src\WSUFeatureVector.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\src\WSUParser.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\Users\MingJe\IdeaProjects\SequentialPattern\src\buildSDLE.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LifePattern.java" afterPath="$PROJECT_DIR$/src/LifePattern.java" />
+    <list default="true" id="f1a91a9b-284d-4c05-aebf-69aa866e6ac1" name="Default" comment="Debug">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sdle/Activity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sdle/DB.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sdle/SDLE.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sdle/SDLEResultParser.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/wsu/WSUFeatureExtraction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/wsu/WSUFeatureVector.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/wsu/WSUParser.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sdle/buildSDLE.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SDLE.iws" />
@@ -166,6 +132,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -198,29 +166,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SDLE" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SequentialPattern" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="alz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -412,7 +360,19 @@
       <option name="project" value="LOCAL" />
       <updated>1441557468829</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Debug">
+      <created>1445142600568</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1445142600568</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Debug">
+      <created>1445143170464</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1445143170464</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -421,11 +381,13 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32655245" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32905984" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3149946" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -433,17 +395,15 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="5.2083336E-4" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279396" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3149946" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -458,9 +418,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Accomplish ALZ&#10;Accomplish PPM For ALZ" />
     <MESSAGE value="Experiment result of 220 day SDLE and statistics model per hour" />
-    <option name="LAST_COMMIT_MESSAGE" value="Experiment result of 220 day SDLE and statistics model per hour" />
+    <MESSAGE value="Debug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -473,63 +436,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/WSUFeatureExtraction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="121" column="32" selection-start-line="121" selection-start-column="27" selection-end-line="121" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_25/src.zip!/java/io/FileInputStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1484795">
@@ -537,25 +443,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.1431227">
-          <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../ActivityAwaring/datumbox-framework-master/accel_feature2">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WSUFeatureExtraction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
