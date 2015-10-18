@@ -1,3 +1,9 @@
+package alz;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -18,10 +24,11 @@ public class ActiveLzTree {
         int outFre;
         String activity;
         int duration;
-
-        Node(String activity) {
+        int level;
+        Node(String activity, int level) {
             this.activity = activity;
             children = new ArrayList<>();
+            this.level = level;
         }
 
 
@@ -45,7 +52,7 @@ public class ActiveLzTree {
     public void init() {
         window = new ArrayList<>();
         phase = new ArrayList<>();
-        root = new Node("root");
+        root = new Node("root", 1);
         allActivity = new ArrayList<>();
     }
 
@@ -84,7 +91,8 @@ public class ActiveLzTree {
         Node parentNode = findActivityNode(suffix);
         Node node = getChild(parentNode, lastActivity);
         if (node == null) {
-            node = new Node(lastActivity);
+            node = new Node(lastActivity, parentNode.level+1);
+            node.parent = parentNode;
             parentNode.children.add(node);
         }
         ++parentNode.outFre;
@@ -120,9 +128,10 @@ public class ActiveLzTree {
     private Node addActivity(List<String> phase) {
         String lastActivity = phase.remove(phase.size() - 1);
         Node x = findActivityNode(phase);
-        Node child = new Node(lastActivity);
+        Node child = new Node(lastActivity,x.level+1);
         child.parent = x;
-        x.children.add(new Node(lastActivity));
+        //x.children.add(new Node(lastActivity));
+        x.children.add(child);
         phase.add(lastActivity);
         return child;
 
@@ -181,6 +190,78 @@ public class ActiveLzTree {
 
     }
 
+    public void levelOrderPrint() {
+        Queue<Node> level = new ArrayDeque<>();
+        level.add(root);
+
+        int lv = 1;
+        boolean isEnd = false;
+        while (!level.isEmpty()) {
+            Node node = level.poll();
+            if (node.activity.equals("null")) {
+                System.out.print("0");
+                isEnd = false;
+                continue;
+            }
+            if (node.level > lv) {
+                System.out.println();
+                ++lv;
+            }
+            if (node.activity.equals("end") && isEnd) {
+                break;
+            } else isEnd = false;
+            if(node.activity.equals("end")) {
+                System.out.print("|");
+                isEnd = true;
+            } else {
+                System.out.print(node.activity + "(" + node.inFre + ")" +  ",");
+                if (node.children.size() == 0) {
+                    level.add(new Node("null", node.level + 1));
+                }
+                for (int i = 0; i < node.children.size(); i++) {
+                    level.add(node.children.get(i));
+                }
+                level.add(new Node("end", node.level + 1));
+            }
+
+
+        }
+    }
+    public void finish(){
+        while (window.size() > 0 ) {
+            window.remove(0);
+            incrementAllSuffixes();
+        }
+    }
+    public static void wsuOneDay() {
+        ActiveLzTree alz = new ActiveLzTree();
+        alz.init();
+        ArrayList<String> actSeq = new ArrayList<>();
+        try {
+            FileReader fr = new FileReader("db/SeqOneDay.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            String[] rawData;
+            while ((line = br.readLine()) != null) {
+                rawData = line.split(",");
+                String[] act = rawData[0].split(":");
+                actSeq.add(act[1].trim());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < actSeq.size(); i++) {
+            alz.step(actSeq.get(i));
+        }
+        alz.levelOrderPrint();
+        PPM.init(alz);
+        PPM.addSeenActivity("1", 0);
+        PPM.addSeenActivity("1", 0);
+        Map<String, Double> pre = PPM.prediction(0);
+    }
+
     public static void main(String[] args) {
         ActiveLzTree alz = new ActiveLzTree();
         alz.init();
@@ -189,11 +270,10 @@ public class ActiveLzTree {
         for (int i = 0; i < ss.length; i++) {
             alz.step(ss[i]);
         }
+        //alz.finish();
 
-        PPM.init(alz);
-        PPM.addSeenActivity("a", 0);
-        PPM.addSeenActivity("a", 0);
-        Map<String, Double> pre = PPM.prediction(0);
+        wsuOneDay();
+
     }
 
 
