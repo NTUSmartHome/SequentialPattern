@@ -182,4 +182,8 @@ public class DB {
         return option;
     }
 
+    public int getSDLEQuantity() {
+        return SDLEQuantity;
+    }
+
 }

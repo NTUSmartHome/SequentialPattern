@@ -1,6 +1,7 @@
 package sdle;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Created by YaHung on 2015/8/31.
@@ -37,6 +38,7 @@ public class buildSDLE {
         //String inputFile = "db/SDLE" + id + ".txt";
         String fileString = inputFile.toString() + id + ".txt";
         File file = new File(fileString);
+
         while (file.exists()) {
             String outputFile = getOutputFilename(id, inputFile.toString());
             SDLE sdle = new SDLE(fileString, outputFile, rh, beta);

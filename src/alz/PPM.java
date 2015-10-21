@@ -16,38 +16,49 @@ public class PPM {
         allActiveLzTrees.add(alz);
     }
 
-    public static Map<String, Double> prediction(int idx) {
+    public static List<Map.Entry<String, Double>> prediction(int idx) {
         ActiveLzTree alz = allActiveLzTrees.get(idx);
         ArrayDeque pathNode = alz.findActivityNodePath(allSeenActivity.get(idx));
         List<String> allActivity = alz.getAllActivity();
-        Map<String,Double> prediction = new HashMap<>();
+        Map<String, Double> prediction = new HashMap<>();
         double prob = 0;
-        ActiveLzTree.Node prev =null;
+        ActiveLzTree.Node prev = null;
         for (int i = 0; i < allActivity.size(); i++) {
-            ArrayDeque copy = (ArrayDeque)pathNode.clone();
+            ArrayDeque copy = pathNode.clone();
             while (!copy.isEmpty()) {
                 ActiveLzTree.Node x = (ActiveLzTree.Node) copy.poll();
-                prob *= (1 - (double)x.outFre / x.inFre);
+                prob *= (1 - (double) x.outFre / x.inFre);
                 for (int j = 0; j < x.children.size(); j++) {
                     ActiveLzTree.Node child = x.children.get(j);
 
                     if (child.activity.equals(allActivity.get(i))) {
-                        prob += (double)child.inFre / x.inFre;
+                        prob += (double) child.inFre / x.inFre;
                         break;
                     }
                 }
             }
-            prediction.put(allActivity.get(i),prob);
+            prediction.put(allActivity.get(i), prob);
             prob = 0;
         }
+        List<Map.Entry<String, Double>> list = new ArrayList<>(prediction.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<String, Double>>() {
+            @Override
+            public int compare(Map.Entry<String, Double> o1, Map.Entry<String, Double> o2) {
 
-        return prediction;
+                return -Double.compare(o1.getValue(), o2.getValue());
+            }
 
+        });
+        return list;
+
+    }
+    public static void clearSeenActivity(int idx){
+        allSeenActivity.get(idx).clear();
     }
 
     public static void addSeenActivity(String activity, int idx) {
         List<String> seenActivity = allSeenActivity.get(idx);
-        if (allMaxLength.get(idx) == seenActivity.size())
+        if (seenActivity.size() != 0 && allMaxLength.get(idx) == seenActivity.size())
             seenActivity.remove(0);
         seenActivity.add(activity);
 

@@ -95,69 +95,51 @@ public class WSUParser {
             fr = new FileReader("db/Seq.txt");
             br = new BufferedReader(fr);
 
-            int lastNoSDLE = -1;
-            long lastUnixTimestamp = 0;
+
             ArrayList<String> instance = new ArrayList<String>();
-            ArrayList<String> preInstance = new ArrayList<String>();
+            int preBelongToWhichSDLE = -1;
             String line;
             String[] rawData;
 
             while ((line = br.readLine()) != null) {
+
                 rawData = line.split(",|:");
                 String label = rawData[1];
                 SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
                 long endTime = df.parse(rawData[5]).getTime() / 1000;
                 long startTime = df.parse(rawData[3]).getTime() / 1000;
-                //long diff = endTime - startTime;
-                while (endTime - startTime > 0) {
-                    int belongToWhichSDLE = db.belongToWhichSDLE(startTime);
-                    if (lastNoSDLE == -1) {
-                        instance.add(label);
-                    } else if (lastNoSDLE != belongToWhichSDLE && lastNoSDLE != -1) {
-                        //if(!nonOccurNewAct) {
 
-                        String[] instanceLable = new String[instance.size()];
-                        for (int i = 0; i < instance.size(); i++) {
-                            instanceLable[i] = instance.get(i);
-                        }
-                        db.addInstance(instanceLable, lastUnixTimestamp);
-                        preInstance = instance;
-                        instance.clear();
-                        instance.add(label);
-
-                    } else {
-                        boolean exist = false;
-                        for (int i = 0; i < instance.size(); i++) {
-                            if (label.equals(instance.get(i))) {
-                                exist = true;
-                                break;
-                            }
-                        }
-                        if (!exist)
-                            instance.add(label);
+                int bound = 0;
+                /*if (db.belongToWhichSDLE(endTime) != db.belongToWhichSDLE(startTime))
+                    bound = interval;*/
+                int endSDLE = db.belongToWhichSDLE(endTime);
+                int startSDLE = db.belongToWhichSDLE(startTime);
+                while (endSDLE >= startSDLE) {
+                    if (preBelongToWhichSDLE == 287) {
+                        System.out.println();
                     }
 
+                    if (endSDLE == db.getSDLEQuantity() - 1 && startSDLE != endSDLE)
+                        endSDLE = -1;
 
-                    int tmpNoSDLE = lastNoSDLE + 1;
-
-                    if (lastUnixTimestamp != 0) {
-                        if ((belongToWhichSDLE - tmpNoSDLE) > 0) {
-                            String[] instanceLable = new String[preInstance.size()];
-                            for (int i = 0; i < preInstance.size(); i++) {
-                                instanceLable[i] = preInstance.get(i);
+                    if (startSDLE == preBelongToWhichSDLE) {
+                        instance.add(label);
+                    } else  {
+                        if (instance.size() > 0) {
+                            String[] instanceLable = new String[instance.size()];
+                            for (int i = 0; i < instance.size(); i++) {
+                                instanceLable[i] = instance.get(i);
                             }
-
-                            while ((belongToWhichSDLE - tmpNoSDLE) > 0) {
-                                db.addInstance(instanceLable, tmpNoSDLE);
-
-                                tmpNoSDLE++;
-
-                            }
+                            db.addInstance(instanceLable, preBelongToWhichSDLE);
+                            instance.clear();
                         }
+
+                        instance.add(label);
                     }
-                    lastNoSDLE = belongToWhichSDLE;
-                    lastUnixTimestamp = startTime;
-                    startTime += interval;
+                    preBelongToWhichSDLE = startSDLE;
+                    startTime+=interval;
+                    startSDLE = db.belongToWhichSDLE(startTime);
+                    //startSDLE = db.belongToWhichSDLE(startTime);
                 }
             }
             br.close();
@@ -186,6 +168,9 @@ public class WSUParser {
             ArrayList<String> preInstance = new ArrayList<String>();
             String line;
 
+            int preSDLEth = -1;
+            String preLable = "12";
+
             while ((line = br.readLine()) != null) {
                 line = line.replace("{", "").replace("\"", "").replace(" ", "");
                 String[] rawData = line.split("[:}]+");
@@ -200,11 +185,10 @@ public class WSUParser {
                 //System.out.println(unixTimestamp);
 
                 String date = new java.text.SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date(unixTimestamp * 1000));
-                System.out.println(date);
+                //System.out.println(date);
 
                 int belongToWhichSDLE = db.belongToWhichSDLE(unixTimestamp);
-                //System.out.println("Belong to "+belongToWhichSDLE+"th SDLE.");
-                //System.out.println(belongToWhichSDLE);
+
 
                 if (lastNoSDLE == -1) {
                     instance.add(label);
@@ -234,19 +218,47 @@ public class WSUParser {
 
 
                 int tmpNoSDLE = lastNoSDLE + 1;
+                if(tmpNoSDLE == db.getSDLEQuantity())
+                    tmpNoSDLE = 0;
 
                 if (lastUnixTimestamp != 0) {
-                    if ((belongToWhichSDLE - tmpNoSDLE) > 0) {
-                        String[] instanceLable = new String[preInstance.size()];
-                        for (int i = 0; i < preInstance.size(); i++) {
-                            instanceLable[i] = preInstance.get(i);
+                    if(belongToWhichSDLE!=lastNoSDLE) {
+                        if (belongToWhichSDLE < tmpNoSDLE) {
+                            System.out.println("\r\nMore than one sdle idle, "+tmpNoSDLE+" -> "+belongToWhichSDLE);
+                            String[] instanceLable = new String[preInstance.size()];
+                            for (int i = 0; i < preInstance.size(); i++) {
+                                instanceLable[i] = preInstance.get(i);
+                            }
+
+                            while (belongToWhichSDLE < tmpNoSDLE) {
+                                db.addInstance(instanceLable, tmpNoSDLE);
+                                System.out.print("*");
+                                tmpNoSDLE++;
+                                if(tmpNoSDLE == db.getSDLEQuantity()){
+                                    tmpNoSDLE = 0;
+                                }
+
+                            }
+                            while ((belongToWhichSDLE - tmpNoSDLE) > 0) {
+                                db.addInstance(instanceLable, tmpNoSDLE);
+                                System.out.print("*");
+                                tmpNoSDLE++;
+
+                            }
                         }
+                        else if ((belongToWhichSDLE - tmpNoSDLE) > 0) {
+                            //System.out.println("More than one sdle idle, " + tmpNoSDLE + " -> " + belongToWhichSDLE);
+                            String[] instanceLable = new String[preInstance.size()];
+                            for (int i = 0; i < preInstance.size(); i++) {
+                                instanceLable[i] = preInstance.get(i);
+                            }
 
-                        while ((belongToWhichSDLE - tmpNoSDLE) > 0) {
-                            db.addInstance(instanceLable, tmpNoSDLE);
+                            while ((belongToWhichSDLE - tmpNoSDLE) > 0) {
+                                db.addInstance(instanceLable, tmpNoSDLE);
 
-                            tmpNoSDLE++;
+                                tmpNoSDLE++;
 
+                            }
                         }
                     }
                 }
@@ -261,7 +273,6 @@ public class WSUParser {
 
         }
     }
-
     public static void main(String[] args) {
         /**Generate Database
          * timeInterval set time interval
@@ -277,7 +288,6 @@ public class WSUParser {
         } catch (ParseException e) {
             e.printStackTrace();
         }*/
-
 
         new WSUParser(5, 1, 0);
 

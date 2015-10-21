@@ -14,18 +14,7 @@ public class Activity {
     private int numberOfActivities;
 
     Activity() {
-       /* Activities.add("Sleeping");
-        Activities.add("Bed_to_Toilet");
-        Activities.add("Meal_Preparation");
-        Activities.add("Relax");
-        Activities.add("Housekeeping");
-        Activities.add("Eating");
-        Activities.add("Wash_Dishes");
-        Activities.add("Leave_Home");
-        Activities.add("Enter_Home");
-        Activities.add("Work");
-        Activities.add("Others");
-        */
+
         for(int i=1; i<=12; i++) {
             String act = String.valueOf(i);
             Activities.add(act);
@@ -37,7 +26,18 @@ public class Activity {
         initializePOfActs();
     }
 
-
+    public String[] getActsOfMaxQ() {
+        int idx = -1;
+        double max = -1;
+        for (int i = 0; i < QOfActs.size(); i++) {
+            double tmp = QOfActs.get(i);
+            if (tmp > max) {
+                max = QOfActs.get(i);
+                idx = i;
+            }
+        }
+        return getNameOfActs(idx);
+    }
     public int getActNum() {
         return numberOfActivities;
     }

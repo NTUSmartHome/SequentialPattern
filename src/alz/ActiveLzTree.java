@@ -259,7 +259,7 @@ public class ActiveLzTree {
         PPM.init(alz);
         PPM.addSeenActivity("1", 0);
         PPM.addSeenActivity("1", 0);
-        Map<String, Double> pre = PPM.prediction(0);
+       // Map<String, Double> pre = PPM.prediction(0);
     }
 
     public static void main(String[] args) {

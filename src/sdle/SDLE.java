@@ -68,7 +68,9 @@ public class SDLE {
             e.printStackTrace();
         }
     }
-
+    public String[] getMaxProbabiltyAct() {
+        return A.getActsOfMaxQ();
+    }
     public void printResult() {
         try {
             FileWriter fw = new FileWriter(OutputFile);
