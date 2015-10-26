@@ -2,7 +2,7 @@ package sdle;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Created by YaHung on 2015/8/24.
@@ -26,17 +26,31 @@ public class Activity {
         initializePOfActs();
     }
 
-    public String[] getActsOfMaxQ() {
-        int idx = -1;
-        double max = -1;
-        for (int i = 0; i < QOfActs.size(); i++) {
-            double tmp = QOfActs.get(i);
-            if (tmp > max) {
-                max = QOfActs.get(i);
-                idx = i;
+    public List<Map.Entry<String, Double>> getActsnProb() {
+
+        Map<String , Double> actnProb = new HashMap<>();
+        for (int i = 1; i < QOfActs.size(); i++) {
+            double prob = QOfActs.get(i);
+            String[] tmp = getNameOfActs(i);
+            //Arrays.sort(tmp);
+            StringBuilder sb = new StringBuilder();
+            sb.append(tmp[0]);
+            for (int j = 1; j < tmp.length; j++) {
+                sb.append("," + tmp[j]);
             }
+            actnProb.put(sb.toString(), prob);
         }
-        return getNameOfActs(idx);
+
+        List<Map.Entry<String, Double>> list = new ArrayList<>(actnProb.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<String, Double>>() {
+            @Override
+            public int compare(Map.Entry<String, Double> o1, Map.Entry<String, Double> o2) {
+
+                return -Double.compare(o1.getValue(), o2.getValue());
+            }
+
+        });
+        return list;
     }
     public int getActNum() {
         return numberOfActivities;
@@ -82,9 +96,7 @@ public class Activity {
 
     public String[] getNameOfActs(int index){
         boolean[] occurActs = new boolean[Activities.size()];
-        for(int i=0; i<occurActs.length; i++) {
-            occurActs[i] = false;
-        }
+
         int quantityOfOccurActs = 0;
         int record = index;
 

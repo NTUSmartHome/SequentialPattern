@@ -3,6 +3,8 @@ package sdle;
 import java.io.*;
 import java.text.NumberFormat;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by YaHung on 2015/8/24.
@@ -68,8 +70,8 @@ public class SDLE {
             e.printStackTrace();
         }
     }
-    public String[] getMaxProbabiltyAct() {
-        return A.getActsOfMaxQ();
+    public List<Map.Entry<String, Double>> getMaxProbabiltyAct() {
+        return A.getActsnProb();
     }
     public void printResult() {
         try {

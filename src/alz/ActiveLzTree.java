@@ -25,6 +25,7 @@ public class ActiveLzTree {
         String activity;
         int duration;
         int level;
+
         Node(String activity, int level) {
             this.activity = activity;
             children = new ArrayList<>();
@@ -91,7 +92,7 @@ public class ActiveLzTree {
         Node parentNode = findActivityNode(suffix);
         Node node = getChild(parentNode, lastActivity);
         if (node == null) {
-            node = new Node(lastActivity, parentNode.level+1);
+            node = new Node(lastActivity, parentNode.level + 1);
             node.parent = parentNode;
             parentNode.children.add(node);
         }
@@ -128,7 +129,7 @@ public class ActiveLzTree {
     private Node addActivity(List<String> phase) {
         String lastActivity = phase.remove(phase.size() - 1);
         Node x = findActivityNode(phase);
-        Node child = new Node(lastActivity,x.level+1);
+        Node child = new Node(lastActivity, x.level + 1);
         child.parent = x;
         //x.children.add(new Node(lastActivity));
         x.children.add(child);
@@ -210,11 +211,11 @@ public class ActiveLzTree {
             if (node.activity.equals("end") && isEnd) {
                 break;
             } else isEnd = false;
-            if(node.activity.equals("end")) {
+            if (node.activity.equals("end")) {
                 System.out.print("|");
                 isEnd = true;
             } else {
-                System.out.print(node.activity + "(" + node.inFre + ")" +  ",");
+                System.out.print(node.activity + "(" + node.inFre + ")" + ",");
                 if (node.children.size() == 0) {
                     level.add(new Node("null", node.level + 1));
                 }
@@ -227,12 +228,18 @@ public class ActiveLzTree {
 
         }
     }
-    public void finish(){
-        while (window.size() > 0 ) {
+
+    public void finish() {
+        while (window.size() > 0) {
             window.remove(0);
             incrementAllSuffixes();
         }
     }
+
+    public Node getRoot() {
+        return root;
+    }
+
     public static void wsuOneDay() {
         ActiveLzTree alz = new ActiveLzTree();
         alz.init();
@@ -259,20 +266,25 @@ public class ActiveLzTree {
         PPM.init(alz);
         PPM.addSeenActivity("1", 0);
         PPM.addSeenActivity("1", 0);
-       // Map<String, Double> pre = PPM.prediction(0);
+        // Map<String, Double> pre = PPM.prediction(0);
     }
 
     public static void main(String[] args) {
         ActiveLzTree alz = new ActiveLzTree();
         alz.init();
-        String s = "a,a,a,b,a,b,b,b,b,b,a,a,b,c,c,d,d,c,b,a,a,a,a";
+        String s = "a,a,a,a,a,c,c,b,b,a,b,c,b,b,a";
         String[] ss = s.split(",");
         for (int i = 0; i < ss.length; i++) {
             alz.step(ss[i]);
         }
-        //alz.finish();
+        alz.finish();
+        PPM.init(alz);
+        PPM.addSeenActivity("a", 0);
+        PPM.addSeenActivity("a", 0);
+        List<Map.Entry<String, Double>> abc = PPM.prediction(0);
 
-        wsuOneDay();
+        //alz.finish();
+        System.out.println();
 
     }
 

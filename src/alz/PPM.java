@@ -18,7 +18,21 @@ public class PPM {
 
     public static List<Map.Entry<String, Double>> prediction(int idx) {
         ActiveLzTree alz = allActiveLzTrees.get(idx);
-        ArrayDeque pathNode = alz.findActivityNodePath(allSeenActivity.get(idx));
+        ArrayDeque pathNode = null;
+        List<String> copySeenActivity = new ArrayList<>();
+        List<String> seenActivity = allSeenActivity.get(idx);
+        for (int i = 0; i < allSeenActivity.get(idx).size(); i++) {
+            copySeenActivity.add(seenActivity.get(i));
+        }
+        for (int i = copySeenActivity.size(); i >= 0 ; i--) {
+            pathNode = alz.findActivityNodePath(copySeenActivity);
+            if (pathNode.size() != 1) {
+                break;
+            }
+            if (copySeenActivity.size() == 0) break;
+            copySeenActivity.remove(0);
+        }
+
         List<String> allActivity = alz.getAllActivity();
         Map<String, Double> prediction = new HashMap<>();
         double prob = 0;
