@@ -42,9 +42,10 @@ public class SDLE {
     public void parameterUpdating(String[] Acts) {
         updateDiscountingOfT();
         A.setTOfActs(Acts, A.getTOfActs(Acts) + 1);
+        updateDiscountingOfQMJ();
         sumOfActivityEvent++;
         t++;
-        updateDiscountingOfQ();
+
     }
     private void parameterUpdating() {
         try {
@@ -107,10 +108,30 @@ public class SDLE {
             e.printStackTrace();
         }
     }
+    public double getSum() {
+        double sum = 0, value;
+        for (int i = 1; i < A.getPossibleActSet(); i++) {
+            value = A.getQOfActs(i);
+            sum += value;
+        }
+
+        return sum;
+    }
 
     private void updateDiscountingOfT() {
         for (int i = 1; i < A.getPossibleActSet(); i++) {
             A.setTOfActs(i, (1 - rh) * A.getTOfActs(i));
+        }
+    }
+
+    private void updateDiscountingOfQMJ() {
+        //t--;
+        for (int i = 1; i < A.getPossibleActSet(); i++) {
+
+            if (rh != 0)
+                A.setQOfActs(i, (A.getTOfActs(i) + beta) / (((1 - Math.pow(1 - rh, t)) / rh) + k * beta));
+            else
+                A.setQOfActs(i, A.getTOfActs(i) / sumOfActivityEvent);
         }
     }
 

@@ -45,7 +45,8 @@ public class LifePattern {
             }
             activeLzTree.finish();
         }
-        int count = 0;
+
+        StringBuilder result = new StringBuilder();
         for (int i = trainedDays; i < instanceLabel.get(0).size(); i++) {
             //System.out.println(Thread.currentThread() + "  " + i);
             for (int j = 0; j < instanceLabel.size(); j++) {
@@ -56,33 +57,40 @@ public class LifePattern {
                     sb.append("," + acts[k]);
                 }
                 List<Map.Entry<String, Double>> predictActs = PPM.prediction(0);
+                result.append("Time : " + j / 12 + ":" + (j * 5) % 60 + "\tActivity : " + sb.toString() + "\n");
+                result.append("ALZ : " + predictActs.get(0).getKey() + "\t" + predictActs.get(0).getValue() + "\n\n");
                 if (predictActs.get(0).getKey().equals(sb.toString())) {
                     ++right;
                 }
 
-                if (count == 6) {
-                    PPM.clearSeenActivity(0);
-                    count = 0;
-                }
+
                 activeLzTree.step(sb.toString());
-                PPM.addSeenActivity(sb.toString(), 0);
-                //++count;
+                //PPM.addSeenActivity(sb.toString(), 0);
+
                 ++sum;
             }
 
             activeLzTree.finish();
-            PPM.clearSeenActivity(0);
+            //PPM.clearSeenActivity(0);
 
 
         }
+        try {
+            FileWriter fw = new FileWriter("ResultALZ.txt");
+            fw.write(result.toString());
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         System.out.println(trainedDays + "  " + (double) right / sum);
     }
 
     public void runSDLE(int trainedDays) {
 
 
-        int sum = 0;
-        int right = 0;
+        int sum = 0, oneDaySum = 0;
+        int right = 0, oneDayRight = 0;
 
         //readFile(5, 1, 0.01, 0.01);
         for (int i = 0; i < trainedDays; i++) {
@@ -107,6 +115,7 @@ public class LifePattern {
                 List<Map.Entry<String, Double>> predictedActs = sdleList.get(j).getMaxProbabiltyAct();
                 if (act.equals(predictedActs.get(0).getKey())) {
                     ++right;
+                    ++oneDayRight;
 
                 }
 
@@ -127,18 +136,20 @@ public class LifePattern {
                     sdleList.get(j).parameterUpdating(acts[k].split(""));
                 }*/
 
-
+                ++oneDaySum;
                 ++sum;
             }
 
-
+            System.out.println(i + " " + (double) oneDayRight / oneDaySum);
+            oneDayRight = 0;
+            oneDaySum = 0;
         }
         System.out.println(trainedDays + "  " + (double) right / sum);
     }
 
     public void runAZSDLE(int trainedDays) {
-        int sum = 0;
-        int right = 0;
+        int sum = 0, oneDaySum = 0;
+        int right = 0, oneDayRight = 0;
         ActiveLzTree activeLzTree = new ActiveLzTree();
         activeLzTree.init();
         PPM.init(activeLzTree);
@@ -155,50 +166,57 @@ public class LifePattern {
                 activeLzTree.step(sb.toString());
 
             }
-            activeLzTree.finish();
+            //activeLzTree.finish();
         }
-        int count = 0;
+
         StringBuilder result = new StringBuilder();
         for (int i = trainedDays; i < instanceLabel.get(0).size(); i++) {
             for (int j = 0; j < instanceLabel.size(); j++) {
-                String act = instanceLabel.get(j).get(i);
-                result.append("Time : " + j  / 12 + ":" + (j * 5) % 60 + "\tActivity : " + act + "\n");
-                List<Map.Entry<String, Double>> predictedActsBySDLE = sdleList.get(j).getMaxProbabiltyAct();
-                List<Map.Entry<String, Double>> predictedActsByALZ = PPM.prediction(0);
-
-                result.append("SDLE : " + predictedActsBySDLE.get(0).getKey() + "\t" + predictedActsBySDLE.get(0).getValue()
-                        + " " + predictedActsBySDLE.get(1).getKey() + " " + predictedActsBySDLE.get(1).getValue() + "\n");
-                result.append("ALZ : " + predictedActsByALZ.get(0).getKey() + "\t" + predictedActsByALZ.get(0).getValue()
-                        + " " + predictedActsByALZ.get(1).getKey() + " " + predictedActsByALZ.get(1).getValue() + "\n\n");
-
-                if (predictedActsByALZ.get(0).getKey().equals(act) || predictedActsBySDLE.get(0).getKey().equals(act)) {
-                    ++right;
-                }
-
-
-                String[] acts = act.split(",");
+                String[] acts = instanceLabel.get(j).get(i).split(",");
                 Arrays.sort(acts);
-                sdleList.get(j).parameterUpdating(acts);
                 StringBuilder sb = new StringBuilder(acts[0]);
                 for (int k = 1; k < acts.length; k++) {
                     sb.append("," + acts[k]);
                 }
 
-                if (count == 6) {
-                    count = 0;
-                    PPM.clearSeenActivity(0);
+
+                result.append("Time : " + j / 12 + ":" + (j * 5) % 60 + "\tActivity : " + sb.toString() + "\n");
+                List<Map.Entry<String, Double>> predictedActsBySDLE = sdleList.get(j).getMaxProbabiltyAct();
+                List<Map.Entry<String, Double>> predictedActsByALZ = PPM.prediction(0);
+                if (predictedActsBySDLE.get(0).getValue() > 1) {
+                    System.out.println(predictedActsBySDLE.get(0).getValue());
                 }
+                result.append("SDLE : " + predictedActsBySDLE.get(0).getKey() + "\t" + predictedActsBySDLE.get(0).getValue()
+                        + " " + predictedActsBySDLE.get(1).getKey() + " " + predictedActsBySDLE.get(1).getValue() + "\n");
+                result.append("ALZ : " + predictedActsByALZ.get(0).getKey() + "\t" + predictedActsByALZ.get(0).getValue()
+                        + " " + predictedActsByALZ.get(1).getKey() + " " + predictedActsByALZ.get(1).getValue() + "\n\n");
+
+                if (predictedActsByALZ.get(0).getKey().equals(sb.toString()) ||
+                        predictedActsBySDLE.get(0).getKey().equals(sb.toString())) {
+                    ++right;
+                    ++oneDayRight;
+                }
+
+
+                sdleList.get(j).parameterUpdating(acts);
+
                 activeLzTree.step(sb.toString());
-                PPM.addSeenActivity(sb.toString(), 0);
+                //PPM.addSeenActivity(sb.toString(), 0);
                 //++count;
+                ++oneDaySum;
                 ++sum;
             }
-            count = 0;
-            activeLzTree.finish();
-            PPM.clearSeenActivity(0);
+            System.out.println(i + " " + (double) oneDayRight / oneDaySum);
+            oneDayRight = 0;
+            oneDaySum = 0;
+            //activeLzTree.finish();
+            //PPM.clearSeenActivity(0);
 
 
         }
+        /*for (int i = 0; i < sdleList.size(); i++) {
+            System.out.println(sdleList.get(i).getSum());
+        }*/
         try {
             FileWriter fw = new FileWriter("Result.txt");
             fw.write(result.toString());
@@ -281,10 +299,10 @@ public class LifePattern {
         //new MDPMMTrain("report/WSU", "WSU", 0.5, 10, 100);
 
         LifePattern olp = new LifePattern();
-        olp.readFile(5, 1, 0.01, 0.01);
-        //olp.runALZ(35);
-
-        olp.runAZSDLE(35);
+        olp.readFile(5, 1, 0.05, 0.01);
+        //olp.runALZ(1);
+        olp.runSDLE(10);
+        //olp.runAZSDLE(1);
         /*ExecutorService pool = Executors.newFixedThreadPool(5);
         LifePattern olp = new LifePattern();
         olp.readFile(5, 1, 0.01, 0.01);

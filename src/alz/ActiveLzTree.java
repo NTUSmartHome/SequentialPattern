@@ -173,8 +173,9 @@ public class ActiveLzTree {
         for (int i = 0; i < phase.size(); i++) {
             for (int j = 0; j < x.children.size(); j++) {
                 Node child = x.children.get(j);
-                s.add(child);
+
                 if (child.activity.equals(phase.get(i))) {
+                    s.add(child);
                     x = child;
                     isFind = true;
                     break;
@@ -269,18 +270,22 @@ public class ActiveLzTree {
         // Map<String, Double> pre = PPM.prediction(0);
     }
 
+    public List<String> getWindow() {
+        return window;
+    }
+
     public static void main(String[] args) {
         ActiveLzTree alz = new ActiveLzTree();
         alz.init();
-        String s = "a,a,a,a,a,c,c,b,b,a,b,c,b,b,a";
+        String s = "a,a,a,b,a,b,b,b,b,b,a,a,b,c,c,d,d,c,b,a,a,a,a";
         String[] ss = s.split(",");
         for (int i = 0; i < ss.length; i++) {
             alz.step(ss[i]);
         }
-        alz.finish();
+        //alz.finish();
         PPM.init(alz);
-        PPM.addSeenActivity("a", 0);
-        PPM.addSeenActivity("a", 0);
+        //PPM.addSeenActivity("a", 0);
+        //PPM.addSeenActivity("a", 0);
         List<Map.Entry<String, Double>> abc = PPM.prediction(0);
 
         //alz.finish();
