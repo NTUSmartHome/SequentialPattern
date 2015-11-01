@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ActivityAwaring/ActivityAwareSystem/ActivityAwareSystem.iml" filepath="$PROJECT_DIR$/../ActivityAwaring/ActivityAwareSystem/ActivityAwareSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/SDLE.iml" filepath="$PROJECT_DIR$/SDLE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ActivityAwaring/datumbox-framework-master/datumbox-framework.iml" filepath="$PROJECT_DIR$/../ActivityAwaring/datumbox-framework-master/datumbox-framework.iml" />
     </modules>
   </component>
 </project>

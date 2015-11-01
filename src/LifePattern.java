@@ -2,9 +2,11 @@
 
 import alz.ActiveLzTree;
 import alz.PPM;
+import dpmm.MDPMMTrain;
 import sdle.SDLE;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -166,7 +168,7 @@ public class LifePattern {
                 activeLzTree.step(sb.toString());
 
             }
-            //activeLzTree.finish();
+            activeLzTree.finish();
         }
 
         StringBuilder result = new StringBuilder();
@@ -183,9 +185,7 @@ public class LifePattern {
                 result.append("Time : " + j / 12 + ":" + (j * 5) % 60 + "\tActivity : " + sb.toString() + "\n");
                 List<Map.Entry<String, Double>> predictedActsBySDLE = sdleList.get(j).getMaxProbabiltyAct();
                 List<Map.Entry<String, Double>> predictedActsByALZ = PPM.prediction(0);
-                if (predictedActsBySDLE.get(0).getValue() > 1) {
-                    System.out.println(predictedActsBySDLE.get(0).getValue());
-                }
+
                 result.append("SDLE : " + predictedActsBySDLE.get(0).getKey() + "\t" + predictedActsBySDLE.get(0).getValue()
                         + " " + predictedActsBySDLE.get(1).getKey() + " " + predictedActsBySDLE.get(1).getValue() + "\n");
                 result.append("ALZ : " + predictedActsByALZ.get(0).getKey() + "\t" + predictedActsByALZ.get(0).getValue()
@@ -209,7 +209,7 @@ public class LifePattern {
             System.out.println(i + " " + (double) oneDayRight / oneDaySum);
             oneDayRight = 0;
             oneDaySum = 0;
-            //activeLzTree.finish();
+            activeLzTree.finish();
             //PPM.clearSeenActivity(0);
 
 
@@ -225,6 +225,106 @@ public class LifePattern {
             e.printStackTrace();
         }
         System.out.println(trainedDays + "  " + (double) right / sum);
+    }
+
+    public void runAZSDLESimple(int trainedDays) {
+        int numOfTimeInterval = instanceLabel.size();
+        int totalPredictedInstance = numOfTimeInterval * (instanceLabel.get(0).size() - trainedDays);
+
+        int alzRight = 0, alzOneDayRight = 0;
+        int sdleRight = 0, sdleOneDayRight = 0;
+        int right = 0, oneDayRight = 0;
+
+        int[] sdleTimeIntervalAccuracy = new int[instanceLabel.size()];
+        int[] alzTimeIntervalAccuracy = new int[instanceLabel.size()];
+
+        ActiveLzTree activeLzTree_0 = new ActiveLzTree();
+
+        activeLzTree_0.init();
+        PPM.init(activeLzTree_0);
+
+        for (int i = 0; i < trainedDays; i++) {
+            for (int j = 0; j < instanceLabel.size(); j++) {
+                String[] acts = instanceLabel.get(j).get(i).split(",");
+                Arrays.sort(acts);
+
+                //---------------------------------------Different Here with AZSDLE-------------------------------------------//
+                String[] oneActs = new String[1];
+                oneActs[0] = acts[0];
+                sdleList.get(j).parameterUpdating(oneActs);
+                StringBuilder sb = new StringBuilder(acts[0]);
+                activeLzTree_0.step(sb.toString());
+                //-----------------------------------------------------------------------------------------------------------//
+
+            }
+            //activeLzTree.finish();
+        }
+
+        StringBuilder result = new StringBuilder();
+        for (int i = trainedDays; i < instanceLabel.get(0).size(); i++) {
+            for (int j = 0; j < instanceLabel.size(); j++) {
+                String[] acts = instanceLabel.get(j).get(i).split(",");
+                Arrays.sort(acts);
+
+                //---------------------------------------Different Here with AZSDLE-------------------------------------------//
+                StringBuilder sb = new StringBuilder(acts[0]);
+                String[] oneActs = new String[1];
+                oneActs[0] = acts[0];
+
+                result.append("Time : " + j / 12 + ":" + (j * 5) % 60 + "\tActivity : " + sb.toString() + "\n");
+                List<Map.Entry<String, Double>> predictedActsBySDLE = sdleList.get(j).getMaxProbabiltyAct();
+                List<Map.Entry<String, Double>> predictedActsByALZ = PPM.prediction(0);
+
+                result.append("SDLE : " + predictedActsBySDLE.get(0).getKey() + "\t" + predictedActsBySDLE.get(0).getValue()
+                        + " " + predictedActsBySDLE.get(1).getKey() + " " + predictedActsBySDLE.get(1).getValue() + "\n");
+                result.append("ALZ : " + predictedActsByALZ.get(0).getKey() + "\t" + predictedActsByALZ.get(0).getValue()
+                        + " " + predictedActsByALZ.get(1).getKey() + " " + predictedActsByALZ.get(1).getValue() + "\n\n");
+
+                if (predictedActsByALZ.get(0).getKey().equals(sb.toString()) ||
+                        predictedActsBySDLE.get(0).getKey().equals(sb.toString())) {
+                    ++right;
+                    ++oneDayRight;
+                }
+
+                if (predictedActsByALZ.get(0).getKey().equals(sb.toString())) {
+                    ++alzOneDayRight;
+                    ++alzRight;
+                    ++alzTimeIntervalAccuracy[j];
+                }
+
+                if (predictedActsBySDLE.get(0).getKey().equals(sb.toString())) {
+                    ++sdleOneDayRight;
+                    ++sdleRight;
+                    ++sdleTimeIntervalAccuracy[j];
+                }
+                sdleList.get(j).parameterUpdating(oneActs);
+
+                activeLzTree_0.step(sb.toString());
+
+            }
+            System.out.println(i + " Both: " + (double) oneDayRight / numOfTimeInterval + " SDLE: " + (double) sdleOneDayRight / numOfTimeInterval
+                    + " ALZ: " + (double) alzOneDayRight / numOfTimeInterval);
+
+            oneDayRight = 0;
+            sdleOneDayRight = 0;
+            alzOneDayRight = 0;
+            activeLzTree_0.finish();
+
+
+        }
+
+        try {
+            FileWriter fw = new FileWriter("Result.txt");
+            fw.write(result.toString());
+            fw.write("\n\n" + Arrays.toString(sdleTimeIntervalAccuracy));
+            fw.write("\n\n" + Arrays.toString(alzTimeIntervalAccuracy));
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(trainedDays + "  Both: " + (double) right / totalPredictedInstance + " SDLE: " + (double) sdleRight / totalPredictedInstance
+                + " ALZ: " + (double) alzRight / totalPredictedInstance);
+
     }
 
     public void readFile(int timeInterval, int option, double rh, double beta) {
@@ -301,7 +401,7 @@ public class LifePattern {
         LifePattern olp = new LifePattern();
         olp.readFile(5, 1, 0.05, 0.01);
         //olp.runALZ(1);
-        olp.runSDLE(10);
+        olp.runAZSDLESimple(220);
         //olp.runAZSDLE(1);
         /*ExecutorService pool = Executors.newFixedThreadPool(5);
         LifePattern olp = new LifePattern();
