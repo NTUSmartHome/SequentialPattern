@@ -74,6 +74,7 @@ public class SDLE {
     public List<Map.Entry<String, Double>> getMaxProbabiltyAct() {
         return A.getActsnProb();
     }
+
     public void printResult() {
         try {
             FileWriter fw = new FileWriter(OutputFile);
@@ -146,10 +147,32 @@ public class SDLE {
         }
     }
 
+    public double getEntropySimple() {
+        double entropy = 0;
+        for (int i = 0; i < A.Activities.size(); i++) {
+            String[] acts = new String[1];
+            acts[0] = A.Activities.get(i);
+            double prob = A.getQOfActs(acts);
+            entropy += prob * Math.log10(prob);
+        }
+        return -entropy;
+    }
+    public String toStringSimple(){
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < A.Activities.size(); i++) {
+            String[] acts = new String[1];
+            acts[0] = A.Activities.get(i);
+            double prob = A.getQOfActs(acts);
+            sb.append(prob + "\n");
+        }
+        return sb.toString();
+    }
     public void setOutputFile(String outputFile) {
         this.OutputFile = outputFile;
     }
-
+    public Activity getActivity(){
+        return A;
+    }
     public static void main(String[] args) {
         new SDLE("db/SDLE1.txt", "result.txt", 0.01, 0.0001);
     }
