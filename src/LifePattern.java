@@ -150,6 +150,120 @@ public class LifePattern {
         System.out.println(trainedDays + "  " + (double) right / sum);
     }
 
+    public void improvedALZ(int trainedDays) {
+
+        int oneDayChange = 0;
+        int allChange = 0;
+
+        int alzRight = 0, alzOneDayRight = 0;
+        int alzIdx = 0;
+        int[] alzTimeIntervalAccuracy = new int[instanceLabel.size()];
+
+        ActiveLzTree[] activeLzTreeArray = new ActiveLzTree[5];
+        for (int i = 0; i < activeLzTreeArray.length; i++) {
+            activeLzTreeArray[i] = new ActiveLzTree();
+            activeLzTreeArray[i].init();
+            PPM.init(activeLzTreeArray[i]);
+        }
+
+        //-----------------------------------ALZ focus on changing of activity-------------------------------//
+        String preActivity = "-1", currentActivity;
+        //--------------------------------------------------------------------------------------------------//
+        for (int i = 0; i < trainedDays; i++) {
+            for (int j = 0; j < instanceLabel.size(); j++) {
+                String[] acts = instanceLabel.get(j).get(i).split(",");
+                Arrays.sort(acts);
+
+  /*              if (j >= 3 && j <= 67)
+                    alzIdx = 0;
+                else if ((j > 67 && j <= 80) || (j >= 272 && j <= 287) || j < 3)
+                    alzIdx = 3;
+                else if (j > 80 && j <= 97)
+                    alzIdx = 4;
+                else if (j > 97 && j <= 224)
+                    alzIdx = 1;
+                else
+                    alzIdx = 2;
+*/
+                currentActivity = acts[0];
+                if (!currentActivity.equals(preActivity) || activeLzTreeArray[alzIdx].getWindow().size() == 0)
+                    activeLzTreeArray[alzIdx].step(currentActivity);
+
+                preActivity = currentActivity;
+            }
+            for (int j = 0; j < activeLzTreeArray.length; j++) {
+                activeLzTreeArray[j].finish();
+            }
+        }
+
+        preActivity = "-1";
+        StringBuilder result = new StringBuilder();
+        for (int i = trainedDays; i < instanceLabel.get(0).size(); i++) {
+            for (int j = 0; j < instanceLabel.size(); j++) {
+                String[] acts = instanceLabel.get(j).get(i).split(",");
+                Arrays.sort(acts);
+                currentActivity = acts[0];
+
+                /*if (j >= 3 && j <= 67)
+                    alzIdx = 0;
+                else if ((j > 67 && j <= 80) || (j >= 272 && j <= 287) || j < 3)
+                    alzIdx = 3;
+                else if (j > 80 && j <= 97)
+                    alzIdx = 4;
+                else if (j > 97 && j <= 224)
+                    alzIdx = 1;
+                else
+                    alzIdx = 2;
+*/
+
+                if (!currentActivity.equals(preActivity)) {
+                    List<Map.Entry<String, Double>> predictedActsByALZ = PPM.prediction(alzIdx);
+
+                    result.append("Time : " + j / 12 + ":" + (j * 5) % 60 + "\tActivity : " + acts[0] + "\n");
+                    if (predictedActsByALZ.size() == 1)
+                        result.append("ALZ : " + predictedActsByALZ.get(0).getKey() + "\t" + predictedActsByALZ.get(0).getValue()
+                                + "\n\n");
+                    else
+                        result.append("ALZ : " + predictedActsByALZ.get(0).getKey() + "\t" + predictedActsByALZ.get(0).getValue()
+                                + " " + predictedActsByALZ.get(1).getKey() + " " + predictedActsByALZ.get(1).getValue() + "\n\n");
+
+                    if (predictedActsByALZ.get(0).getKey().equals(currentActivity)
+                            || ((predictedActsByALZ.size() > 1) && (predictedActsByALZ.get(1).getKey().equals(currentActivity)))) {
+                        alzOneDayRight++;
+                        alzRight++;
+                    }
+                    allChange++;
+                    oneDayChange++;
+                    activeLzTreeArray[alzIdx].step(acts[0]);
+
+                }
+                preActivity = currentActivity;
+
+
+            }
+            System.out.println(i + " ALZ: " + (double) alzOneDayRight / oneDayChange);
+            alzOneDayRight = 0;
+            oneDayChange = 0;
+            for (int j = 0; j < activeLzTreeArray.length; j++) {
+                activeLzTreeArray[j].finish();
+            }
+        }
+
+        System.out.println(" ALZ: " + (double) alzRight / allChange);
+        try {
+            FileWriter fw = new FileWriter("ResultImprovrdALZ.txt");
+            fw.write(result.toString());
+
+            fw.write("\n\n" + Arrays.toString(alzTimeIntervalAccuracy));
+
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
     public void runAZSDLE(int trainedDays) {
         int sum = 0, oneDaySum = 0;
         int right = 0, oneDayRight = 0;
@@ -308,8 +422,6 @@ public class LifePattern {
                 currentActivity = acts[0];
 
 
-
-
                 result.append("Time : " + j / 12 + ":" + (j * 5) % 60 + "\tActivity : " + acts[0] + "\n");
                 List<Map.Entry<String, Double>> predictedActsBySDLE = sdleList.get(j).getMaxProbabiltyAct();
                 List<Map.Entry<String, Double>> predictedActsByALZ = PPM.prediction(alzIdx);
@@ -322,9 +434,8 @@ public class LifePattern {
                     Map.Entry<String, Double> secondBySDLE = predictedActsBySDLE.get(1);
                     Map.Entry<String, Double> firstByALZ = predictedActsByALZ.get(0);
                     //Map.Entry<String, Double> secondByALZ = predictedActsByALZ.get(1);
-                    if ((firstBySDLE.getValue()) / (firstBySDLE.getValue() + secondBySDLE.getValue()) < 0.55 ) {
-                        if (firstByALZ.getKey().equals(acts[0]))
-                        {
+                    if ((firstBySDLE.getValue()) / (firstBySDLE.getValue() + secondBySDLE.getValue()) < 0.55) {
+                        if (firstByALZ.getKey().equals(acts[0])) {
                             newWayOneDayRight++;
                             newWayRight++;
 
@@ -403,8 +514,7 @@ public class LifePattern {
                     System.out.println("0 " + entropy);
                     entropySB.append(entropy + " ");
                     bool.append("0 ");
-                }
-                else {
+                } else {
                     double entropy = sdleList.get(j).getEntropySimple();
                     System.out.println("1 " + entropy);
                     entropySB.append(entropy + " ");
@@ -426,7 +536,6 @@ public class LifePattern {
             }
             sdleSB.append("\n");
         }
-
 
 
         try {
@@ -521,7 +630,8 @@ public class LifePattern {
         LifePattern olp = new LifePattern();
         olp.readFile(5, 1, 0.05, 0.01);
         //olp.runALZ(1);
-        olp.runAZSDLESimple(10);
+        //olp.runAZSDLESimple(10);
+        olp.improvedALZ(10);
         //olp.runAZSDLE(1);
         /*ExecutorService pool = Executors.newFixedThreadPool(5);
         LifePattern olp = new LifePattern();
