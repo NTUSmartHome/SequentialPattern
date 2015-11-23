@@ -2,19 +2,13 @@
 
 import alz.ActiveLzTree;
 import alz.PPM;
-import dpmm.MDPMMTrain;
 import sdle.SDLE;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-import java.util.function.DoubleBinaryOperator;
 
 /**
  * Created by MingJe on 2015/10/4.
@@ -27,6 +21,41 @@ public class LifePattern {
     public LifePattern() {
         sdleList = new ArrayList<>();
         instanceLabel = new ArrayList<>();
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+
+        //new MDPMMTrain("report/WSU", "WSU", 0.5, 10, 100);
+
+        LifePattern olp = new LifePattern();
+        olp.readFile(5, 1, 0.05, 0.01);
+        //olp.runALZ(1);
+        //olp.runAZSDLESimple(10);
+        olp.improvedALZ(10);
+        //olp.runAZSDLE(1);
+        /*ExecutorService pool = Executors.newFixedThreadPool(5);
+        LifePattern olp = new LifePattern();
+        olp.readFile(5, 1, 0.01, 0.01);
+        long start = System.currentTimeMillis();
+        for (int i = 10; i <= 50; i += 5) {
+            final int idx = i;
+            Thread th = new Thread(() -> {
+                LifePattern lp = new LifePattern();
+                lp.instanceLabel = olp.instanceLabel;
+                for (int j = 0; j < olp.instanceLabel.size(); j++) {
+                    lp.sdleList.add(new SDLE(0.01, 0.01));
+                }
+                //System.out.println(Thread.currentThread().getName());
+                lp.runSDLE(idx);
+            });
+            pool.execute(th);
+
+        }
+        pool.shutdown();
+        pool.awaitTermination(30, TimeUnit.SECONDS);
+        long end = System.currentTimeMillis();
+        System.out.println((end - start) / 6000);*/
+
     }
 
     public void runALZ(int trainedDays) {
@@ -270,7 +299,6 @@ public class LifePattern {
         }
 
     }
-
 
     public void runAZSDLE(int trainedDays) {
         int sum = 0, oneDaySum = 0;
@@ -628,41 +656,5 @@ public class LifePattern {
 
         }
         return timeInterval;
-    }
-
-
-    public static void main(String[] args) throws InterruptedException {
-
-        //new MDPMMTrain("report/WSU", "WSU", 0.5, 10, 100);
-
-        LifePattern olp = new LifePattern();
-        olp.readFile(5, 1, 0.05, 0.01);
-        //olp.runALZ(1);
-        //olp.runAZSDLESimple(10);
-        olp.improvedALZ(10);
-        //olp.runAZSDLE(1);
-        /*ExecutorService pool = Executors.newFixedThreadPool(5);
-        LifePattern olp = new LifePattern();
-        olp.readFile(5, 1, 0.01, 0.01);
-        long start = System.currentTimeMillis();
-        for (int i = 10; i <= 50; i += 5) {
-            final int idx = i;
-            Thread th = new Thread(() -> {
-                LifePattern lp = new LifePattern();
-                lp.instanceLabel = olp.instanceLabel;
-                for (int j = 0; j < olp.instanceLabel.size(); j++) {
-                    lp.sdleList.add(new SDLE(0.01, 0.01));
-                }
-                //System.out.println(Thread.currentThread().getName());
-                lp.runSDLE(idx);
-            });
-            pool.execute(th);
-
-        }
-        pool.shutdown();
-        pool.awaitTermination(30, TimeUnit.SECONDS);
-        long end = System.currentTimeMillis();
-        System.out.println((end - start) / 6000);*/
-
     }
 }

@@ -19,7 +19,7 @@ public class PPM {
 
     public static List<Map.Entry<String, Double>> prediction(int idx) {
         ActiveLzTree alz = allActiveLzTrees.get(idx);
-        ArrayDeque pathNode = null;
+        ArrayDeque pathNode;
         List<String> copySeenActivity = new ArrayList<>();
         List<String> seenActivity = allSeenActivity.get(idx);
         for (int i = 2; i < allSeenActivity.get(idx).size(); i++) {
@@ -45,6 +45,12 @@ public class PPM {
             ArrayDeque copy = pathNode.clone();
             while (!copy.isEmpty()) {
                 ActiveLzTree.Node x = (ActiveLzTree.Node) copy.poll();
+                //----------------------------------For debugging--------------------------------------//
+                if (x.outFre > x.inFre) {
+                    x.outFre++;
+                    x.outFre--;
+                }
+                //------------------------------------------------------------------------------------//
                 prob *= (1 - (double) x.outFre / x.inFre);
                 for (int j = 0; j < x.children.size(); j++) {
                     ActiveLzTree.Node child = x.children.get(j);
@@ -70,7 +76,8 @@ public class PPM {
         return list;
 
     }
-    public static void clearSeenActivity(int idx){
+
+    public static void clearSeenActivity(int idx) {
         allSeenActivity.get(idx).clear();
     }
 
