@@ -174,7 +174,7 @@ public class LifePattern {
                 String[] acts = instanceLabel.get(j).get(i).split(",");
                 Arrays.sort(acts);
 
-  /*              if (j >= 3 && j <= 67)
+                if (j >= 3 && j <= 67)
                     alzIdx = 0;
                 else if ((j > 67 && j <= 80) || (j >= 272 && j <= 287) || j < 3)
                     alzIdx = 3;
@@ -184,7 +184,8 @@ public class LifePattern {
                     alzIdx = 1;
                 else
                     alzIdx = 2;
-*/
+
+
                 currentActivity = acts[0];
                 if (!currentActivity.equals(preActivity) || activeLzTreeArray[alzIdx].getWindow().size() == 0)
                     activeLzTreeArray[alzIdx].step(currentActivity);
@@ -204,7 +205,7 @@ public class LifePattern {
                 Arrays.sort(acts);
                 currentActivity = acts[0];
 
-                /*if (j >= 3 && j <= 67)
+                if (j >= 3 && j <= 67)
                     alzIdx = 0;
                 else if ((j > 67 && j <= 80) || (j >= 272 && j <= 287) || j < 3)
                     alzIdx = 3;
@@ -214,7 +215,7 @@ public class LifePattern {
                     alzIdx = 1;
                 else
                     alzIdx = 2;
-*/
+
 
                 if (!currentActivity.equals(preActivity)) {
                     List<Map.Entry<String, Double>> predictedActsByALZ = PPM.prediction(alzIdx);
@@ -223,12 +224,19 @@ public class LifePattern {
                     if (predictedActsByALZ.size() == 1)
                         result.append("ALZ : " + predictedActsByALZ.get(0).getKey() + "\t" + predictedActsByALZ.get(0).getValue()
                                 + "\n\n");
-                    else
+                    else if (predictedActsByALZ.size() == 2)
                         result.append("ALZ : " + predictedActsByALZ.get(0).getKey() + "\t" + predictedActsByALZ.get(0).getValue()
                                 + " " + predictedActsByALZ.get(1).getKey() + " " + predictedActsByALZ.get(1).getValue() + "\n\n");
+                    else
+                        result.append("ALZ : " + predictedActsByALZ.get(0).getKey() + "\t" + predictedActsByALZ.get(0).getValue()
+                                + " " + predictedActsByALZ.get(1).getKey() + " " + predictedActsByALZ.get(1).getValue()
+                                + " " + predictedActsByALZ.get(2).getKey() + " " + predictedActsByALZ.get(2).getValue() + "\n\n");
+                    if (predictedActsByALZ.get(0).getValue().equals(1.0))
+                        System.out.println();
 
                     if (predictedActsByALZ.get(0).getKey().equals(currentActivity)
-                            || ((predictedActsByALZ.size() > 1) && (predictedActsByALZ.get(1).getKey().equals(currentActivity)))) {
+                            || ((predictedActsByALZ.size() > 1) && (predictedActsByALZ.get(1).getKey().equals(currentActivity)) && !predictedActsByALZ.get(1).getValue().equals(0.0))
+                            || ((predictedActsByALZ.size() > 2) && (predictedActsByALZ.get(2).getKey().equals(currentActivity)) && !predictedActsByALZ.get(2).getValue().equals(0.0))) {
                         alzOneDayRight++;
                         alzRight++;
                     }

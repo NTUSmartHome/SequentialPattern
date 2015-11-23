@@ -164,13 +164,10 @@ public class ActiveLzTree {
         s.add(root);
         if (phase.size() == 0) return s;
 
-        for (String d : phase) {
-
-        }
         Node x = root;
         boolean isFind = false;
-
-        for (int i = 0; i < phase.size(); i++) {
+        // original is phase.size(), now will be phase.size() - 1
+        for (int i = 0; i < phase.size() ; i++) {
             for (int j = 0; j < x.children.size(); j++) {
                 Node child = x.children.get(j);
 
