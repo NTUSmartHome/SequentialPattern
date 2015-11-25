@@ -2,7 +2,6 @@
 
 import alz.ActiveLzTree;
 import alz.PPM;
-import dpmm.MDPMMTrain;
 import sdle.SDLE;
 
 import java.io.*;
@@ -41,6 +40,41 @@ public class LifePattern {
         //olp.improvedALZ(10);
         //olp.runAZSDLE(1);
 
+
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+
+        //new MDPMMTrain("report/WSU", "WSU", 0.5, 10, 100);
+
+        LifePattern olp = new LifePattern();
+        olp.readFile(5, 1, 0.05, 0.01);
+        //olp.runALZ(1);
+        //olp.runAZSDLESimple(10);
+        olp.improvedALZ(10);
+        //olp.runAZSDLE(1);
+        /*ExecutorService pool = Executors.newFixedThreadPool(5);
+        LifePattern olp = new LifePattern();
+        olp.readFile(5, 1, 0.01, 0.01);
+        long start = System.currentTimeMillis();
+        for (int i = 10; i <= 50; i += 5) {
+            final int idx = i;
+            Thread th = new Thread(() -> {
+                LifePattern lp = new LifePattern();
+                lp.instanceLabel = olp.instanceLabel;
+                for (int j = 0; j < olp.instanceLabel.size(); j++) {
+                    lp.sdleList.add(new SDLE(0.01, 0.01));
+                }
+                //System.out.println(Thread.currentThread().getName());
+                lp.runSDLE(idx);
+            });
+            pool.execute(th);
+
+        }
+        pool.shutdown();
+        pool.awaitTermination(30, TimeUnit.SECONDS);
+        long end = System.currentTimeMillis();
+        System.out.println((end - start) / 6000);*/
 
     }
 
