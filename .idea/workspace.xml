@@ -1,12 +1,411 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1a91a9b-284d-4c05-aebf-69aa866e6ac1" name="Default" comment="Debug">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/DB_M1_app.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/alz/ActiveLzTree.java" afterPath="$PROJECT_DIR$/src/alz/ActiveLzTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LifePattern.java" afterPath="$PROJECT_DIR$/src/LifePattern.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ResultALZ.txt" afterPath="$PROJECT_DIR$/ResultALZ.txt" />
+    <list default="true" id="f1a91a9b-284d-4c05-aebf-69aa866e6ac1" name="Default" comment="New Thought:&#10;Day of Week.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/Seq.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE0h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE10h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE11h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE12h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE13h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE14h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE15h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE16h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE17h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE18h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE19h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE1h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE20h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE21h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE22h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE23h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE2h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE3h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE4h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE5h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE6h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE7h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE8h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE9h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/Excel/SDLE_nodiscount.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE0h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE10h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE11h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE12h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE13h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE14h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE15h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE16h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE17h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE18h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE19h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE1h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE20h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE21h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE22h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE23h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE2h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE3h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE4h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE5h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE6h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE7h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE8h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour-nodiscount/SDLE9h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE0h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE10h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE11h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE12h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE13h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE14h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE15h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE16h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE17h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE18h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE19h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE1h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE20h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE21h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE22h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE23h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE2h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE3h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE4h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE5h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE6h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE7h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE8h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE9h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/Excel/SDLE_discount.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE0h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE10h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE11h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE12h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE13h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE14h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE15h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE16h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE17h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE18h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE19h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE1h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE20h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE21h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE22h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE23h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE2h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE3h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE4h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE5h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE6h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE7h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE8h0m.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/1hour/SDLE9h0m.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WSU_MDPMM" afterPath="$PROJECT_DIR$/WSU_MDPMM" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Result.txt" afterPath="$PROJECT_DIR$/Result.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/WSU/DPMM/WSUResult" afterPath="$PROJECT_DIR$/report/WSU/DPMM/WSUResult" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/WSU/Features/WSUFeature.txt" afterPath="$PROJECT_DIR$/report/WSU/Features/WSUFeature.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE0h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE0h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE0h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE0h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE0h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE0h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE0h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE0h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE0h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE0h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE0h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE0h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE10h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE10h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE10h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE10h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE10h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE10h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE10h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE10h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE10h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE10h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE10h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE10h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE11h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE11h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE11h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE11h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE11h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE11h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE11h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE11h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE11h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE11h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE11h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE11h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE12h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE12h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE12h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE12h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE12h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE12h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE12h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE12h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE12h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE12h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE12h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE12h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE13h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE13h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE13h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE13h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE13h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE13h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE13h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE13h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE13h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE13h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE13h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE13h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE14h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE14h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE14h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE14h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE14h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE14h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE14h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE14h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE14h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE14h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE14h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE14h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE15h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE15h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE15h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE15h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE15h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE15h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE15h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE15h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE15h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE15h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE15h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE15h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE16h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE16h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE16h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE16h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE16h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE16h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE16h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE16h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE16h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE16h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE16h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE16h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE17h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE17h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE17h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE17h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE17h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE17h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE17h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE17h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE17h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE17h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE17h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE17h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE18h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE18h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE18h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE18h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE18h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE18h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE18h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE18h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE18h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE18h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE18h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE18h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE19h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE19h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE19h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE19h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE19h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE19h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE19h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE19h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE19h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE19h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE19h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE19h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE1h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE1h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE1h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE1h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE1h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE1h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE1h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE1h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE1h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE1h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE1h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE1h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE20h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE20h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE20h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE20h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE20h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE20h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE20h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE20h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE20h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE20h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE20h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE20h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE21h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE21h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE21h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE21h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE21h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE21h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE21h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE21h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE21h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE21h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE21h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE21h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE22h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE22h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE22h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE22h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE22h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE22h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE22h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE22h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE22h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE22h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE22h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE22h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE23h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE23h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE23h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE23h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE23h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE23h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE23h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE23h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE23h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE23h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE23h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE23h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE2h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE2h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE2h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE2h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE2h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE2h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE2h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE2h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE2h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE2h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE2h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE2h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE3h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE3h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE3h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE3h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE3h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE3h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE3h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE3h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE3h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE3h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE3h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE3h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE4h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE4h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE4h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE4h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE4h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE4h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE4h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE4h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE4h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE4h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE4h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE4h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE5h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE5h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE5h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE5h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE5h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE5h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE5h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE5h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE5h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE5h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE5h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE5h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE6h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE6h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE6h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE6h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE6h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE6h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE6h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE6h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE6h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE6h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE6h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE6h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE7h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE7h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE7h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE7h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE7h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE7h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE7h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE7h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE7h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE7h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE7h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE7h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE8h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE8h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE8h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE8h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE8h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE8h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE8h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE8h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE8h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE8h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE8h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE8h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h0m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE9h0m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h10m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE9h10m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h15m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE9h15m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h20m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE9h20m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h25m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE9h25m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h30m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE9h30m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h35m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE9h35m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h40m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE9h40m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h45m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE9h45m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h50m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE9h50m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h55m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE9h55m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h5m.txt" afterPath="$PROJECT_DIR$/report/db/5minute/SDLE9h5m.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LifePattern.java" afterPath="$PROJECT_DIR$/src/LifePattern.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/alz/ActiveLzTree.java" afterPath="$PROJECT_DIR$/src/alz/ActiveLzTree.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/alz/PPM.java" afterPath="$PROJECT_DIR$/src/alz/PPM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdle/Activity.java" afterPath="$PROJECT_DIR$/src/sdle/Activity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdle/SDLE.java" afterPath="$PROJECT_DIR$/src/sdle/SDLE.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdle/SDLEResultParser.java" afterPath="$PROJECT_DIR$/src/sdle/SDLEResultParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdle/buildSDLE.java" afterPath="$PROJECT_DIR$/src/sdle/buildSDLE.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wsu/WSUFeatureExtraction.java" afterPath="$PROJECT_DIR$/src/wsu/WSUFeatureExtraction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wsu/WSUFeatureVector.java" afterPath="$PROJECT_DIR$/src/wsu/WSUFeatureVector.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wsu/WSUParser.java" afterPath="$PROJECT_DIR$/src/wsu/WSUParser.java" />
     </list>
     <ignored path="SDLE.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,57 +430,35 @@
     <favorites_list name="SDLE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file leaf-file-name="LifePattern.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LifePattern.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="175" column="0" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
+              <caret line="484" column="64" selection-start-line="484" selection-start-column="64" selection-end-line="484" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.89723927">
+              <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MDPMMTrain.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../ActivityAwaring/ActivityAwareSystem/src/dpmm/MDPMMTrain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="imports" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SupportVectorMachineTrain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../ActivityAwaring/datumbox-framework-master/src/main/java/com/datumbox/framework/machinelearning/classification/SupportVectorMachineTrain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#5217#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivityAwareSystem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../ActivityAwaring/ActivityAwareSystem/src/ActivityAwareSystem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActiveLzTree.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alz/ActiveLzTree.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="169" column="41" selection-start-line="169" selection-start-column="41" selection-end-line="169" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PPM.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/alz/PPM.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.35384616">
-              <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -90,10 +467,8 @@
         <entry file="file://$PROJECT_DIR$/src/sdle/buildSDLE.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="83" column="31" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,7 +477,47 @@
         <entry file="file://$PROJECT_DIR$/src/sdle/SDLE.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="163" column="42" selection-start-line="163" selection-start-column="42" selection-end-line="163" selection-end-column="42" />
+              <caret line="69" column="35" selection-start-line="69" selection-start-column="35" selection-end-line="69" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SDLEResultParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sdle/SDLEResultParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WSUFeatureExtraction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/wsu/WSUFeatureExtraction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WSUParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/wsu/WSUParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="270" column="18" selection-start-line="270" selection-start-column="18" selection-end-line="270" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WSUFeatureVector.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/wsu/WSUFeatureVector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -112,7 +527,7 @@
         <entry file="file://$PROJECT_DIR$/src/sdle/Activity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="119" column="29" selection-start-line="119" selection-start-column="15" selection-end-line="119" selection-end-column="29" />
+              <caret line="85" column="16" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -155,14 +570,15 @@
         <option value="$PROJECT_DIR$/src/WSUFeatureVector.java" />
         <option value="$PROJECT_DIR$/src/WSUFeatureExtraction.java" />
         <option value="$PROJECT_DIR$/src/sdle/DB.java" />
-        <option value="$PROJECT_DIR$/src/sdle/buildSDLE.java" />
         <option value="$PROJECT_DIR$/src/wsu/WSUParser.java" />
-        <option value="$PROJECT_DIR$/src/sdle/Activity.java" />
         <option value="$PROJECT_DIR$/src/alz/PPM.java" />
-        <option value="$PROJECT_DIR$/src/sdle/SDLE.java" />
         <option value="$PROJECT_DIR$/../ActivityAwaring/datumbox-framework-master/src/main/java/com/datumbox/framework/machinelearning/classification/SupportVectorMachineTrain.java" />
-        <option value="$PROJECT_DIR$/src/LifePattern.java" />
         <option value="$PROJECT_DIR$/src/alz/ActiveLzTree.java" />
+        <option value="$PROJECT_DIR$/src/sdle/buildSDLE.java" />
+        <option value="$PROJECT_DIR$/src/sdle/Activity.java" />
+        <option value="$PROJECT_DIR$/src/sdle/SDLE.java" />
+        <option value="$PROJECT_DIR$/src/LifePattern.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -182,9 +598,6 @@
         <option value="release-sign-artifacts" />
       </list>
     </option>
-  </component>
-  <component name="NamedScopeManager">
-    <order />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -277,10 +690,12 @@
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -327,13 +742,63 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="wsu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SDLE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SequentialPattern" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sdle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SDLE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SequentialPattern" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="alz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SDLE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SequentialPattern" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -345,7 +810,6 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ActivityAwaring/ActivityAwareSystem/lib/jaco-mp3-player-0.9.3.jar!/" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="FullScreen" value="false" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
@@ -474,8 +938,55 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="ActivityAwareSystem" />
       <envs />
       <method />
     </configuration>
@@ -569,39 +1080,45 @@
       <option name="project" value="LOCAL" />
       <updated>1446385234067</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="PPM will predict a new activity 100%.&#10;Try to fix this if ok">
+      <created>1448256896053</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1448256896053</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32515895" sideWeight="0.47291666" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40811965" sideWeight="0.4296875" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40811965" sideWeight="0.5703125" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12864584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42094016" sideWeight="0.44791666" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="5.2083336E-4" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.49583334" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32508072" sideWeight="0.46875" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2615716" sideWeight="0.44010416" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2615716" sideWeight="0.5598958" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16822916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48008612" sideWeight="0.890625" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="5.2083336E-4" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.48958334" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -625,48 +1142,29 @@
     <MESSAGE value="Fix bug about SDLE have probability &gt;1 (new function postfix is mj)&#10;PPM prediction use ALZ's window" />
     <MESSAGE value="Debug" />
     <MESSAGE value="AZSDLESIMPLE&#10;&#10;Start to use DPMM" />
-    <option name="LAST_COMMIT_MESSAGE" value="AZSDLESIMPLE&#10;&#10;Start to use DPMM" />
+    <MESSAGE value="PPM will predict a new activity 100%.&#10;Try to fix this if ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="PPM will predict a new activity 100%.&#10;Try to fix this if ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/wsu/WSUParser.java</url>
-          <line>118</line>
-          <properties />
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/wsu/WSUParser.java</url>
-          <line>121</line>
-          <properties />
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="154" />
+      <option name="time" value="163" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="sdleList" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sdle/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="119" column="29" selection-start-line="119" selection-start-column="15" selection-end-line="119" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/LifePattern.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -689,9 +1187,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="83" column="31" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -721,9 +1217,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -790,9 +1284,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -859,9 +1351,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -938,6 +1428,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../ActivityAwaring/ActivityAwareSystem/src/ActivityAwareSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alz/ActiveLzTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="169" column="41" selection-start-line="169" selection-start-column="41" selection-end-line="169" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alz/PPM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdle/DB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="6" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdle/buildSDLE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdle/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="85" column="16" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdle/SDLE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="35" selection-start-line="69" selection-start-column="35" selection-end-line="69" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdle/SDLEResultParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/wsu/WSUParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -946,107 +1498,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdle/DB.java">
+    <entry file="file://$PROJECT_DIR$/src/wsu/WSUFeatureVector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="129" column="16" selection-start-line="129" selection-start-column="16" selection-end-line="129" selection-end-column="16" />
+          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wsu/WSUFeatureExtraction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../ActivityAwaring/ActivityAwareSystem/src/dpmm/MDPMMTrain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdle/SDLEResultParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wsu/WSUFeatureExtraction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49626866">
-          <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wsu/WSUFeatureVector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1753731">
-          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdle/buildSDLE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="31" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
+          <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdle/SDLE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="163" column="42" selection-start-line="163" selection-start-column="42" selection-end-line="163" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdle/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="119" column="29" selection-start-line="119" selection-start-column="15" selection-end-line="119" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../ActivityAwaring/datumbox-framework-master/src/main/java/com/datumbox/framework/machinelearning/classification/SupportVectorMachineTrain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#5217#0" expanded="false" />
-          </folding>
+          <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LifePattern.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="175" column="0" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../ActivityAwaring/ActivityAwareSystem/src/ActivityAwareSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <caret line="484" column="64" selection-start-line="484" selection-start-column="64" selection-end-line="484" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alz/ActiveLzTree.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="169" column="41" selection-start-line="169" selection-start-column="41" selection-end-line="169" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alz/PPM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.35384616">
-          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.89723927">
+          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
           <folding />
         </state>
       </provider>

@@ -1,7 +1,6 @@
 package sdle;
 
 import java.io.File;
-import java.util.ArrayList;
 
 /**
  * Created by YaHung on 2015/8/31.
@@ -13,7 +12,7 @@ public class buildSDLE {
     public buildSDLE(int interval, int option, double rh, double beta) {
         //DB db = new DB(interval, option, true);
         this.timeInterval = getTimeInterval(interval, option);
-       // int option = db.getOption();
+        // int option = db.getOption();
         int id = 0;
         StringBuilder inputFile = new StringBuilder("db/");
 
@@ -48,6 +47,16 @@ public class buildSDLE {
         }
 
     }
+
+    public static void main(String[] args) {
+        final int option = 1;
+        final int timeInterval = 5;
+        final double rh = 0.01;
+        final double beta = 0.01;
+        // new WSUParser(timeInterval, option);
+        new buildSDLE(timeInterval, option, rh, beta);
+    }
+
     private int getTimeInterval(int timeInterval, int option) {
         switch (option) {
             case 1:
@@ -63,6 +72,7 @@ public class buildSDLE {
         }
         return timeInterval;
     }
+
     private String getOutputFilename(int id, String base) {
         String time = "";
         int currentTime = id * timeInterval;
@@ -76,15 +86,6 @@ public class buildSDLE {
         //return "report/SDLE_" + h + "h" + m + "m.txt";
         new File("report/" + base).mkdirs();
         return "report/" + base + "SDLE" + h + "h" + m + "m.txt";
-    }
-
-    public static void main(String[] args) {
-        final int option = 1;
-        final int timeInterval = 5;
-        final double rh = 0.01;
-        final double beta = 0.01;
-       // new WSUParser(timeInterval, option);
-        new buildSDLE(timeInterval, option, rh, beta);
     }
 
 

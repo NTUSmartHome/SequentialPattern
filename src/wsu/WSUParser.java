@@ -34,6 +34,26 @@ public class WSUParser {
         }
     }
 
+    public static void main(String[] args) {
+        /**Generate Database
+         * timeInterval set time interval
+         * option 0:second, 1:minute, 2:hour, 3:day*/
+
+        /*TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
+        SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
+        try {
+            Date start = df.parse("2010.11.04.00.03.50");
+            Date end = df.parse("2011.06.11.23.58.10");
+            long diff = (end.getTime() - start.getTime())/(24*60*60*1000);
+            System.out.println();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }*/
+
+        new WSUParser(5, 1, 0);
+
+    }
+
     private void toSequential() {
         try {
             TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
@@ -124,7 +144,7 @@ public class WSUParser {
 
                     if (startSDLE == preBelongToWhichSDLE) {
                         instance.add(label);
-                    } else  {
+                    } else {
                         if (instance.size() > 0) {
                             String[] instanceLable = new String[instance.size()];
                             for (int i = 0; i < instance.size(); i++) {
@@ -137,7 +157,7 @@ public class WSUParser {
                         instance.add(label);
                     }
                     preBelongToWhichSDLE = startSDLE;
-                    startTime+=interval;
+                    startTime += interval;
                     startSDLE = db.belongToWhichSDLE(startTime);
                     //startSDLE = db.belongToWhichSDLE(startTime);
                 }
@@ -218,13 +238,13 @@ public class WSUParser {
 
 
                 int tmpNoSDLE = lastNoSDLE + 1;
-                if(tmpNoSDLE == db.getSDLEQuantity())
+                if (tmpNoSDLE == db.getSDLEQuantity())
                     tmpNoSDLE = 0;
 
                 if (lastUnixTimestamp != 0) {
-                    if(belongToWhichSDLE!=lastNoSDLE) {
+                    if (belongToWhichSDLE != lastNoSDLE) {
                         if (belongToWhichSDLE < tmpNoSDLE) {
-                            System.out.println("\r\nMore than one sdle idle, "+tmpNoSDLE+" -> "+belongToWhichSDLE);
+                            System.out.println("\r\nMore than one sdle idle, " + tmpNoSDLE + " -> " + belongToWhichSDLE);
                             String[] instanceLable = new String[preInstance.size()];
                             for (int i = 0; i < preInstance.size(); i++) {
                                 instanceLable[i] = preInstance.get(i);
@@ -234,7 +254,7 @@ public class WSUParser {
                                 db.addInstance(instanceLable, tmpNoSDLE);
                                 System.out.print("*");
                                 tmpNoSDLE++;
-                                if(tmpNoSDLE == db.getSDLEQuantity()){
+                                if (tmpNoSDLE == db.getSDLEQuantity()) {
                                     tmpNoSDLE = 0;
                                 }
 
@@ -245,8 +265,7 @@ public class WSUParser {
                                 tmpNoSDLE++;
 
                             }
-                        }
-                        else if ((belongToWhichSDLE - tmpNoSDLE) > 0) {
+                        } else if ((belongToWhichSDLE - tmpNoSDLE) > 0) {
                             //System.out.println("More than one sdle idle, " + tmpNoSDLE + " -> " + belongToWhichSDLE);
                             String[] instanceLable = new String[preInstance.size()];
                             for (int i = 0; i < preInstance.size(); i++) {
@@ -272,25 +291,6 @@ public class WSUParser {
         } catch (Exception e) {
 
         }
-    }
-    public static void main(String[] args) {
-        /**Generate Database
-         * timeInterval set time interval
-         * option 0:second, 1:minute, 2:hour, 3:day*/
-
-        /*TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
-        SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
-        try {
-            Date start = df.parse("2010.11.04.00.03.50");
-            Date end = df.parse("2011.06.11.23.58.10");
-            long diff = (end.getTime() - start.getTime())/(24*60*60*1000);
-            System.out.println();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }*/
-
-        new WSUParser(5, 1, 0);
-
     }
 
 }

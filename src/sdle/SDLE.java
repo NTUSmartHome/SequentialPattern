@@ -12,9 +12,9 @@ import java.util.Map;
 
 public class SDLE {
 
+    final double printThreshold = 0.0;
     String InputFile;
     String OutputFile;
-    final double printThreshold = 0.0;
     Activity A = new Activity();
     int t = 1;
     double rh;
@@ -33,12 +33,18 @@ public class SDLE {
         parameterUpdating();
         printResult();
     }
+
     public SDLE(double rh, double beta) {
         this.rh = rh;
         this.beta = beta;
-        t= 1;
+        t = 1;
         k = A.getPossibleActSet();
     }
+
+    public static void main(String[] args) {
+        new SDLE("db/SDLE1.txt", "result.txt", 0.01, 0.0001);
+    }
+
     public void parameterUpdating(String[] Acts) {
         updateDiscountingOfT();
         A.setTOfActs(Acts, A.getTOfActs(Acts) + 1);
@@ -47,6 +53,7 @@ public class SDLE {
         t++;
 
     }
+
     private void parameterUpdating() {
         try {
             FileReader fr = new FileReader(InputFile);
@@ -58,7 +65,11 @@ public class SDLE {
                     updateDiscountingOfT();
 
                     String[] Acts = line.split(",");
-
+                    //------------------If single activity, add this block----------------//
+                    String[] tmp = new String[1];
+                    tmp[0] = Acts[0];
+                    Acts = tmp;
+                    //-------------------------------------------------------------------//
                     A.setTOfActs(Acts, A.getTOfActs(Acts) + 1);
                     sumOfActivityEvent++;
                     t++;
@@ -71,6 +82,7 @@ public class SDLE {
             e.printStackTrace();
         }
     }
+
     public List<Map.Entry<String, Double>> getMaxProbabiltyAct() {
         return A.getActsnProb();
     }
@@ -109,6 +121,7 @@ public class SDLE {
             e.printStackTrace();
         }
     }
+
     public double getSum() {
         double sum = 0, value;
         for (int i = 1; i < A.getPossibleActSet(); i++) {
@@ -157,7 +170,8 @@ public class SDLE {
         }
         return -entropy;
     }
-    public String toStringSimple(){
+
+    public String toStringSimple() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < A.Activities.size(); i++) {
             String[] acts = new String[1];
@@ -167,13 +181,12 @@ public class SDLE {
         }
         return sb.toString();
     }
+
     public void setOutputFile(String outputFile) {
         this.OutputFile = outputFile;
     }
-    public Activity getActivity(){
+
+    public Activity getActivity() {
         return A;
-    }
-    public static void main(String[] args) {
-        new SDLE("db/SDLE1.txt", "result.txt", 0.01, 0.0001);
     }
 }

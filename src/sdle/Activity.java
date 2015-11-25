@@ -8,27 +8,34 @@ import java.util.*;
  * Created by YaHung on 2015/8/24.
  */
 public class Activity {
+    private final int numberOfActivities;
+    private final int possibleSets;
     ArrayList<String> Activities = new ArrayList<String>();
     ArrayList<Double> TOfActs = new ArrayList<Double>();
     ArrayList<Double> QOfActs = new ArrayList<Double>();
-    private int numberOfActivities;
 
     Activity() {
 
-        for(int i=1; i<=12; i++) {
+        for (int i = 1; i <= 12; i++) {
             String act = String.valueOf(i);
             Activities.add(act);
         }
 
         // Contain the activity of "Others"
         numberOfActivities = Activities.size();
-
+        possibleSets = numberOfActivities + 1;
+        // Multiple Activity in same time slot;
+        // possibleSets = (int) Math.pow(2, numberOfActivities);
         initializePOfActs();
+    }
+
+    public static void main(String[] args) {
+        new Activity().randomGenerateTest();
     }
 
     public List<Map.Entry<String, Double>> getActsnProb() {
 
-        Map<String , Double> actnProb = new HashMap<>();
+        Map<String, Double> actnProb = new HashMap<>();
         for (int i = 1; i < QOfActs.size(); i++) {
             double prob = QOfActs.get(i);
             String[] tmp = getNameOfActs(i);
@@ -52,6 +59,7 @@ public class Activity {
         });
         return list;
     }
+
     public int getActNum() {
         return numberOfActivities;
     }
@@ -74,16 +82,22 @@ public class Activity {
         return (int) Math.pow(2, index - 1);
     }
 
+    //Single activity in one time slot
     private int getActValue(String act) {
+        return Integer.parseInt(act);
+    }
+
+    //Original one. Now is pure single activity
+    private int getActValueMultiActivity(String act) {
         for (int i = 0; i < Activities.size(); i++)
             if (Activities.get(i).contains(act)) {
-                return (int) Math.pow(2, i );
+                return (int) Math.pow(2, i);
             }
-        return (int) Math.pow(2, Activities.size() );
+        return (int) Math.pow(2, Activities.size());
     }
 
     public int getPossibleActSet() {
-        return (int) Math.pow(2, numberOfActivities)  ;
+        return possibleSets;
     }
 
     private void initializePOfActs() {
@@ -92,24 +106,28 @@ public class Activity {
             QOfActs.add(0.0);
         }
     }
+    // Single Activity version
+    public String[] getNameOfActs(int index) {
 
-
-    public String[] getNameOfActs(int index){
+        return new String[]{String.valueOf(index)};
+    }
+    // original one. Mutiple activity in one time slot
+    public String[] getNameOfActsMultipleActivity(int index ) {
         boolean[] occurActs = new boolean[Activities.size()];
 
         int quantityOfOccurActs = 0;
         int record = index;
 
-        for(int i=(int)Math.pow(2,Activities.size()-1),id= Activities.size()-1; i>0; i/=2, id--){
-            if(record>=i){
+        for (int i = (int) Math.pow(2, Activities.size() - 1), id = Activities.size() - 1; i > 0; i /= 2, id--) {
+            if (record >= i) {
                 occurActs[id] = true;
                 record -= i;
-                quantityOfOccurActs ++;
+                quantityOfOccurActs++;
             }
         }
         String[] occurActsStr = new String[quantityOfOccurActs];
-        for(int i=0, j=0; i<Activities.size(); i++){
-            if(occurActs[i]){
+        for (int i = 0, j = 0; i < Activities.size(); i++) {
+            if (occurActs[i]) {
                 occurActsStr[j] = Activities.get(i);
                 j++;
             }
@@ -161,24 +179,24 @@ public class Activity {
         QOfActs.set(index, value);
     }
 
-    public int getQuantityOfOccurActs(int index){
+    public int getQuantityOfOccurActs(int index) {
         boolean[] occurActs = new boolean[Activities.size()];
-        for(int i=0; i<occurActs.length; i++) {
+        for (int i = 0; i < occurActs.length; i++) {
             occurActs[i] = false;
         }
         int quantityOfOccurActs = 0;
         int record = index;
 
-        for(int i=(int)Math.pow(2,Activities.size()-1),id= Activities.size()-1; i>0; i/=2, id--){
-            if(record>=i){
+        for (int i = (int) Math.pow(2, Activities.size() - 1), id = Activities.size() - 1; i > 0; i /= 2, id--) {
+            if (record >= i) {
                 occurActs[id] = true;
                 record -= i;
-                quantityOfOccurActs ++;
+                quantityOfOccurActs++;
             }
         }
         String[] occurActsStr = new String[quantityOfOccurActs];
-        for(int i=0, j=0; i<Activities.size(); i++){
-            if(occurActs[i]){
+        for (int i = 0, j = 0; i < Activities.size(); i++) {
+            if (occurActs[i]) {
                 occurActsStr[j] = Activities.get(i);
                 j++;
             }
@@ -186,18 +204,17 @@ public class Activity {
         return occurActsStr.length;
     }
 
-
     private void randomGenerateTest() {
         FileWriter fw = null;
         try {
             fw = new FileWriter("random_data_set.txt", false);
             for (int i = 0; i < 100; i++) {
-                String activity = Activities.get((int) (Math.random() * (numberOfActivities-1)));
+                String activity = Activities.get((int) (Math.random() * (numberOfActivities - 1)));
 
                 fw.write(activity + "\n");
 
             }
-            for(int i=0; i<50; i++) {
+            for (int i = 0; i < 50; i++) {
                 fw.write(Activities.get(Activities.size() - 1) + "\n");
             }
             fw.flush();
@@ -207,9 +224,5 @@ public class Activity {
         }
 
 
-    }
-
-    public static void main(String[] args) {
-        new Activity().randomGenerateTest();
     }
 }

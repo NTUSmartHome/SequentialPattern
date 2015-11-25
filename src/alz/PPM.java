@@ -70,7 +70,8 @@ public class PPM {
         return list;
 
     }
-    public static void clearSeenActivity(int idx){
+
+    public static void clearSeenActivity(int idx) {
         allSeenActivity.get(idx).clear();
     }
 

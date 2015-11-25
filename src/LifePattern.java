@@ -6,27 +6,42 @@ import dpmm.MDPMMTrain;
 import sdle.SDLE;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-import java.util.function.DoubleBinaryOperator;
 
 /**
  * Created by MingJe on 2015/10/4.
  */
 public class LifePattern {
 
+    ArrayList<ArrayList<SDLE>> weekSdleList;
     ArrayList<SDLE> sdleList;
     ArrayList<ArrayList<String>> instanceLabel;
 
     public LifePattern() {
         sdleList = new ArrayList<>();
         instanceLabel = new ArrayList<>();
+        weekSdleList = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
+            weekSdleList.add(new ArrayList<>());
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+
+        //Original : 0.5, 10, 100
+        //new MDPMMTrain("report/WSU", "WSU", 0.5, 5, 100);
+
+        LifePattern olp = new LifePattern();
+        olp.readFile(5, 1, 0.05, 0.01);
+        //olp.runALZ(1);
+        olp.runAZSDLESimple(21);
+        //olp.improvedALZ(10);
+        //olp.runAZSDLE(1);
+
+
     }
 
     public void runALZ(int trainedDays) {
@@ -173,7 +188,7 @@ public class LifePattern {
             for (int j = 0; j < instanceLabel.size(); j++) {
                 String[] acts = instanceLabel.get(j).get(i).split(",");
                 Arrays.sort(acts);
-
+                /* Old version
                 if (j >= 3 && j <= 67)
                     alzIdx = 0;
                 else if ((j > 67 && j <= 80) || (j >= 272 && j <= 287) || j < 3)
@@ -181,6 +196,18 @@ public class LifePattern {
                 else if (j > 80 && j <= 97)
                     alzIdx = 4;
                 else if (j > 97 && j <= 224)
+                    alzIdx = 1;
+                else
+                    alzIdx = 2;
+                */
+
+                if (j >= 4 && j <= 64)
+                    alzIdx = 4;
+                else if ((j > 64 && j <= 81) || (j >= 270 && j <= 287) || j < 4)
+                    alzIdx = 3;
+                else if (j > 81 && j <= 100)
+                    alzIdx = 0;
+                else if (j > 100 && j <= 225)
                     alzIdx = 1;
                 else
                     alzIdx = 2;
@@ -204,7 +231,7 @@ public class LifePattern {
                 String[] acts = instanceLabel.get(j).get(i).split(",");
                 Arrays.sort(acts);
                 currentActivity = acts[0];
-
+                /*Old Version
                 if (j >= 3 && j <= 67)
                     alzIdx = 0;
                 else if ((j > 67 && j <= 80) || (j >= 272 && j <= 287) || j < 3)
@@ -215,7 +242,18 @@ public class LifePattern {
                     alzIdx = 1;
                 else
                     alzIdx = 2;
+                */
 
+                if (j >= 4 && j <= 64)
+                    alzIdx = 4;
+                else if ((j > 64 && j <= 81) || (j >= 270 && j <= 287) || j < 4)
+                    alzIdx = 3;
+                else if (j > 81 && j <= 100)
+                    alzIdx = 0;
+                else if (j > 100 && j <= 225)
+                    alzIdx = 1;
+                else
+                    alzIdx = 2;
 
                 if (!currentActivity.equals(preActivity)) {
                     List<Map.Entry<String, Double>> predictedActsByALZ = PPM.prediction(alzIdx);
@@ -231,8 +269,6 @@ public class LifePattern {
                         result.append("ALZ : " + predictedActsByALZ.get(0).getKey() + "\t" + predictedActsByALZ.get(0).getValue()
                                 + " " + predictedActsByALZ.get(1).getKey() + " " + predictedActsByALZ.get(1).getValue()
                                 + " " + predictedActsByALZ.get(2).getKey() + " " + predictedActsByALZ.get(2).getValue() + "\n\n");
-                    if (predictedActsByALZ.get(0).getValue().equals(1.0))
-                        System.out.println();
 
                     if (predictedActsByALZ.get(0).getKey().equals(currentActivity)
                             || ((predictedActsByALZ.size() > 1) && (predictedActsByALZ.get(1).getKey().equals(currentActivity)) && !predictedActsByALZ.get(1).getValue().equals(0.0))
@@ -270,7 +306,6 @@ public class LifePattern {
         }
 
     }
-
 
     public void runAZSDLE(int trainedDays) {
         int sum = 0, oneDaySum = 0;
@@ -359,6 +394,7 @@ public class LifePattern {
         int sdleRight = 0, sdleOneDayRight = 0;
         int keepPredictRight = 0, keepPredictOneDayRight = 0;
         int right = 0, oneDayRight = 0;
+        int weekRight = 0, weekOneDayRight = 0;
         int alzIdx = 0;
         int[] sdleTimeIntervalAccuracy = new int[instanceLabel.size()];
         int[] alzTimeIntervalAccuracy = new int[instanceLabel.size()];
@@ -374,6 +410,9 @@ public class LifePattern {
         //-----------------------------------ALZ focus on changing of activity-------------------------------//
         String preActivity = "-1", currentActivity;
         //--------------------------------------------------------------------------------------------------//
+        //----------------------------------WSU data begins on Thursday------------------------------------//
+        int day = 3;
+        //-----------------------------------------------------------------------------------------------//
         for (int i = 0; i < trainedDays; i++) {
             for (int j = 0; j < instanceLabel.size(); j++) {
                 String[] acts = instanceLabel.get(j).get(i).split(",");
@@ -392,7 +431,13 @@ public class LifePattern {
                 //---------------------------------------Different Here with AZSDLE-------------------------------------------//
                 String[] oneActs = new String[1];
                 oneActs[0] = acts[0];
-
+                //---------------------------------------Week SDLE-----------------------------------------------------------//
+                if (day < 5)
+                    weekSdleList.get(0).get(j).parameterUpdating(oneActs);
+                else
+                    weekSdleList.get(1).get(j).parameterUpdating(oneActs);
+                day = (day + 1) % 7;
+                //-----------------------------------------------------------------------------------------------------------//
                 sdleList.get(j).parameterUpdating(oneActs);
                 //StringBuilder sb = new StringBuilder(acts[0]);
                 currentActivity = acts[0];
@@ -433,6 +478,11 @@ public class LifePattern {
                 result.append("Time : " + j / 12 + ":" + (j * 5) % 60 + "\tActivity : " + acts[0] + "\n");
                 List<Map.Entry<String, Double>> predictedActsBySDLE = sdleList.get(j).getMaxProbabiltyAct();
                 List<Map.Entry<String, Double>> predictedActsByALZ = PPM.prediction(alzIdx);
+                List<Map.Entry<String, Double>> predictedActsByWeeKSDLE;
+                if (day < 5)
+                    predictedActsByWeeKSDLE = weekSdleList.get(0).get(j).getMaxProbabiltyAct();
+                else
+                    predictedActsByWeeKSDLE = weekSdleList.get(1).get(j).getMaxProbabiltyAct();
 
                 if (predictedActsByALZ.size() < 1)
                     System.out.println(predictedActsByALZ);
@@ -483,19 +533,32 @@ public class LifePattern {
                     ++sdleRight;
                     ++sdleTimeIntervalAccuracy[j];
                 }
+
                 if (currentActivity.equals(preActivity)) {
                     ++keepPredictOneDayRight;
                     ++keepPredictRight;
                     ++keepTimeIntervalAccuracy[j];
                 }
 
+                if (predictedActsByWeeKSDLE.get(0).getKey().equals(acts[0])) {
+                    ++weekOneDayRight;
+                    ++weekRight;
+                }
+
+                //---------------------------------------Week SDLE-----------------------------------------------------------//
+                if (day < 5)
+                    weekSdleList.get(0).get(j).parameterUpdating(oneActs);
+                else
+                    weekSdleList.get(1).get(j).parameterUpdating(oneActs);
+                day = (day + 1) % 7;
+                //-----------------------------------------------------------------------------------------------------------//
                 sdleList.get(j).parameterUpdating(oneActs);
                 if (!currentActivity.equals(preActivity))
                     activeLzTreeArray[alzIdx].step(acts[0]);
                 preActivity = currentActivity;
 
             }
-            System.out.println(i + " New way: " + (double) newWayOneDayRight / numOfTimeInterval + " SDLE: " + (double) sdleOneDayRight / numOfTimeInterval
+            System.out.println(i + "Week SDLE: " + (double) weekOneDayRight / numOfTimeInterval + " SDLE: " + (double) sdleOneDayRight / numOfTimeInterval
                     + " ALZ: " + (double) alzOneDayRight / numOfTimeInterval + " Keep: " + (double) keepPredictOneDayRight / numOfTimeInterval);
 
             newWayOneDayRight = 0;
@@ -503,6 +566,7 @@ public class LifePattern {
             sdleOneDayRight = 0;
             alzOneDayRight = 0;
             keepPredictOneDayRight = 0;
+            weekOneDayRight = 0;
             for (int j = 0; j < activeLzTreeArray.length; j++) {
                 activeLzTreeArray[j].finish();
             }
@@ -559,7 +623,7 @@ public class LifePattern {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(trainedDays + "  Both: " + (double) newWayRight / totalPredictedInstance + " SDLE: " + (double) sdleRight / totalPredictedInstance
+        System.out.println(trainedDays + "  Week: " + (double) weekRight / totalPredictedInstance + " SDLE: " + (double) sdleRight / totalPredictedInstance
                 + " ALZ: " + (double) alzRight / totalPredictedInstance + " Keep: " + (double) keepPredictRight / totalPredictedInstance);
 
     }
@@ -598,6 +662,11 @@ public class LifePattern {
                 String line;
                 instanceLabel.add(new ArrayList<>());
                 sdleList.add(new SDLE(rh, beta));
+                //---------------------Day of Week-----------------//
+                for (int i = 0; i < weekSdleList.size(); i++) {
+                    weekSdleList.get(i).add(new SDLE(rh, beta));
+                }
+                //------------------------------------------------//
                 while ((line = br.readLine()) != null) {
                     instanceLabel.get(id).add(line);
                 }
@@ -628,41 +697,5 @@ public class LifePattern {
 
         }
         return timeInterval;
-    }
-
-
-    public static void main(String[] args) throws InterruptedException {
-
-        //new MDPMMTrain("report/WSU", "WSU", 0.5, 10, 100);
-
-        LifePattern olp = new LifePattern();
-        olp.readFile(5, 1, 0.05, 0.01);
-        //olp.runALZ(1);
-        //olp.runAZSDLESimple(10);
-        olp.improvedALZ(10);
-        //olp.runAZSDLE(1);
-        /*ExecutorService pool = Executors.newFixedThreadPool(5);
-        LifePattern olp = new LifePattern();
-        olp.readFile(5, 1, 0.01, 0.01);
-        long start = System.currentTimeMillis();
-        for (int i = 10; i <= 50; i += 5) {
-            final int idx = i;
-            Thread th = new Thread(() -> {
-                LifePattern lp = new LifePattern();
-                lp.instanceLabel = olp.instanceLabel;
-                for (int j = 0; j < olp.instanceLabel.size(); j++) {
-                    lp.sdleList.add(new SDLE(0.01, 0.01));
-                }
-                //System.out.println(Thread.currentThread().getName());
-                lp.runSDLE(idx);
-            });
-            pool.execute(th);
-
-        }
-        pool.shutdown();
-        pool.awaitTermination(30, TimeUnit.SECONDS);
-        long end = System.currentTimeMillis();
-        System.out.println((end - start) / 6000);*/
-
     }
 }

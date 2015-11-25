@@ -13,9 +13,9 @@ import java.util.concurrent.Executors;
 public class WSUFeatureExtraction {
     private final int timeInterval;
     private final int option;
+    ArrayList<WSUFeatureVector> featureVectors;
     private int numOfInstances;
     private String path;
-    ArrayList<WSUFeatureVector> featureVectors;
 
     WSUFeatureExtraction(int timeInterval, int option, String path) {
         switch (option) {
@@ -45,6 +45,10 @@ public class WSUFeatureExtraction {
 
     }
 
+    public static void main(String[] args) {
+        new WSUFeatureExtraction(5, 1, "report/db/");
+    }
+
     private void init() {
         final FileWriter fw;
         ExecutorService executorService = Executors.newFixedThreadPool(10);
@@ -72,8 +76,6 @@ public class WSUFeatureExtraction {
 
     }
 
-
-
     private void output() {
 
     }
@@ -90,9 +92,5 @@ public class WSUFeatureExtraction {
         int h = currentTime;
 
         return "SDLE" + h + "h" + m + "m.txt";
-    }
-
-    public static void main(String[] args) {
-        new WSUFeatureExtraction(5, 1, "report/db/");
     }
 }

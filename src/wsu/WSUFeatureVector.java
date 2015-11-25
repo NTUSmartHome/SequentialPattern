@@ -24,7 +24,7 @@ public class WSUFeatureVector {
             String[] feature = null;
             String[] actLabel;
             while ((line = br.readLine()) != null) {
-                if(line.contains("Sum")) break;
+                if (line.contains("Sum")) break;
                 line = line.replace("[", "");
                 line = line.replace("]", "");
                 feature = line.split(":");

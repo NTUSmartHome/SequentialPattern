@@ -34,6 +34,11 @@ public class SDLEResultParser {
         parse();
     }
 
+    public static void main(String[] args) {
+        SDLEResultParser resultParser = new SDLEResultParser(1, 2);
+
+    }
+
     public void parse() {
 
         for (int i = 0; i < 24; i++) {
@@ -65,11 +70,6 @@ public class SDLEResultParser {
 
         }
 
-
-    }
-
-    public static void main(String[] args){
-        SDLEResultParser resultParser = new SDLEResultParser(1, 2);
 
     }
 
