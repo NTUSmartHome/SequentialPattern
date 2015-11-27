@@ -2,6 +2,7 @@ package sdle;
 
 import java.io.*;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -170,7 +171,10 @@ public class SDLE {
         }
         return -entropy;
     }
-
+    
+    public ArrayList<Double> getDistribution() {
+        return A.QOfActs;
+    }
     public String toStringSimple() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < A.Activities.size(); i++) {

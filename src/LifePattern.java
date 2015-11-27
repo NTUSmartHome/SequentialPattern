@@ -2,6 +2,7 @@
 
 import alz.ActiveLzTree;
 import alz.PPM;
+import dpmm.MDPMMTrain;
 import sdle.SDLE;
 
 import java.io.*;
@@ -23,7 +24,7 @@ public class LifePattern {
         sdleList = new ArrayList<>();
         instanceLabel = new ArrayList<>();
         weekSdleList = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 7; i++) {
             weekSdleList.add(new ArrayList<>());
         }
     }
@@ -35,46 +36,12 @@ public class LifePattern {
 
         LifePattern olp = new LifePattern();
         olp.readFile(5, 1, 0.05, 0.01);
+        olp.runSDLE(28);
         //olp.runALZ(1);
-        olp.runAZSDLESimple(21);
+        //olp.runAZSDLESimple(21);
         //olp.improvedALZ(10);
         //olp.runAZSDLE(1);
 
-
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-
-        //new MDPMMTrain("report/WSU", "WSU", 0.5, 10, 100);
-
-        LifePattern olp = new LifePattern();
-        olp.readFile(5, 1, 0.05, 0.01);
-        //olp.runALZ(1);
-        //olp.runAZSDLESimple(10);
-        olp.improvedALZ(10);
-        //olp.runAZSDLE(1);
-        /*ExecutorService pool = Executors.newFixedThreadPool(5);
-        LifePattern olp = new LifePattern();
-        olp.readFile(5, 1, 0.01, 0.01);
-        long start = System.currentTimeMillis();
-        for (int i = 10; i <= 50; i += 5) {
-            final int idx = i;
-            Thread th = new Thread(() -> {
-                LifePattern lp = new LifePattern();
-                lp.instanceLabel = olp.instanceLabel;
-                for (int j = 0; j < olp.instanceLabel.size(); j++) {
-                    lp.sdleList.add(new SDLE(0.01, 0.01));
-                }
-                //System.out.println(Thread.currentThread().getName());
-                lp.runSDLE(idx);
-            });
-            pool.execute(th);
-
-        }
-        pool.shutdown();
-        pool.awaitTermination(30, TimeUnit.SECONDS);
-        long end = System.currentTimeMillis();
-        System.out.println((end - start) / 6000);*/
 
     }
 
@@ -141,62 +108,137 @@ public class LifePattern {
     public void runSDLE(int trainedDays) {
 
 
-        int sum = 0, oneDaySum = 0;
-        int right = 0, oneDayRight = 0;
+        int numOfTimeInterval = instanceLabel.size();
+        int totalPredictedInstance = numOfTimeInterval * (instanceLabel.get(0).size() - trainedDays);
 
-        //readFile(5, 1, 0.01, 0.01);
+        int sdleRight = 0, sdleOneDayRight = 0;
+        int weekRight = 0, weekOneDayRight = 0;
+
+        int[] sdleTimeIntervalAccuracy = new int[instanceLabel.size()];
+        int[] keepTimeIntervalAccuracy = new int[instanceLabel.size()];
+
+
+        //----------------------------------WSU data begins on Thursday------------------------------------//
+        int day = 3;
+        //-----------------------------------------------------------------------------------------------//
         for (int i = 0; i < trainedDays; i++) {
             for (int j = 0; j < instanceLabel.size(); j++) {
                 String[] acts = instanceLabel.get(j).get(i).split(",");
                 Arrays.sort(acts);
-                sdleList.get(j).parameterUpdating(acts);
-                /*for (int k = 0; k < acts.length; k++) {
-                    sdleList.get(j).parameterUpdating(acts[k].split(""));
-                    //String[] asdas = acts[k].split("");
-                    //alz.step(acts[k]);
-                }*/
+
+                //---------------------------------------Different Here with AZSDLE-------------------------------------------//
+                String[] oneActs = new String[1];
+                oneActs[0] = acts[0];
+                //---------------------------------------Week SDLE-----------------------------------------------------------//
+                weekSdleList.get(day).get(j).parameterUpdating(oneActs);
+                day = (day + 1) % 7;
+                //-----------------------------------------------------------------------------------------------------------//
+                sdleList.get(j).parameterUpdating(oneActs);
+                //StringBuilder sb = new StringBuilder(acts[0]);
 
             }
         }
 
-        for (int i = trainedDays; i < instanceLabel.get(0).size(); i++) {
-            //System.out.println(Thread.currentThread() + "  " + i);
-            for (int j = 0; j < instanceLabel.size(); j++) {
-                String act = instanceLabel.get(j).get(i);
-
-                List<Map.Entry<String, Double>> predictedActs = sdleList.get(j).getMaxProbabiltyAct();
-                if (act.equals(predictedActs.get(0).getKey())) {
-                    ++right;
-                    ++oneDayRight;
-
-                }
-
-
-                /*boolean isEqual = false;
-                for (int k = 0; k < acts.length; k++) {
-                    if (acts[k].equals(predictedActs[0])) {
-                        isEqual = true;
-                        break;
+        new File("report/WeekSDLE/Features/").mkdirs();
+        new File("report/WeekSDLE/Features/WeekSDLEFeature.txt").delete();
+        try {
+            StringBuilder sb = new StringBuilder();
+            int count = 0;
+            for (int i = 0; i < weekSdleList.size(); i++) {
+                for (int j = 0; j < weekSdleList.get(i).size(); j++) {
+                    ArrayList<Double> tmp = weekSdleList.get(i).get(j).getDistribution();
+                    for (int k = 1; k < tmp.size(); k++) {
+                        sb.append(tmp.get(k) + ",");
+                        count++;
                     }
                 }
-                if (isEqual) ++right;*/
-
-                String[] acts = act.split(",");
-                Arrays.sort(acts);
-                sdleList.get(j).parameterUpdating(acts);
-                /*for (int k = 0; k < acts.length; k++) {
-                    sdleList.get(j).parameterUpdating(acts[k].split(""));
-                }*/
-
-                ++oneDaySum;
-                ++sum;
+                sb.append("WeekDay" + (i + 1));
+                sb.append("\r\n");
+                System.out.println(count);
+                count = 0;
+               // System.out.println(sb.toString());
             }
 
-            System.out.println(i + " " + (double) oneDayRight / oneDaySum);
-            oneDayRight = 0;
-            oneDaySum = 0;
+            FileWriter fw = new FileWriter("report/WeekSDLE/Features/WeekSDLEFeature.txt");
+            fw.write(sb.toString());
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        System.out.println(trainedDays + "  " + (double) right / sum);
+
+        new MDPMMTrain("report/WeekSDLE", "WeekSDLE", 0.5, 5, 100);
+        StringBuilder result = new StringBuilder();
+        for (int i = trainedDays; i < instanceLabel.get(0).size(); i++) {
+            for (int j = 0; j < instanceLabel.size(); j++) {
+                String[] acts = instanceLabel.get(j).get(i).split(",");
+                Arrays.sort(acts);
+
+                //---------------------------------------Different Here with AZSDLE-------------------------------------------//
+                //StringBuilder sb = new StringBuilder(acts[0]);
+                String[] oneActs = new String[1];
+                oneActs[0] = acts[0];
+
+
+                result.append("Time : " + j / 12 + ":" + (j * 5) % 60 + "\tActivity : " + acts[0] + "\n");
+                List<Map.Entry<String, Double>> predictedActsBySDLE = sdleList.get(j).getMaxProbabiltyAct();
+                List<Map.Entry<String, Double>> predictedActsByWeeKSDLE = weekSdleList.get(day).get(j).getMaxProbabiltyAct();
+
+
+                result.append("SDLE : " + predictedActsBySDLE.get(0).getKey() + "\t" + predictedActsBySDLE.get(0).getValue()
+                        + " " + predictedActsBySDLE.get(1).getKey() + " " + predictedActsBySDLE.get(1).getValue() + "\n");
+                result.append("Week : " + predictedActsByWeeKSDLE.get(0).getKey() + "\t" + predictedActsByWeeKSDLE.get(0).getValue()
+                        + " " + predictedActsByWeeKSDLE.get(1).getKey() + " " + predictedActsByWeeKSDLE.get(1).getValue() + "\n");
+
+
+                if (predictedActsBySDLE.get(0).getKey().equals(acts[0])) {
+                    ++sdleOneDayRight;
+                    ++sdleRight;
+                    ++sdleTimeIntervalAccuracy[j];
+                }
+
+                if (predictedActsByWeeKSDLE.get(0).getKey().equals(acts[0])) {
+                    ++weekOneDayRight;
+                    ++weekRight;
+                }
+
+                //---------------------------------------Week SDLE-----------------------------------------------------------//
+                weekSdleList.get(day).get(j).parameterUpdating(oneActs);
+                day = (day + 1) % 7;
+                //-----------------------------------------------------------------------------------------------------------//
+                sdleList.get(j).parameterUpdating(oneActs);
+
+            }
+            System.out.println(i + "Week SDLE: " + (double) weekOneDayRight / numOfTimeInterval
+                    + " SDLE: " + (double) sdleOneDayRight / numOfTimeInterval);
+
+            sdleOneDayRight = 0;
+            weekOneDayRight = 0;
+        }
+
+        StringBuilder sdleSB = new StringBuilder();
+
+
+        for (int j = 1; j <= 12; j++) {
+            for (int i = 0; i < sdleList.size(); i++) {
+                String[] acts = new String[1];
+                acts[0] = String.valueOf(j);
+                sdleSB.append(sdleList.get(i).getActivity().getQOfActs(acts) + " ");
+
+            }
+            sdleSB.append("\n");
+        }
+
+        try {
+            FileWriter fw = new FileWriter("Result.txt");
+            fw.write(result.toString());
+            fw.write("\n\n" + Arrays.toString(sdleTimeIntervalAccuracy));
+            fw.write("\n\n" + sdleSB.toString());
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(trainedDays + "  Week: " + (double) weekRight / totalPredictedInstance
+                + " SDLE: " + (double) sdleRight / totalPredictedInstance);
     }
 
     public void improvedALZ(int trainedDays) {
@@ -423,11 +465,10 @@ public class LifePattern {
         int numOfTimeInterval = instanceLabel.size();
         int totalPredictedInstance = numOfTimeInterval * (instanceLabel.get(0).size() - trainedDays);
 
-        int newWayRight = 0, newWayOneDayRight = 0;
         int alzRight = 0, alzOneDayRight = 0;
         int sdleRight = 0, sdleOneDayRight = 0;
         int keepPredictRight = 0, keepPredictOneDayRight = 0;
-        int right = 0, oneDayRight = 0;
+
         int weekRight = 0, weekOneDayRight = 0;
         int alzIdx = 0;
         int[] sdleTimeIntervalAccuracy = new int[instanceLabel.size()];
@@ -466,10 +507,7 @@ public class LifePattern {
                 String[] oneActs = new String[1];
                 oneActs[0] = acts[0];
                 //---------------------------------------Week SDLE-----------------------------------------------------------//
-                if (day < 5)
-                    weekSdleList.get(0).get(j).parameterUpdating(oneActs);
-                else
-                    weekSdleList.get(1).get(j).parameterUpdating(oneActs);
+                weekSdleList.get(day).get(j).parameterUpdating(oneActs);
                 day = (day + 1) % 7;
                 //-----------------------------------------------------------------------------------------------------------//
                 sdleList.get(j).parameterUpdating(oneActs);
@@ -480,10 +518,8 @@ public class LifePattern {
                 //-----------------------------------------------------------------------------------------------------------//
                 preActivity = currentActivity;
             }
-            for (int j = 0; j < activeLzTreeArray.length; j++) {
-                activeLzTreeArray[j].finish();
-            }
         }
+
         preActivity = "-1";
         StringBuilder result = new StringBuilder();
         for (int i = trainedDays; i < instanceLabel.get(0).size(); i++) {
@@ -518,27 +554,6 @@ public class LifePattern {
                 else
                     predictedActsByWeeKSDLE = weekSdleList.get(1).get(j).getMaxProbabiltyAct();
 
-                if (predictedActsByALZ.size() < 1)
-                    System.out.println(predictedActsByALZ);
-                //-----------------------------------New way to predict----------------------------------//
-                {
-                    Map.Entry<String, Double> firstBySDLE = predictedActsBySDLE.get(0);
-                    Map.Entry<String, Double> secondBySDLE = predictedActsBySDLE.get(1);
-                    Map.Entry<String, Double> firstByALZ = predictedActsByALZ.get(0);
-                    //Map.Entry<String, Double> secondByALZ = predictedActsByALZ.get(1);
-                    if ((firstBySDLE.getValue()) / (firstBySDLE.getValue() + secondBySDLE.getValue()) < 0.55) {
-                        if (firstByALZ.getKey().equals(acts[0])) {
-                            newWayOneDayRight++;
-                            newWayRight++;
-
-                        }
-                        result.append("New way\n");
-                    } else if (firstBySDLE.getKey().equals(acts[0])) {
-                        newWayOneDayRight++;
-                        newWayRight++;
-                    }
-                }
-                //--------------------------------------------------------------------------------------//
 
                 result.append("SDLE : " + predictedActsBySDLE.get(0).getKey() + "\t" + predictedActsBySDLE.get(0).getValue()
                         + " " + predictedActsBySDLE.get(1).getKey() + " " + predictedActsBySDLE.get(1).getValue() + "\n");
@@ -549,12 +564,6 @@ public class LifePattern {
                     result.append("ALZ : " + predictedActsByALZ.get(0).getKey() + "\t" + predictedActsByALZ.get(0).getValue()
                             + " " + predictedActsByALZ.get(1).getKey() + " " + predictedActsByALZ.get(1).getValue() + "\n\n");
 
-
-                if (predictedActsByALZ.get(0).getKey().equals(acts[0]) ||
-                        predictedActsBySDLE.get(0).getKey().equals(acts[0])) {
-                    ++right;
-                    ++oneDayRight;
-                }
 
                 if (predictedActsByALZ.get(0).getKey().equals(acts[0])) {
                     ++alzOneDayRight;
@@ -580,10 +589,7 @@ public class LifePattern {
                 }
 
                 //---------------------------------------Week SDLE-----------------------------------------------------------//
-                if (day < 5)
-                    weekSdleList.get(0).get(j).parameterUpdating(oneActs);
-                else
-                    weekSdleList.get(1).get(j).parameterUpdating(oneActs);
+                weekSdleList.get(day).get(j).parameterUpdating(oneActs);
                 day = (day + 1) % 7;
                 //-----------------------------------------------------------------------------------------------------------//
                 sdleList.get(j).parameterUpdating(oneActs);
@@ -595,16 +601,10 @@ public class LifePattern {
             System.out.println(i + "Week SDLE: " + (double) weekOneDayRight / numOfTimeInterval + " SDLE: " + (double) sdleOneDayRight / numOfTimeInterval
                     + " ALZ: " + (double) alzOneDayRight / numOfTimeInterval + " Keep: " + (double) keepPredictOneDayRight / numOfTimeInterval);
 
-            newWayOneDayRight = 0;
-            oneDayRight = 0;
             sdleOneDayRight = 0;
             alzOneDayRight = 0;
             keepPredictOneDayRight = 0;
             weekOneDayRight = 0;
-            for (int j = 0; j < activeLzTreeArray.length; j++) {
-                activeLzTreeArray[j].finish();
-            }
-            //activeLzTreeArray.finish();
         }
         StringBuilder entropySB = new StringBuilder();
         StringBuilder bool = new StringBuilder();

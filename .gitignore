@@ -36,7 +36,7 @@
 /out/
 
 #This Project
-/db/DB_M1_app.txt
+/db/DB*
 WSU_MDPMM
 
 # mpeltonen/sbt-idea plugin

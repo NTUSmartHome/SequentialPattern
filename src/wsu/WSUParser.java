@@ -180,7 +180,7 @@ public class WSUParser {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         try {
 
-            fr = new FileReader("db/DB_M1_app.txt");
+            fr = new FileReader("db/DB_M2_app.txt");
             br = new BufferedReader(fr);
             int lastNoSDLE = -1;
             long lastUnixTimestamp = 0;
@@ -189,7 +189,8 @@ public class WSUParser {
             String line;
 
             int preSDLEth = -1;
-            String preLable = "12";
+            //For DB_M1, preLabel = 12
+            String preLabel = "14";
 
             while ((line = br.readLine()) != null) {
                 line = line.replace("{", "").replace("\"", "").replace(" ", "");
@@ -197,8 +198,9 @@ public class WSUParser {
 
                 String label = rawData[rawData.length - 1];
                 int actLabel = Integer.valueOf(label);
-                if (actLabel > 12)
-                    label = "12";
+                // For DB_M1
+                /*if (actLabel > 12)
+                    label = "12";*/
                 //System.out.println(label);
 
                 long unixTimestamp = Integer.valueOf(rawData[rawData.length - 2].substring(0, 10));
@@ -244,7 +246,7 @@ public class WSUParser {
                 if (lastUnixTimestamp != 0) {
                     if (belongToWhichSDLE != lastNoSDLE) {
                         if (belongToWhichSDLE < tmpNoSDLE) {
-                            System.out.println("\r\nMore than one sdle idle, " + tmpNoSDLE + " -> " + belongToWhichSDLE);
+                            //System.out.println("\r\nMore than one sdle idle, " + tmpNoSDLE + " -> " + belongToWhichSDLE);
                             String[] instanceLable = new String[preInstance.size()];
                             for (int i = 0; i < preInstance.size(); i++) {
                                 instanceLable[i] = preInstance.get(i);
@@ -252,7 +254,7 @@ public class WSUParser {
 
                             while (belongToWhichSDLE < tmpNoSDLE) {
                                 db.addInstance(instanceLable, tmpNoSDLE);
-                                System.out.print("*");
+                                //System.out.print("*");
                                 tmpNoSDLE++;
                                 if (tmpNoSDLE == db.getSDLEQuantity()) {
                                     tmpNoSDLE = 0;
@@ -261,7 +263,7 @@ public class WSUParser {
                             }
                             while ((belongToWhichSDLE - tmpNoSDLE) > 0) {
                                 db.addInstance(instanceLable, tmpNoSDLE);
-                                System.out.print("*");
+                                //System.out.print("*");
                                 tmpNoSDLE++;
 
                             }

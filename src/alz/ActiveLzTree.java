@@ -247,7 +247,8 @@ public class ActiveLzTree {
 
         }
     }
-
+    @Deprecated
+    //hava a bug
     public void finish() {
         while (window.size() > 0) {
             window.remove(0);
