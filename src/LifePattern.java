@@ -145,10 +145,10 @@ public class LifePattern {
             StringBuilder sb = new StringBuilder();
             int count = 0;
             for (int i = 0; i < weekSdleList.size(); i++) {
-                for (int j = 0; j < weekSdleList.get(i).size(); j++) {
+                for (int j = 0; j < weekSdleList.get(i).size() ; j++) {
                     ArrayList<Double> tmp = weekSdleList.get(i).get(j).getDistribution();
                     for (int k = 1; k < tmp.size(); k++) {
-                        sb.append(tmp.get(k) + ",");
+                        sb.append(tmp.get(k) * 1000 + ",");
                         count++;
                     }
                 }
@@ -166,7 +166,7 @@ public class LifePattern {
             e.printStackTrace();
         }
 
-        new MDPMMTrain("report/WeekSDLE", "WeekSDLE", 0.5, 5, 100);
+        new MDPMMTrain("report/WeekSDLE", "WeekSDLE", 0.5, 10, 100);
         StringBuilder result = new StringBuilder();
         for (int i = trainedDays; i < instanceLabel.get(0).size(); i++) {
             for (int j = 0; j < instanceLabel.size(); j++) {

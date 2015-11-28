@@ -60,7 +60,7 @@ public class WSUFeatureExtraction {
                 WSUFeatureVector vector = new WSUFeatureVector(path, getInputFilename(i));
                 double[] feature = vector.getVector();
                 for (int j = 0; j < feature.length; j++) {
-                    fw.write(String.valueOf(feature[j] * 100));
+                    fw.write(String.valueOf(feature[j] * 10000));
                     fw.write(",");
                 }
                 fw.write(vector.getLabel());

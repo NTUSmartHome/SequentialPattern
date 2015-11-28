@@ -6,7 +6,8 @@ import java.io.*;
  * Created by MingJe on 2015/10/3.
  */
 public class WSUFeatureVector {
-    private final int numOfFeatures = 12;
+    // For M2 = 14, M1 = 12
+    private final int numOfFeatures = 14;
     private double[] features;
     private String label;
 

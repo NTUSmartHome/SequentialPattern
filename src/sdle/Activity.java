@@ -15,8 +15,8 @@ public class Activity {
     ArrayList<Double> QOfActs = new ArrayList<Double>();
 
     Activity() {
-
-        for (int i = 1; i <= 12; i++) {
+        //For M2 i <= 14, M1 <= 12
+        for (int i = 1; i <= 14; i++) {
             String act = String.valueOf(i);
             Activities.add(act);
         }

@@ -58,7 +58,7 @@ public class WSUM2Parser {
 
 
                 if (data.length > 4) {
-                    if (data[4].contains("R1_Bathing")) {
+                    if (data[4].contains("R1_Bathing") && data[5].equals("begin")) {
                         label = 1;
                     } else if (data[4].contains("R1_Bed_Toilet_Transition") && data[5].equals("begin")) {
                         label = 2;
