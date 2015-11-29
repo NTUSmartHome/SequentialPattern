@@ -58,33 +58,33 @@ public class WSUM2Parser {
 
 
                 if (data.length > 4) {
-                    if (data[4].contains("R1_Bathing") && data[5].equals("begin")) {
+                    if (data[4].contains("R2_Bathing") && data[5].equals("begin")) {
                         label = 1;
-                    } else if (data[4].contains("R1_Bed_Toilet_Transition") && data[5].equals("begin")) {
+                    } else if (data[4].contains("R2_Bed_Toilet_Transition") && data[5].equals("begin")) {
                         label = 2;
-                    } else if (data[4].contains("R1_Eating") && data[5].equals("begin")) {
+                    } else if (data[4].contains("R2_Eating") && data[5].equals("begin")) {
                         label = 3;
-                    } else if (data[4].contains("R1_Enter_Home") && data[5].equals("begin")) {
+                    } else if (data[4].contains("R2_Enter_Home") && data[5].equals("begin")) {
                         label = 4;
-                    } else if (data[4].contains("R1_Housekeeping") && data[5].equals("begin")) {
+                    } else if (data[4].contains("R2_Housekeeping") && data[5].equals("begin")) {
                         label = 5;
-                    } else if (data[4].contains("R1_Leave_Home") && data[5].equals("begin")) {
+                    } else if (data[4].contains("R2_Leave_Home") && data[5].equals("begin")) {
                         label = 6;
-                    } else if (data[4].contains("R1_Meal_Preparation") && data[5].equals("begin")) {
+                    } else if (data[4].contains("R2_Meal_Preparation") && data[5].equals("begin")) {
                         label = 7;
-                    } else if (data[4].contains("R1_Personal_Hygiene") && data[5].equals("begin")) {
+                    } else if (data[4].contains("R2_Personal_Hygiene") && data[5].equals("begin")) {
                         label = 8;
-                    } else if (data[4].contains("R1_Sleep") && data[5].equals("begin")) {
+                    } else if (data[4].contains("R2_Sleep") && data[5].equals("begin")) {
                         label = 9;
-                    } else if (data[4].contains("R1_Sleeping_Not_in_Bed") && data[5].equals("begin")) {
+                    } else if (data[4].contains("R2_Sleeping_Not_in_Bed") && data[5].equals("begin")) {
                         label = 10;
-                    } else if (data[4].contains("R1_Wandering_in_room") && data[5].equals("begin")) {
+                    } else if (data[4].contains("R2_Wandering_in_room") && data[5].equals("begin")) {
                         label = 11;
-                    } else if (data[4].contains("R1_Watch_TV") && data[5].equals("begin")) {
+                    } else if (data[4].contains("R2_Watch_TV") && data[5].equals("begin")) {
                         label = 12;
-                    } else if (data[4].contains("R1_Work") && data[5].equals("begin")) {
+                    } else if (data[4].contains("R2_Work") && data[5].equals("begin")) {
                         label = 13;
-                    } else if (data[4].contains("R1") && data[5].equals("end")) {
+                    } else if (data[4].contains("R2") && data[5].equals("end")) {
                         isEnd = true;
                     }
                 }
@@ -98,7 +98,7 @@ public class WSUM2Parser {
                 preDate = date;
                 preLabel = label;
             }
-            FileWriter fw = new FileWriter("db/DB_M2_app.txt");
+            FileWriter fw = new FileWriter("db/DB_M2_appR2.txt");
             fw.write(result.toString());
             fw.close();
 

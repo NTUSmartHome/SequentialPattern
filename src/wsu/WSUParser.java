@@ -180,7 +180,7 @@ public class WSUParser {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         try {
 
-            fr = new FileReader("db/DB_M2_app.txt");
+            fr = new FileReader("db/DB_M2_appR2.txt");
             br = new BufferedReader(fr);
             int lastNoSDLE = -1;
             long lastUnixTimestamp = 0;

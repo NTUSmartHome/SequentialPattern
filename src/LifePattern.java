@@ -6,26 +6,23 @@ import dpmm.MDPMMTrain;
 import sdle.SDLE;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by MingJe on 2015/10/4.
  */
 public class LifePattern {
-
-    ArrayList<ArrayList<SDLE>> weekSdleList;
+    static double rh = 0.05, beta = 0.01;
+    ArrayList<ArrayList<SDLE>> weekSDLEList;
     ArrayList<SDLE> sdleList;
     ArrayList<ArrayList<String>> instanceLabel;
-
+    int MaxCluster;
     public LifePattern() {
         sdleList = new ArrayList<>();
         instanceLabel = new ArrayList<>();
-        weekSdleList = new ArrayList<>();
+        weekSDLEList = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
-            weekSdleList.add(new ArrayList<>());
+            weekSDLEList.add(new ArrayList<>());
         }
     }
 
@@ -35,8 +32,8 @@ public class LifePattern {
         //new MDPMMTrain("report/WSU", "WSU", 0.5, 5, 100);
 
         LifePattern olp = new LifePattern();
-        olp.readFile(5, 1, 0.05, 0.01);
-        olp.runSDLE(28);
+        olp.readFile(5, 1, rh, beta);
+        olp.runSDLE(56);
         //olp.runALZ(1);
         //olp.runAZSDLESimple(21);
         //olp.improvedALZ(10);
@@ -130,7 +127,7 @@ public class LifePattern {
                 String[] oneActs = new String[1];
                 oneActs[0] = acts[0];
                 //---------------------------------------Week SDLE-----------------------------------------------------------//
-                weekSdleList.get(day).get(j).parameterUpdating(oneActs);
+                weekSDLEList.get(day).get(j).parameterUpdating(oneActs);
                 day = (day + 1) % 7;
                 //-----------------------------------------------------------------------------------------------------------//
                 sdleList.get(j).parameterUpdating(oneActs);
@@ -144,9 +141,9 @@ public class LifePattern {
         try {
             StringBuilder sb = new StringBuilder();
             int count = 0;
-            for (int i = 0; i < weekSdleList.size(); i++) {
-                for (int j = 0; j < weekSdleList.get(i).size() ; j++) {
-                    ArrayList<Double> tmp = weekSdleList.get(i).get(j).getDistribution();
+            for (int i = 0; i < weekSDLEList.size(); i++) {
+                for (int j = 0; j < weekSDLEList.get(i).size(); j++) {
+                    ArrayList<Double> tmp = weekSDLEList.get(i).get(j).getDistribution();
                     for (int k = 1; k < tmp.size(); k++) {
                         sb.append(tmp.get(k) * 1000 + ",");
                         count++;
@@ -156,7 +153,7 @@ public class LifePattern {
                 sb.append("\r\n");
                 System.out.println(count);
                 count = 0;
-               // System.out.println(sb.toString());
+                // System.out.println(sb.toString());
             }
 
             FileWriter fw = new FileWriter("report/WeekSDLE/Features/WeekSDLEFeature.txt");
@@ -166,7 +163,29 @@ public class LifePattern {
             e.printStackTrace();
         }
 
+
         new MDPMMTrain("report/WeekSDLE", "WeekSDLE", 0.5, 10, 100);
+        Map<Integer, Integer> weekMap = weekMap();
+        weekSDLEList = renewWeekSDLE();
+        //----------------------------------WSU data begins on Thursday------------------------------------//
+        day = 3;
+        //-----------------------------------------------------------------------------------------------//
+        for (int i = 0; i < trainedDays; i++) {
+            for (int j = 0; j < instanceLabel.size(); j++) {
+                String[] acts = instanceLabel.get(j).get(i).split(",");
+                Arrays.sort(acts);
+
+                //---------------------------------------Different Here with AZSDLE-------------------------------------------//
+                String[] oneActs = new String[1];
+                oneActs[0] = acts[0];
+                //---------------------------------------Week SDLE-----------------------------------------------------------//
+                weekSDLEList.get(weekMap.get(day)).get(j).parameterUpdating(oneActs);
+                day = (day + 1) % 7;
+                //-----------------------------------------------------------------------------------------------------------//
+
+            }
+        }
+
         StringBuilder result = new StringBuilder();
         for (int i = trainedDays; i < instanceLabel.get(0).size(); i++) {
             for (int j = 0; j < instanceLabel.size(); j++) {
@@ -181,7 +200,7 @@ public class LifePattern {
 
                 result.append("Time : " + j / 12 + ":" + (j * 5) % 60 + "\tActivity : " + acts[0] + "\n");
                 List<Map.Entry<String, Double>> predictedActsBySDLE = sdleList.get(j).getMaxProbabiltyAct();
-                List<Map.Entry<String, Double>> predictedActsByWeeKSDLE = weekSdleList.get(day).get(j).getMaxProbabiltyAct();
+                List<Map.Entry<String, Double>> predictedActsByWeeKSDLE = weekSDLEList.get(weekMap.get(day)).get(j).getMaxProbabiltyAct();
 
 
                 result.append("SDLE : " + predictedActsBySDLE.get(0).getKey() + "\t" + predictedActsBySDLE.get(0).getValue()
@@ -202,7 +221,7 @@ public class LifePattern {
                 }
 
                 //---------------------------------------Week SDLE-----------------------------------------------------------//
-                weekSdleList.get(day).get(j).parameterUpdating(oneActs);
+                weekSDLEList.get(weekMap.get(day)).get(j).parameterUpdating(oneActs);
                 day = (day + 1) % 7;
                 //-----------------------------------------------------------------------------------------------------------//
                 sdleList.get(j).parameterUpdating(oneActs);
@@ -507,7 +526,7 @@ public class LifePattern {
                 String[] oneActs = new String[1];
                 oneActs[0] = acts[0];
                 //---------------------------------------Week SDLE-----------------------------------------------------------//
-                weekSdleList.get(day).get(j).parameterUpdating(oneActs);
+                weekSDLEList.get(day).get(j).parameterUpdating(oneActs);
                 day = (day + 1) % 7;
                 //-----------------------------------------------------------------------------------------------------------//
                 sdleList.get(j).parameterUpdating(oneActs);
@@ -550,9 +569,9 @@ public class LifePattern {
                 List<Map.Entry<String, Double>> predictedActsByALZ = PPM.prediction(alzIdx);
                 List<Map.Entry<String, Double>> predictedActsByWeeKSDLE;
                 if (day < 5)
-                    predictedActsByWeeKSDLE = weekSdleList.get(0).get(j).getMaxProbabiltyAct();
+                    predictedActsByWeeKSDLE = weekSDLEList.get(0).get(j).getMaxProbabiltyAct();
                 else
-                    predictedActsByWeeKSDLE = weekSdleList.get(1).get(j).getMaxProbabiltyAct();
+                    predictedActsByWeeKSDLE = weekSDLEList.get(1).get(j).getMaxProbabiltyAct();
 
 
                 result.append("SDLE : " + predictedActsBySDLE.get(0).getKey() + "\t" + predictedActsBySDLE.get(0).getValue()
@@ -589,7 +608,7 @@ public class LifePattern {
                 }
 
                 //---------------------------------------Week SDLE-----------------------------------------------------------//
-                weekSdleList.get(day).get(j).parameterUpdating(oneActs);
+                weekSDLEList.get(day).get(j).parameterUpdating(oneActs);
                 day = (day + 1) % 7;
                 //-----------------------------------------------------------------------------------------------------------//
                 sdleList.get(j).parameterUpdating(oneActs);
@@ -697,8 +716,8 @@ public class LifePattern {
                 instanceLabel.add(new ArrayList<>());
                 sdleList.add(new SDLE(rh, beta));
                 //---------------------Day of Week-----------------//
-                for (int i = 0; i < weekSdleList.size(); i++) {
-                    weekSdleList.get(i).add(new SDLE(rh, beta));
+                for (int i = 0; i < weekSDLEList.size(); i++) {
+                    weekSDLEList.get(i).add(new SDLE(rh, beta));
                 }
                 //------------------------------------------------//
                 while ((line = br.readLine()) != null) {
@@ -731,5 +750,41 @@ public class LifePattern {
 
         }
         return timeInterval;
+    }
+
+    private Map<Integer, Integer> weekMap() {
+        Map<Integer, Integer> weekMap = new HashMap<>();
+        try {
+            FileReader fr = new FileReader("report/WeekSDLE/DPMM/WeekSDLEResult");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            int i = 0;
+            while ((line = br.readLine()) != null) {
+                weekMap.put(i, Integer.parseInt(line.split("\\s+")[1]));
+                i++;
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        int MaxCluster = 0;
+        for (int i = 0; i < weekMap.size(); i++) {
+            if (weekMap.get(i) > MaxCluster)
+                MaxCluster = weekMap.get(i);
+        }
+        this.MaxCluster = MaxCluster + 1;
+        return weekMap;
+    }
+
+    private ArrayList<ArrayList<SDLE>> renewWeekSDLE() {
+        ArrayList<ArrayList<SDLE>> tmpWeekSDLEList = new ArrayList<>();
+        for (int i = 0; i < MaxCluster; i++) {
+            tmpWeekSDLEList.add(new ArrayList<>());
+            for (int j = 0; j < weekSDLEList.get(0).size(); j++) {
+                tmpWeekSDLEList.get(i).add(new SDLE(rh, beta));
+            }
+        }
+        return tmpWeekSDLEList;
     }
 }
