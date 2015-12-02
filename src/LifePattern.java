@@ -33,7 +33,7 @@ public class LifePattern {
 
         LifePattern olp = new LifePattern();
         olp.readFile(5, 1, rh, beta);
-        olp.runSDLE(56);
+        olp.runSDLE(10);
         //olp.runALZ(1);
         //olp.runAZSDLESimple(21);
         //olp.improvedALZ(10);
@@ -252,6 +252,16 @@ public class LifePattern {
             fw.write(result.toString());
             fw.write("\n\n" + Arrays.toString(sdleTimeIntervalAccuracy));
             fw.write("\n\n" + sdleSB.toString());
+            fw.close();
+            fw = new FileWriter("experiment.txt");
+            sdleSB = new StringBuilder();
+            for (int i = 1; i <= sdleList.get(0).getActivity().getActNum(); i++) {
+                for (int j = 0; j < sdleList.size(); j++) {
+                    sdleSB.append(sdleList.get(j).getActivity().getQOfActs(i) + " ");
+                }
+                sdleSB.append("\n\n");
+            }
+            fw.write(sdleSB.toString());
             fw.close();
         } catch (IOException e) {
             e.printStackTrace();
