@@ -37,7 +37,7 @@ public class LifePattern {
 
         LifePattern olp = new LifePattern();
         olp.readFile(5, 1, rh, beta);
-        olp.perDayActivityEstimation(112);
+        olp.perDayActivityEstimation(56);
         //olp.runSDLE(10);
         //olp.runAZSDLESimple(21);
         //olp.improvedALZ(2);
@@ -209,12 +209,12 @@ public class LifePattern {
             }
             //write feature for day merge
             FileWriter fw = new FileWriter(file + "WeekSDLEFeatures.csv");
-            StringBuilder stringBuilder = initStringBuilder(3168);
+            StringBuilder stringBuilder = new StringBuilder(); //initStringBuilder(3168);
             for (int i = 0; i < 7; i++) {
                 for (int j = 0; j < instanceLabel.size(); j++) {
                     ArrayList<Double> cellDistribution = newWeekSDLEList.get(i).get(j).getDistribution();
                     for (int k = 1; k < cellDistribution.size() - 1; k++) {
-                        stringBuilder.append(String.valueOf(cellDistribution.get(k).doubleValue() * 100) + ",");
+                        stringBuilder.append(String.valueOf(cellDistribution.get(k).doubleValue()*1000 ) + ",");
                     }
                 }
                 stringBuilder.append("\n");
@@ -238,12 +238,12 @@ public class LifePattern {
             //write feature for day segmentation
             for (int i = 0; i < numOfGroup; i++) {
                 fw = new FileWriter(file + "Segmentation/" + i + ".csv");
-                stringBuilder = initStringBuilder(11);
+                stringBuilder = new StringBuilder();//initStringBuilder(11);
                 for (int j = 0; j < instanceLabel.size(); j++) {
                     ArrayList<Double> cellDistribution = newWeekSDLEList.get(resultMap.get(String.valueOf(i))).get(j).getDistribution();
-                    stringBuilder.append(String.valueOf(cellDistribution.get(1).doubleValue()));
+                    stringBuilder.append(String.valueOf(cellDistribution.get(1).doubleValue()*100));
                     for (int k = 2; k < cellDistribution.size() - 1; k++) {
-                        stringBuilder.append("," + String.valueOf(cellDistribution.get(k).doubleValue()));
+                        stringBuilder.append("," + String.valueOf(cellDistribution.get(k).doubleValue()*100));
                     }
                     stringBuilder.append("\n");
                 }
@@ -270,16 +270,9 @@ public class LifePattern {
     }
 
     private Map<String, Integer> contextDayMerge(String file) {
-        try {
-            return DPMM.train(file, 0.01, 1, 100);
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
+
+        return DPMM.oldTrain(file, 0.01, 1, 20);
+
     }
 
     private void contextDaySegmentation(String path) {
@@ -287,15 +280,11 @@ public class LifePattern {
         String fileName = path + idx++ + ".csv";
         File file = new File(fileName);
         while (file.exists()) {
-            try {
-                DPMM.train(fileName, 0.5, 5, 100);
-                fileName = path + idx++ + ".csv";
-                file = new File(fileName);
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+            DPMM.oldTrain(fileName, 0.01, 1, 100);
+            fileName = path + idx++ + ".csv";
+            file = new File(fileName);
+
         }
     }
 
