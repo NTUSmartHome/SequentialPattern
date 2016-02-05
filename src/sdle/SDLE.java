@@ -46,9 +46,13 @@ public class SDLE {
         new SDLE("db/SDLE1.txt", "result.txt", 0.01, 0.0001);
     }
 
+    //2016/2/4 更新所有有的活動，但還是視它們為單一活動，不為多人活動
     public void parameterUpdating(String[] Acts) {
         updateDiscountingOfT();
-        A.setTOfActs(Acts, A.getTOfActs(Acts) + 1);
+        for (int i = 0; i < Acts.length; i++) {
+            A.setTOfActs(Acts[i], A.getTOfActs(Acts[i]) + 1);
+        }
+
         updateDiscountingOfQMJ();
         sumOfActivityEvent++;
         t++;

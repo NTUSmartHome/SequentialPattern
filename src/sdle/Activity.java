@@ -16,7 +16,7 @@ public class Activity {
 
     Activity() {
         //For M2 i <= 14, M1 <= 12
-        for (int i = 1; i <= 14; i++) {
+        for (int i = 1; i <= 12; i++) {
             String act = String.valueOf(i);
             Activities.add(act);
         }
@@ -142,6 +142,12 @@ public class Activity {
         }
         return Index;
     }
+    //2016/2/4 new
+    public int getIndexOfActs(String OccurActs) {
+        int Index = 0;
+        Index += getActValue(OccurActs);
+        return Index;
+    }
 
     public double getTOfActs(int index) {
         return TOfActs.get(index);
@@ -151,14 +157,27 @@ public class Activity {
         int index = getIndexOfActs(OccurActs);
         return TOfActs.get(index);
     }
-
+    //2016/2/4 new
+    public double getTOfActs(String OccurActs) {
+        int index = getIndexOfActs(OccurActs);
+        return TOfActs.get(index);
+    }
     public void setTOfActs(int index, double value) {
         TOfActs.set(index, value);
     }
 
     public void setTOfActs(String[] OccurActs, double value) {
+        for (int i = 0; i < OccurActs.length; i++) {
+            int index = getIndexOfActs(OccurActs);
+            TOfActs.set(index, value);
+        }
+    }
+    //2016/2/4 new
+    public void setTOfActs(String OccurActs, double value) {
+
         int index = getIndexOfActs(OccurActs);
         TOfActs.set(index, value);
+
     }
 
     public double getQOfActs(int index) {
