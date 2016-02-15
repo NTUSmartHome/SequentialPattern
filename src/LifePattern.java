@@ -304,6 +304,9 @@ public class LifePattern {
         return weekSDLEList;
     }
 
+    public void activityPropertyModelling() {
+
+    }
 
     public void runAZSDLESimple(int trainedDays) {
         int numOfTimeInterval = instanceLabel.size();

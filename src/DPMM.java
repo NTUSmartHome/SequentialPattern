@@ -1,20 +1,16 @@
 
+
+
 import com.datumbox.common.dataobjects.Dataset;
 import com.datumbox.common.dataobjects.Record;
+import com.datumbox.common.persistentstorage.ConfigurationFactory;
+import com.datumbox.common.persistentstorage.interfaces.DatabaseConfiguration;
+import com.datumbox.common.utilities.PHPfunctions;
+import com.datumbox.common.utilities.RandomGenerator;
+import com.datumbox.framework.machinelearning.datatransformation.XYMinMaxNormalizer;
+import com.datumbox.framework.machinelearning.regression.MatrixLinearRegression;
 
-import com.datumbox.common.utilities.RandomValue;
-import com.datumbox.configuration.MemoryConfiguration;
-import com.datumbox.framework.machinelearning.clustering.MultinomialDPMM;
-import com.datumbox.framework.machinelearning.common.bases.basemodels.BaseDPMM;
-
-
-
-import java.io.*;
-
-
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 /**
  * Created by MingJe on 2016/2/4.
@@ -22,10 +18,79 @@ import java.util.Random;
 
 public class DPMM {
 
+    public static void regression(ArrayList<>) {
+        //Initialization
+        //--------------
+        RandomGenerator.setGlobalSeed(42L); //optionally set a specific seed for all Random objects
+        DatabaseConfiguration dbConf = ConfigurationFactory.INMEMORY.getConfiguration(); //in-memory maps
+        //DatabaseConfiguration dbConf = ConfigurationFactory.MAPDB.getConfiguration(); //mapdb maps
 
+
+
+
+        Dataset trainingDataset = new Dataset(dbConf);
+
+        Dataset testingDataset = trainingDataset.copy();
+
+
+        //Transform Dataset
+        //-----------------
+
+        //Normalize continuous variables
+        XYMinMaxNormalizer dataTransformer = new XYMinMaxNormalizer("LaborStatistics", dbConf);
+        dataTransformer.fit_transform(trainingDataset, new XYMinMaxNormalizer.TrainingParameters());
+
+
+        //Fit the regressor
+        //-----------------
+
+        MatrixLinearRegression regressor = new MatrixLinearRegression("LaborStatistics", dbConf);
+
+        MatrixLinearRegression.TrainingParameters param = new MatrixLinearRegression.TrainingParameters();
+
+        regressor.fit(trainingDataset, param);
+
+        //Denormalize trainingDataset (optional)
+        dataTransformer.denormalize(trainingDataset);
+
+
+        //Use the regressor
+        //------------------
+
+        //Apply the same data transformations on testingDataset
+        dataTransformer.transform(testingDataset);
+
+        //Get validation metrics on the training set
+        MatrixLinearRegression.ValidationMetrics vm = regressor.validate(testingDataset);
+        regressor.setValidationMetrics(vm); //store them in the model for future reference
+
+        //Denormalize testingDataset (optional)
+        dataTransformer.denormalize(testingDataset);
+
+        System.out.println("Results:");
+        for (Integer rId : testingDataset) {
+            Record r = testingDataset.get(rId);
+            System.out.println("Record " + rId + " - Real Y: " + r.getY() + ", Predicted Y: " + r.getYPredicted());
+        }
+
+        System.out.println("Regressor Statistics: " + PHPfunctions.var_export(vm));
+
+
+        //Clean up
+        //--------
+
+        //Erase data transformer, featureselector and regressor.
+        dataTransformer.erase();
+        regressor.erase();
+
+        //Erase datasets.
+        trainingDataset.erase();
+        testingDataset.erase();
+
+    }
 
     public static Map<String, Integer> oldTrain(String file, double alpha, double alphaWords, int iter) {
-        RandomValue.randomGenerator = new Random(42);
+        /*RandomValue.randomGenerator = new Random(42);
 
         MemoryConfiguration memoryConfiguration = new MemoryConfiguration();
         Dataset trainingData, validationData;
@@ -73,10 +138,11 @@ public class DPMM {
 
             System.out.println( "Label: " + r.getY() + ", predict: " + r.getYPredicted());
         }
-        return resultMap;
+        return resultMap;*/
+        return null;
     }
 
-    private static Dataset generateDatasetFeature(String filename) {
+    /*private static Dataset generateDatasetFeature(String filename) {
         Dataset trainingData = new Dataset();
         try {
             FileReader fr = new FileReader(filename);
@@ -99,5 +165,5 @@ public class DPMM {
         }
 
         return trainingData;
-    }
+    }*/
 }
