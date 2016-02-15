@@ -1,11 +1,13 @@
 //import dpmm.MDPMMTrain;
 
+import DataStructure.ActivityInstance;
 import alz.ActiveLzTree;
 import alz.PPM;
 import sdle.SDLE;
+import wsu.ActivityInstanceParser;
 
 import java.io.*;
-import java.net.URISyntaxException;
+import java.text.ParseException;
 import java.util.*;
 
 /**
@@ -16,9 +18,13 @@ public class LifePattern {
     ArrayList<ArrayList<SDLE>> weekSDLEList;
     ArrayList<SDLE> sdleList;
     ArrayList<ArrayList<String>> instanceLabel;
+
+    Map<String, Integer> resultMap;
+    ArrayList<ActivityInstance>[] weekActivityInstances;
+
     int MaxCluster;
-    //----------------------------------WSU data begins on Thursday------------------------------------//
-    final int weekDayStart = 3;
+    //----------------------------------WSU M1 data begins on Friday------------------------------------//
+    final int weekDayStart = 4;
     //-----------------------------------------------------------------------------------------------//
 
     public LifePattern() {
@@ -214,7 +220,7 @@ public class LifePattern {
                 for (int j = 0; j < instanceLabel.size(); j++) {
                     ArrayList<Double> cellDistribution = newWeekSDLEList.get(i).get(j).getDistribution();
                     for (int k = 1; k < cellDistribution.size() - 1; k++) {
-                        stringBuilder.append(String.valueOf(cellDistribution.get(k).doubleValue()*1000 ) + ",");
+                        stringBuilder.append(String.valueOf(cellDistribution.get(k).doubleValue() * 100) + ",");
                     }
                 }
                 stringBuilder.append("\n");
@@ -222,7 +228,7 @@ public class LifePattern {
             stringBuilder.deleteCharAt(stringBuilder.length() - 1);
             fw.write(stringBuilder.toString());
             fw.close();
-            Map<String, Integer> resultMap = contextDayMerge(file + "WeekSDLEFeatures.csv");
+            resultMap = contextDayMerge(file + "WeekSDLEFeatures.csv");
 
             //perDayActivityEstimation for day segmentation
             int numOfGroup = resultMap.get("size");
@@ -241,9 +247,9 @@ public class LifePattern {
                 stringBuilder = new StringBuilder();//initStringBuilder(11);
                 for (int j = 0; j < instanceLabel.size(); j++) {
                     ArrayList<Double> cellDistribution = newWeekSDLEList.get(resultMap.get(String.valueOf(i))).get(j).getDistribution();
-                    stringBuilder.append(String.valueOf(cellDistribution.get(1).doubleValue()*100));
+                    stringBuilder.append(String.valueOf(cellDistribution.get(1).doubleValue() * 100));
                     for (int k = 2; k < cellDistribution.size() - 1; k++) {
-                        stringBuilder.append("," + String.valueOf(cellDistribution.get(k).doubleValue()*100));
+                        stringBuilder.append("," + String.valueOf(cellDistribution.get(k).doubleValue() * 100));
                     }
                     stringBuilder.append("\n");
                 }
@@ -252,8 +258,16 @@ public class LifePattern {
             }
             contextDaySegmentation(file + "Segmentation/");
 
+            //Activity Instance parse, return an object and write the file;
+            weekActivityInstances = ActivityInstanceParser.yin(7, resultMap);
+
+            //Activity Instance Grouping
+            activityInstanceGrouping();
+
 
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
             e.printStackTrace();
         }
     }
@@ -304,7 +318,24 @@ public class LifePattern {
         return weekSDLEList;
     }
 
-    public void activityPropertyModelling() {
+    private void activityInstanceGrouping() {
+        ArrayList<ArrayList<ActivityInstance>> eachActivity = new ArrayList<>();
+        Map<String, Integer> activities = new HashMap<>();
+        for (int i = 0; i < weekActivityInstances.length; i++) {
+            for (int j = 0; j < weekActivityInstances[i].size(); j++) {
+                ActivityInstance activityInstance = weekActivityInstances[i].get(j);
+                String activity = activityInstance.getActivity();
+                if (!activities.containsKey(activity)) {
+                    eachActivity.add(new ArrayList<>());
+                    activities.put(activity, activities.size());
+                }
+                eachActivity.get(activities.get(activity)).add(activityInstance);
+
+            }
+        }
+    }
+
+    private void activityPropertyModelling() {
 
     }
 

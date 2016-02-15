@@ -1,4 +1,4 @@
-package LifePattern;
+package DataStructure;
 
 
 /**
@@ -15,6 +15,19 @@ public class ActivityInstance {
         this.duration = duration;
 
     }
+
+    public String getActivity() {
+        return activity;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public long getDuration() {
+        return duration;
+    }
+
     public String toSting() {
         return activity + " " + startTime + " " + duration;
     }

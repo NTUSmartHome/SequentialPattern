@@ -10,6 +10,7 @@ import com.datumbox.common.utilities.RandomGenerator;
 import com.datumbox.framework.machinelearning.datatransformation.XYMinMaxNormalizer;
 import com.datumbox.framework.machinelearning.regression.MatrixLinearRegression;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -18,7 +19,7 @@ import java.util.Map;
 
 public class DPMM {
 
-    public static void regression(ArrayList<>) {
+    public static void regression(ArrayList<Record> records) {
         //Initialization
         //--------------
         RandomGenerator.setGlobalSeed(42L); //optionally set a specific seed for all Random objects
@@ -29,7 +30,9 @@ public class DPMM {
 
 
         Dataset trainingDataset = new Dataset(dbConf);
-
+        for (int i = 0; i < records.size(); i++) {
+            trainingDataset.add(records.get(i));
+        }
         Dataset testingDataset = trainingDataset.copy();
 
 

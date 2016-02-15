@@ -25,9 +25,6 @@ public class WSUParser {
             case 0:
                 toSDLE();
                 break;
-            case 1:
-                toSequential();
-                break;
             case 2:
                 toSDLER();
                 break;
@@ -54,58 +51,7 @@ public class WSUParser {
 
     }
 
-    private void toSequential() {
-        try {
-            TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
-            fr = new FileReader("db/DB_M1_app.txt");
-            br = new BufferedReader(fr);
-            FileWriter fw = new FileWriter("db/Seq.txt");
-            String line;
-            int currentActivity = 0;
-            boolean isFirst = true;
-            long startTime = -1;
-            long preEndTime = -1;
-            while ((line = br.readLine()) != null) {
-                String[] rawData = line.split("[}{,:]+");
 
-                if (currentActivity != Integer.valueOf(rawData[7].trim())) {
-                    currentActivity = Integer.valueOf(rawData[7].trim());
-
-                    if (!isFirst && startTime != -1) {
-                        preEndTime = Long.valueOf(rawData[6]);
-                        fw.write("EndTime:"
-                                + new java.text.SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date(Long.valueOf(rawData[6])))
-                                + ",Duration:" + (Long.valueOf(rawData[6]) - startTime) + "\r\n");
-                        startTime = -1;
-
-                    }
-                    if (currentActivity < 12) {
-                        startTime = Long.valueOf(rawData[6]);
-                        long diff = startTime - preEndTime;
-                        while (preEndTime != -1 && diff > 300000) {
-                            String time = new java.text.SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date(preEndTime += 300000L));
-                            String endTime = new java.text.SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date(preEndTime + 1000));
-                            fw.write("activity:12,BeginTime:" + time + ",EndTime:" + endTime + ",Duration:1" + "\r\n");
-                            diff -= 300000L;
-                        }
-                        fw.write("activity:" + currentActivity + ",");
-                        fw.write("BeginTime:"
-                                + new java.text.SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date(startTime)) + ",");
-
-                        isFirst = false;
-                    }
-
-                }
-                //preTime = Long.valueOf(rawData[6]);
-            }
-
-            fw.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     private void toSDLER() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
