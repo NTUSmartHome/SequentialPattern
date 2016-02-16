@@ -3,12 +3,13 @@
 import DataStructure.ActivityInstance;
 import alz.ActiveLzTree;
 import alz.PPM;
+import com.datumbox.common.dataobjects.AssociativeArray;
+import com.datumbox.common.dataobjects.Record;
 import sdle.SDLE;
 import wsu.ActivityInstanceParser;
 import wsu.WSUParser;
 
 import java.io.*;
-import java.net.URISyntaxException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -22,7 +23,7 @@ public class LifePattern {
     ArrayList<SDLE> sdleList;
     ArrayList<ArrayList<String>> instanceLabel;
     ArrayList<ArrayList<SDLE>> newWeekSDLEList;
-    Map<String, Integer> resultMap;
+    Map<String, Integer> weekResultMap;
     ArrayList<ActivityInstance>[] weekActivityInstances;
 
     int MaxCluster;
@@ -45,15 +46,15 @@ public class LifePattern {
         //new MDPMMTrain("report/WSU", "WSU", 0.5, 5, 100);
 
         LifePattern olp = new LifePattern();
-        olp.readFile(5, 1, rh, beta);
-        /*Map<String, Integer> resultMap = new HashMap<>();
+        //olp.readFile(5, 1, rh, beta);
+        Map<String, Integer> resultMap = new HashMap<>();
         for (int i = 0; i < 7; i++) {
             resultMap.put(String.valueOf(i), i);
         }
         olp.weekActivityInstances = ActivityInstanceParser.yin(300, resultMap);
-        olp.activityInstanceGrouping();*/
+        olp.activityInstanceGrouping();
         //olp.preProcessingWSU();
-        olp.perDayActivityEstimation(56);
+        //olp.perDayActivityEstimation(56);
         //olp.runSDLE(10);
         //olp.runAZSDLESimple(21);
         //olp.improvedALZ(2);
@@ -242,16 +243,16 @@ public class LifePattern {
             stringBuilder.deleteCharAt(stringBuilder.length() - 1);
             fw.write(stringBuilder.toString());
             fw.close();
-            resultMap = contextDayMerge(file + "WeekSDLEFeatures.csv");
+            weekResultMap = contextDayMerge(file + "WeekSDLEFeatures.csv");
 
             //perDayActivityEstimation for day segmentation
-            int numOfGroup = resultMap.get("size");
+            int numOfGroup = weekResultMap.get("size");
             newWeekSDLEList = newWeekSDLEList(numOfGroup);
             day = weekDayStart;
             for (int i = 0; i < trainedDays; i++) {
                 for (int j = 0; j < instanceLabel.size(); j++) {
                     String[] acts = instanceLabel.get(j).get(i).split(",");
-                    newWeekSDLEList.get(resultMap.get(String.valueOf(day))).get(j).parameterUpdating(acts);
+                    newWeekSDLEList.get(weekResultMap.get(String.valueOf(day))).get(j).parameterUpdating(acts);
                     day = (day + 1) % 7;
                 }
             }
@@ -260,10 +261,10 @@ public class LifePattern {
                 fw = new FileWriter(file + "Segmentation/" + i + ".csv");
                 stringBuilder = new StringBuilder();//initStringBuilder(11);
                 for (int j = 0; j < instanceLabel.size(); j++) {
-                    ArrayList<Double> cellDistribution = newWeekSDLEList.get(resultMap.get(String.valueOf(i))).get(j).getDistribution();
-                    stringBuilder.append(String.valueOf(cellDistribution.get(1).doubleValue() * 100));
+                    ArrayList<Double> cellDistribution = newWeekSDLEList.get(weekResultMap.get(String.valueOf(i))).get(j).getDistribution();
+                    stringBuilder.append(String.valueOf(cellDistribution.get(1).doubleValue() * 10));
                     for (int k = 2; k < cellDistribution.size() - 1; k++) {
-                        stringBuilder.append("," + String.valueOf(cellDistribution.get(k).doubleValue() * 100));
+                        stringBuilder.append("," + String.valueOf(cellDistribution.get(k).doubleValue() * 10));
                     }
                     stringBuilder.append("\n");
                 }
@@ -273,7 +274,7 @@ public class LifePattern {
             contextDaySegmentation(file + "Segmentation/");
 
             //Activity Instance parse, return an object and write the file;
-            weekActivityInstances = ActivityInstanceParser.yin(7, resultMap);
+            weekActivityInstances = ActivityInstanceParser.yin(7, weekResultMap);
 
             //Activity Instance Grouping
             activityInstanceGrouping();
@@ -300,7 +301,7 @@ public class LifePattern {
     private Map<String, Integer> contextDayMerge(String file) {
 
         try {
-            return DPMM.train(file, 0.01, 1, 20);
+            return DPMM.MDPMMTrain(file, 0.5, 1, 100);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -314,7 +315,11 @@ public class LifePattern {
         File file = new File(fileName);
         while (file.exists()) {
 
-            DPMM.oldTrain(fileName, 0.01, 1, 100);
+            try {
+                DPMM.MDPMMTrain(fileName, 0.4, 1, 100);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             fileName = path + idx++ + ".csv";
             file = new File(fileName);
 
@@ -368,8 +373,8 @@ public class LifePattern {
 
                         ActivityInstance activityInstance = eachActivity[k].get(i).get(j);
                         if (j == 0) {
-                            fileName = "report/ActivityInstance/Grouping/" +"group" + k +"-"
-                                    +  activityInstance.getActivity() + "-" + j + ".csv";
+                            fileName = "report/ActivityInstance/Grouping/" + "group" + k + "-"
+                                    + activityInstance.getActivity() + "-" + j + ".csv";
 
                             fw = new FileWriter(fileName);
 
@@ -383,9 +388,37 @@ public class LifePattern {
                     fw.write(featureString.toString());
                     fw.flush();
                     fw.close();
-                    Map<String, Integer> activityResultMap = DPMM.train(fileName, 0.8, 80, 100);
+                    //Map<String, Integer> activityResultMap = DPMM.MDPMMTrain(fileName, 1, 1, 50);
+                    Map<String, Integer> activityResultMap = DPMM.HierarchicalAgglomerativeTrain(fileName);
                     featureString = new StringBuilder();
+                    ArrayList<Record>[] records = new ArrayList[activityResultMap.get("size")];
+                    Map<Integer, Integer> clusterMap = new HashMap<>();
 
+                    //if we want use idx [0, size] to access activityResultMap,
+                    //activityResultMap.size should -1 because of key "size"
+                    for (int j = 0; j < activityResultMap.size() - 1; j++) {
+                        AssociativeArray record = new AssociativeArray();
+                        ActivityInstance tmpAI = eachActivity[k].get(i).get(j);
+                        Date date = startTimeDateFormat.parse(tmpAI.getStartTime());
+                        long startTime = date.getTime() / 1000;
+                        record.put(0, startTime);
+                        int trueClusterIdx = activityResultMap.get(String.valueOf(j));
+                        if (!clusterMap.containsKey(trueClusterIdx)) {
+                            clusterMap.put(trueClusterIdx, clusterMap.size());
+                        }
+                        try {
+                            records[clusterMap.get(trueClusterIdx)].add(new Record(record, tmpAI.getDuration()));
+                        } catch (NullPointerException e) {
+                            records[clusterMap.get(trueClusterIdx)] = new ArrayList<>();
+                            records[clusterMap.get(trueClusterIdx)].add(new Record(record, tmpAI.getDuration()));
+                        }
+                    }
+                    for (int j = 0; j < records.length; j++) {
+                        System.out.println("group" + k + "-"
+                                + "-" + j);
+                        DPMM.MatrixLinearRegression(records[j]);
+                        System.out.println();
+                    }
                 }
             }
 

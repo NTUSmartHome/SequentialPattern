@@ -45,8 +45,9 @@ public class ActivityInstanceParser {
                     calendar.setTime(weekFormat.parse(startDate + " " + startTime));
                     int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                     int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
+                    // unit: minute
                     long duration = (weekFormat.parse(data[0] + " " + data[1]).getTime()
-                            - weekFormat.parse(startDate + " " + startTime).getTime()) / 1000;
+                            - weekFormat.parse(startDate + " " + startTime).getTime()) / 60000;
 
                     week[dayOfGroup].add(new ActivityInstance(activity, startTime, duration));
 
@@ -108,8 +109,8 @@ public class ActivityInstanceParser {
                 startDay = date;
             }
             if (!preActivity.equals(activity)) {
-
-                long duration = (weekFormat.parse(date).getTime() - weekFormat.parse(startTime).getTime()) / 1000;
+                //unit:minute
+                long duration = (weekFormat.parse(date).getTime() - weekFormat.parse(startTime).getTime()) / 60000;
                 calendar.setTime(weekFormat.parse(startTime));
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
