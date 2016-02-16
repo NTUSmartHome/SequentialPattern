@@ -1,16 +1,25 @@
 
 
 
+import com.datumbox.common.dataobjects.AssociativeArray;
 import com.datumbox.common.dataobjects.Dataset;
 import com.datumbox.common.dataobjects.Record;
 import com.datumbox.common.persistentstorage.ConfigurationFactory;
 import com.datumbox.common.persistentstorage.interfaces.DatabaseConfiguration;
 import com.datumbox.common.utilities.PHPfunctions;
 import com.datumbox.common.utilities.RandomGenerator;
+import com.datumbox.framework.machinelearning.clustering.GaussianDPMM;
+import com.datumbox.framework.machinelearning.clustering.MultinomialDPMM;
+import com.datumbox.framework.machinelearning.common.bases.basemodels.BaseDPMM;
+import com.datumbox.framework.machinelearning.datatransformation.DummyXMinMaxNormalizer;
 import com.datumbox.framework.machinelearning.datatransformation.XYMinMaxNormalizer;
 import com.datumbox.framework.machinelearning.regression.MatrixLinearRegression;
+import org.apache.commons.math3.stat.inference.TestUtils;
 
+import java.io.*;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -25,8 +34,6 @@ public class DPMM {
         RandomGenerator.setGlobalSeed(42L); //optionally set a specific seed for all Random objects
         DatabaseConfiguration dbConf = ConfigurationFactory.INMEMORY.getConfiguration(); //in-memory maps
         //DatabaseConfiguration dbConf = ConfigurationFactory.MAPDB.getConfiguration(); //mapdb maps
-
-
 
 
         Dataset trainingDataset = new Dataset(dbConf);
@@ -78,7 +85,6 @@ public class DPMM {
 
         System.out.println("Regressor Statistics: " + PHPfunctions.var_export(vm));
 
-
         //Clean up
         //--------
 
@@ -90,6 +96,112 @@ public class DPMM {
         trainingDataset.erase();
         testingDataset.erase();
 
+    }
+
+    public static Map<String, Integer> train(String file, double alpha, double alphaWords, int iter) throws IOException {
+        //Initialization
+        //--------------
+        RandomGenerator.setGlobalSeed(42L); //optionally set a specific seed for all Random objects
+
+        //DatabaseConfiguration dbConf = ConfigurationFactory.INMEMORY.getConfiguration();//in-memory maps
+        DatabaseConfiguration dbConf = ConfigurationFactory.MAPDB.getConfiguration(); //mapdb maps
+        FileReader fr = new FileReader(new File(file));
+        BufferedReader br = new BufferedReader(fr);
+        String line;
+        String[] data;
+        Dataset trainingDataset = new Dataset(dbConf);
+
+        //Reader fileReader = new FileReader(file);
+        //Dataset trainingDataset = Dataset.Builder.parseCSVFile(fileReader, "Class", headerDataTypes, ',', '"', "\r\n", dbConf);
+        while ((line = br.readLine()) != null) {
+            data = line.split(",");
+            AssociativeArray record = new AssociativeArray();
+            for (int i = 0; i < data.length; i++) {
+                record.put(i, new Double(data[i]));
+            }
+            trainingDataset.add(new Record(record, ""));
+        }
+        Dataset testingDataset = trainingDataset.copy();
+
+        //Transform Dataset
+        //-----------------
+
+        //Convert Categorical variables to dummy variables (boolean) and normalize continuous variables
+        //DummyXMinMaxNormalizer dataTransformer = new DummyXMinMaxNormalizer("Test", dbConf);
+        //dataTransformer.fit_transform(trainingDataset, new DummyXMinMaxNormalizer.TrainingParameters());
+
+
+        GaussianDPMM cluster = new GaussianDPMM("Test", dbConf);
+
+        GaussianDPMM.TrainingParameters param = new GaussianDPMM.TrainingParameters();
+        param.setAlpha(alpha);
+        //param.setAlphaWords(alphaWords);
+        param.setMaxIterations(iter);
+        param.setInitializationMethod(BaseDPMM.TrainingParameters.Initialization.RANDOM_ASSIGNMENT);
+        param.setKappa0(0);
+        param.setNu0(1);
+        int varibleNumber = trainingDataset.getVariableNumber();
+        param.setMu0(new double[varibleNumber]);
+        double[][] Psi0 = new double[varibleNumber][varibleNumber];
+        for (int i = 0; i < varibleNumber; i++) {
+            for (int j = 0; j < varibleNumber; j++) {
+                if (i == j ) Psi0[i][j] = 1;
+            }
+        }
+        param.setPsi0(Psi0);
+        cluster.fit(trainingDataset, param);
+
+        //Denormalize trainingDataset (optional)
+        //dataTransformer.denormalize(trainingDataset);
+
+        System.out.println("Cluster assignments (Record Ids):");
+        for (Map.Entry<Integer, GaussianDPMM.Cluster> entry : cluster.getClusters().entrySet()) {
+            Integer clusterId = entry.getKey();
+            GaussianDPMM.Cluster cl = entry.getValue();
+
+            System.out.println("Cluster " + clusterId + ": " + cl.getRecordIdSet());
+        }
+
+
+        //Use the clusterer
+        //-----------------
+
+        //Apply the same transformations on testingDataset
+        //dataTransformer.transform(testingDataset);
+
+        //Get validation metrics on the training set
+        GaussianDPMM.ValidationMetrics vm = cluster.validate(testingDataset);
+        cluster.setValidationMetrics(vm); //store them in the model for future reference
+
+        //Denormalize testingDataset (optional)
+        //dataTransformer.denormalize(testingDataset);
+
+
+        //Result map
+        HashMap<String, Integer> resultMap = new HashMap<>();
+        resultMap.put("size", cluster.getClusters().size());
+        System.out.println("Results:");
+        for (Integer rId : testingDataset) {
+            Record r = testingDataset.get(rId);
+            System.out.println("Record " + rId + " - Original Y: " + r.getY() + ", Predicted Cluster Id: " + r.getYPredicted());
+            resultMap.put(String.valueOf(rId), (Integer) r.getYPredicted());
+        }
+
+
+        System.out.println("Clusterer Statistics: " + PHPfunctions.var_export(vm));
+
+
+        //Clean up
+        //--------
+
+        //Erase data transformer, clusterer.
+        //dataTransformer.erase();
+        cluster.erase();
+
+        //Erase datasets.
+        trainingDataset.erase();
+        testingDataset.erase();
+        return resultMap;
     }
 
     public static Map<String, Integer> oldTrain(String file, double alpha, double alphaWords, int iter) {

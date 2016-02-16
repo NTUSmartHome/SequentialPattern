@@ -5,9 +5,12 @@ import alz.ActiveLzTree;
 import alz.PPM;
 import sdle.SDLE;
 import wsu.ActivityInstanceParser;
+import wsu.WSUParser;
 
 import java.io.*;
+import java.net.URISyntaxException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -18,7 +21,7 @@ public class LifePattern {
     ArrayList<ArrayList<SDLE>> weekSDLEList;
     ArrayList<SDLE> sdleList;
     ArrayList<ArrayList<String>> instanceLabel;
-
+    ArrayList<ArrayList<SDLE>> newWeekSDLEList;
     Map<String, Integer> resultMap;
     ArrayList<ActivityInstance>[] weekActivityInstances;
 
@@ -36,13 +39,20 @@ public class LifePattern {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException, ParseException {
 
         //Original : 0.5, 10, 100
         //new MDPMMTrain("report/WSU", "WSU", 0.5, 5, 100);
 
         LifePattern olp = new LifePattern();
         olp.readFile(5, 1, rh, beta);
+        /*Map<String, Integer> resultMap = new HashMap<>();
+        for (int i = 0; i < 7; i++) {
+            resultMap.put(String.valueOf(i), i);
+        }
+        olp.weekActivityInstances = ActivityInstanceParser.yin(300, resultMap);
+        olp.activityInstanceGrouping();*/
+        //olp.preProcessingWSU();
         olp.perDayActivityEstimation(56);
         //olp.runSDLE(10);
         //olp.runAZSDLESimple(21);
@@ -199,12 +209,16 @@ public class LifePattern {
 
     }
 
+    private void preProcessingWSU() {
+        new WSUParser(5, 1, 0);
+    }
+
     private void perDayActivityEstimation(int trainedDays) {
 
         try {
             // perDayActivityEstimation for day merge
             String file = "report/WeekSDLE/Features/";
-            ArrayList<ArrayList<SDLE>> newWeekSDLEList = newWeekSDLEList(7);
+            newWeekSDLEList = newWeekSDLEList(7);
             int day = weekDayStart;
             for (int i = 0; i < trainedDays; i++) {
                 for (int j = 0; j < instanceLabel.size(); j++) {
@@ -285,7 +299,12 @@ public class LifePattern {
 
     private Map<String, Integer> contextDayMerge(String file) {
 
-        return DPMM.oldTrain(file, 0.01, 1, 20);
+        try {
+            return DPMM.train(file, 0.01, 1, 20);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
 
     }
 
@@ -319,20 +338,63 @@ public class LifePattern {
     }
 
     private void activityInstanceGrouping() {
-        ArrayList<ArrayList<ActivityInstance>> eachActivity = new ArrayList<>();
+        ArrayList<ArrayList<ActivityInstance>>[] eachActivity = new ArrayList[weekActivityInstances.length];
+        for (int i = 0; i < eachActivity.length; i++) {
+            eachActivity[i] = new ArrayList<>();
+        }
         Map<String, Integer> activities = new HashMap<>();
         for (int i = 0; i < weekActivityInstances.length; i++) {
             for (int j = 0; j < weekActivityInstances[i].size(); j++) {
                 ActivityInstance activityInstance = weekActivityInstances[i].get(j);
                 String activity = activityInstance.getActivity();
                 if (!activities.containsKey(activity)) {
-                    eachActivity.add(new ArrayList<>());
+                    eachActivity[i].add(new ArrayList<>());
                     activities.put(activity, activities.size());
                 }
-                eachActivity.get(activities.get(activity)).add(activityInstance);
-
+                eachActivity[i].get(activities.get(activity)).add(activityInstance);
             }
+            activities.clear();
         }
+        StringBuilder featureString = new StringBuilder();
+        SimpleDateFormat startTimeDateFormat = new SimpleDateFormat("HH:mm:ss");
+        FileWriter fw = null;
+        String fileName = null;
+
+        try {
+            for (int k = 0; k < eachActivity.length; k++) {
+                for (int i = 0; i < eachActivity[k].size(); i++) {
+                    for (int j = 0; j < eachActivity[k].get(i).size(); j++) {
+
+
+                        ActivityInstance activityInstance = eachActivity[k].get(i).get(j);
+                        if (j == 0) {
+                            fileName = "report/ActivityInstance/Grouping/" +"group" + k +"-"
+                                    +  activityInstance.getActivity() + "-" + j + ".csv";
+
+                            fw = new FileWriter(fileName);
+
+                        }
+                        Date date = startTimeDateFormat.parse(activityInstance.getStartTime());
+                        long startTime = date.getTime() / 1000;
+                        featureString.append(startTime + "," + activityInstance.getDuration() + "\n");
+
+
+                    }
+                    fw.write(featureString.toString());
+                    fw.flush();
+                    fw.close();
+                    Map<String, Integer> activityResultMap = DPMM.train(fileName, 0.8, 80, 100);
+                    featureString = new StringBuilder();
+
+                }
+            }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void activityPropertyModelling() {

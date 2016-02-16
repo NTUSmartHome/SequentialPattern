@@ -126,7 +126,7 @@ public class WSUParser {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         try {
 
-            fr = new FileReader("db/DB_M2_appR2.txt");
+            fr = new FileReader("db/DB_M1_app.txt");
             br = new BufferedReader(fr);
             int lastNoSDLE = -1;
             long lastUnixTimestamp = 0;
@@ -135,8 +135,8 @@ public class WSUParser {
             String line;
 
             int preSDLEth = -1;
-            //For DB_M1, preLabel = 12
-            String preLabel = "14";
+            //For DB_M1, preLabel = 12, DB_M2, preLabel = 14;
+            String preLabel = "12";
 
             while ((line = br.readLine()) != null) {
                 line = line.replace("{", "").replace("\"", "").replace(" ", "");
@@ -145,8 +145,8 @@ public class WSUParser {
                 String label = rawData[rawData.length - 1];
                 int actLabel = Integer.valueOf(label);
                 // For DB_M1
-                /*if (actLabel > 12)
-                    label = "12";*/
+                if (actLabel > 12)
+                    label = "12";
                 //System.out.println(label);
 
                 long unixTimestamp = Integer.valueOf(rawData[rawData.length - 2].substring(0, 10));
