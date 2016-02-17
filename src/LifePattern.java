@@ -388,8 +388,8 @@ public class LifePattern {
                     fw.write(featureString.toString());
                     fw.flush();
                     fw.close();
-                    //Map<String, Integer> activityResultMap = DPMM.MDPMMTrain(fileName, 1, 1, 50);
-                    Map<String, Integer> activityResultMap = DPMM.HierarchicalAgglomerativeTrain(fileName);
+                    Map<String, Integer> activityResultMap = DPMM.MDPMMTrain(fileName, 0.8, 1, 50);
+                    //Map<String, Integer> activityResultMap = DPMM.HierarchicalAgglomerativeTrain(fileName);
                     featureString = new StringBuilder();
                     ArrayList<Record>[] records = new ArrayList[activityResultMap.get("size")];
                     Map<Integer, Integer> clusterMap = new HashMap<>();
@@ -402,6 +402,9 @@ public class LifePattern {
                         Date date = startTimeDateFormat.parse(tmpAI.getStartTime());
                         long startTime = date.getTime() / 1000;
                         record.put(0, startTime);
+                        record.put(1, startTime * startTime);
+                        record.put(2, startTime * startTime * startTime);
+                        record.put(4, startTime / (1 + Math.exp(1)));
                         int trueClusterIdx = activityResultMap.get(String.valueOf(j));
                         if (!clusterMap.containsKey(trueClusterIdx)) {
                             clusterMap.put(trueClusterIdx, clusterMap.size());
@@ -413,10 +416,10 @@ public class LifePattern {
                             records[clusterMap.get(trueClusterIdx)].add(new Record(record, tmpAI.getDuration()));
                         }
                     }
-                    for (int j = 0; j < records.length; j++) {
+                    for (int j = 0; j < clusterMap.keySet().size(); j++) {
                         System.out.println("group" + k + "-"
                                 + "-" + j);
-                        DPMM.MatrixLinearRegression(records[j]);
+                        DPMM.NLMS(records[j]);
                         System.out.println();
                     }
                 }

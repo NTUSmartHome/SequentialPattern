@@ -133,6 +133,9 @@ public class DPMM {
         param.setAout(0.05);
         param.setRegressionClass(MatrixLinearRegression.class);
 
+
+        MatrixLinearRegression.TrainingParameters trainingParams = new MatrixLinearRegression.TrainingParameters();
+        param.setRegressionTrainingParameters(trainingParams);
         regressor.fit(trainingDataset, param);
 
         //Denormalize trainingDataset (optional)
@@ -191,8 +194,8 @@ public class DPMM {
         //-----------------
 
         //Normalize continuous variables
-        //XYMinMaxNormalizer dataTransformer = new XYMinMaxNormalizer("Regression", dbConf);
-        //dataTransformer.fit_transform(trainingDataset, new XYMinMaxNormalizer.TrainingParameters());
+        XYMinMaxNormalizer dataTransformer = new XYMinMaxNormalizer("Regression", dbConf);
+        dataTransformer.fit_transform(trainingDataset, new XYMinMaxNormalizer.TrainingParameters());
 
 
         //Fit the regressor
@@ -207,21 +210,21 @@ public class DPMM {
         regressor.fit(trainingDataset, param);
 
         //Denormalize trainingDataset (optional)
-        //dataTransformer.denormalize(trainingDataset);
+        dataTransformer.denormalize(trainingDataset);
 
 
         //Use the regressor
         //------------------
 
         //Apply the same data transformations on testingDataset
-        //dataTransformer.transform(testingDataset);
+        dataTransformer.transform(testingDataset);
 
         //Get validation metrics on the training set
         NLMS.ValidationMetrics vm = regressor.validate(testingDataset);
         regressor.setValidationMetrics(vm); //store them in the model for future reference
 
         //Denormalize testingDataset (optional)
-        //dataTransformer.denormalize(testingDataset);
+        dataTransformer.denormalize(testingDataset);
 
         System.out.println("Results:");
         for (Integer rId : testingDataset) {
@@ -235,7 +238,7 @@ public class DPMM {
         //--------
 
         //Erase data transformer, featureselector and regressor.
-        //dataTransformer.erase();
+        dataTransformer.erase();
         regressor.erase();
 
         //Erase datasets.
