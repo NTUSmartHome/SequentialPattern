@@ -25,6 +25,9 @@ public class WSUParser {
             case 0:
                 toSDLE();
                 break;
+            case 1:
+                toSDLEMing();
+                break;
             case 2:
                 toSDLER();
                 break;
@@ -47,7 +50,7 @@ public class WSUParser {
             e.printStackTrace();
         }*/
 
-        new WSUParser(5, 1, 0);
+        new WSUParser(5, 1, 1);
 
     }
 
@@ -237,7 +240,117 @@ public class WSUParser {
             fr.close();
             db.printDB();
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    private void toSDLEMing() {
+
+        DB db = new DB(timeInterval, option);
+        try {
+
+            fr = new FileReader("db/MingT.csv");
+            br = new BufferedReader(fr);
+            int lastNoSDLE = -1;
+            long lastUnixTimestamp = 0;
+            ArrayList<String> instance = new ArrayList<String>();
+            ArrayList<String> preInstance = new ArrayList<String>();
+            String line;
+
+            int preSDLEth = -1;
+            //For DB_M1, preLabel = 12, DB_M2, preLabel = 14;
+            String preLabel = "12";
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+            while ((line = br.readLine()) != null) {
+                String[] rawData = line.split(",");
+
+                String label = rawData[0];
+
+                long unixTimestamp = simpleDateFormat.parse(rawData[1]).getTime() / 1000;
+                //System.out.println(unixTimestamp);
+
+                int belongToWhichSDLE = db.belongToWhichSDLE(unixTimestamp);
+
+                if (lastNoSDLE == -1) {
+                    instance.add(label);
+                } else if (lastNoSDLE != belongToWhichSDLE && lastNoSDLE != -1) {
+                    //if(!nonOccurNewAct) {
+
+                    String[] instanceLable = new String[instance.size()];
+                    for (int i = 0; i < instance.size(); i++) {
+                        instanceLable[i] = instance.get(i);
+                    }
+                    db.addInstance(instanceLable, lastUnixTimestamp);
+                    preInstance = instance;
+                    instance.clear();
+                    instance.add(label);
+
+                } else {
+                    boolean exist = false;
+                    for (int i = 0; i < instance.size(); i++) {
+                        if (label.equals(instance.get(i))) {
+                            exist = true;
+                            break;
+                        }
+                    }
+                    if (!exist)
+                        instance.add(label);
+                }
+
+
+                int tmpNoSDLE = lastNoSDLE + 1;
+                if (tmpNoSDLE == db.getSDLEQuantity())
+                    tmpNoSDLE = 0;
+
+                if (lastUnixTimestamp != 0) {
+                    if (belongToWhichSDLE != lastNoSDLE) {
+                        if (belongToWhichSDLE < tmpNoSDLE) {
+                            //System.out.println("\r\nMore than one sdle idle, " + tmpNoSDLE + " -> " + belongToWhichSDLE);
+                            String[] instanceLable = new String[preInstance.size()];
+                            for (int i = 0; i < preInstance.size(); i++) {
+                                instanceLable[i] = preInstance.get(i);
+                            }
+
+                            while (belongToWhichSDLE < tmpNoSDLE) {
+                                db.addInstance(instanceLable, tmpNoSDLE);
+                                //System.out.print("*");
+                                tmpNoSDLE++;
+                                if (tmpNoSDLE == db.getSDLEQuantity()) {
+                                    tmpNoSDLE = 0;
+                                }
+
+                            }
+                            while ((belongToWhichSDLE - tmpNoSDLE) > 0) {
+                                db.addInstance(instanceLable, tmpNoSDLE);
+                                //System.out.print("*");
+                                tmpNoSDLE++;
+
+                            }
+                        } else if ((belongToWhichSDLE - tmpNoSDLE) > 0) {
+                            //System.out.println("More than one sdle idle, " + tmpNoSDLE + " -> " + belongToWhichSDLE);
+                            String[] instanceLable = new String[preInstance.size()];
+                            for (int i = 0; i < preInstance.size(); i++) {
+                                instanceLable[i] = preInstance.get(i);
+                            }
+
+                            while ((belongToWhichSDLE - tmpNoSDLE) > 0) {
+                                db.addInstance(instanceLable, tmpNoSDLE);
+
+                                tmpNoSDLE++;
+
+                            }
+                        }
+                    }
+                }
+                lastNoSDLE = belongToWhichSDLE;
+                lastUnixTimestamp = unixTimestamp;
+            }
+            System.out.println("test");
+            br.close();
+            fr.close();
+            db.printDB();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

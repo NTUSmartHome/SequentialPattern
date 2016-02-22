@@ -78,7 +78,7 @@ public class ActivityInstanceParser {
 
     // Parse out activity instance using yichongzeng wsu data format.
     // This way with others. all activity > 11
-    public static ArrayList<ActivityInstance>[] yin(int trainedDays, Map<String, Integer> resultMap) throws IOException, ParseException {
+    public static ArrayList<ActivityInstance>[][] yin(int trainedDays, Map<String, Integer> resultMap) throws IOException, ParseException {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         FileReader fr = new FileReader("db/DB_M1_app.txt");
         BufferedReader br = new BufferedReader(fr);
@@ -88,10 +88,56 @@ public class ActivityInstanceParser {
         String startDay = null;
         SimpleDateFormat weekFormat = new SimpleDateFormat("yyyy.MM.dd-HH:mm:ss");
         Calendar calendar = Calendar.getInstance();
+        ArrayList<ActivityInstance>[][] total = new ArrayList[2][resultMap.size()];
         ArrayList<ActivityInstance>[] week = new ArrayList[resultMap.size()];
+        ArrayList<ActivityInstance>[] testWeek = new ArrayList[resultMap.size()];
+        //long startTimestamp = 1010;
         for (int i = 0; i < week.length; i++) {
             week[i] = new ArrayList<>();
+            testWeek[i] = new ArrayList<>();
         }
+        total[0] = week;
+        total[1] = testWeek;
+
+        while ((line = br.readLine()) != null) {
+            line = line.replace("{", "").replace("\"", "").replace(" ", "");
+            String[] rawData = line.split("[:}]+");
+            String activity = rawData[rawData.length - 1];
+            if (Integer.parseInt(activity) > 12) {
+                activity = "12";
+            }
+            if (activity.equals("7")){
+                activity = "7";
+            }
+            long unixTimestamp = Integer.valueOf(rawData[rawData.length - 2].substring(0, 10));
+            //System.out.println(unixTimestamp);
+            String date = weekFormat.format(new java.util.Date(unixTimestamp * 1000));
+            if (preActivity.equals("")) {
+                preActivity = activity;
+                startTime = date;
+                startDay = date;
+                //startTimestamp = unixTimestamp;
+            }
+            if (!preActivity.equals(activity)) {
+                //unit:minute
+                long duration = (weekFormat.parse(date).getTime() - weekFormat.parse(startTime).getTime()) / 60000;
+
+
+                calendar.setTime(weekFormat.parse(startTime));
+                int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+                int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
+                if (duration >= 0)
+                    week[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], duration));
+                startTime = date;
+                //startTimestamp = unixTimestamp;
+                preActivity = activity;
+                long differenceOfDays = (weekFormat.parse(date).getTime() - weekFormat.parse(startDay).getTime()) / 86400000;
+                if (differenceOfDays >= trainedDays) {
+                    break;
+                }
+            }
+        }
+
 
         while ((line = br.readLine()) != null) {
             line = line.replace("{", "").replace("\"", "").replace(" ", "");
@@ -107,40 +153,53 @@ public class ActivityInstanceParser {
                 preActivity = activity;
                 startTime = date;
                 startDay = date;
+                //startTimestamp = unixTimestamp;
             }
             if (!preActivity.equals(activity)) {
                 //unit:minute
                 long duration = (weekFormat.parse(date).getTime() - weekFormat.parse(startTime).getTime()) / 60000;
+
+
                 calendar.setTime(weekFormat.parse(startTime));
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
-                week[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], duration));
+                if (duration >= 0)
+                    testWeek[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], duration));
                 startTime = date;
+                //startTimestamp = unixTimestamp;
                 preActivity = activity;
                 long differenceOfDays = (weekFormat.parse(date).getTime() - weekFormat.parse(startDay).getTime()) / 86400000;
                 if (differenceOfDays >= trainedDays) {
                     break;
                 }
             }
-
         }
+
 
         br.close();
         fr.close();
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder train = new StringBuilder();
+        StringBuilder test = new StringBuilder();
         for (int i = 0; i < week.length; i++) {
             FileWriter fw = new FileWriter("report/ActivityInstance/" + i);
+            FileWriter fwTest = new FileWriter("report/ActivityInstance/" + i + "_Test");
             for (int j = 0; j < week[i].size(); j++) {
                 ActivityInstance activityInstance = week[i].get(j);
-                sb.append(activityInstance.toSting() + "\n");
+                train.append(activityInstance.toSting() + "\n");
             }
-            fw.write(sb.toString());
+            for (int j = 0; j < testWeek[i].size(); j++) {
+                ActivityInstance activityInstance = testWeek[i].get(j);
+                test.append(activityInstance.toSting() + "\n");
+            }
+            fw.write(train.toString());
             fw.close();
-            sb = new StringBuilder();
+            fwTest.write(test.toString());
+            train = new StringBuilder();
+            test = new StringBuilder();
         }
 
-        return week;
+        return total;
     }
 
     public static void main(String[] args) {
