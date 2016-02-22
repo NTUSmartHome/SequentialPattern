@@ -36,9 +36,14 @@ public class DPMM {
         return staticCluster;
     }
 
-    public static BaseDPMM loadModel(String modelName) {
+    public static BaseDPMM loadGaussianDPMMModel(String modelName) {
         DatabaseConfiguration dbConf = ConfigurationFactory.INMEMORY.getConfiguration(); //in-memory maps
         staticCluster = new GaussianDPMM(modelName, dbConf);
+        return staticCluster;
+    }
+    public static BaseDPMM loadMultinomialDPMMModel(String modelName) {
+        DatabaseConfiguration dbConf = ConfigurationFactory.INMEMORY.getConfiguration(); //in-memory maps
+        staticCluster = new MultinomialDPMM(modelName, dbConf);
         return staticCluster;
     }
     public static void MatrixLinearRegression(ArrayList<Record> records) {
@@ -259,7 +264,7 @@ public class DPMM {
         testingDataset.erase();
     }
 
-    public static Map<String, Integer> MDPMMTrain(String file, double alpha, double alphaWords, int iter) throws IOException {
+    public static Map<String, Integer> MDPMMTrain(String modelName, String file, double alpha, double alphaWords, int iter) throws IOException {
         //Initialization
         //--------------
         RandomGenerator.setGlobalSeed(42L); //optionally set a specific seed for all Random objects
@@ -272,8 +277,6 @@ public class DPMM {
         String[] data;
         Dataset trainingDataset = new Dataset(dbConf);
 
-        //Reader fileReader = new FileReader(file);
-        //Dataset trainingDataset = Dataset.Builder.parseCSVFile(fileReader, "Class", headerDataTypes, ',', '"', "\r\n", dbConf);
         while ((line = br.readLine()) != null) {
             data = line.split(",");
             AssociativeArray record = new AssociativeArray();
@@ -283,37 +286,28 @@ public class DPMM {
             trainingDataset.add(new Record(record, ""));
         }
         Dataset testingDataset = trainingDataset.copy();
-
+        br.close();
+        fr.close();
         //Transform Dataset
         //-----------------
 
         //Convert Categorical variables to dummy variables (boolean) and normalize continuous variables
-        DummyXMinMaxNormalizer dataTransformer = new DummyXMinMaxNormalizer("Test", dbConf);
-        dataTransformer.fit_transform(trainingDataset, new DummyXMinMaxNormalizer.TrainingParameters());
+       // DummyXMinMaxNormalizer dataTransformer = new DummyXMinMaxNormalizer("Test", dbConf);
+        //dataTransformer.fit_transform(trainingDataset, new DummyXMinMaxNormalizer.TrainingParameters());
 
 
-        MultinomialDPMM cluster = new MultinomialDPMM("Test", dbConf);
+        MultinomialDPMM cluster = new MultinomialDPMM(modelName, dbConf);
         staticCluster = cluster;
         MultinomialDPMM.TrainingParameters param = new MultinomialDPMM.TrainingParameters();
         param.setAlpha(alpha);
         param.setAlphaWords(alphaWords);
         param.setMaxIterations(iter);
         param.setInitializationMethod(BaseDPMM.TrainingParameters.Initialization.ONE_CLUSTER_PER_RECORD);
-        /*param.setKappa0(0);
-        param.setNu0(1);
-        int varibleNumber = trainingDataset.getVariableNumber();
-        param.setMu0(new double[varibleNumber]);
-        double[][] Psi0 = new double[varibleNumber][varibleNumber];
-        for (int i = 0; i < varibleNumber; i++) {
-            for (int j = 0; j < varibleNumber; j++) {
-                if (i == j ) Psi0[i][j] = 1;
-            }
-        }
-        param.setPsi0(Psi0);*/
+
         cluster.fit(trainingDataset, param);
 
         //Denormalize trainingDataset (optional)
-        dataTransformer.denormalize(trainingDataset);
+        //dataTransformer.denormalize(trainingDataset);
 
         System.out.println("Cluster assignments (Record Ids):");
         for (Map.Entry<Integer, MultinomialDPMM.Cluster> entry : cluster.getClusters().entrySet()) {
@@ -328,14 +322,14 @@ public class DPMM {
         //-----------------
 
         //Apply the same transformations on testingDataset
-        dataTransformer.transform(testingDataset);
+        //dataTransformer.transform(testingDataset);
 
         //Get validation metrics on the training set
         MultinomialDPMM.ValidationMetrics vm = cluster.validate(testingDataset);
         cluster.setValidationMetrics(vm); //store them in the model for future reference
 
         //Denormalize testingDataset (optional)
-        dataTransformer.denormalize(testingDataset);
+        //dataTransformer.denormalize(testingDataset);
 
 
         //Result map
@@ -356,8 +350,8 @@ public class DPMM {
         //--------
 
         //Erase data transformer, clusterer.
-        dataTransformer.erase();
-        cluster.erase();
+        //dataTransformer.erase();
+        //cluster.erase();
 
         //Erase datasets.
         trainingDataset.erase();
@@ -365,22 +359,35 @@ public class DPMM {
         return resultMap;
     }
 
-    public static Map<String, Integer> GDPMMPredict(ArrayList<Record> records) {
+    public static Map<String, Integer> DPMMPredict(ArrayList<Record> records) {
 
         DatabaseConfiguration dbConf = ConfigurationFactory.INMEMORY.getConfiguration();//in-memory maps
         Dataset testingDataset = new Dataset(dbConf);
         for (int i = 0; i < records.size(); i++) {
             testingDataset.add(records.get(i));
         }
-
+        staticCluster.predict(testingDataset);
         //Result map
         HashMap<String, Integer> resultMap = new HashMap<>();
         resultMap.put("size", staticCluster.getClusters().size());
-        System.out.println("Results:");
+        //System.out.println("Results:");
         for (Integer rId : testingDataset) {
             Record r = testingDataset.get(rId);
-            System.out.println("Record " + rId + " - Original Y: " + r.getY() + ", Predicted Cluster Id: " + r.getYPredicted());
+            //System.out.println("Record " + rId + " - Original Y: " + r.getY() + ", Predicted Cluster Id: " + r.getYPredicted());
             resultMap.put(String.valueOf(rId), (Integer) r.getYPredicted());
+        }
+
+        return resultMap;
+    }
+
+    public static Map<String, Integer> OneClusterPredict(ArrayList<Record> records) {
+
+
+        HashMap<String, Integer> resultMap = new HashMap<>();
+        resultMap.put("size", 1);
+        //System.out.println("Results:");
+        for (int i = 0; i < records.size(); i++) {
+            resultMap.put(String.valueOf(i), 0);
         }
 
         return resultMap;
@@ -410,7 +417,8 @@ public class DPMM {
             trainingDataset.add(new Record(record, ""));
         }
         Dataset testingDataset = trainingDataset.copy();
-
+        br.close();
+        fr.close();
         //Transform Dataset
         //-----------------
 
@@ -470,12 +478,12 @@ public class DPMM {
         System.out.println("Results:");
         for (Integer rId : testingDataset) {
             Record r = testingDataset.get(rId);
-            //System.out.println("Record " + rId + " - Original Y: " + r.getY() + ", Predicted Cluster Id: " + r.getYPredicted());
+            System.out.println("Record " + rId + " - Original Y: " + r.getY() + ", Predicted Cluster Id: " + r.getYPredicted());
             resultMap.put(String.valueOf(rId), (Integer) r.getYPredicted());
         }
 
 
-        //System.out.println("Clusterer Statistics: " + PHPfunctions.var_export(vm));
+        System.out.println("Clusterer Statistics: " + PHPfunctions.var_export(vm));
 
 
         //Clean up
@@ -503,6 +511,8 @@ public class DPMM {
         while ((line = br.readLine()) != null) {
             size++;
         }
+        br.close();
+        fr.close();
         //Result map
         HashMap<String, Integer> resultMap = new HashMap<>();
         resultMap.put("size", 1);

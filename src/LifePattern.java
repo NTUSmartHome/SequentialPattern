@@ -4,9 +4,7 @@ import DataStructure.ActivityInstance;
 import alz.ActiveLzTree;
 import alz.PPM;
 import com.datumbox.common.dataobjects.AssociativeArray;
-import com.datumbox.common.dataobjects.Dataset;
 import com.datumbox.common.dataobjects.Record;
-import com.datumbox.framework.machinelearning.common.bases.basemodels.BaseDPMM;
 import sdle.SDLE;
 import smile.regression.Regression;
 import tool.ActivityInstanceParser;
@@ -55,7 +53,7 @@ public class LifePattern {
         for (int i = 0; i < 7; i++) {
             resultMap.put(String.valueOf(i), 0);
         }
-        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.Ming(31, resultMap);
+        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.Ming(30, resultMap);
         olp.weekActivityInstances = total[0];
         olp.testWeekActivityInstances = total[1];
         olp.activityInstanceGrouping();
@@ -311,7 +309,7 @@ public class LifePattern {
     private Map<String, Integer> contextDayMerge(String file) {
 
         try {
-            return DPMM.MDPMMTrain(file, 0.8, 1, 20);
+            return DPMM.MDPMMTrain("Model/dayMerge", file, 0.8, 1, 20);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -326,7 +324,7 @@ public class LifePattern {
         while (file.exists()) {
 
             try {
-                DPMM.MDPMMTrain(fileName, 0.8, 1, 15);
+                DPMM.MDPMMTrain(idx + "Seg", fileName, 0.8, 1, 15);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -412,8 +410,8 @@ public class LifePattern {
                     fw.close();
 
                     //if (!activityInstance.getActivity().equals("6")) continue;
-                    Map<String, Integer> activityResultMap = DPMM.GDPMMTrain("Model/" + "group" + k
-                            + "_" + activityInstance.getActivity(), fileName, 0.01, 0, 100);
+                    Map<String, Integer> activityResultMap = DPMM.GDPMMTrain("Model/" + "group" + k + "_" + activityInstance.getActivity(), fileName, 0.1, 0, 500);
+                    //Map<String, Integer> activityResultMap = DPMM.MDPMMTrain("Model/" + "group" + k + "_" + activityInstance.getActivity(), fileName, 0.1, 0, 500);
                     //Map<String, Integer> activityResultMap = DPMM.oneCluster(fileName);
                     //Map<String, Integer> activityResultMap = DPMM.HierarchicalAgglomerativeTrain(fileName);
                     featureString = new StringBuilder();
@@ -437,9 +435,9 @@ public class LifePattern {
                         record.put(4, startTime / (1 + Math.exp(1)));
                         xRecordSmile[0] = startTime;
                         int trueClusterIdx = activityResultMap.get(String.valueOf(j));
-                        if (!clusterMap.containsKey(trueClusterIdx)) {
+                        //if (!clusterMap.containsKey(trueClusterIdx)) {
                             clusterMap.put(trueClusterIdx, clusterMap.size());
-                        }
+                        //}
                         try {
                             records[clusterMap.get(trueClusterIdx)].add(new Record(record, tmpAI.getDuration()));
                             xRecordsSmile[clusterMap.get(trueClusterIdx)].add(xRecordSmile);
@@ -461,7 +459,7 @@ public class LifePattern {
                         System.out.println("group" + k + "-"
                                 + "-" + j);
                         //DPMM.NLMS(records[j]);
-                        Regression regression = Smile.RegressionTree(xRecordsSmile[j], yRecordsSmile[j]);
+                        Regression regression = Smile.LASSO(xRecordsSmile[j], yRecordsSmile[j]);
                         regressionMap.put(clusterMap.get(j), regression);
                         System.out.println();
                     }
@@ -478,18 +476,25 @@ public class LifePattern {
                     for (int j = 0; j < testEachActivity[k].get(i).size(); j++) {
                         AssociativeArray array = new AssociativeArray();
                         testActivityInstance = testEachActivity[k].get(i).get(j);
-                        array.put(0, new Double(simpleDateFormat.parse(testActivityInstance.getStartTime()).getTime())/ 1000 / 60); // unit : minute)
+                        array.put(0, new Double(simpleDateFormat.parse(testActivityInstance.getStartTime()).getTime()) / 1000 / 60); // unit : minute)
                         array.put(1, new Double(testActivityInstance.getDuration()));
-                        records.add(new Record(array,""));
+                        records.add(new Record(array, ""));
                     }
-                    DPMM.loadModel("Model/" + "group" + k
-                            + "_" + testActivityInstance.getActivity()+"_GaussianDPMM");
-                    Map<String, Integer> resultMap = DPMM.GDPMMPredict(records);
-                    for (int j = 0; j < testEachActivity[k].get(i).size(); j++) {
+                    DPMM.loadMultinomialDPMMModel("Model/" + "group" + k
+                            + "_" + testActivityInstance.getActivity());
+                    Map<String, Integer> resultMap = DPMM.DPMMPredict(records);
+                    double errorMinute = 0;
+                    int numOfTestRecords = 0;
+                    for (int j = 0; j < (numOfTestRecords = testEachActivity[k].get(i).size()); j++) {
                         testActivityInstance = testEachActivity[k].get(i).get(j);
-                        Regression regression = regressors[k].get(testActivityInstance.getActivity()).get(resultMap.get(j));
-                        regression.predict(Double.valueOf(testActivityInstance.getStartTime()));
+                        Map<Integer, Regression> regressionMap = regressors[k].get(testActivityInstance.getActivity());
+                        Regression regression = regressionMap.get(resultMap.get(String.valueOf(j)));
+                        double[] textX = new double[1];
+                        textX[0] = Double.valueOf(simpleDateFormat.parse(testActivityInstance.getStartTime()).getTime() / 1000 / 60);
+                        errorMinute += Math.abs(Double.valueOf(testActivityInstance.getDuration()) -
+                                regression.predict(textX));
                     }
+                    System.out.println(testActivityInstance.getActivity() + " : " + errorMinute / numOfTestRecords);
                 }
 
             }
