@@ -1,4 +1,4 @@
-package wsu;
+package tool;
 
 import java.io.*;
 

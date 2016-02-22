@@ -15,9 +15,10 @@ import com.datumbox.framework.machinelearning.regression.MatrixLinearRegression;
 import com.datumbox.framework.machinelearning.regression.NLMS;
 import com.datumbox.framework.machinelearning.regression.StepwiseRegression;
 
-
-import java.io.*;
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +29,18 @@ import java.util.Map;
 
 public class DPMM {
 
+
+    private static BaseDPMM staticCluster;
+
+    public static BaseDPMM getCluster() {
+        return staticCluster;
+    }
+
+    public static BaseDPMM loadModel(String modelName) {
+        DatabaseConfiguration dbConf = ConfigurationFactory.INMEMORY.getConfiguration(); //in-memory maps
+        staticCluster = new GaussianDPMM(modelName, dbConf);
+        return staticCluster;
+    }
     public static void MatrixLinearRegression(ArrayList<Record> records) {
         //Initialization
         //--------------
@@ -280,7 +293,7 @@ public class DPMM {
 
 
         MultinomialDPMM cluster = new MultinomialDPMM("Test", dbConf);
-
+        staticCluster = cluster;
         MultinomialDPMM.TrainingParameters param = new MultinomialDPMM.TrainingParameters();
         param.setAlpha(alpha);
         param.setAlphaWords(alphaWords);
@@ -352,7 +365,28 @@ public class DPMM {
         return resultMap;
     }
 
-    public static Map<String, Integer> GDPMMTrain(String file, double alpha, double alphaWords, int iter) throws IOException {
+    public static Map<String, Integer> GDPMMPredict(ArrayList<Record> records) {
+
+        DatabaseConfiguration dbConf = ConfigurationFactory.INMEMORY.getConfiguration();//in-memory maps
+        Dataset testingDataset = new Dataset(dbConf);
+        for (int i = 0; i < records.size(); i++) {
+            testingDataset.add(records.get(i));
+        }
+
+        //Result map
+        HashMap<String, Integer> resultMap = new HashMap<>();
+        resultMap.put("size", staticCluster.getClusters().size());
+        System.out.println("Results:");
+        for (Integer rId : testingDataset) {
+            Record r = testingDataset.get(rId);
+            System.out.println("Record " + rId + " - Original Y: " + r.getY() + ", Predicted Cluster Id: " + r.getYPredicted());
+            resultMap.put(String.valueOf(rId), (Integer) r.getYPredicted());
+        }
+
+        return resultMap;
+    }
+
+    public static Map<String, Integer> GDPMMTrain(String modelName, String file, double alpha, double alphaWords, int iter) throws IOException {
         //Initialization
         //--------------
         RandomGenerator.setGlobalSeed(42L); //optionally set a specific seed for all Random objects
@@ -385,8 +419,8 @@ public class DPMM {
         //dataTransformer.fit_transform(trainingDataset, new DummyXMinMaxNormalizer.TrainingParameters());
 
 
-        GaussianDPMM cluster = new GaussianDPMM("Test", dbConf);
-
+        GaussianDPMM cluster = new GaussianDPMM(modelName, dbConf);
+        staticCluster = cluster;
         GaussianDPMM.TrainingParameters param = new GaussianDPMM.TrainingParameters();
         param.setAlpha(alpha);
         param.setMaxIterations(iter);
@@ -412,7 +446,7 @@ public class DPMM {
             Integer clusterId = entry.getKey();
             GaussianDPMM.Cluster cl = entry.getValue();
 
-            System.out.println("Cluster " + clusterId + ": " + cl.getRecordIdSet());
+            //System.out.println("Cluster " + clusterId + ": " + cl.getRecordIdSet());
         }
 
 
@@ -436,12 +470,12 @@ public class DPMM {
         System.out.println("Results:");
         for (Integer rId : testingDataset) {
             Record r = testingDataset.get(rId);
-            System.out.println("Record " + rId + " - Original Y: " + r.getY() + ", Predicted Cluster Id: " + r.getYPredicted());
+            //System.out.println("Record " + rId + " - Original Y: " + r.getY() + ", Predicted Cluster Id: " + r.getYPredicted());
             resultMap.put(String.valueOf(rId), (Integer) r.getYPredicted());
         }
 
 
-        System.out.println("Clusterer Statistics: " + PHPfunctions.var_export(vm));
+        //System.out.println("Clusterer Statistics: " + PHPfunctions.var_export(vm));
 
 
         //Clean up
@@ -449,7 +483,7 @@ public class DPMM {
 
         //Erase data transformer, clusterer.
         //dataTransformer.erase();
-        cluster.erase();
+        //cluster.erase();
 
         //Erase datasets.
         trainingDataset.erase();

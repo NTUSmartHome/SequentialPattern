@@ -1,4 +1,4 @@
-package wsu;
+package tool;
 
 import DataStructure.ActivityInstance;
 
@@ -106,7 +106,7 @@ public class ActivityInstanceParser {
             if (Integer.parseInt(activity) > 12) {
                 activity = "12";
             }
-            if (activity.equals("7")){
+            if (activity.equals("7")) {
                 activity = "7";
             }
             long unixTimestamp = Integer.valueOf(rawData[rawData.length - 2].substring(0, 10));
@@ -169,10 +169,127 @@ public class ActivityInstanceParser {
                 //startTimestamp = unixTimestamp;
                 preActivity = activity;
                 long differenceOfDays = (weekFormat.parse(date).getTime() - weekFormat.parse(startDay).getTime()) / 86400000;
+
+            }
+        }
+
+
+        br.close();
+        fr.close();
+
+        StringBuilder train = new StringBuilder();
+        StringBuilder test = new StringBuilder();
+        for (int i = 0; i < week.length; i++) {
+            FileWriter fw = new FileWriter("report/ActivityInstance/" + i);
+            FileWriter fwTest = new FileWriter("report/ActivityInstance/" + i + "_Test");
+            for (int j = 0; j < week[i].size(); j++) {
+                ActivityInstance activityInstance = week[i].get(j);
+                train.append(activityInstance.toSting() + "\n");
+            }
+            for (int j = 0; j < testWeek[i].size(); j++) {
+                ActivityInstance activityInstance = testWeek[i].get(j);
+                test.append(activityInstance.toSting() + "\n");
+            }
+            fw.write(train.toString());
+            fw.close();
+            fwTest.write(test.toString());
+            train = new StringBuilder();
+            test = new StringBuilder();
+        }
+
+        return total;
+    }
+
+    // Parse out activity instance using MING data format.
+    // This way with others
+    public static ArrayList<ActivityInstance>[][] Ming(int trainedDays, Map<String, Integer> resultMap) throws IOException, ParseException {
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
+        FileReader fr = new FileReader("db/MingT.csv");
+        BufferedReader br = new BufferedReader(fr);
+        String line;
+        String startTime = "";
+        String startDay = null;
+        String preActivity = "";
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat original = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+        SimpleDateFormat weekFormat = new SimpleDateFormat("yyyy.MM.dd-HH:mm:ss");
+        ArrayList<ActivityInstance>[][] total = new ArrayList[2][resultMap.size()];
+        ArrayList<ActivityInstance>[] week = new ArrayList[resultMap.size()];
+        ArrayList<ActivityInstance>[] testWeek = new ArrayList[resultMap.size()];
+
+        //long startTimestamp = 1010;
+        for (int i = 0; i < week.length; i++) {
+            week[i] = new ArrayList<>();
+            testWeek[i] = new ArrayList<>();
+        }
+        total[0] = week;
+        total[1] = testWeek;
+        String preDate = "";
+        while ((line = br.readLine()) != null) {
+            String[] rawData = line.split(",");
+            String activity = rawData[0];
+
+            long unixTimestamp = original.parse(rawData[1]).getTime() / 1000;
+            //System.out.println(unixTimestamp);
+            String date = weekFormat.format(new java.util.Date(unixTimestamp * 1000 + 5000));
+            if (preActivity.equals("")) {
+                preActivity = activity;
+                startTime = date;
+                startDay = date;
+                //startTimestamp = unixTimestamp;
+            }
+            if (!preActivity.equals(activity)) {
+                //unit:minute
+                long duration = (weekFormat.parse(preDate).getTime() - weekFormat.parse(startTime).getTime()) / 60000;
+
+
+                calendar.setTime(weekFormat.parse(startTime));
+                int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+                int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
+                if (duration >= 0)
+                    week[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], duration));
+                startTime = date;
+                //startTimestamp = unixTimestamp;
+                preActivity = activity;
+                long differenceOfDays = (weekFormat.parse(date).getTime() - weekFormat.parse(startDay).getTime()) / 86400000;
                 if (differenceOfDays >= trainedDays) {
                     break;
                 }
             }
+            preDate = date;
+        }
+
+
+        while ((line = br.readLine()) != null) {
+            String[] rawData = line.split(",");
+            String activity = rawData[0];
+
+            long unixTimestamp = original.parse(rawData[1]).getTime() / 1000;
+            //System.out.println(unixTimestamp);
+            String date = weekFormat.format(new java.util.Date(unixTimestamp * 1000 + 5000));
+            if (preActivity.equals("")) {
+                preActivity = activity;
+                startTime = date;
+                startDay = date;
+                //startTimestamp = unixTimestamp;
+            }
+            if (!preActivity.equals(activity)) {
+                //unit:minute
+                long duration = (weekFormat.parse(preDate).getTime() - weekFormat.parse(startTime).getTime()) / 60000;
+
+
+                calendar.setTime(weekFormat.parse(startTime));
+                int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+                int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
+                if (duration >= 0)
+                    testWeek[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], duration));
+                startTime = date;
+                //startTimestamp = unixTimestamp;
+                preActivity = activity;
+                long differenceOfDays = (weekFormat.parse(date).getTime() - weekFormat.parse(startDay).getTime()) / 86400000;
+
+            }
+            preDate = date;
         }
 
 

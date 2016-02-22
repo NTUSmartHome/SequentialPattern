@@ -4,10 +4,13 @@ import DataStructure.ActivityInstance;
 import alz.ActiveLzTree;
 import alz.PPM;
 import com.datumbox.common.dataobjects.AssociativeArray;
+import com.datumbox.common.dataobjects.Dataset;
 import com.datumbox.common.dataobjects.Record;
+import com.datumbox.framework.machinelearning.common.bases.basemodels.BaseDPMM;
 import sdle.SDLE;
-import wsu.ActivityInstanceParser;
-import wsu.WSUParser;
+import smile.regression.Regression;
+import tool.ActivityInstanceParser;
+import tool.WSUParser;
 
 import java.io.*;
 import java.text.ParseException;
@@ -52,7 +55,7 @@ public class LifePattern {
         for (int i = 0; i < 7; i++) {
             resultMap.put(String.valueOf(i), 0);
         }
-        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.yin(300, resultMap);
+        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.Ming(31, resultMap);
         olp.weekActivityInstances = total[0];
         olp.testWeekActivityInstances = total[1];
         olp.activityInstanceGrouping();
@@ -349,7 +352,7 @@ public class LifePattern {
         return weekSDLEList;
     }
 
-    private void activityInstanceGrouping() {
+    private ArrayList<ArrayList<ActivityInstance>>[] eachActivity(ArrayList<ActivityInstance>[] weekActivityInstances) {
         ArrayList<ArrayList<ActivityInstance>>[] eachActivity = new ArrayList[weekActivityInstances.length];
         for (int i = 0; i < eachActivity.length; i++) {
             eachActivity[i] = new ArrayList<>();
@@ -367,11 +370,22 @@ public class LifePattern {
             }
             activities.clear();
         }
+
+        return eachActivity;
+    }
+
+    private void activityInstanceGrouping() {
+        ArrayList<ArrayList<ActivityInstance>>[] eachActivity = eachActivity(weekActivityInstances);
+        ArrayList<ArrayList<ActivityInstance>>[] testEachActivity = eachActivity(testWeekActivityInstances);
         StringBuilder featureString = new StringBuilder();
         SimpleDateFormat startTimeDateFormat = new SimpleDateFormat("HH:mm:ss");
         FileWriter fw = null;
         String fileName = null;
         ActivityInstance activityInstance = null;
+        Map<String, Map<Integer, Regression>>[] regressors = new HashMap[eachActivity.length];
+        for (int i = 0; i < regressors.length; i++) {
+            regressors[i] = new HashMap<>();
+        }
         try {
             for (int k = 0; k < eachActivity.length; k++) {
                 for (int i = 0; i < eachActivity[k].size(); i++) {
@@ -386,6 +400,9 @@ public class LifePattern {
                         }
                         Date date = startTimeDateFormat.parse(activityInstance.getStartTime());
                         long startTime = date.getTime() / 1000 / 60; // unit : minute
+                        if (startTime < 0) {
+                            System.out.println(startTime);
+                        }
                         featureString.append(startTime + "," + activityInstance.getDuration() + "\n");
                     }
 
@@ -395,7 +412,8 @@ public class LifePattern {
                     fw.close();
 
                     //if (!activityInstance.getActivity().equals("6")) continue;
-                    Map<String, Integer> activityResultMap = DPMM.GDPMMTrain(fileName, 0.5, 0, 50);
+                    Map<String, Integer> activityResultMap = DPMM.GDPMMTrain("Model/" + "group" + k
+                            + "_" + activityInstance.getActivity(), fileName, 0.01, 0, 100);
                     //Map<String, Integer> activityResultMap = DPMM.oneCluster(fileName);
                     //Map<String, Integer> activityResultMap = DPMM.HierarchicalAgglomerativeTrain(fileName);
                     featureString = new StringBuilder();
@@ -437,17 +455,45 @@ public class LifePattern {
                         }
                     }
                     System.out.println(tmpAI.getActivity());
-                    if (!tmpAI.getActivity().equals("1") || !tmpAI.getActivity().equals("12")) {
-                        for (int j = 0; j < clusterMap.keySet().size(); j++) {
-                            System.out.println("group" + k + "-"
-                                    + "-" + j);
-                            //DPMM.NLMS(records[j]);
-                            Smile.RegressionTree(xRecordsSmile[j], yRecordsSmile[j]);
-                            System.out.println();
-                        }
+                    Map<Integer, Regression> regressionMap = new HashMap<>();
+                    //if (!tmpAI.getActivity().equals("1") || !tmpAI.getActivity().equals("12")) {
+                    for (int j = 0; j < clusterMap.keySet().size(); j++) {
+                        System.out.println("group" + k + "-"
+                                + "-" + j);
+                        //DPMM.NLMS(records[j]);
+                        Regression regression = Smile.RegressionTree(xRecordsSmile[j], yRecordsSmile[j]);
+                        regressionMap.put(clusterMap.get(j), regression);
+                        System.out.println();
                     }
+                    regressors[k].put(tmpAI.getActivity(), regressionMap);
+                    //}
                 }
             }
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+            for (int k = 0; k < testEachActivity.length; k++) {
+                for (int i = 0; i < testEachActivity[k].size(); i++) {
+                    ArrayList<Record> records = new ArrayList<>();
+                    ActivityInstance testActivityInstance = null;
+                    for (int j = 0; j < testEachActivity[k].get(i).size(); j++) {
+                        AssociativeArray array = new AssociativeArray();
+                        testActivityInstance = testEachActivity[k].get(i).get(j);
+                        array.put(0, new Double(simpleDateFormat.parse(testActivityInstance.getStartTime()).getTime())/ 1000 / 60); // unit : minute)
+                        array.put(1, new Double(testActivityInstance.getDuration()));
+                        records.add(new Record(array,""));
+                    }
+                    DPMM.loadModel("Model/" + "group" + k
+                            + "_" + testActivityInstance.getActivity()+"_GaussianDPMM");
+                    Map<String, Integer> resultMap = DPMM.GDPMMPredict(records);
+                    for (int j = 0; j < testEachActivity[k].get(i).size(); j++) {
+                        testActivityInstance = testEachActivity[k].get(i).get(j);
+                        Regression regression = regressors[k].get(testActivityInstance.getActivity()).get(resultMap.get(j));
+                        regression.predict(Double.valueOf(testActivityInstance.getStartTime()));
+                    }
+                }
+
+            }
+
 
         } catch (ParseException e) {
             e.printStackTrace();

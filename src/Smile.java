@@ -1,14 +1,14 @@
+import smile.regression.Regression;
 import smile.regression.RegressionTree;
 import smile.validation.RMSE;
 
-import java.io.*;
 import java.util.ArrayList;
 
 /**
  * Created by MingJe on 2016/2/21.
  */
 public class Smile {
-    public static void RegressionTree(ArrayList<Long[]> x, ArrayList<Long> y) {
+    public static Regression RegressionTree(ArrayList<Long[]> x, ArrayList<Long> y) {
         double[][] doubleX = new double[x.size()][1];
         double[] doubleY = new double[y.size()];
         double[][] testX = new double[x.size()][1];
@@ -37,5 +37,6 @@ public class Smile {
         System.out.println((double) errorMinute);
         RMSE rmse = new RMSE();
         System.out.println(rmse.measure(truth, predicted) / maxValue);
+        return regressionTree;
     }
 }

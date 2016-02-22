@@ -1,6 +1,4 @@
-package wsu;
-
-import javafx.scene.input.DataFormat;
+package tool;
 
 import java.io.*;
 import java.text.ParseException;
