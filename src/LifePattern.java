@@ -53,7 +53,7 @@ public class LifePattern {
         for (int i = 0; i < 7; i++) {
             resultMap.put(String.valueOf(i), 0);
         }
-        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.Ming(30, resultMap);
+        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.yin(20, resultMap);
         olp.weekActivityInstances = total[0];
         olp.testWeekActivityInstances = total[1];
         olp.activityInstanceGrouping();
@@ -410,15 +410,15 @@ public class LifePattern {
                     fw.close();
 
                     //if (!activityInstance.getActivity().equals("6")) continue;
-                    Map<String, Integer> activityResultMap = DPMM.GDPMMTrain("Model/" + "group" + k + "_" + activityInstance.getActivity(), fileName, 0.1, 0, 500);
+                    //Map<String, Integer> activityResultMap = DPMM.GDPMMTrain("Model/" + "group" + k + "_" + activityInstance.getActivity(), fileName, 0.1, 0, 500);
                     //Map<String, Integer> activityResultMap = DPMM.MDPMMTrain("Model/" + "group" + k + "_" + activityInstance.getActivity(), fileName, 0.1, 0, 500);
-                    //Map<String, Integer> activityResultMap = DPMM.oneCluster(fileName);
+                    Map<String, Integer> activityResultMap = DPMM.oneCluster(fileName);
                     //Map<String, Integer> activityResultMap = DPMM.HierarchicalAgglomerativeTrain(fileName);
                     featureString = new StringBuilder();
                     ArrayList<Record>[] records = new ArrayList[activityResultMap.get("size")];
                     ArrayList<Long[]>[] xRecordsSmile = new ArrayList[activityResultMap.get("size")];
                     ArrayList<Long>[] yRecordsSmile = new ArrayList[activityResultMap.get("size")];
-                    Map<Integer, Integer> clusterMap = new HashMap<>();
+
 
                     //if we want use idx [0, size] to access activityResultMap,
                     //activityResultMap.size should -1 because of key "size"
@@ -435,32 +435,28 @@ public class LifePattern {
                         record.put(4, startTime / (1 + Math.exp(1)));
                         xRecordSmile[0] = startTime;
                         int trueClusterIdx = activityResultMap.get(String.valueOf(j));
-                        //if (!clusterMap.containsKey(trueClusterIdx)) {
-                            clusterMap.put(trueClusterIdx, clusterMap.size());
-                        //}
                         try {
-                            records[clusterMap.get(trueClusterIdx)].add(new Record(record, tmpAI.getDuration()));
-                            xRecordsSmile[clusterMap.get(trueClusterIdx)].add(xRecordSmile);
-                            yRecordsSmile[clusterMap.get(trueClusterIdx)].add(tmpAI.getDuration());
-
+                            records[trueClusterIdx].add(new Record(record, tmpAI.getDuration()));
+                            xRecordsSmile[trueClusterIdx].add(xRecordSmile);
+                            yRecordsSmile[trueClusterIdx].add(tmpAI.getDuration());
                         } catch (NullPointerException e) {
-                            records[clusterMap.get(trueClusterIdx)] = new ArrayList<>();
-                            records[clusterMap.get(trueClusterIdx)].add(new Record(record, tmpAI.getDuration()));
-                            xRecordsSmile[clusterMap.get(trueClusterIdx)] = new ArrayList<>();
-                            yRecordsSmile[clusterMap.get(trueClusterIdx)] = new ArrayList<>();
-                            xRecordsSmile[clusterMap.get(trueClusterIdx)].add(xRecordSmile);
-                            yRecordsSmile[clusterMap.get(trueClusterIdx)].add(tmpAI.getDuration());
+                            records[trueClusterIdx] = new ArrayList<>();
+                            records[trueClusterIdx].add(new Record(record, tmpAI.getDuration()));
+                            xRecordsSmile[trueClusterIdx] = new ArrayList<>();
+                            yRecordsSmile[trueClusterIdx] = new ArrayList<>();
+                            xRecordsSmile[trueClusterIdx].add(xRecordSmile);
+                            yRecordsSmile[trueClusterIdx].add(tmpAI.getDuration());
                         }
                     }
                     System.out.println(tmpAI.getActivity());
                     Map<Integer, Regression> regressionMap = new HashMap<>();
                     //if (!tmpAI.getActivity().equals("1") || !tmpAI.getActivity().equals("12")) {
-                    for (int j = 0; j < clusterMap.keySet().size(); j++) {
+                    for (int j = 0; j < activityResultMap.get("size"); j++) {
                         System.out.println("group" + k + "-"
                                 + "-" + j);
                         //DPMM.NLMS(records[j]);
-                        Regression regression = Smile.LASSO(xRecordsSmile[j], yRecordsSmile[j]);
-                        regressionMap.put(clusterMap.get(j), regression);
+                        Regression regression = Smile.GradientTreeBoost(xRecordsSmile[j], yRecordsSmile[j]);
+                        regressionMap.put(j, regression);
                         System.out.println();
                     }
                     regressors[k].put(tmpAI.getActivity(), regressionMap);
@@ -480,9 +476,9 @@ public class LifePattern {
                         array.put(1, new Double(testActivityInstance.getDuration()));
                         records.add(new Record(array, ""));
                     }
-                    DPMM.loadMultinomialDPMMModel("Model/" + "group" + k
+                    DPMM.loadGaussianDPMMModel("Model/" + "group" + k
                             + "_" + testActivityInstance.getActivity());
-                    Map<String, Integer> resultMap = DPMM.DPMMPredict(records);
+                    Map<String, Integer> resultMap = DPMM.OneClusterPredict(records);
                     double errorMinute = 0;
                     int numOfTestRecords = 0;
                     for (int j = 0; j < (numOfTestRecords = testEachActivity[k].get(i).size()); j++) {
@@ -491,8 +487,13 @@ public class LifePattern {
                         Regression regression = regressionMap.get(resultMap.get(String.valueOf(j)));
                         double[] textX = new double[1];
                         textX[0] = Double.valueOf(simpleDateFormat.parse(testActivityInstance.getStartTime()).getTime() / 1000 / 60);
-                        errorMinute += Math.abs(Double.valueOf(testActivityInstance.getDuration()) -
-                                regression.predict(textX));
+                        try {
+                            errorMinute += Math.abs(Double.valueOf(testActivityInstance.getDuration()) -
+                                    regression.predict(textX));
+
+                        } catch (NullPointerException e) {
+                            System.out.println();
+                        }
                     }
                     System.out.println(testActivityInstance.getActivity() + " : " + errorMinute / numOfTestRecords);
                 }
