@@ -188,8 +188,6 @@ public class WSUParser {
             String line;
 
             int preSDLEth = -1;
-            //For DB_M1, preLabel = 12, DB_M2, preLabel = 14;
-            String preLabel = "12";
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
             while ((line = br.readLine()) != null) {
                 String[] rawData = line.split(",");
@@ -204,7 +202,6 @@ public class WSUParser {
                 if (lastNoSDLE == -1) {
                     instance.add(label);
                 } else if (lastNoSDLE != belongToWhichSDLE && lastNoSDLE != -1) {
-                    //if(!nonOccurNewAct) {
 
                     String[] instanceLable = new String[instance.size()];
                     for (int i = 0; i < instance.size(); i++) {

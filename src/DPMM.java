@@ -571,7 +571,7 @@ public class DPMM {
         HierarchicalAgglomerative.TrainingParameters param = new HierarchicalAgglomerative.TrainingParameters();
         param.setDistanceMethod(HierarchicalAgglomerative.TrainingParameters.Distance.EUCLIDIAN);
         param.setLinkageMethod(HierarchicalAgglomerative.TrainingParameters.Linkage.AVERAGE);
-        param.setMinClustersThreshold(4);
+        param.setMinClustersThreshold(3);
         param.setMaxDistanceThreshold(Double.MAX_VALUE);
 
         cluster.fit(trainingDataset, param);
@@ -585,6 +585,7 @@ public class DPMM {
         //Result map
         HashMap<String, Integer> resultMap = new HashMap<>();
         resultMap.put("size", clusters.size());
+        int clusterIDX = 0;
         for (Map.Entry<Integer, HierarchicalAgglomerative.Cluster> entry : clusters.entrySet()) {
             Integer clusterId = entry.getKey();
             HierarchicalAgglomerative.Cluster cl = entry.getValue();
@@ -594,10 +595,11 @@ public class DPMM {
                 orderRecordList.add(i);
             }
             Collections.sort(orderRecordList);
-            System.out.println("Cluster " + clusterId + ": " + orderRecordList);
+            System.out.println("Cluster " + clusterIDX + ": " + orderRecordList);
             for (int i : orderRecordList) {
-                resultMap.put(String.valueOf(i), clusterId);
+                resultMap.put(String.valueOf(i), clusterIDX);
             }
+            clusterIDX++;
         }
 
 

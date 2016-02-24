@@ -1,404 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1a91a9b-284d-4c05-aebf-69aa866e6ac1" name="Default" comment="Fix bug in activity instances grouping and modelling">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WSU_MDPMM" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WeekSDLE_MDPMM" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/WeekSDLE/Features/WeekSDLEFeature.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/WeekSDLE/Features/WeekSDLE_Mean.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/WSU/DPMM/WSUResult" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/WSU/Features/WSUFeature.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE0h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE10h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE11h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE12h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE13h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE14h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE15h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE16h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE17h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE18h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE19h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE1h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE20h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE21h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE22h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE23h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE2h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE3h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE4h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE5h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE6h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE7h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE8h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE9h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/Excel/SDLE_nodiscount.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE0h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE10h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE11h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE12h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE13h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE14h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE15h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE16h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE17h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE18h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE19h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE1h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE20h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE21h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE22h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE23h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE2h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE3h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE4h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE5h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE6h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE7h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE8h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour-nodiscount/SDLE9h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE0h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE10h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE11h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE12h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE13h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE14h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE15h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE16h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE17h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE18h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE19h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE1h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE20h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE21h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE22h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE23h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE2h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE3h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE4h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE5h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE6h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE7h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE8h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE9h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/Excel/SDLE_discount.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE0h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE10h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE11h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE12h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE13h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE14h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE15h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE16h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE17h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE18h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE19h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE1h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE20h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE21h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE22h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE23h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE2h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE3h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE4h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE5h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE6h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE7h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE8h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/1hour/SDLE9h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE0h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE0h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE0h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE0h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE0h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE0h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE0h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE0h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE0h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE0h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE0h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE0h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE10h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE10h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE10h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE10h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE10h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE10h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE10h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE10h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE10h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE10h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE10h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE10h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE11h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE11h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE11h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE11h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE11h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE11h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE11h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE11h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE11h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE11h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE11h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE11h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE12h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE12h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE12h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE12h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE12h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE12h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE12h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE12h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE12h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE12h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE12h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE12h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE13h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE13h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE13h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE13h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE13h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE13h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE13h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE13h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE13h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE13h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE13h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE13h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE14h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE14h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE14h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE14h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE14h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE14h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE14h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE14h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE14h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE14h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE14h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE14h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE15h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE15h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE15h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE15h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE15h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE15h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE15h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE15h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE15h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE15h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE15h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE15h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE16h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE16h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE16h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE16h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE16h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE16h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE16h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE16h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE16h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE16h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE16h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE16h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE17h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE17h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE17h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE17h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE17h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE17h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE17h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE17h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE17h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE17h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE17h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE17h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE18h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE18h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE18h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE18h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE18h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE18h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE18h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE18h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE18h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE18h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE18h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE18h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE19h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE19h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE19h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE19h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE19h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE19h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE19h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE19h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE19h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE19h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE19h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE19h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE1h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE1h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE1h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE1h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE1h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE1h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE1h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE1h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE1h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE1h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE1h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE1h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE20h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE20h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE20h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE20h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE20h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE20h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE20h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE20h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE20h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE20h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE20h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE20h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE21h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE21h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE21h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE21h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE21h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE21h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE21h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE21h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE21h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE21h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE21h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE21h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE22h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE22h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE22h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE22h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE22h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE22h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE22h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE22h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE22h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE22h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE22h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE22h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE23h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE23h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE23h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE23h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE23h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE23h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE23h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE23h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE23h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE23h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE23h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE23h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE2h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE2h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE2h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE2h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE2h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE2h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE2h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE2h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE2h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE2h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE2h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE2h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE3h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE3h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE3h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE3h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE3h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE3h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE3h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE3h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE3h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE3h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE3h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE3h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE4h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE4h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE4h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE4h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE4h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE4h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE4h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE4h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE4h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE4h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE4h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE4h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE5h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE5h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE5h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE5h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE5h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE5h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE5h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE5h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE5h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE5h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE5h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE5h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE6h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE6h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE6h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE6h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE6h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE6h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE6h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE6h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE6h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE6h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE6h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE6h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE7h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE7h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE7h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE7h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE7h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE7h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE7h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE7h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE7h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE7h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE7h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE7h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE8h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE8h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE8h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE8h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE8h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE8h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE8h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE8h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE8h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE8h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE8h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE8h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE9h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE9h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE9h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE9h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE9h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE9h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE9h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE9h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE9h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE9h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE9h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/reportOld/db/5minute/SDLE9h5m.txt" afterPath="" />
+    <list default="true" id="f1a91a9b-284d-4c05-aebf-69aa866e6ac1" name="Default" comment="Backup old activelezi">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ResultImprovrdALZ.txt" afterPath="$PROJECT_DIR$/ResultImprovrdALZ.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/WeekSDLE/Features/Segmentation/0.csv" afterPath="$PROJECT_DIR$/report/WeekSDLE/Features/Segmentation/0.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/WeekSDLE/Features/WeekSDLEFeatures.csv" afterPath="$PROJECT_DIR$/report/WeekSDLE/Features/WeekSDLEFeatures.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DPMM.java" afterPath="$PROJECT_DIR$/src/DPMM.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LifePattern.java" afterPath="$PROJECT_DIR$/src/LifePattern.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/alz/ActiveLzTree.java" afterPath="$PROJECT_DIR$/src/alz/ActiveLzTree.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/alz/PPM.java" afterPath="$PROJECT_DIR$/src/alz/PPM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tool/MingParser.java" afterPath="$PROJECT_DIR$/src/tool/MingParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tool/WSUParser.java" afterPath="$PROJECT_DIR$/src/tool/WSUParser.java" />
     </list>
     <ignored path="SDLE.iws" />
@@ -428,22 +40,51 @@
       <file leaf-file-name="LifePattern.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LifePattern.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63192904">
-              <caret line="86" column="48" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
+            <state vertical-scroll-proportion="-0.47913447">
+              <caret line="336" column="12" selection-start-line="336" selection-start-column="12" selection-end-line="336" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#9272#9273#0" expanded="true" />
-                <element signature="e#9310#9311#0" expanded="true" />
+                <element signature="e#10219#10220#0" expanded="true" />
+                <element signature="e#10257#10258#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WSUM2Parser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tool/WSUM2Parser.java">
+      <file leaf-file-name="Activity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sdle/Activity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="108" column="5" selection-start-line="13" selection-start-column="8" selection-end-line="108" selection-end-column="5" />
+              <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActiveLzTree.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/alz/ActiveLzTree.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+              <folding>
+                <element signature="e#1978#1979#0" expanded="true" />
+                <element signature="e#2012#2013#0" expanded="true" />
+                <element signature="e#2045#2046#0" expanded="true" />
+                <element signature="e#2077#2078#0" expanded="true" />
+                <element signature="e#7589#7590#0" expanded="true" />
+                <element signature="e#7616#7617#0" expanded="true" />
+                <element signature="e#7655#7656#0" expanded="true" />
+                <element signature="e#7684#7685#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PPM.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/alz/PPM.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.6216216">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -462,47 +103,31 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="WSUParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tool/WSUParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="250" column="56" selection-start-line="250" selection-start-column="56" selection-end-line="250" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MingParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tool/MingParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="DPMM.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DPMM.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="597" column="43" selection-start-line="597" selection-start-column="43" selection-end-line="597" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivityInstance.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DataStructure/ActivityInstance.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding>
-                <element signature="e#573#574#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Smile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Smile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActivityInstanceParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tool/ActivityInstanceParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="284" column="28" selection-start-line="284" selection-start-column="28" selection-end-line="284" selection-end-column="28" />
+              <caret line="556" column="8" selection-start-line="556" selection-start-column="8" selection-end-line="556" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -547,11 +172,8 @@
         <option value="$PROJECT_DIR$/src/WSUFeatureVector.java" />
         <option value="$PROJECT_DIR$/src/WSUFeatureExtraction.java" />
         <option value="$PROJECT_DIR$/src/sdle/DB.java" />
-        <option value="$PROJECT_DIR$/src/alz/PPM.java" />
         <option value="$PROJECT_DIR$/src/sdle/buildSDLE.java" />
-        <option value="$PROJECT_DIR$/src/alz/ActiveLzTree.java" />
         <option value="$PROJECT_DIR$/src/sdle/SDLE.java" />
-        <option value="$PROJECT_DIR$/src/sdle/Activity.java" />
         <option value="$PROJECT_DIR$/src/wsu/WSUFeatureVector.java" />
         <option value="$PROJECT_DIR$/src/wsu/WSUFeatureExtraction.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -565,14 +187,17 @@
         <option value="$PROJECT_DIR$/src/wsu/ActivityInstanceParser.java" />
         <option value="$PROJECT_DIR$/src/wsu/WSUParser.java" />
         <option value="$PROJECT_DIR$/src/ntu/MingParser.java" />
-        <option value="$PROJECT_DIR$/src/tool/MingParser.java" />
         <option value="$MAVEN_REPOSITORY$/com/datumbox/datumbox-framework/0.6.1/datumbox-framework-0.6.1.jar!/com/datumbox/framework/machinelearning/clustering/GaussianDPMM.class" />
         <option value="$MAVEN_REPOSITORY$/com/datumbox/datumbox-framework/0.6.1/datumbox-framework-0.6.1.jar!/com/datumbox/framework/machinelearning/common/bases/mlmodels/BaseMLmodel.class" />
         <option value="$PROJECT_DIR$/src/tool/ActivityInstanceParser.java" />
         <option value="$PROJECT_DIR$/src/Smile.java" />
-        <option value="$PROJECT_DIR$/src/tool/WSUParser.java" />
+        <option value="$PROJECT_DIR$/src/alz/PPM.java" />
+        <option value="$PROJECT_DIR$/src/alz/ActiveLzTree.java" />
         <option value="$PROJECT_DIR$/src/DPMM.java" />
+        <option value="$PROJECT_DIR$/src/sdle/Activity.java" />
         <option value="$PROJECT_DIR$/src/LifePattern.java" />
+        <option value="$PROJECT_DIR$/src/tool/MingParser.java" />
+        <option value="$PROJECT_DIR$/src/tool/WSUParser.java" />
       </list>
     </option>
   </component>
@@ -831,7 +456,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
   </component>
-  <component name="RunManager" selected="Application.LifePattern">
+  <component name="RunManager" selected="Application.WSUParser">
     <configuration default="false" name="LifePattern" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="LifePattern" />
@@ -1036,10 +661,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.LifePattern" />
-        <item index="1" class="java.lang.String" itemvalue="Application.WSUParser" />
-        <item index="2" class="java.lang.String" itemvalue="Application.ActivityInstanceParser" />
-        <item index="3" class="java.lang.String" itemvalue="Application.MingParser" />
+        <item index="0" class="java.lang.String" itemvalue="Application.WSUParser" />
+        <item index="1" class="java.lang.String" itemvalue="Application.MingParser" />
+        <item index="2" class="java.lang.String" itemvalue="Application.LifePattern" />
+        <item index="3" class="java.lang.String" itemvalue="Application.ActivityInstanceParser" />
         <item index="4" class="java.lang.String" itemvalue="Application.WSUM2Parser" />
       </list>
     </recent_temporary>
@@ -1163,7 +788,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456211811544</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Backup old activelezi">
+      <created>1456305090223</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1456305090223</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1178,17 +809,17 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44839066" sideWeight="0.11509636" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26024362" sideWeight="0.49295774" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4617092" sideWeight="0.51070666" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24417314" sideWeight="0.51070666" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.49785867" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19004282" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20074947" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44839066" sideWeight="0.88490367" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5283019" sideWeight="0.88490367" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1230,37 +861,17 @@
     <MESSAGE value="Test different setting" />
     <MESSAGE value="Find a bug, Back UP" />
     <MESSAGE value="Fix bug in activity instances grouping and modelling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug in activity instances grouping and modelling" />
+    <MESSAGE value="Backup old activelezi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Backup old activelezi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/LifePattern.java</url>
-          <line>491</line>
-          <properties />
-          <option name="timeStamp" value="362" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/LifePattern.java</url>
-          <line>62</line>
-          <properties />
-          <option name="timeStamp" value="371" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/LifePattern.java</url>
-          <line>275</line>
-          <properties />
-          <option name="timeStamp" value="373" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="375" />
+      <option name="time" value="393" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="sdleList" />
-        <watch expression="differenceOfDays" />
-        <watch expression="db.instanceLabel.get(0)" />
+        <watch expression="predictedActsByALZ" />
+        <watch expression="day" />
       </configuration>
     </watches-manager>
   </component>
@@ -1287,13 +898,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alz/PPM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34254992">
-          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1458,13 +1062,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alz/ActiveLzTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="251" column="16" selection-start-line="251" selection-start-column="16" selection-end-line="251" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/datumbox-framework-0.6.1-sources.jar!/com/datumbox/common/utilities/PHPfunctions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1497,13 +1094,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="79" column="25" selection-start-line="79" selection-start-column="25" selection-end-line="79" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdle/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="15" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -1567,33 +1157,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tool/MingParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32397407">
-          <caret line="21" column="89" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdle/DB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="184" column="15" selection-start-line="184" selection-start-column="15" selection-end-line="184" selection-end-column="15" />
-          <folding>
-            <element signature="e#6016#6017#0" expanded="true" />
-            <element signature="e#6051#6052#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tool/WSUParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33261338">
-          <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tool/WSUM2Parser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1636,21 +1199,81 @@
     <entry file="file://$PROJECT_DIR$/src/DPMM.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="597" column="43" selection-start-line="597" selection-start-column="43" selection-end-line="597" selection-end-column="43" />
+          <caret line="556" column="8" selection-start-line="556" selection-start-column="8" selection-end-line="556" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/alz/PPM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.6216216">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alz/ActiveLzTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+          <folding>
+            <element signature="e#1978#1979#0" expanded="true" />
+            <element signature="e#2012#2013#0" expanded="true" />
+            <element signature="e#2045#2046#0" expanded="true" />
+            <element signature="e#2077#2078#0" expanded="true" />
+            <element signature="e#7589#7590#0" expanded="true" />
+            <element signature="e#7616#7617#0" expanded="true" />
+            <element signature="e#7655#7656#0" expanded="true" />
+            <element signature="e#7684#7685#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdle/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdle/DB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="184" column="15" selection-start-line="184" selection-start-column="15" selection-end-line="184" selection-end-column="15" />
+          <folding>
+            <element signature="e#6016#6017#0" expanded="true" />
+            <element signature="e#6051#6052#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tool/MingParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tool/WSUParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="250" column="56" selection-start-line="250" selection-start-column="56" selection-end-line="250" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/LifePattern.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63192904">
-          <caret line="86" column="48" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
+        <state vertical-scroll-proportion="-0.47913447">
+          <caret line="336" column="12" selection-start-line="336" selection-start-column="12" selection-end-line="336" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9272#9273#0" expanded="true" />
-            <element signature="e#9310#9311#0" expanded="true" />
+            <element signature="e#10219#10220#0" expanded="true" />
+            <element signature="e#10257#10258#0" expanded="true" />
           </folding>
         </state>
       </provider>

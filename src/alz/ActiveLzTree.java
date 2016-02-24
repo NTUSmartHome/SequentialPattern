@@ -16,7 +16,7 @@ public class ActiveLzTree {
     private List<String> phase;
     private List<String> allActivity;
 
-    public static void wsuOneDay() {
+   /* public static void wsuOneDay() {
         ActiveLzTree alz = new ActiveLzTree();
         alz.init();
         ArrayList<String> actSeq = new ArrayList<>();
@@ -43,9 +43,9 @@ public class ActiveLzTree {
         PPM.addSeenActivity("1", 0);
         PPM.addSeenActivity("1", 0);
         // Map<String, Double> pre = PPM.prediction(0);
-    }
+    }*/
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         ActiveLzTree alz = new ActiveLzTree();
         alz.init();
         String s = "a,a,a,b,a,b,b,b,b,b,a,a,b,c,c,d,d,c,b,a,a,a,a";
@@ -62,7 +62,7 @@ public class ActiveLzTree {
         //alz.finish();
         System.out.println();
 
-    }
+    }*/
 
     public List<String> getAllActivity() {
         return allActivity;

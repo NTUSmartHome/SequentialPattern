@@ -60,6 +60,12 @@ public class MingParser {
                         break;
                 }
                 fw.write(data[0] + "," + data[1] + "\n");
+                /*long start = simpleDateFormat.parse(data[1]).getTime() + 5 * 60 * 1000;
+                long end = simpleDateFormat.parse(data[2]).getTime();
+                while ((end - start) / 1000 / 60 > 5) {
+                    fw.write(data[0] + "," + simpleDateFormat.format(start) + "\n");
+                    start += 5 * 60 * 1000;
+                }*/
                 fw.write(data[0] + "," + data[2] + "\n");
                 preData = data;
             }

@@ -6,23 +6,23 @@ import java.util.*;
  * Created by MingJe on 2015/9/4.
  */
 public class PPM {
-    private static List<List<String>> allSeenActivity = new ArrayList<>();
-    private static List<Integer> allMaxLength = new ArrayList<>();
-    private static List<ActiveLzTree> allActiveLzTrees = new ArrayList<>();
+    private static Map<String,List<String>> allSeenActivity = new HashMap<>();
+    private static HashMap<String, Integer> allMaxLength = new HashMap<>();
+    private static Map<String, ActiveLzTree> allActiveLzTrees = new HashMap<>();
 
-    public static void init(ActiveLzTree alz) {
+    public static void init(String id, ActiveLzTree alz) {
         //allSeenActivity.add(new ArrayList<>());
-        allSeenActivity.add(alz.getWindow());
-        allMaxLength.add(alz.getMaxLength());
-        allActiveLzTrees.add(alz);
+        allSeenActivity.put(id,alz.getWindow());
+        allMaxLength.put(id,alz.getMaxLength());
+        allActiveLzTrees.put(id,alz);
     }
 
-    public static List<Map.Entry<String, Double>> prediction(int idx) {
-        ActiveLzTree alz = allActiveLzTrees.get(idx);
+    public static List<Map.Entry<String, Double>> prediction(String id) {
+        ActiveLzTree alz = allActiveLzTrees.get(id);
         ArrayDeque pathNode;
         List<String> copySeenActivity = new ArrayList<>();
-        List<String> seenActivity = allSeenActivity.get(idx);
-        for (int i = 2; i < allSeenActivity.get(idx).size(); i++) {
+        List<String> seenActivity = allSeenActivity.get(id);
+        for (int i = 2; i < allSeenActivity.get(id).size(); i++) {
             copySeenActivity.add(seenActivity.get(i));
         }
 
@@ -77,13 +77,13 @@ public class PPM {
 
     }
 
-    public static void clearSeenActivity(int idx) {
-        allSeenActivity.get(idx).clear();
+    public static void clearSeenActivity(String id) {
+        allSeenActivity.get(id).clear();
     }
 
-    public static void addSeenActivity(String activity, int idx) {
-        List<String> seenActivity = allSeenActivity.get(idx);
-        if (seenActivity.size() != 0 && allMaxLength.get(idx) == seenActivity.size())
+    public static void addSeenActivity(String activity, String id) {
+        List<String> seenActivity = allSeenActivity.get(id);
+        if (seenActivity.size() != 0 && allMaxLength.get(id) == seenActivity.size())
             seenActivity.remove(0);
         seenActivity.add(activity);
 
