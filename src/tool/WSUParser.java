@@ -28,9 +28,6 @@ public class WSUParser {
             case 1:
                 toSDLEMing();
                 break;
-            case 2:
-                toSDLER();
-                break;
         }
     }
 
@@ -55,73 +52,6 @@ public class WSUParser {
     }
 
 
-
-    private void toSDLER() {
-        TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
-        DB db = new DB(timeInterval, option);
-        int interval = db.getTimeInterval();
-        try {
-            fr = new FileReader("db/Seq.txt");
-            br = new BufferedReader(fr);
-
-
-            ArrayList<String> instance = new ArrayList<String>();
-            int preBelongToWhichSDLE = -1;
-            String line;
-            String[] rawData;
-
-            while ((line = br.readLine()) != null) {
-
-                rawData = line.split(",|:");
-                String label = rawData[1];
-                SimpleDateFormat df = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
-                long endTime = df.parse(rawData[5]).getTime() / 1000;
-                long startTime = df.parse(rawData[3]).getTime() / 1000;
-
-                int bound = 0;
-                /*if (db.belongToWhichSDLE(endTime) != db.belongToWhichSDLE(startTime))
-                    bound = interval;*/
-                int endSDLE = db.belongToWhichSDLE(endTime);
-                int startSDLE = db.belongToWhichSDLE(startTime);
-                while (endSDLE >= startSDLE) {
-                    if (preBelongToWhichSDLE == 287) {
-                        System.out.println();
-                    }
-
-                    if (endSDLE == db.getSDLEQuantity() - 1 && startSDLE != endSDLE)
-                        endSDLE = -1;
-
-                    if (startSDLE == preBelongToWhichSDLE) {
-                        instance.add(label);
-                    } else {
-                        if (instance.size() > 0) {
-                            String[] instanceLable = new String[instance.size()];
-                            for (int i = 0; i < instance.size(); i++) {
-                                instanceLable[i] = instance.get(i);
-                            }
-                            db.addInstance(instanceLable, preBelongToWhichSDLE);
-                            instance.clear();
-                        }
-
-                        instance.add(label);
-                    }
-                    preBelongToWhichSDLE = startSDLE;
-                    startTime += interval;
-                    startSDLE = db.belongToWhichSDLE(startTime);
-                    //startSDLE = db.belongToWhichSDLE(startTime);
-                }
-            }
-            br.close();
-            fr.close();
-            db.printDB();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
 
     private void toSDLE() {
 
@@ -318,9 +248,8 @@ public class WSUParser {
                                 if (tmpNoSDLE == db.getSDLEQuantity()) {
                                     tmpNoSDLE = 0;
                                 }
-
                             }
-                            while ((belongToWhichSDLE - tmpNoSDLE) > 0) {
+                            while ((belongToWhichSDLE - tmpNoSDLE) > 0 ) {
                                 db.addInstance(instanceLable, tmpNoSDLE);
                                 //System.out.print("*");
                                 tmpNoSDLE++;
@@ -335,7 +264,6 @@ public class WSUParser {
 
                             while ((belongToWhichSDLE - tmpNoSDLE) > 0) {
                                 db.addInstance(instanceLable, tmpNoSDLE);
-
                                 tmpNoSDLE++;
 
                             }
@@ -345,7 +273,7 @@ public class WSUParser {
                 lastNoSDLE = belongToWhichSDLE;
                 lastUnixTimestamp = unixTimestamp;
             }
-            System.out.println("test");
+
             br.close();
             fr.close();
             db.printDB();

@@ -19,9 +19,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by MingJe on 2016/2/4.
@@ -294,7 +292,7 @@ public class DPMM {
         //-----------------
 
         //Convert Categorical variables to dummy variables (boolean) and normalize continuous variables
-        // DummyXMinMaxNormalizer dataTransformer = new DummyXMinMaxNormalizer("Test", dbConf);
+        //DummyXMinMaxNormalizer dataTransformer = new DummyXMinMaxNormalizer("Test", dbConf);
         //dataTransformer.fit_transform(trainingDataset, new DummyXMinMaxNormalizer.TrainingParameters());
 
 
@@ -312,11 +310,22 @@ public class DPMM {
         //dataTransformer.denormalize(trainingDataset);
 
         System.out.println("Cluster assignments (Record Ids):");
-        for (Map.Entry<Integer, MultinomialDPMM.Cluster> entry : cluster.getClusters().entrySet()) {
+        Map<Integer, MultinomialDPMM.Cluster> clusters = cluster.getClusters();
+        //Result map
+        HashMap<String, Integer> resultMap = new HashMap<>();
+        resultMap.put("size", clusters.size());
+        for (Map.Entry<Integer, MultinomialDPMM.Cluster> entry : clusters.entrySet()) {
             Integer clusterId = entry.getKey();
             MultinomialDPMM.Cluster cl = entry.getValue();
-
-            System.out.println("Cluster " + clusterId + ": " + cl.getRecordIdSet());
+            List<Integer> orderRecordList = new ArrayList<>();
+            for (int i : cl.getRecordIdSet()) {
+                orderRecordList.add(i);
+            }
+            Collections.sort(orderRecordList);
+            System.out.println("Cluster " + clusterId + ": " + orderRecordList);
+            for (int i : orderRecordList) {
+                resultMap.put(String.valueOf(i), clusterId);
+            }
         }
 
 
@@ -332,20 +341,6 @@ public class DPMM {
 
         //Denormalize testingDataset (optional)
         //dataTransformer.denormalize(testingDataset);
-
-
-        //Result map
-        HashMap<String, Integer> resultMap = new HashMap<>();
-        resultMap.put("size", cluster.getClusters().size());
-        System.out.println("Results:");
-        for (Integer rId : testingDataset) {
-            Record r = testingDataset.get(rId);
-            System.out.println("Record " + rId + " - Original Y: " + r.getY() + ", Predicted Cluster Id: " + r.getYPredicted());
-            resultMap.put(String.valueOf(rId), (Integer) r.getYPredicted());
-        }
-
-
-        System.out.println("Clusterer Statistics: " + PHPfunctions.var_export(vm));
 
 
         //Clean up
@@ -459,9 +454,13 @@ public class DPMM {
         for (Map.Entry<Integer, GaussianDPMM.Cluster> entry : clusters.entrySet()) {
             Integer clusterId = entry.getKey();
             GaussianDPMM.Cluster cl = entry.getValue();
-
-            System.out.println("Cluster " + clusterId + ": " + cl.getRecordIdSet());
+            List<Integer> orderRecordList = new ArrayList<>();
             for (int i : cl.getRecordIdSet()) {
+                orderRecordList.add(i);
+            }
+            Collections.sort(orderRecordList);
+            System.out.println("Cluster " + clusterId + ": " + orderRecordList);
+            for (int i : orderRecordList) {
                 resultMap.put(String.valueOf(i), clusterId);
             }
         }
@@ -563,8 +562,8 @@ public class DPMM {
         //-----------------
 
         //Convert Categorical variables to dummy variables (boolean) and normalize continuous variables
-        DummyXMinMaxNormalizer dataTransformer = new DummyXMinMaxNormalizer("Test", dbConf);
-        dataTransformer.fit_transform(trainingDataset, new DummyXMinMaxNormalizer.TrainingParameters());
+        //DummyXMinMaxNormalizer dataTransformer = new DummyXMinMaxNormalizer("Test", dbConf);
+        //dataTransformer.fit_transform(trainingDataset, new DummyXMinMaxNormalizer.TrainingParameters());
 
 
         HierarchicalAgglomerative cluster = new HierarchicalAgglomerative("Test", dbConf);
@@ -572,7 +571,7 @@ public class DPMM {
         HierarchicalAgglomerative.TrainingParameters param = new HierarchicalAgglomerative.TrainingParameters();
         param.setDistanceMethod(HierarchicalAgglomerative.TrainingParameters.Distance.EUCLIDIAN);
         param.setLinkageMethod(HierarchicalAgglomerative.TrainingParameters.Linkage.AVERAGE);
-        param.setMinClustersThreshold(5);
+        param.setMinClustersThreshold(4);
         param.setMaxDistanceThreshold(Double.MAX_VALUE);
 
         cluster.fit(trainingDataset, param);
@@ -580,12 +579,25 @@ public class DPMM {
         //Denormalize trainingDataset (optional)
         //dataTransformer.denormalize(trainingDataset);
 
+
         System.out.println("Cluster assignments (Record Ids):");
-        for (Map.Entry<Integer, HierarchicalAgglomerative.Cluster> entry : cluster.getClusters().entrySet()) {
+        Map<Integer, HierarchicalAgglomerative.Cluster> clusters = cluster.getClusters();
+        //Result map
+        HashMap<String, Integer> resultMap = new HashMap<>();
+        resultMap.put("size", clusters.size());
+        for (Map.Entry<Integer, HierarchicalAgglomerative.Cluster> entry : clusters.entrySet()) {
             Integer clusterId = entry.getKey();
             HierarchicalAgglomerative.Cluster cl = entry.getValue();
 
-            System.out.println("Cluster " + clusterId + ": " + cl.getRecordIdSet());
+            List<Integer> orderRecordList = new ArrayList<>();
+            for (int i : cl.getRecordIdSet()) {
+                orderRecordList.add(i);
+            }
+            Collections.sort(orderRecordList);
+            System.out.println("Cluster " + clusterId + ": " + orderRecordList);
+            for (int i : orderRecordList) {
+                resultMap.put(String.valueOf(i), clusterId);
+            }
         }
 
 
@@ -593,7 +605,7 @@ public class DPMM {
         //-----------------
 
         //Apply the same transformations on testingDataset
-        dataTransformer.transform(testingDataset);
+        //dataTransformer.transform(testingDataset);
 
         //Get validation metrics on the training set
         HierarchicalAgglomerative.ValidationMetrics vm = cluster.validate(testingDataset);
@@ -603,26 +615,11 @@ public class DPMM {
         //dataTransformer.denormalize(testingDataset);
 
 
-        //Result map
-        HashMap<String, Integer> resultMap = new HashMap<>();
-        resultMap.put("size", cluster.getClusters().size());
-        //Map<Integer, HierarchicalAgglomerative.Cluster> test = cluster.getClusters();
-        System.out.println("Results:");
-        for (Integer rId : testingDataset) {
-            Record r = testingDataset.get(rId);
-            System.out.println("Record " + rId + " - Original Y: " + r.getY() + ", Predicted Cluster Id: " + r.getYPredicted());
-            resultMap.put(String.valueOf(rId), (Integer) r.getYPredicted());
-        }
-
-
-        System.out.println("Clusterer Statistics: " + PHPfunctions.var_export(vm));
-
-
         //Clean up
         //--------
 
         //Erase data transformer, clusterer.
-        dataTransformer.erase();
+        //dataTransformer.erase();
         cluster.erase();
 
         //Erase datasets.
@@ -631,81 +628,4 @@ public class DPMM {
         return resultMap;
     }
 
-    public static Map<String, Integer> oldTrain(String file, double alpha, double alphaWords, int iter) {
-        /*RandomValue.randomGenerator = new Random(42);
-
-        MemoryConfiguration memoryConfiguration = new MemoryConfiguration();
-        Dataset trainingData, validationData;
-        trainingData = generateDatasetFeature(file);
-        validationData = trainingData;
-
-        MultinomialDPMM instance = new MultinomialDPMM("Test");
-
-        MultinomialDPMM.TrainingParameters param = instance.getEmptyTrainingParametersObject();
-        param.setAlpha(alpha);
-        param.setMaxIterations(iter);
-        param.setInitializationMethod(BaseDPMM.TrainingParameters.Initialization.RANDOM_ASSIGNMENT);
-        param.setAlphaWords(alphaWords);
-
-        instance.initializeTrainingConfiguration(memoryConfiguration, param);
-
-        instance.MDPMMTrain(trainingData, validationData);
-
-        com.datumbox.framework.machinelearning.clustering.MultinomialDPMM.ValidationMetrics VM = instance.getValidationMetrics();
-
-        com.datumbox.framework.machinelearning.clustering.MultinomialDPMM.ModelParameters TrainedParameters = instance.getModelParameters();
-
-        System.out.println("DB name:\t" + instance.getDBname());
-        System.out.println("Number of cluster:\t" + TrainedParameters.getC().toString());
-        System.out.println("Number of features:\t" + TrainedParameters.getD().toString());
-        System.out.println("Number of instances:\t" + TrainedParameters.getN().toString());
-
-        System.out.println("Parameter NMI:\t" + VM.getNMI());
-        System.out.println("Parameter Purity:\t" + VM.getPurity());
-
-        instance = null;
-        instance = new MultinomialDPMM("Test");
-
-        instance.setMemoryConfiguration(memoryConfiguration);
-        instance.predict(validationData);
-
-
-        Map<String, Integer> weekResultMap = new HashMap<>();
-        weekResultMap.put("size", instance.getClusters().size());
-        int count = 0;
-        for (Record r : validationData) {
-            Integer clusterId = (Integer) r.getYPredicted();
-
-            weekResultMap.put(String.valueOf(count++), clusterId);
-
-            System.out.println( "Label: " + r.getY() + ", predict: " + r.getYPredicted());
-        }
-        return weekResultMap;*/
-        return null;
-    }
-
-    /*private static Dataset generateDatasetFeature(String filename) {
-        Dataset trainingData = new Dataset();
-        try {
-            FileReader fr = new FileReader(filename);
-            BufferedReader br = new BufferedReader(fr);
-            String line = "";
-            while ((line = br.readLine()) != null) {
-                String[] tmp = line.split(",");
-                int featureNum = tmp.length;
-                Object[] feature = new Object[featureNum];
-                for (int i = 0; i < feature.length; i++) {
-                    feature[i] = Math.abs(Double.valueOf(tmp[i]));
-                }
-                String label = "";
-                trainingData.add(Record.newDataVector(feature, label));
-            }
-
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        return trainingData;
-    }*/
 }

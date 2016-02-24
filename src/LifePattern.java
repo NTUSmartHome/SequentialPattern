@@ -25,12 +25,14 @@ public class LifePattern {
     ArrayList<ArrayList<String>> instanceLabel;
     ArrayList<ArrayList<SDLE>> newWeekSDLEList;
     Map<String, Integer> weekResultMap;
+    Map<String, Integer>[] daySegmentationMap;
     ArrayList<ActivityInstance>[] weekActivityInstances;
     ArrayList<ActivityInstance>[] testWeekActivityInstances;
 
     int MaxCluster;
     //----------------------------------WSU M1 data begins on Friday------------------------------------//
-    final int weekDayStart = 4;
+    //----------------------------------Ming data begins on Sat------------------------------------//
+    final int weekDayStart = 5;
     //-----------------------------------------------------------------------------------------------//
 
     public LifePattern() {
@@ -49,19 +51,19 @@ public class LifePattern {
 
         LifePattern olp = new LifePattern();
         olp.readFile(5, 1, rh, beta);
-        Map<String, Integer> resultMap = new HashMap<>();
+        /*Map<String, Integer> resultMap = new HashMap<>();
         for (int i = 0; i < 7; i++) {
             resultMap.put(String.valueOf(i), 0);
         }
         ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.yin(20, resultMap);
         olp.weekActivityInstances = total[0];
         olp.testWeekActivityInstances = total[1];
-        olp.activityInstanceGrouping();
+        olp.activityInstanceGrouping();*/
         //olp.preProcessingWSU();
-        //olp.perDayActivityEstimation(56);
+        olp.perDayActivityEstimation(30);
         //olp.runSDLE(10);
         //olp.runAZSDLESimple(21);
-        //olp.improvedALZ(2);
+        olp.improvedALZ(2);
         //olp.runAZSDLE(1);
 
 
@@ -76,12 +78,16 @@ public class LifePattern {
         int alzIdx = 0;
         int[] alzTimeIntervalAccuracy = new int[instanceLabel.size()];
 
-        ActiveLzTree[] activeLzTreeArray = new ActiveLzTree[5];
+        ActiveLzTree[][] activeLzTreeArray = new ActiveLzTree[weekResultMap.get("size")][];
         for (int i = 0; i < activeLzTreeArray.length; i++) {
-            activeLzTreeArray[i] = new ActiveLzTree();
-            activeLzTreeArray[i].init();
-            PPM.init(activeLzTreeArray[i]);
+            activeLzTreeArray[i] = new ActiveLzTree[daySegmentationMap[i].get("size")];
+            for (int j = 0; j < activeLzTreeArray[i].length; j++) {
+                activeLzTreeArray[i][j] = new ActiveLzTree();
+                activeLzTreeArray[i][j].init();
+                PPM.init(activeLzTreeArray[i][j]);
+            }
         }
+
 
         //-----------------------------------ALZ focus on changing of activity-------------------------------//
         String preActivity = "-1", currentActivity;
@@ -268,9 +274,9 @@ public class LifePattern {
                 stringBuilder = new StringBuilder();//initStringBuilder(11);
                 for (int j = 0; j < instanceLabel.size(); j++) {
                     ArrayList<Double> cellDistribution = newWeekSDLEList.get(weekResultMap.get(String.valueOf(i))).get(j).getDistribution();
-                    stringBuilder.append(String.valueOf(cellDistribution.get(1).doubleValue() * 100));
+                    stringBuilder.append(String.valueOf(cellDistribution.get(1).doubleValue() * 8));
                     for (int k = 2; k < cellDistribution.size() - 1; k++) {
-                        stringBuilder.append("," + String.valueOf(cellDistribution.get(k).doubleValue() * 100));
+                        stringBuilder.append("," + String.valueOf(cellDistribution.get(k).doubleValue() * 8));
                     }
                     stringBuilder.append("\n");
                 }
@@ -285,7 +291,7 @@ public class LifePattern {
             weekActivityInstances = total[1];
 
             //Activity Instance Grouping
-            activityInstanceGrouping();
+            //activityInstanceGrouping();
 
 
         } catch (IOException e) {
@@ -309,7 +315,7 @@ public class LifePattern {
     private Map<String, Integer> contextDayMerge(String file) {
 
         try {
-            return DPMM.MDPMMTrain("Model/dayMerge", file, 0.8, 1, 20);
+            return DPMM.MDPMMTrain("Model/dayMerge", file, 0.8, 1, 500);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -324,7 +330,11 @@ public class LifePattern {
         while (file.exists()) {
 
             try {
-                DPMM.MDPMMTrain(idx + "Seg", fileName, 0.8, 1, 15);
+                System.out.println("\n\n");
+                //DPMM.GDPMMTrain("/Model/" + idx + "Seg", fileName, 0.9, 1, 500);
+                daySegmentationMap[idx] = DPMM.HierarchicalAgglomerativeTrain(fileName);
+                System.out.println(fileName + "\n\n");
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -346,6 +356,7 @@ public class LifePattern {
         ArrayList<ArrayList<SDLE>> weekSDLEList = new ArrayList<>();
         for (int i = 0; i < weekDays; i++) {
             weekSDLEList.add(newSDLEList());
+            daySegmentationMap[i] = new HashMap<>();
         }
         return weekSDLEList;
     }
