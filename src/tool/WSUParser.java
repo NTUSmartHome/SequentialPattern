@@ -47,7 +47,7 @@ public class WSUParser {
             e.printStackTrace();
         }*/
 
-        new WSUParser(5, 1, 1);
+        new WSUParser(5, 1, 0);
 
     }
 
@@ -269,6 +269,33 @@ public class WSUParser {
                 }
                 lastNoSDLE = belongToWhichSDLE;
                 lastUnixTimestamp = unixTimestamp;
+            }
+
+            br.close();
+            fr.close();
+            db.printDB();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void toSDLENew() {
+        DB db = new DB(timeInterval, option);
+        try {
+
+            fr = new FileReader("db/MingT.csv");
+            br = new BufferedReader(fr);
+            int lastNoSDLE = -1;
+            long lastUnixTimestamp = 0;
+            ArrayList<String> instance = new ArrayList<String>();
+            ArrayList<String> preInstance = new ArrayList<String>();
+            String line;
+
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+            while ((line = br.readLine()) != null) {
+                String[] rawData = line.split(",");
+
             }
 
             br.close();

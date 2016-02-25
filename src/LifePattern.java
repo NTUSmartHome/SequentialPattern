@@ -60,10 +60,10 @@ public class LifePattern {
         olp.testWeekActivityInstances = total[1];
         olp.activityInstanceGrouping();*/
         //olp.preProcessingWSU();
-        olp.perDayActivityEstimation(30);
+        olp.perDayActivityEstimation(56);
         //olp.runSDLE(10);
         //olp.runAZSDLESimple(21);
-        olp.improvedALZ(34);
+        olp.improvedALZ(56);
         //olp.runAZSDLE(1);
 
 
@@ -92,6 +92,7 @@ public class LifePattern {
 
         //-----------------------------------ALZ focus on changing of activity-------------------------------//
         String preActivity = "-1", currentActivity;
+        int preALZIDX = -1, curALZIDX;
         //--------------------------------------------------------------------------------------------------//
         for (int i = 0; i < trainedDays; i++) {
             for (int j = 0; j < instanceLabel.size(); j++) {
@@ -120,7 +121,10 @@ public class LifePattern {
                     alzIdx = 1;
                 else
                     alzIdx = 2;*/
-
+                curALZIDX = daySegmentationMap[dayGroup].get(String.valueOf(j));
+                if (curALZIDX != preALZIDX) {
+                    activeLzTreeArray[dayGroup][curALZIDX].finish();
+                }
                 currentActivity = acts[0];
                 if ((!currentActivity.equals(preActivity) || activeLzTreeArray[dayGroup][alzIdx].getWindow().size() == 0) /*&& !currentActivity.equals("12")*/) {
                     activeLzTreeArray[dayGroup][alzIdx].step(currentActivity);
@@ -128,12 +132,14 @@ public class LifePattern {
                     alzIdx = daySegmentationMap[dayGroup].get(String.valueOf(j));
                 }
 
-
+                preALZIDX = curALZIDX;
                 preActivity = currentActivity;
             }
-            for (int k = 0; k < activeLzTreeArray.length; k++) {
-                for (int j = 0; j < activeLzTreeArray[k].length; j++) {
-                    activeLzTreeArray[k][j].finish();
+            if (activeLzTreeArray.length == 1) {
+                for (int k = 0; k < activeLzTreeArray.length; k++) {
+                    for (int j = 0; j < activeLzTreeArray[k].length; j++) {
+                        activeLzTreeArray[k][j].finish();
+                    }
                 }
             }
             day = (day + 1) % 7;
@@ -144,7 +150,7 @@ public class LifePattern {
         StringBuilder result = new StringBuilder();
         StringBuilder oneDaySequenceResult = new StringBuilder();
         StringBuilder sequenceResult = new StringBuilder();
-        String test = String.valueOf(weekResultMap.get(String.valueOf(dayGroup)) +""+ alzIdx);
+        String test = String.valueOf(weekResultMap.get(String.valueOf(dayGroup)) + "" + alzIdx);
         List<Map.Entry<String, Double>> predictedActsByALZ = PPM.prediction(test);
         for (int i = trainedDays; i < instanceLabel.get(0).size(); i++) {
             for (int j = 0; j < instanceLabel.size(); j++) {
@@ -174,7 +180,10 @@ public class LifePattern {
                     alzIdx = 1;
                 else
                     alzIdx = 2;*/
-
+                curALZIDX = daySegmentationMap[dayGroup].get(String.valueOf(j));
+                if (curALZIDX != preALZIDX) {
+                    activeLzTreeArray[dayGroup][curALZIDX].finish();
+                }
                 dayGroup = weekResultMap.get(String.valueOf(day));
                 alzIdx = daySegmentationMap[dayGroup].get(String.valueOf(j));
 
@@ -204,6 +213,7 @@ public class LifePattern {
                     predictedActsByALZ = PPM.prediction(String.valueOf(dayGroup + "" + alzIdx));
 
                 }
+                preALZIDX = curALZIDX;
                 preActivity = currentActivity;
 
 
@@ -213,10 +223,11 @@ public class LifePattern {
             sequenceResult.append((double) alzRight / allChange + " ");
             alzOneDayRight = 0;
             oneDayChange = 0;
-
-            for (int k = 0; k < activeLzTreeArray.length; k++) {
-                for (int j = 0; j < activeLzTreeArray[k].length; j++) {
-                    activeLzTreeArray[k][j].finish();
+            if (activeLzTreeArray.length == 1) {
+                for (int k = 0; k < activeLzTreeArray.length; k++) {
+                    for (int j = 0; j < activeLzTreeArray[k].length; j++) {
+                        activeLzTreeArray[k][j].finish();
+                    }
                 }
             }
             day = (day + 1) % 7;
@@ -228,9 +239,7 @@ public class LifePattern {
         try {
             FileWriter fw = new FileWriter("ResultImprovrdALZ.txt");
             fw.write(result.toString());
-
             fw.write("\n\n" + Arrays.toString(alzTimeIntervalAccuracy));
-
             fw.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -319,22 +328,12 @@ public class LifePattern {
         }
     }
 
-    private StringBuilder initStringBuilder(int numOfClass) {
-        StringBuilder stringBuilder = new StringBuilder();
-        //header
-        for (int i = 0; i < numOfClass; i++) {
-            stringBuilder.append(i + ",");
-        }
-        //stringBuilder.append("Class");
-        stringBuilder.append("\n");
-        return stringBuilder;
-    }
 
     private Map<String, Integer> contextDayMerge(String file) {
 
         try {
-            //return DPMM.MDPMMTrain("Model/dayMerge", file, 0.8, 1, 500);
-            return DPMM.oneCluster(file);
+            return DPMM.MDPMMTrain("Model/dayMerge", file, 0.8, 1, 500);
+            //return DPMM.oneCluster(file);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -352,7 +351,7 @@ public class LifePattern {
                 System.out.println("\n\n");
                 //DPMM.GDPMMTrain("/Model/" + idx + "Seg", fileName, 0.9, 1, 500);
                 daySegmentationMap[idx-1] = DPMM.HierarchicalAgglomerativeTrain(fileName);
-                //daySegmentationMap[idx-1] = DPMM.oneCluster(fileName);
+                //daySegmentationMap[idx - 1] = DPMM.oneCluster(fileName);
                 System.out.println(fileName + "\n\n");
 
             } catch (IOException e) {
