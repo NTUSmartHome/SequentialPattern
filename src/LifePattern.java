@@ -51,14 +51,14 @@ public class LifePattern {
 
         LifePattern olp = new LifePattern();
         olp.readFile(5, 1, rh, beta);
-        /*Map<String, Integer> resultMap = new HashMap<>();
-        for (int i = 0; i < 7; i++) {
+        Map<String, Integer> resultMap = new HashMap<>();
+        /*for (int i = 0; i < 7; i++) {
             resultMap.put(String.valueOf(i), 0);
         }
-        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.yin(20, resultMap);
+        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.Ming(35, resultMap);
         olp.weekActivityInstances = total[0];
-        olp.testWeekActivityInstances = total[1];
-        olp.activityInstanceGrouping();*/
+        olp.testWeekActivityInstances = total[1];*/
+        //olp.activityInstanceGrouping();
         //olp.preProcessingWSU();
         olp.perDayActivityEstimation(56);
         //olp.runSDLE(10);
@@ -332,8 +332,8 @@ public class LifePattern {
     private Map<String, Integer> contextDayMerge(String file) {
 
         try {
-            return DPMM.MDPMMTrain("Model/dayMerge", file, 0.8, 1, 500);
-            //return DPMM.oneCluster(file);
+           //return DPMM.MDPMMTrain("Model/dayMerge", file, 0.5, 1, 500);
+            return DPMM.oneCluster(file);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -349,8 +349,8 @@ public class LifePattern {
 
             try {
                 System.out.println("\n\n");
-                //DPMM.GDPMMTrain("/Model/" + idx + "Seg", fileName, 0.9, 1, 500);
-                daySegmentationMap[idx-1] = DPMM.HierarchicalAgglomerativeTrain(fileName);
+                daySegmentationMap[idx - 1] = DPMM.GDPMMTrain("/Model/" + idx + "Seg", fileName, 0.9, 1, 500);
+                //daySegmentationMap[idx-1] = DPMM.HierarchicalAgglomerativeTrain(fileName);
                 //daySegmentationMap[idx - 1] = DPMM.oneCluster(fileName);
                 System.out.println(fileName + "\n\n");
 
@@ -441,7 +441,7 @@ public class LifePattern {
 
                     //if (!activityInstance.getActivity().equals("6")) continue;
                     //Map<String, Integer> activityResultMap = DPMM.GDPMMTrain("Model/" + "group" + k + "_" + activityInstance.getActivity(), fileName, 0.1, 0, 500);
-                    //Map<String, Integer> activityResultMap = DPMM.MDPMMTrain("Model/" + "group" + k + "_" + activityInstance.getActivity(), fileName, 0.1, 0, 500);
+                    //Map<String, Integer> activityResultMap = DPMM.MDPMMTrain("Model/" + "group" + k + "_" + activityInstance.getActivity(), fileName, 0.1, 1, 500);
                     Map<String, Integer> activityResultMap = DPMM.oneCluster(fileName);
                     //Map<String, Integer> activityResultMap = DPMM.HierarchicalAgglomerativeTrain(fileName);
                     featureString = new StringBuilder();

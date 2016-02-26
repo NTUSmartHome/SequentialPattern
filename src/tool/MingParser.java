@@ -28,9 +28,9 @@ public class MingParser {
                     int cur = db.belongToWhichSDLE(curDate.getTime() / 1000);
                     int pre = db.belongToWhichSDLE(preDate.getTime() / 1000);
                     if ((cur - pre) > 1) {
-                        preDate.setTime(preDate.getTime() + 60*1000*5);
+                        preDate.setTime(preDate.getTime() + 60*1000*1);
                         fw.write("8," + simpleDateFormat.format(preDate)+"\n");
-                        preDate.setTime(curDate.getTime() - 60*1000*5);
+                        preDate.setTime(curDate.getTime() - 60*1000*1);
                         fw.write("8," + simpleDateFormat.format(preDate)+"\n");
 
                     }
@@ -68,6 +68,9 @@ public class MingParser {
                 }*/
                 fw.write(data[0] + "," + data[2] + "\n");
                 preData = data;
+                if (data[2].contains("2016/1/14 18:")) {
+                    System.out.println();
+                }
             }
             br.close();
             fr.close();

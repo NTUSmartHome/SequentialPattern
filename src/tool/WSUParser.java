@@ -47,7 +47,7 @@ public class WSUParser {
             e.printStackTrace();
         }*/
 
-        new WSUParser(5, 1, 0);
+        new WSUParser(5, 1, 1);
 
     }
 
@@ -269,6 +269,9 @@ public class WSUParser {
                 }
                 lastNoSDLE = belongToWhichSDLE;
                 lastUnixTimestamp = unixTimestamp;
+                if (rawData[1].contains("2016/1/14 18:")) {
+                    System.out.println();
+                }
             }
 
             br.close();
