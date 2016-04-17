@@ -4,622 +4,11 @@
     <bookmark url="file://$PROJECT_DIR$/src/DataStructure/ActivityInstance.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1a91a9b-284d-4c05-aebf-69aa866e6ac1" name="Default" comment="Everything good now&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/DataStructure/Mean.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Learning/Classifier.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/NewLifePattern.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trainingDataBN.arff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trainingDataBN_with_dayofweek.arff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trainingDataBN_with_dayofweek_cluster.arff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trainingDataBN_with_dayofweek_cluster_R1.arff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trainingDataBN_with_dayofweek_cluster_R1_Segment.arff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trainingDataBN_with_dayofweek_cluster_Segment.arff" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Result.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Result1115.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ResultALZ.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ResultImprovrdALZ.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ResultPatternBP.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Result不分時段.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Result分時段.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/experiment.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/random_data_set.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/readme.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/WSU/DPMM/WSUResult" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/WSU/Features/WSUFeature.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE0h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE10h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE11h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE12h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE13h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE14h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE15h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE16h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE17h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE18h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE19h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE1h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE20h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE21h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE22h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE23h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE2h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE3h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE4h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE5h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE6h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE7h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE8h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minute/SDLE9h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE0h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE0h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE0h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE0h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE0h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE0h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE0h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE0h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE0h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE0h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE0h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE0h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE10h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE10h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE10h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE10h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE10h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE10h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE10h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE10h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE10h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE10h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE10h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE10h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE11h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE11h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE11h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE11h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE11h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE11h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE11h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE11h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE11h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE11h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE11h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE11h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE12h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE12h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE12h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE12h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE12h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE12h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE12h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE12h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE12h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE12h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE12h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE12h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE13h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE13h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE13h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE13h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE13h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE13h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE13h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE13h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE13h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE13h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE13h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE13h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE14h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE14h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE14h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE14h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE14h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE14h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE14h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE14h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE14h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE14h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE14h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE14h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE15h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE15h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE15h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE15h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE15h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE15h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE15h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE15h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE15h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE15h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE15h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE15h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE16h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE16h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE16h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE16h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE16h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE16h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE16h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE16h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE16h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE16h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE16h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE16h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE17h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE17h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE17h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE17h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE17h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE17h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE17h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE17h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE17h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE17h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE17h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE17h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE18h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE18h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE18h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE18h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE18h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE18h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE18h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE18h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE18h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE18h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE18h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE18h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE19h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE19h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE19h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE19h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE19h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE19h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE19h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE19h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE19h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE19h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE19h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE19h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE1h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE1h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE1h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE1h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE1h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE1h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE1h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE1h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE1h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE1h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE1h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE1h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE20h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE20h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE20h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE20h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE20h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE20h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE20h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE20h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE20h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE20h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE20h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE20h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE21h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE21h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE21h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE21h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE21h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE21h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE21h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE21h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE21h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE21h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE21h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE21h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE22h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE22h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE22h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE22h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE22h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE22h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE22h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE22h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE22h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE22h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE22h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE22h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE23h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE23h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE23h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE23h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE23h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE23h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE23h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE23h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE23h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE23h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE23h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE23h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE2h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE2h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE2h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE2h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE2h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE2h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE2h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE2h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE2h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE2h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE2h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE2h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE3h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE3h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE3h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE3h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE3h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE3h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE3h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE3h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE3h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE3h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE3h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE3h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE4h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE4h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE4h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE4h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE4h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE4h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE4h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE4h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE4h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE4h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE4h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE4h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE5h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE5h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE5h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE5h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE5h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE5h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE5h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE5h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE5h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE5h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE5h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE5h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE6h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE6h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE6h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE6h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE6h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE6h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE6h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE6h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE6h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE6h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE6h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE6h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE7h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE7h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE7h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE7h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE7h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE7h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE7h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE7h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE7h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE7h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE7h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE7h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE8h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE8h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE8h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE8h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE8h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE8h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE8h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE8h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE8h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE8h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE8h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE8h5m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE9h0m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE9h10m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE9h15m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE9h20m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE9h25m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE9h30m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE9h35m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE9h40m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE9h45m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE9h50m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE9h55m.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/report/db/5minuteM2/SDLE9h5m.txt" afterPath="" />
+    <list default="true" id="f1a91a9b-284d-4c05-aebf-69aa866e6ac1" name="Default" comment="Change Sequential method to BayesNet&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SDLE.iml" afterPath="$PROJECT_DIR$/SDLE.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/WeekSDLE/Features/Segmentation/0.csv" afterPath="$PROJECT_DIR$/report/WeekSDLE/Features/Segmentation/0.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/WeekSDLE/Features/WeekSDLEFeatures.csv" afterPath="$PROJECT_DIR$/report/WeekSDLE/Features/WeekSDLEFeatures.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DataStructure/ActivityInstance.java" afterPath="$PROJECT_DIR$/src/DataStructure/ActivityInstance.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LifePattern.java" afterPath="$PROJECT_DIR$/src/LifePattern.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Smile.java" afterPath="$PROJECT_DIR$/src/Smile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/alz/ActiveLzTree.java" afterPath="$PROJECT_DIR$/src/alz/ActiveLzTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/alz/PPM.java" afterPath="$PROJECT_DIR$/src/alz/PPM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdle/Activity.java" afterPath="$PROJECT_DIR$/src/sdle/Activity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdle/DB.java" afterPath="$PROJECT_DIR$/src/sdle/DB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdle/SDLE.java" afterPath="$PROJECT_DIR$/src/sdle/SDLE.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdle/SDLEResultParser.java" afterPath="$PROJECT_DIR$/src/sdle/SDLEResultParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdle/buildSDLE.java" afterPath="$PROJECT_DIR$/src/sdle/buildSDLE.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Learning/Classifier.java" afterPath="$PROJECT_DIR$/src/Learning/Classifier.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tool/ActivityInstanceParser.java" afterPath="$PROJECT_DIR$/src/tool/ActivityInstanceParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tool/MingParser.java" afterPath="$PROJECT_DIR$/src/tool/MingParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tool/WSUParser.java" afterPath="$PROJECT_DIR$/src/tool/WSUParser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DPMM.java" afterPath="$PROJECT_DIR$/src/Learning/DPMM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trainingDataBN_with_dayofweek_cluster_R1.arff" afterPath="$PROJECT_DIR$/trainingDataBN_with_dayofweek_cluster_R1.arff" />
     </list>
     <ignored path="SDLE.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -657,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewLifePattern.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NewLifePattern.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NewLifePattern.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.8973215">
-              <caret line="212" column="45" selection-start-line="212" selection-start-column="33" selection-end-line="212" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -690,36 +79,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActivityInstanceParser.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ActivityInstanceParser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/tool/ActivityInstanceParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="95" column="40" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.3794643">
+              <caret line="356" column="32" selection-start-line="356" selection-start-column="32" selection-end-line="356" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SDLE.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDLE/SDLE.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="177" column="4" selection-start-line="177" selection-start-column="4" selection-end-line="177" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DB.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDLE/DB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="184" column="15" selection-start-line="184" selection-start-column="15" selection-end-line="184" selection-end-column="15" />
-              <folding>
-                <element signature="e#6016#6017#0" expanded="true" />
-                <element signature="e#6051#6052#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -729,28 +95,10 @@
         <entry file="file://$PROJECT_DIR$/src/Learning/Classifier.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WSUM2Parser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tool/WSUM2Parser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="75" column="34" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Activity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/SDLE/Activity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-              <folding />
+              <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -824,9 +172,9 @@
         <option value="$PROJECT_DIR$/src/LifePattern.java" />
         <option value="$PROJECT_DIR$/src/DataStructure/ActivityInstance.java" />
         <option value="$PROJECT_DIR$/src/Learning/BayesNet.java" />
-        <option value="$PROJECT_DIR$/src/tool/ActivityInstanceParser.java" />
-        <option value="$PROJECT_DIR$/src/Learning/Classifier.java" />
         <option value="$PROJECT_DIR$/src/NewLifePattern.java" />
+        <option value="$PROJECT_DIR$/src/Learning/Classifier.java" />
+        <option value="$PROJECT_DIR$/src/tool/ActivityInstanceParser.java" />
       </list>
     </option>
   </component>
@@ -1457,7 +805,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456463667408</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Change Sequential method to BayesNet&#10;">
+      <created>1460911914528</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1460911914528</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1476,7 +830,7 @@
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.49785867" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.254818" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.254818" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32779622" sideWeight="0.4875" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1528,7 +882,8 @@
     <MESSAGE value="automation activelezi&#10;" />
     <MESSAGE value="Fix bug of  activelezi&#10;Now SDLE parser&#10;" />
     <MESSAGE value="Everything good now&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Everything good now&#10;" />
+    <MESSAGE value="Change Sequential method to BayesNet&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change Sequential method to BayesNet&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1838,14 +1193,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tool/WSUM2Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="75" column="34" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DataStructure/Mean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1897,24 +1244,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tool/ActivityInstanceParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="95" column="40" selection-start-line="95" selection-start-column="40" selection-end-line="95" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Learning/Classifier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Learning/DPMM.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1933,12 +1262,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/tool/WSUM2Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.084821425">
+          <caret line="75" column="34" selection-start-line="75" selection-start-column="34" selection-end-line="75" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Learning/Classifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/NewLifePattern.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8973215">
-          <caret line="212" column="45" selection-start-line="212" selection-start-column="33" selection-end-line="212" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tool/ActivityInstanceParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3794643">
+          <caret line="356" column="32" selection-start-line="356" selection-start-column="32" selection-end-line="356" selection-end-column="32" />
+          <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
