@@ -1,4 +1,4 @@
-package sdle;
+package SDLE;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,7 +16,7 @@ public class Activity {
 
     Activity() {
         //For M2 i <= 14, M1 <= 12
-        for (int i = 1; i <= 14; i++) {
+        for (int i = 1; i <=14; i++) {
             String act = String.valueOf(i);
             Activities.add(act);
         }

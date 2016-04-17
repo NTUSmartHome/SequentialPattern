@@ -1,9 +1,5 @@
-package alz;
+package ALZ;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.*;
 
 /**
@@ -17,8 +13,8 @@ public class ActiveLzTree {
     private List<String> allActivity;
 
    /* public static void wsuOneDay() {
-        ActiveLzTree alz = new ActiveLzTree();
-        alz.init();
+        ActiveLzTree ALZ = new ActiveLzTree();
+        ALZ.init();
         ArrayList<String> actSeq = new ArrayList<>();
         try {
             FileReader fr = new FileReader("db/SeqOneDay.txt");
@@ -36,30 +32,30 @@ public class ActiveLzTree {
             e.printStackTrace();
         }
         for (int i = 0; i < actSeq.size(); i++) {
-            alz.step(actSeq.get(i));
+            ALZ.step(actSeq.get(i));
         }
-        alz.levelOrderPrint();
-        PPM.init(alz);
+        ALZ.levelOrderPrint();
+        PPM.init(ALZ);
         PPM.addSeenActivity("1", 0);
         PPM.addSeenActivity("1", 0);
         // Map<String, Double> pre = PPM.prediction(0);
     }*/
 
     /*public static void main(String[] args) {
-        ActiveLzTree alz = new ActiveLzTree();
-        alz.init();
+        ActiveLzTree ALZ = new ActiveLzTree();
+        ALZ.init();
         String s = "a,a,a,b,a,b,b,b,b,b,a,a,b,c,c,d,d,c,b,a,a,a,a";
         String[] ss = s.split(",");
         for (int i = 0; i < ss.length; i++) {
-            alz.step(ss[i]);
+            ALZ.step(ss[i]);
         }
-        //alz.finish();
-        PPM.init(alz);
+        //ALZ.finish();
+        PPM.init(ALZ);
         //PPM.addSeenActivity("a", 0);
         //PPM.addSeenActivity("a", 0);
         List<Map.Entry<String, Double>> abc = PPM.prediction(0);
 
-        //alz.finish();
+        //ALZ.finish();
         System.out.println();
 
     }*/

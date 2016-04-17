@@ -1,9 +1,8 @@
 package tool;
 
-import sdle.DB;
+import SDLE.DB;
 
 import java.io.*;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.TimeZone;
@@ -125,7 +124,7 @@ public class WSUParser {
                 if (lastUnixTimestamp != 0) {
                     if (belongToWhichSDLE != lastNoSDLE) {
                         if (belongToWhichSDLE < tmpNoSDLE) {
-                            //System.out.println("\r\nMore than one sdle idle, " + tmpNoSDLE + " -> " + belongToWhichSDLE);
+                            //System.out.println("\r\nMore than one SDLE idle, " + tmpNoSDLE + " -> " + belongToWhichSDLE);
                             String[] instanceLable = new String[preInstance.size()];
                             for (int i = 0; i < preInstance.size(); i++) {
                                 instanceLable[i] = preInstance.get(i);
@@ -147,7 +146,7 @@ public class WSUParser {
 
                             }
                         } else if ((belongToWhichSDLE - tmpNoSDLE) > 0) {
-                            //System.out.println("More than one sdle idle, " + tmpNoSDLE + " -> " + belongToWhichSDLE);
+                            //System.out.println("More than one SDLE idle, " + tmpNoSDLE + " -> " + belongToWhichSDLE);
                             String[] instanceLable = new String[preInstance.size()];
                             for (int i = 0; i < preInstance.size(); i++) {
                                 instanceLable[i] = preInstance.get(i);
@@ -232,7 +231,7 @@ public class WSUParser {
                 if (lastUnixTimestamp != 0) {
                     if (belongToWhichSDLE != lastNoSDLE) {
                         if (belongToWhichSDLE < tmpNoSDLE) {
-                            //System.out.println("\r\nMore than one sdle idle, " + tmpNoSDLE + " -> " + belongToWhichSDLE);
+                            //System.out.println("\r\nMore than one SDLE idle, " + tmpNoSDLE + " -> " + belongToWhichSDLE);
                             String[] instanceLable = new String[preInstance.size()];
                             for (int i = 0; i < preInstance.size(); i++) {
                                 instanceLable[i] = preInstance.get(i);
@@ -253,7 +252,7 @@ public class WSUParser {
 
                             }
                         } else if ((belongToWhichSDLE - tmpNoSDLE) > 0) {
-                            //System.out.println("More than one sdle idle, " + tmpNoSDLE + " -> " + belongToWhichSDLE);
+                            //System.out.println("More than one SDLE idle, " + tmpNoSDLE + " -> " + belongToWhichSDLE);
                             String[] instanceLable = new String[preInstance.size()];
                             for (int i = 0; i < preInstance.size(); i++) {
                                 instanceLable[i] = preInstance.get(i);

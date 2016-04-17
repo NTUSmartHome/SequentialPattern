@@ -8,6 +8,9 @@ public class ActivityInstance {
     private String activity;
     private String startTime;
     private long duration;
+    private int dayOfWeek;
+
+
 
     public ActivityInstance(String activity, String startTime, long duration) {
         this.activity = activity;
@@ -16,6 +19,13 @@ public class ActivityInstance {
 
     }
 
+    public ActivityInstance(String activity, String startTime, long duration, int dayOfWeek) {
+        this.activity = activity;
+        this.startTime = startTime;
+        this.duration = duration;
+        this.dayOfWeek = dayOfWeek;
+
+    }
     public String getActivity() {
         return activity;
     }
@@ -26,6 +36,9 @@ public class ActivityInstance {
 
     public long getDuration() {
         return duration;
+    }
+    public int getDayOfWeek() {
+        return dayOfWeek;
     }
 
     public String toSting() {

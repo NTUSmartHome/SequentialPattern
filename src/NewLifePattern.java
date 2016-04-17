@@ -1,25 +1,23 @@
-//import dpmm.MDPMMTrain;
+/**
+ * Created by MingJe on 2016/4/18.
+ */
 
 import DataStructure.ActivityInstance;
 import Learning.DPMM;
-import ALZ.ActiveLzTree;
-import ALZ.PPM;
+
 import com.datumbox.common.dataobjects.AssociativeArray;
 import com.datumbox.common.dataobjects.Record;
 import SDLE.SDLE;
 import smile.regression.Regression;
 import tool.ActivityInstanceParser;
-import tool.WSUParser;
 
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/**
- * Created by MingJe on 2015/10/4.
- */
-public class LifePattern {
+
+public class NewLifePattern {
     static double rh = 0.05, beta = 0.01;
     ArrayList<ArrayList<SDLE>> weekSDLEList;
     ArrayList<SDLE> sdleList;
@@ -29,14 +27,14 @@ public class LifePattern {
     Map<String, Integer>[] daySegmentationMap;
     ArrayList<ActivityInstance>[] weekActivityInstances;
     ArrayList<ActivityInstance>[] testWeekActivityInstances;
-
+    Map<String, Map<Integer, Regression>>[] regressors;
     int MaxCluster;
     //----------------------------------WSU M1 data begins on Friday------------------------------------//
     //----------------------------------Ming data begins on Sat------------------------------------//
     final int weekDayStart = 5;
     //-----------------------------------------------------------------------------------------------//
 
-    public LifePattern() {
+    public NewLifePattern() {
         sdleList = new ArrayList<>();
         instanceLabel = new ArrayList<>();
         weekSDLEList = new ArrayList<>();
@@ -46,211 +44,13 @@ public class LifePattern {
     }
 
     public static void main(String[] args) throws InterruptedException, IOException, ParseException {
-
-        //Original : 0.5, 10, 100
-        //new MDPMMTrain("report/WSU", "WSU", 0.5, 5, 100);
-
-        LifePattern olp = new LifePattern();
-        olp.readFile(5, 1, rh, beta);
-        Map<String, Integer> resultMap = new HashMap<>();
-        for (int i = 0; i < 7; i++) {
-            resultMap.put(String.valueOf(i), 0);
-        }
-        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.yin(84, resultMap);
-        olp.weekActivityInstances = total[0];
-        olp.testWeekActivityInstances = total[1];
-        olp.activityInstanceModelling();
-        //olp.preProcessingWSU();
-        olp.perDayActivityEstimation(84);
-        //olp.runSDLE(10);
-        //olp.runAZSDLESimple(21);
-        olp.improvedALZ(84);
-        //olp.runAZSDLE(1);
-
-
+        NewLifePattern lifePattern = new NewLifePattern();
+        lifePattern.readFile(5, 1, rh, beta);
+        lifePattern.perDayActivityEstimation(66);
+        //Activity Instance Grouping
+        lifePattern.activityInstanceModelling();
     }
 
-    public void improvedALZ(int trainedDays) {
-
-        int oneDayChange = 0;
-        int allChange = 0;
-        int day = weekDayStart;
-        int dayGroup = weekResultMap.get(String.valueOf(day));
-        int alzRight = 0, alzOneDayRight = 0;
-        int alzIdx = 0;
-        int[] alzTimeIntervalAccuracy = new int[instanceLabel.size()];
-
-        ActiveLzTree[][] activeLzTreeArray = new ActiveLzTree[weekResultMap.get("size")][];
-        for (int i = 0; i < activeLzTreeArray.length; i++) {
-            activeLzTreeArray[i] = new ActiveLzTree[daySegmentationMap[i].get("size")];
-            for (int j = 0; j < activeLzTreeArray[i].length; j++) {
-                activeLzTreeArray[i][j] = new ActiveLzTree();
-                activeLzTreeArray[i][j].init();
-                PPM.init(String.valueOf(i + "" + j), activeLzTreeArray[i][j]);
-            }
-        }
-
-
-        //-----------------------------------ALZ focus on changing of activity-------------------------------//
-        String preActivity = "-1", currentActivity;
-        int preALZIDX = -1, curALZIDX;
-        //--------------------------------------------------------------------------------------------------//
-        for (int i = 0; i < trainedDays; i++) {
-            for (int j = 0; j < instanceLabel.size(); j++) {
-                String[] acts = instanceLabel.get(j).get(i).split(",");
-                Arrays.sort(acts);
-                /* Old version
-                if (j >= 3 && j <= 67)
-                    alzIdx = 0;
-                else if ((j > 67 && j <= 80) || (j >= 272 && j <= 287) || j < 3)
-                    alzIdx = 3;
-                else if (j > 80 && j <= 97)
-                    alzIdx = 4;
-                else if (j > 97 && j <= 224)
-                    alzIdx = 1;
-                else
-                    alzIdx = 2;
-                */
-
-                /*if (j >= 4 && j <= 64)
-                    alzIdx = 4;
-                else if ((j > 64 && j <= 81) || (j >= 270 && j <= 287) || j < 4)
-                    alzIdx = 3;
-                else if (j > 81 && j <= 100)
-                    alzIdx = 0;
-                else if (j > 100 && j <= 225)
-                    alzIdx = 1;
-                else
-                    alzIdx = 2;*/
-                curALZIDX = daySegmentationMap[dayGroup].get(String.valueOf(j));
-                if (curALZIDX != preALZIDX) {
-                    activeLzTreeArray[dayGroup][curALZIDX].finish();
-                }
-                currentActivity = acts[0];
-                if ((!currentActivity.equals(preActivity) || activeLzTreeArray[dayGroup][alzIdx].getWindow().size() == 0) && !currentActivity.equals("12")) {
-                    activeLzTreeArray[dayGroup][alzIdx].step(currentActivity);
-                    dayGroup = weekResultMap.get(String.valueOf(day));
-                    alzIdx = daySegmentationMap[dayGroup].get(String.valueOf(j));
-                }
-
-                preALZIDX = curALZIDX;
-                preActivity = currentActivity;
-            }
-            if (activeLzTreeArray.length == 1) {
-                for (int k = 0; k < activeLzTreeArray.length; k++) {
-                    for (int j = 0; j < activeLzTreeArray[k].length; j++) {
-                        activeLzTreeArray[k][j].finish();
-                    }
-                }
-            }
-            day = (day + 1) % 7;
-        }
-
-        preActivity = "-1";
-        //day = trainedDays % 7;
-        StringBuilder result = new StringBuilder();
-        StringBuilder oneDaySequenceResult = new StringBuilder();
-        StringBuilder sequenceResult = new StringBuilder();
-        String test = String.valueOf(weekResultMap.get(String.valueOf(dayGroup)) + "" + alzIdx);
-        List<Map.Entry<String, Double>> predictedActsByALZ = PPM.prediction(test);
-        for (int i = trainedDays; i < instanceLabel.get(0).size(); i++) {
-            for (int j = 0; j < instanceLabel.size(); j++) {
-                String[] acts = instanceLabel.get(j).get(i).split(",");
-                Arrays.sort(acts);
-                currentActivity = acts[0];
-                /*Old Version
-                if (j >= 3 && j <= 67)
-                    alzIdx = 0;
-                else if ((j > 67 && j <= 80) || (j >= 272 && j <= 287) || j < 3)
-                    alzIdx = 3;
-                else if (j > 80 && j <= 97)
-                    alzIdx = 4;
-                else if (j > 97 && j <= 224)
-                    alzIdx = 1;
-                else
-                    alzIdx = 2;
-                */
-
-                /*if (j >= 4 && j <= 64)
-                    alzIdx = 4;
-                else if ((j > 64 && j <= 81) || (j >= 270 && j <= 287) || j < 4)
-                    alzIdx = 3;
-                else if (j > 81 && j <= 100)
-                    alzIdx = 0;
-                else if (j > 100 && j <= 225)
-                    alzIdx = 1;
-                else
-                    alzIdx = 2;*/
-                curALZIDX = daySegmentationMap[dayGroup].get(String.valueOf(j));
-                if (curALZIDX != preALZIDX) {
-                    activeLzTreeArray[dayGroup][curALZIDX].finish();
-                }
-                dayGroup = weekResultMap.get(String.valueOf(day));
-                alzIdx = daySegmentationMap[dayGroup].get(String.valueOf(j));
-
-                if (!currentActivity.equals(preActivity) && !currentActivity.equals("12")) {
-
-                    result.append("Time : " + j / 12 + ":" + (j * 5) % 60 + "\tActivity : " + acts[0] + "\n");
-                    if (predictedActsByALZ.size() == 1)
-                        result.append("ALZ : " + predictedActsByALZ.get(0).getKey() + "\t" + predictedActsByALZ.get(0).getValue()
-                                + "\n\n");
-                    else if (predictedActsByALZ.size() == 2)
-                        result.append("ALZ : " + predictedActsByALZ.get(0).getKey() + "\t" + predictedActsByALZ.get(0).getValue()
-                                + " " + predictedActsByALZ.get(1).getKey() + " " + predictedActsByALZ.get(1).getValue() + "\n\n");
-                    else
-                        result.append("ALZ : " + predictedActsByALZ.get(0).getKey() + "\t" + predictedActsByALZ.get(0).getValue()
-                                + " " + predictedActsByALZ.get(1).getKey() + " " + predictedActsByALZ.get(1).getValue()
-                                + " " + predictedActsByALZ.get(2).getKey() + " " + predictedActsByALZ.get(2).getValue() + "\n\n");
-
-                    if (predictedActsByALZ.get(0).getKey().equals(currentActivity)
-                            || ((predictedActsByALZ.size() > 1) && (predictedActsByALZ.get(1).getKey().equals(currentActivity)) && !predictedActsByALZ.get(1).getValue().equals(0.0))
-                           /* || ((predictedActsByALZ.size() > 2) && (predictedActsByALZ.get(2).getKey().equals(currentActivity)) && !predictedActsByALZ.get(2).getValue().equals(0.0))*/) {
-                        alzOneDayRight++;
-                        alzRight++;
-                    }
-                    allChange++;
-                    oneDayChange++;
-                    activeLzTreeArray[dayGroup][alzIdx].step(acts[0]);
-                    predictedActsByALZ = PPM.prediction(String.valueOf(dayGroup + "" + alzIdx));
-
-                }
-                preALZIDX = curALZIDX;
-                preActivity = currentActivity;
-
-
-            }
-            System.out.println(i + " ALZ: " + (double) alzOneDayRight / oneDayChange);
-            oneDaySequenceResult.append((double) alzOneDayRight / oneDayChange + " ");
-            sequenceResult.append((double) alzRight / allChange + " ");
-            alzOneDayRight = 0;
-            oneDayChange = 0;
-            if (activeLzTreeArray.length == 1) {
-                for (int k = 0; k < activeLzTreeArray.length; k++) {
-                    for (int j = 0; j < activeLzTreeArray[k].length; j++) {
-                        activeLzTreeArray[k][j].finish();
-                    }
-                }
-            }
-            day = (day + 1) % 7;
-        }
-
-        System.out.println(" ALZ: " + (double) alzRight / allChange);
-        System.out.println(oneDaySequenceResult.toString());
-        System.out.println(sequenceResult.toString());
-        try {
-            FileWriter fw = new FileWriter("ResultImprovrdALZ.txt");
-            fw.write(result.toString());
-            fw.write("\n\n" + Arrays.toString(alzTimeIntervalAccuracy));
-            fw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    private void preProcessingWSU() {
-        new WSUParser(5, 1, 0);
-    }
 
     private void perDayActivityEstimation(int trainedDays) {
 
@@ -316,15 +116,14 @@ public class LifePattern {
             contextDaySegmentation(file + "Segmentation/");
 
             //Activity Instance parse, return an object and write the file;
-            //ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.yin(7, weekResultMap);
-            //weekActivityInstances = total[0];
-            //weekActivityInstances = total[1];
-
-            //Activity Instance Grouping
-            activityInstanceModelling();
+            ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.yin(7, weekResultMap);
+            weekActivityInstances = total[0];
+            weekActivityInstances = total[1];
 
 
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
             e.printStackTrace();
         }
     }
@@ -333,8 +132,8 @@ public class LifePattern {
     private Map<String, Integer> contextDayMerge(String file) {
 
         try {
-           //return Learning.DPMM.MDPMMTrain("Model/dayMerge", file, 0.5, 1, 500);
-           return DPMM.oneCluster(file);
+            //return Learning.DPMM.MDPMMTrain("Model/dayMerge", file, 0.5, 1, 500);
+            return DPMM.oneCluster(file);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -352,7 +151,7 @@ public class LifePattern {
                 System.out.println("\n\n");
                 daySegmentationMap[idx - 1] = DPMM.GDPMMTrain("/Model/" + idx + "Seg", fileName, 0.9, 1, 500);
                 //daySegmentationMap[idx-1] = Learning.DPMM.HierarchicalAgglomerativeTrain(fileName);
-               //daySegmentationMap[idx - 1] = Learning.DPMM.oneCluster(fileName);
+                //daySegmentationMap[idx - 1] = Learning.DPMM.oneCluster(fileName);
                 System.out.println(fileName + "\n\n");
 
             } catch (IOException e) {
@@ -411,7 +210,7 @@ public class LifePattern {
         FileWriter fw = null;
         String fileName = null;
         ActivityInstance activityInstance = null;
-        Map<String, Map<Integer, Regression>>[] regressors = new HashMap[eachActivity.length];
+        regressors = new HashMap[eachActivity.length];
         for (int i = 0; i < regressors.length; i++) {
             regressors[i] = new HashMap<>();
         }

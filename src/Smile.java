@@ -1,3 +1,4 @@
+import DataStructure.Mean;
 import smile.math.kernel.GaussianKernel;
 import smile.regression.*;
 import smile.validation.RMSE;
@@ -115,27 +116,9 @@ public class Smile {
             testX[i][0] = doubleX[i][0];
             testY[i] = doubleY[i];
         }
-        RidgeRegression ridgeRegression = new RidgeRegression(doubleX,doubleY,0.1);
-        int errorMinute = 0;
-        int count = 0;
-        double[] truth = new double[testX.length];
-        double[] predicted = new double[testX.length];
-        double maxValue = 0;
-        for (int i = 0; i < testX.length; i++) {
-            // System.out.println("Real Y : " + testY[i] + "   Predicted Y : " + regressionTree.predict(testX[i]) );
-            errorMinute += Math.abs(testY[i] - ridgeRegression.predict(testX[i]));
-            count++;
-            truth[i] = testY[i];
-            predicted[i] = ridgeRegression.predict(testX[i]);
-            if (testY[i] > maxValue)
-                maxValue = testY[i];
-        }
-        System.out.println((double) errorMinute);
-        RMSE rmse = new RMSE();
-        System.out.println(rmse.measure(truth, predicted) / maxValue);
-        return ridgeRegression;
+        Mean mean = new Mean(doubleX,doubleY);
+        return mean;
     }
-
     public static Regression RidgeRegression(ArrayList<Long[]> x, ArrayList<Long> y) {
         double[][] doubleX = new double[x.size()][1];
         double[] doubleY = new double[y.size()];

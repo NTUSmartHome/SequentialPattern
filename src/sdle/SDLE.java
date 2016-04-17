@@ -1,4 +1,4 @@
-package sdle;
+package SDLE;
 
 import java.io.*;
 import java.text.NumberFormat;

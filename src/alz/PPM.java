@@ -1,4 +1,4 @@
-package alz;
+package ALZ;
 
 import java.util.*;
 
@@ -30,7 +30,7 @@ public class PPM {
 
 
         /*for (int i = copySeenActivity.size(); i >= 0 ; i--) {
-            pathNode = alz.findActivityNodePath(copySeenActivity);
+            pathNode = ALZ.findActivityNodePath(copySeenActivity);
             if (pathNode.size() != 1 || copySeenActivity.size() == 0) {
                 break;
             }

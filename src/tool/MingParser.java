@@ -1,6 +1,6 @@
 package tool;
 
-import sdle.DB;
+import SDLE.DB;
 
 import java.io.*;
 import java.text.ParseException;
