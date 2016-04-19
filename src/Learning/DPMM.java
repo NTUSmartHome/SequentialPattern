@@ -11,7 +11,6 @@ import com.datumbox.framework.machinelearning.clustering.GaussianDPMM;
 import com.datumbox.framework.machinelearning.clustering.HierarchicalAgglomerative;
 import com.datumbox.framework.machinelearning.clustering.MultinomialDPMM;
 import com.datumbox.framework.machinelearning.common.bases.basemodels.BaseDPMM;
-import com.datumbox.framework.machinelearning.datatransformation.DummyXMinMaxNormalizer;
 import com.datumbox.framework.machinelearning.datatransformation.XYMinMaxNormalizer;
 import com.datumbox.framework.machinelearning.regression.MatrixLinearRegression;
 import com.datumbox.framework.machinelearning.regression.NLMS;

@@ -1,12 +1,13 @@
 //import dpmm.MDPMMTrain;
 
-import DataStructure.ActivityInstance;
-import Learning.DPMM;
 import ALZ.ActiveLzTree;
 import ALZ.PPM;
+import DataStructure.ActivityInstance;
+import Learning.DPMM;
+import Learning.Smile;
+import SDLE.SDLE;
 import com.datumbox.common.dataobjects.AssociativeArray;
 import com.datumbox.common.dataobjects.Record;
-import SDLE.SDLE;
 import smile.regression.Regression;
 import tool.ActivityInstanceParser;
 import tool.WSUParser;

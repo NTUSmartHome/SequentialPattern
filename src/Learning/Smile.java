@@ -1,3 +1,5 @@
+package Learning;
+
 import DataStructure.Mean;
 import smile.math.kernel.GaussianKernel;
 import smile.regression.*;

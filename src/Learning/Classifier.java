@@ -1,13 +1,13 @@
 package Learning;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Map;
-
-import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.BayesNet;
-import weka.core.*;
+import weka.core.Instances;
 import weka.core.converters.ArffLoader;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 /**
  * Created by MingJe on 2016/4/18.
@@ -59,6 +59,22 @@ public class Classifier {
 
     public weka.classifiers.Classifier getcModel() {
         return cModel;
+    }
+
+    public void saveModel(String fileName) {
+        try {
+            weka.core.SerializationHelper.write(fileName, cModel);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadModel(String fileName) {
+        try {
+            cModel = (weka.classifiers.Classifier) weka.core.SerializationHelper.read(fileName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

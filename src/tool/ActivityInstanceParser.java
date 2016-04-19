@@ -80,7 +80,7 @@ public class ActivityInstanceParser {
     // This way with others. all activity > 11
     public static ArrayList<ActivityInstance>[][] yin(int trainedDays, Map<String, Integer> resultMap) throws IOException, ParseException {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
-        FileReader fr = new FileReader("db/DB_M2_app.txt");
+        FileReader fr = new FileReader("db/DB_M1_app.txt");
         BufferedReader br = new BufferedReader(fr);
         String line;
         String preActivity = "";
@@ -103,9 +103,9 @@ public class ActivityInstanceParser {
             line = line.replace("{", "").replace("\"", "").replace(" ", "");
             String[] rawData = line.split("[:}]+");
             String activity = rawData[rawData.length - 1];
-            /*if (Integer.parseInt(activity) > 12) {
+            if (Integer.parseInt(activity) > 12) {
                 activity = "12";
-            }*/
+            }
             long unixTimestamp = Integer.valueOf(rawData[rawData.length - 2].substring(0, 10));
             //System.out.println(unixTimestamp);
             String date = weekFormat.format(new java.util.Date(unixTimestamp * 1000));
@@ -140,9 +140,9 @@ public class ActivityInstanceParser {
             line = line.replace("{", "").replace("\"", "").replace(" ", "");
             String[] rawData = line.split("[:}]+");
             String activity = rawData[rawData.length - 1];
-            /*if (Integer.parseInt(activity) > 12) {
+            if (Integer.parseInt(activity) > 12) {
                 activity = "12";
-            }*/
+            }
             long unixTimestamp = Integer.valueOf(rawData[rawData.length - 2].substring(0, 10));
             //System.out.println(unixTimestamp);
             String date = weekFormat.format(new java.util.Date(unixTimestamp * 1000));
