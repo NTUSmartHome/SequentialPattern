@@ -3,15 +3,13 @@
  */
 
 import DataStructure.ActivityInstance;
+import Learning.Classifier;
 import Learning.Clustering;
-import Learning.DPMM;
 import Learning.WekaRegression;
 import SDLE.SDLE;
-import smile.regression.Regression;
 import tool.ActivityInstanceParser;
 import weka.clusterers.Clusterer;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
@@ -19,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 
-public class NewLifePattern {
+public class TrainLifePattern {
     static double rh = 0.05, beta = 0.01;
     ArrayList<ArrayList<SDLE>> weekSDLEList;
     ArrayList<SDLE> sdleList;
@@ -29,23 +27,30 @@ public class NewLifePattern {
     Map<String, Integer>[] daySegmentationMap;
     ArrayList<ActivityInstance>[] weekActivityInstances;
     ArrayList<ActivityInstance>[] testWeekActivityInstances;
-    Map<String, ArrayList<WekaRegression>> regressors;
 
+    //Use GBRT to learn the relation between start time and duration. And this model use to infer activity duration
+    Map<String, ArrayList<WekaRegression>> regressors;
+    //Use BayesNet to train relationship between activity
+    Classifier relationer;
     //Use Expectation Maximization to cluster each activity start time
-    Map<String, Clusterer> activityStartTimeClusterer;
+    Map<String, Clustering> activityStartTimeClusterer;
+    //Store activity name
     ArrayList<String> activityList;
     //----------------------------------WSU M1 data begins on Friday------------------------------------//
     //----------------------------------Ming data begins on Sat------------------------------------//
     final int weekDayStart = 5;
     //-----------------------------------------------------------------------------------------------//
 
-    public NewLifePattern() {
+
+
+    public TrainLifePattern() throws IOException, ParseException {
         sdleList = new ArrayList<>();
         instanceLabel = new ArrayList<>();
         weekSDLEList = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
             weekSDLEList.add(new ArrayList<>());
         }
+
         activityStartTimeClusterer = new HashMap<>();
         activityList = new ArrayList<>();
         Map<String, Integer> resultMap = new HashMap<>();
@@ -54,31 +59,41 @@ public class NewLifePattern {
             resultMap.put(String.valueOf(i), 0);
         }
         weekResultMap = resultMap;
+
+
+        //Activity Instance parse, return an object and write the file;
+        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.original(84, weekResultMap);
+        weekActivityInstances = total[0];
+        testWeekActivityInstances = total[1];
+
+        //Activity Start Time Clustering
+        activityStartTimeClustering();
+        //Activity Duration Estimation
+        activityDurationEstimation();
+        //Activity Relation Construction
+        activityRelationConstruction();
     }
 
     public static void main(String[] args) throws InterruptedException, IOException, ParseException {
-        NewLifePattern lifePattern = new NewLifePattern();
+        TrainLifePattern lifePattern = new TrainLifePattern();
         //lifePattern.readFile(5, 1, rh, beta);
         //lifePattern.perDayActivityEstimation(66);
 
-        //Activity Instance parse, return an object and write the file;
-        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.yin(84, lifePattern.weekResultMap);
+      /*  //Activity Instance parse, return an object and write the file;
+        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.original(84, lifePattern.weekResultMap);
         lifePattern.weekActivityInstances = total[0];
-        lifePattern.testWeekActivityInstances = total[1];
+        lifePattern.testWeekActivityInstances = total[1];*/
 
-        //Activity Start Time Clustering
+      /*  //Activity Start Time Clustering
         lifePattern.activityStartTimeClustering();
         //Activity Duration Estimation
         lifePattern.activityDurationEstimation();
+        //Activity Relation Construction
+        lifePattern.activityRelationConstruction();*/
+
     }
 
-    private void activityRelationLearning() {
-        for (int i = 2; i < weekActivityInstances[0].size(); i++) {
-
-        }
-    }
-
-    private void perDayActivityEstimation(int trainedDays) {
+    /*private void perDayActivityEstimation(int trainedDays) {
 
         try {
             // perDayActivityEstimation for day merge
@@ -180,7 +195,7 @@ public class NewLifePattern {
             file = new File(fileName);
 
         }
-    }
+
 
     private ArrayList<SDLE> newSDLEList() {
         ArrayList<SDLE> newSDLEList = new ArrayList<>();
@@ -197,16 +212,88 @@ public class NewLifePattern {
 
         }
         return weekSDLEList;
+    }*/
+
+    /**
+     * Learn the relationships between activities
+     */
+    private void activityRelationConstruction() {
+
+        try {
+            String fileName = "ActivityRelationConstruction";
+            FileWriter fw = new FileWriter("report/features/" + fileName + ".arff");
+            StringBuilder featureString = new StringBuilder("@RELATION activityRelation \n");
+
+            featureString.append("@ATTRIBUTE act_last_two {");
+            for (int i = 0; i < activityList.size(); i++) {
+                if (i == 0) featureString.append(activityList.get(i));
+                else featureString.append("," + activityList.get(i));
+            }
+
+            featureString.append("}\n@ATTRIBUTE act_last {");
+            for (int i = 0; i < activityList.size(); i++) {
+                if (i == 0) featureString.append(activityList.get(i));
+                else featureString.append("," + activityList.get(i));
+            }
+
+            featureString.append("}\n@ATTRIBUTE startTime {");
+            for (int i = 0; i < 5; i++) {
+                if (i == 0) featureString.append(i);
+                else featureString.append("," + i);
+            }
+
+            featureString.append("}\n@ATTRIBUTE dayofweek {");
+            for (int i = 1; i < 8; i++) {
+                if (i == 0) featureString.append(i);
+                else featureString.append("," + i);
+            }
+
+            featureString.append("}\n@ATTRIBUTE act {");
+            for (int i = 0; i < activityList.size(); i++) {
+                if (i == 0) featureString.append(activityList.get(i));
+                else featureString.append("," + activityList.get(i));
+            }
+
+            featureString.append("}\n@data\n");
+            for (int i = 2; i < weekActivityInstances[0].size(); i++) {
+                ActivityInstance activityInstance = weekActivityInstances[0].get(i);
+                String[] startTime = activityInstance.getStartTime().split(":");
+                int startTimeHour = Integer.parseInt(startTime[0]);
+                int startTimeMinute = Integer.parseInt(startTime[1]);
+                int segment = startTimeHour * 12 + startTimeMinute / 5;
+                if (segment >= 4 && segment <= 64)
+                    segment = 4;
+                else if ((segment > 64 && segment <= 81) || (segment >= 270 && segment <= 287) || segment < 4)
+                    segment = 3;
+                else if (segment > 81 && segment <= 100)
+                    segment = 0;
+                else if (segment > 100 && segment <= 225)
+                    segment = 1;
+                else
+                    segment = 2;
+
+                featureString.append(weekActivityInstances[0].get(i - 2).getActivity() + "," + weekActivityInstances[0].get(i - 1).getActivity()
+                        + "," + segment + "," + activityInstance.getDayOfWeek() + "," + activityInstance.getActivity() + "\n");
+            }
+            fw.write(featureString.toString());
+            fw.flush();
+            fw.close();
+            relationer = new Classifier("Relation", fileName);
+            relationer.train(null);
+            relationer.saveModel();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
      * Re-structure activity instances
-     * Re-structure activity instances
-     *
      * @param weekActivityInstances
      * @return activity instances which is categorized by activity name
      */
-    private Map<String, ArrayList<ActivityInstance>>[] eachActivity(ArrayList<ActivityInstance>[] weekActivityInstances) {
+    private Map<String, ArrayList<ActivityInstance>>[] eachActivity(ArrayList<ActivityInstance>[]
+                                                                            weekActivityInstances) {
         Map<String, ArrayList<ActivityInstance>>[] eachActivity = new HashMap[weekActivityInstances.length];
         for (int i = 0; i < eachActivity.length; i++) {
             eachActivity[i] = new HashMap<>();
@@ -233,6 +320,7 @@ public class NewLifePattern {
      * @throws IOException
      * @throws ParseException
      */
+
     private void activityStartTimeClustering() throws IOException, ParseException {
         Map<String, ArrayList<ActivityInstance>>[] eachActivity = eachActivity(weekActivityInstances);
         StringBuilder featureString = new StringBuilder();
@@ -272,7 +360,7 @@ public class NewLifePattern {
                 Clustering clustering = new Clustering(activityInstance.getActivity(), fileName);
                 clustering.train(null);
                 clustering.saveModel();
-                activityStartTimeClusterer.put(activityInstance.getActivity(), clustering.getClusterer());
+                activityStartTimeClusterer.put(activityInstance.getActivity(), clustering);
 
                 //write feature for activity duration estimation
                 ArrayList<Integer>[] instanceBelongToCluster = clustering.getInstanceBelongToCluster();
@@ -319,6 +407,40 @@ public class NewLifePattern {
             }
             regressors.put(activity, eachActivityRegressions);
         }
+    }
+
+
+
+    public Classifier getRelationer() {
+        return relationer;
+    }
+
+    public void setRelationer(Classifier relationer) {
+        this.relationer = relationer;
+    }
+
+    public Map<String, Clustering> getActivityStartTimeClusterer() {
+        return activityStartTimeClusterer;
+    }
+
+    public void setActivityStartTimeClusterer(Map<String, Clustering> activityStartTimeClusterer) {
+        this.activityStartTimeClusterer = activityStartTimeClusterer;
+    }
+
+    public ArrayList<String> getActivityList() {
+        return activityList;
+    }
+
+    public void setActivityList(ArrayList<String> activityList) {
+        this.activityList = activityList;
+    }
+
+    public Map<String, ArrayList<WekaRegression>> getRegressors() {
+        return regressors;
+    }
+
+    public void setRegressors(Map<String, ArrayList<WekaRegression>> regressors) {
+        this.regressors = regressors;
     }
 
 }

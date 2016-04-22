@@ -1,13 +1,12 @@
 package Learning;
 
+import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.BayesNet;
 import weka.core.Instances;
-import weka.core.converters.ArffLoader;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 
 /**
  * Created by MingJe on 2016/4/18.
@@ -15,50 +14,50 @@ import java.io.ObjectInputStream;
 public class Classifier {
 
     private weka.classifiers.Classifier cModel;
+    private String fileName;
+    private String Topic;
+
+    public Classifier(String topic, String fileName) {
+        this.Topic = topic;
+        this.fileName = fileName;
+    }
 
 
-    public void train(String fileName, String testFileName) {
+    public Classifier(String topic) {
+        this.Topic = topic;
+    }
+
+    public void train(String fileName) {
 
         try {
-            ArffLoader loader = new ArffLoader();
-            loader.setFile(new File("/some/where/data.arff"));
-            Instances structure = loader.getStructure();
-            structure.setClassIndex(structure.numAttributes() - 1);
+            if (fileName != null) this.fileName = fileName;
+            Instances trainingData = new Instances(new BufferedReader(new FileReader("report/features/" + this.fileName + ".arff")));
+            trainingData.setClassIndex(trainingData.numAttributes() - 1);
             cModel = new BayesNet();
-            cModel.buildClassifier(structure);
+            cModel.buildClassifier(trainingData);
+            Evaluation eval = new Evaluation(trainingData);
+            System.out.println(Topic);
+            eval.evaluateModel(cModel, trainingData);
+            System.out.println(eval.toSummaryString("\nResults\n======\n", false));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-
     }
 
     public String predict(String data) {
-
         return data;
     }
 
-    public int readModel() {
-        if (cModel != null) return 0;
-        // Read model
-        ObjectInputStream ois = null;
-        try {
-            ois = new ObjectInputStream(
-                    new FileInputStream("Model/ar.model"));
-            cModel = (weka.classifiers.Classifier) ois.readObject();
-            return 3;
-        } catch (IOException e) {
-            return 2;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            return -1;
-        }
-    }
 
-    public weka.classifiers.Classifier getcModel() {
-        return cModel;
+    public void saveModel() {
+        try {
+            weka.core.SerializationHelper.write("report/model/" + fileName + ".rModel", cModel);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void saveModel(String fileName) {
@@ -72,6 +71,14 @@ public class Classifier {
     public void loadModel(String fileName) {
         try {
             cModel = (weka.classifiers.Classifier) weka.core.SerializationHelper.read(fileName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadModel() {
+        try {
+            cModel = (weka.classifiers.Classifier) weka.core.SerializationHelper.read("report/model/" + this.fileName + ".cModel");
         } catch (Exception e) {
             e.printStackTrace();
         }

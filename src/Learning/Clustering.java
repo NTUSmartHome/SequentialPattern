@@ -18,20 +18,25 @@ public class Clustering {
     private weka.clusterers.Clusterer clusterer;
     private String fileName;
     private ArrayList<Integer>[] instanceBelongToCluster;
-    private String Activity;
+    private String Topic;
 
 
-    public Clustering(String activity, String fileName) {
-        this.Activity = activity;
+    public Clustering(String topic, String fileName) {
+        this.Topic = topic;
         this.fileName = fileName;
     }
+
+    public Clustering(String topic) {
+        this.Topic = topic;
+    }
+
 
     public ArrayList<Integer>[] getInstanceBelongToCluster() {
         return instanceBelongToCluster;
     }
 
-    public String getActivity() {
-        return Activity;
+    public String getTopic() {
+        return Topic;
     }
 
     public Clusterer getClusterer() {
@@ -51,7 +56,7 @@ public class Clustering {
             ClusterEvaluation eval = new ClusterEvaluation();
             eval.setClusterer(clusterer);                                   // the cluster to evaluate
             eval.evaluateClusterer(trainingData);                                // data to evaluate the clusterer on
-            System.out.println(Activity);
+            System.out.println(Topic);
             System.out.println(eval.clusterResultsToString() + "\n\n");
 
             //Specify each instance(use index instead) belong to which cluster
@@ -92,6 +97,13 @@ public class Clustering {
         }
     }
 
+    public void loadModel(String fileName) {
+        try {
+            clusterer = (weka.clusterers.Clusterer) weka.core.SerializationHelper.read(fileName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     // public ArrayList<>
 }

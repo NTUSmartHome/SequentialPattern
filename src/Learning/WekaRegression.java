@@ -22,16 +22,20 @@ public class WekaRegression {
         return instanceBelongToCluster;
     }
 
-    public String getActivity() {
-        return Activity;
+    public String getTopic() {
+        return Topic;
     }
 
     private ArrayList<Integer>[] instanceBelongToCluster;
-    private String Activity;
+    private String Topic;
 
     public WekaRegression(String activity, String fileName) {
-        this.Activity = activity;
+        this.Topic = activity;
         this.fileName = fileName;
+    }
+
+    public WekaRegression(String activity) {
+        this.Topic = activity;
     }
 
     public Classifier getRegressor() {
@@ -75,6 +79,14 @@ public class WekaRegression {
     public void loadModel() {
         try {
             regressor = (Classifier) weka.core.SerializationHelper.read("report/model/" + fileName + ".rModel");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadModel(String fileName) {
+        try {
+            regressor = (Classifier) weka.core.SerializationHelper.read(fileName);
         } catch (Exception e) {
             e.printStackTrace();
         }
