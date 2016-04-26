@@ -8,6 +8,7 @@ import Learning.Clustering;
 import Learning.WekaRegression;
 import SDLE.SDLE;
 import tool.ActivityInstanceParser;
+import tool.LogPreProcessing;
 import weka.clusterers.Clusterer;
 
 import java.io.FileWriter;
@@ -51,20 +52,28 @@ public class TrainLifePattern {
             weekSDLEList.add(new ArrayList<>());
         }
 
-        activityStartTimeClusterer = new HashMap<>();
-        activityList = new ArrayList<>();
+
         Map<String, Integer> resultMap = new HashMap<>();
-        regressors = new HashMap<>();
         for (int i = 0; i < 7; i++) {
             resultMap.put(String.valueOf(i), 0);
         }
         weekResultMap = resultMap;
 
+        activityStartTimeClusterer = new HashMap<>();
+        activityList = new ArrayList<>();
+        regressors = new HashMap<>();
 
         //Activity Instance parse, return an object and write the file;
-        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.original(84, weekResultMap);
+        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.original(400, weekResultMap);
         weekActivityInstances = total[0];
         testWeekActivityInstances = total[1];
+        ArrayList<ActivityInstance> test = LogPreProcessing.preProcessing(weekActivityInstances[0]);
+        while (true) {
+            int size = weekActivityInstances[0].size();
+            weekActivityInstances[0] = LogPreProcessing.preProcessing(weekActivityInstances[0]);
+            if (size == weekActivityInstances[0].size())
+                break;
+        }
 
         //Activity Start Time Clustering
         activityStartTimeClustering();
@@ -237,16 +246,16 @@ public class TrainLifePattern {
             }
 
             featureString.append("}\n@ATTRIBUTE startTime {");
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 24; i++) {
                 if (i == 0) featureString.append(i);
                 else featureString.append("," + i);
             }
 
-            featureString.append("}\n@ATTRIBUTE dayofweek {");
+            /*featureString.append("}\n@ATTRIBUTE dayofweek {");
             for (int i = 1; i < 8; i++) {
                 if (i == 0) featureString.append(i);
                 else featureString.append("," + i);
-            }
+            }*/
 
             featureString.append("}\n@ATTRIBUTE act {");
             for (int i = 0; i < activityList.size(); i++) {
@@ -273,7 +282,7 @@ public class TrainLifePattern {
                     segment = 2;
 
                 featureString.append(weekActivityInstances[0].get(i - 2).getActivity() + "," + weekActivityInstances[0].get(i - 1).getActivity()
-                        + "," + segment + "," + activityInstance.getDayOfWeek() + "," + activityInstance.getActivity() + "\n");
+                        + "," + startTimeHour + "," + /*activityInstance.getDayOfWeek() + "," +*/ activityInstance.getActivity() + "\n");
             }
             fw.write(featureString.toString());
             fw.flush();

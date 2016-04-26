@@ -1,7 +1,11 @@
 package Learning;
 
+import DataStructure.ActivityInstance;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.BayesNet;
+import weka.core.Attribute;
+import weka.core.DenseInstance;
+import weka.core.Instance;
 import weka.core.Instances;
 
 import java.io.BufferedReader;
@@ -47,8 +51,11 @@ public class Classifier {
 
     }
 
-    public String predict(String data) {
-        return data;
+    public String predict(ActivityInstance currentActivity) {
+        DenseInstance act = new DenseInstance(2);
+        //act.setValue();
+        //cModel.classifyInstance();
+        return null;
     }
 
 

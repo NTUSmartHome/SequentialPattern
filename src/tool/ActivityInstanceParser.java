@@ -55,7 +55,7 @@ public class ActivityInstanceParser {
                     long duration = (weekFormat.parse(data[0] + " " + data[1]).getTime()
                             - weekFormat.parse(startDate + " " + startTime).getTime()) / 60000;
 
-                    week[dayOfGroup].add(new ActivityInstance(activity, startTime, duration, dayOfWeek));
+                    week[dayOfGroup].add(new ActivityInstance(activity, startTime, data[1], duration, dayOfWeek));
 
                     long differenceOfDays = (weekFormat.parse(data[0] + " " + data[1]).getTime()
                             - weekFormat.parse(startDay).getTime()) / 86400000;
@@ -84,7 +84,7 @@ public class ActivityInstanceParser {
                     long duration = (weekFormat.parse(data[0] + " " + data[1]).getTime()
                             - weekFormat.parse(startDate + " " + startTime).getTime()) / 60000;
 
-                    testWeek[dayOfGroup].add(new ActivityInstance(activity, startTime, duration, dayOfWeek));
+                    testWeek[dayOfGroup].add(new ActivityInstance(activity, startTime, data[1], duration, dayOfWeek));
 
                 }
             }
@@ -164,7 +164,7 @@ public class ActivityInstanceParser {
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
                 if (duration >= 0)
-                    week[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], duration, dayOfWeek));
+                    week[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[1], duration, dayOfWeek));
                 startTime = date;
                 //startTimestamp = unixTimestamp;
                 preActivity = activity;
@@ -201,7 +201,7 @@ public class ActivityInstanceParser {
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
                 if (duration >= 0)
-                    testWeek[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], duration, dayOfWeek));
+                    testWeek[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[1], duration, dayOfWeek));
                 startTime = date;
                 //startTimestamp = unixTimestamp;
                 preActivity = activity;
@@ -284,7 +284,7 @@ public class ActivityInstanceParser {
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
                 if (duration >= 0)
-                    week[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], duration));
+                    week[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[1], duration, dayOfWeek));
                 startTime = date;
                 //startTimestamp = unixTimestamp;
                 preActivity = activity;
@@ -319,7 +319,7 @@ public class ActivityInstanceParser {
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
                 if (duration >= 0)
-                    testWeek[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], duration));
+                    testWeek[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[0], duration, dayOfWeek));
                 startTime = date;
                 //startTimestamp = unixTimestamp;
                 preActivity = activity;
@@ -366,13 +366,14 @@ public class ActivityInstanceParser {
             FileWriter fw = new FileWriter("trainingDataBN.arff");
             StringBuilder sb = new StringBuilder();
             ArrayList<ActivityInstance> arrayList = total[0][0];
-            for (int i = 3; i < arrayList.size(); i++) {
-                if (arrayList.get(i-1).getActivity().equals(arrayList.get(i).getActivity()))continue;
+            for (int i = 2; i < arrayList.size(); i++) {
+                if (arrayList.get(i - 1).getActivity().equals(arrayList.get(i).getActivity())) continue;
                 String[] startTime = arrayList.get(i).getStartTime().split(":");
                 int startTimeHour = Integer.parseInt(startTime[0]);
                 int startTimeMinute = Integer.parseInt(startTime[1]);
                 int segment = startTimeHour * 12 + startTimeMinute / 5;
-                if (segment >= 4 && segment <= 64)
+
+                /*if (segment >= 4 && segment <= 64)
                     segment = 4;
                 else if ((segment > 64 && segment <= 81) || (segment >= 270 && segment <= 287) || segment < 4)
                     segment = 3;
@@ -381,9 +382,9 @@ public class ActivityInstanceParser {
                 else if (segment > 100 && segment <= 225)
                     segment = 1;
                 else
-                    segment = 2;
+                    segment = 2;*/
 
-               /* if (startTimeHour < 4) {
+                if (startTimeHour < 4) {
                     segment = 0;
                 } else if (startTimeHour < 8) {
                     segment = 1;
@@ -395,7 +396,7 @@ public class ActivityInstanceParser {
                     segment = 4;
                 } else {
                     segment = 5;
-                }*/
+                }
 
                 //Activity(i-2), Activity(i-1), startTime(i), Activity(i)
                 int dayOfWeek = arrayList.get(i).getDayOfWeek();
@@ -404,7 +405,7 @@ public class ActivityInstanceParser {
                 else
                     dayOfWeek = 1;*/
                 //dayOfWeek = 0;
-                sb.append(arrayList.get(i - 1).getActivity()
+                sb.append(arrayList.get(i - 2).getActivity() + "," + arrayList.get(i - 1).getActivity()
                         + "," + segment + "," + dayOfWeek + "," + arrayList.get(i).getActivity() + "\n");
             }
             fw.write(sb.toString());
@@ -425,9 +426,9 @@ public class ActivityInstanceParser {
         try {
             ArrayList<ActivityInstance>[][] total = original(trainedDays, resultMap);
             FileWriter[] fw = new FileWriter[6];
-            StringBuilder []sb = new StringBuilder[6];
+            StringBuilder[] sb = new StringBuilder[6];
             for (int i = 0; i < 6; i++) {
-                fw[i] = new FileWriter("trainingDataBN"+i+".arff");
+                fw[i] = new FileWriter("trainingDataBN" + i + ".arff");
                 sb[i] = new StringBuilder("@RELATION predict\n" +
                         "\n" +
                         "@ATTRIBUTE act_last   {Meal_Preparation,Relax,Eating,Work,Sleeping,Wash_Dishes,Bed_to_Toilet,Enter_Home,Leave_Home,Housekeeping,Resperate}\n" +
@@ -441,31 +442,25 @@ public class ActivityInstanceParser {
                 int startTimeHour = Integer.parseInt(startTime[0]);
                 int startTimeMinute = Integer.parseInt(startTime[1]);
                 int segment = startTimeHour * 12 + startTimeMinute / 5;
-                if (arrayList.get(i-1).getActivity().equals(arrayList.get(i).getActivity())) continue;
-                if (segment >= 4 && segment <= 64){
-                    sb[4].append( arrayList.get(i - 1).getActivity()
+                if (arrayList.get(i - 1).getActivity().equals(arrayList.get(i).getActivity())) continue;
+                if (segment >= 4 && segment <= 64) {
+                    sb[4].append(arrayList.get(i - 1).getActivity()
                             + "," + arrayList.get(i).getActivity() + "\n");
-                }
-                else if ((segment > 64 && segment <= 81) || (segment >= 270 && segment <= 287) || segment < 4) {
+                } else if ((segment > 64 && segment <= 81) || (segment >= 270 && segment <= 287) || segment < 4) {
                     sb[3].append(arrayList.get(i - 1).getActivity()
-                             + "," + arrayList.get(i).getActivity() + "\n");
-                }
-                else if (segment > 81 && segment <= 100) {
-                    sb[0].append(arrayList.get(i - 1).getActivity()
-                             + "," + arrayList.get(i).getActivity() + "\n");
-                }
-
-                else if (segment > 100 && segment <= 165) {
-                    sb[5].append(arrayList.get(i - 1).getActivity()
-                             + "," + arrayList.get(i).getActivity() + "\n");
-                }
-                else if (segment > 160 && segment <= 225) {
-                    sb[1].append( arrayList.get(i - 1).getActivity()
                             + "," + arrayList.get(i).getActivity() + "\n");
-                }
-                else {
-                    sb[2].append( arrayList.get(i - 1).getActivity()
-                             + "," + arrayList.get(i).getActivity() + "\n");
+                } else if (segment > 81 && segment <= 100) {
+                    sb[0].append(arrayList.get(i - 1).getActivity()
+                            + "," + arrayList.get(i).getActivity() + "\n");
+                } else if (segment > 100 && segment <= 165) {
+                    sb[5].append(arrayList.get(i - 1).getActivity()
+                            + "," + arrayList.get(i).getActivity() + "\n");
+                } else if (segment > 160 && segment <= 225) {
+                    sb[1].append(arrayList.get(i - 1).getActivity()
+                            + "," + arrayList.get(i).getActivity() + "\n");
+                } else {
+                    sb[2].append(arrayList.get(i - 1).getActivity()
+                            + "," + arrayList.get(i).getActivity() + "\n");
                 }
 
             }
