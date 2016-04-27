@@ -364,14 +364,49 @@ public class ActivityInstanceParser {
         try {
             ArrayList<ActivityInstance>[][] total = original(trainedDays, resultMap);
             FileWriter fw = new FileWriter("trainingDataBN.arff");
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder("@RELATION predict\n" +
+                    "\n" +
+                    "@ATTRIBUTE preStartTime  {0,1,2,3,4,5}\n" +
+                    "@ATTRIBUTE act_last   {Meal_Preparation,Relax,Eating,Work,Sleeping,Wash_Dishes,Bed_to_Toilet,Enter_Home,Leave_Home,Housekeeping,Resperate}\n" +
+                    "@ATTRIBUTE startTime  {0,1,2,3,4,5}\n" +
+                    "@ATTRIBUTE dayofweek  {1,2,3,4,5,6,7}\n" +
+                    "@ATTRIBUTE act   {Meal_Preparation,Relax,Eating,Work,Sleeping,Wash_Dishes,Bed_to_Toilet,Enter_Home,Leave_Home,Housekeeping,Resperate}\n" +
+                    "@data\n");
+
             ArrayList<ActivityInstance> arrayList = total[0][0];
+            while (true) {
+                int size = arrayList.size();
+                arrayList = LogPreProcessing.preProcessing(arrayList);
+                if (size == arrayList.size())
+                    break;
+            }
+
             for (int i = 2; i < arrayList.size(); i++) {
-                if (arrayList.get(i - 1).getActivity().equals(arrayList.get(i).getActivity())) continue;
+
                 String[] startTime = arrayList.get(i).getStartTime().split(":");
                 int startTimeHour = Integer.parseInt(startTime[0]);
                 int startTimeMinute = Integer.parseInt(startTime[1]);
                 int segment = startTimeHour * 12 + startTimeMinute / 5;
+
+                String[] preStartTime = arrayList.get(i).getStartTime().split(":");
+                int preStartTimeHour = Integer.parseInt(startTime[0]);
+                int preStartTimeMinute = Integer.parseInt(startTime[1]);
+                int preSegment = startTimeHour * 12 + startTimeMinute / 5;
+
+
+                if (preStartTimeHour < 4) {
+                    preSegment = 0;
+                } else if (preStartTimeHour < 8) {
+                    preSegment = 1;
+                } else if (preStartTimeHour < 12) {
+                    preSegment = 2;
+                } else if (preStartTimeHour < 16) {
+                    preSegment = 3;
+                } else if (preStartTimeHour < 20) {
+                    preSegment = 4;
+                } else {
+                    preSegment = 5;
+                }
 
                 /*if (segment >= 4 && segment <= 64)
                     segment = 4;
@@ -405,7 +440,7 @@ public class ActivityInstanceParser {
                 else
                     dayOfWeek = 1;*/
                 //dayOfWeek = 0;
-                sb.append(arrayList.get(i - 2).getActivity() + "," + arrayList.get(i - 1).getActivity()
+                sb.append(preSegment + "," + arrayList.get(i - 1).getActivity()
                         + "," + segment + "," + dayOfWeek + "," + arrayList.get(i).getActivity() + "\n");
             }
             fw.write(sb.toString());
@@ -437,6 +472,12 @@ public class ActivityInstanceParser {
             }
 
             ArrayList<ActivityInstance> arrayList = total[0][0];
+            while (true) {
+                int size = arrayList.size();
+                arrayList = LogPreProcessing.preProcessing(arrayList);
+                if (size == arrayList.size())
+                    break;
+            }
             for (int i = 3; i < arrayList.size(); i++) {
                 String[] startTime = arrayList.get(i).getStartTime().split(":");
                 int startTimeHour = Integer.parseInt(startTime[0]);

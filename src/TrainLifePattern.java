@@ -9,8 +9,6 @@ import Learning.WekaRegression;
 import SDLE.SDLE;
 import tool.ActivityInstanceParser;
 import tool.LogPreProcessing;
-import weka.clusterers.Clusterer;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
@@ -67,7 +65,6 @@ public class TrainLifePattern {
         ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.original(400, weekResultMap);
         weekActivityInstances = total[0];
         testWeekActivityInstances = total[1];
-        ArrayList<ActivityInstance> test = LogPreProcessing.preProcessing(weekActivityInstances[0]);
         while (true) {
             int size = weekActivityInstances[0].size();
             weekActivityInstances[0] = LogPreProcessing.preProcessing(weekActivityInstances[0]);
@@ -372,7 +369,13 @@ public class TrainLifePattern {
                 activityStartTimeClusterer.put(activityInstance.getActivity(), clustering);
 
                 //write feature for activity duration estimation
-                ArrayList<Integer>[] instanceBelongToCluster = clustering.getInstanceBelongToCluster();
+                //ArrayList<Integer>[] instanceBelongToCluster = clustering.getInstanceBelongToCluster();
+                ArrayList<Integer>[] instanceBelongToCluster = new ArrayList[1];
+                instanceBelongToCluster[0] = new ArrayList<>();
+                for (int j = 0; j < activityInstances.size(); j++) {
+                    instanceBelongToCluster[0].add(j);
+                }
+
                 for (int k = 0; k < instanceBelongToCluster.length; k++) {
                     fileName = "ActivityDurationEstimation/" + activityInstance.getActivity() + "-" + k;
                     fw = new FileWriter("report/features/" + fileName + ".arff");
