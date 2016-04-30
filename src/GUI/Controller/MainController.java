@@ -1,21 +1,21 @@
 package GUI.Controller;
 
+import GUI.Model.ActivityPerformHobby;
 import Pattern.TestLifePattern;
-import SDLE.Activity;
-import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import weka.datagenerators.Test;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -77,23 +77,38 @@ public class MainController {
 
         }
     }
+
     @FXML
-    protected void load (ActionEvent event) throws IOException {
+    protected void load(ActionEvent event) throws IOException {
         testLifePattern = new TestLifePattern();
         ArrayList<String> activityList = testLifePattern.getActivityList();
         for (int i = 0; i < activityList.size(); i++) {
             Tab tab = new Tab(activityList.get(i));
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/ActivityTab.fxml"));
-            tab.setContent(loader.load());
+            /*tab.setContent(loader.load());
             ActivityTabController activityTabController = loader.getController();
             setSizetPropertyListener(true, MainTabPane, activityTabController.getMainPane(), -20);
-            setSizetPropertyListener(false, MainTabPane, activityTabController.getMainPane(), -10);
+            setSizetPropertyListener(false, MainTabPane, activityTabController.getMainPane(), -10);*/
 
             TableView content = new TableView();
-            TableColumn startTime = new TableColumn("Start Time");
-            TableColumn duration = new TableColumn("Duration");
-            content.getColumns().addAll(startTime, duration);
             tab.setContent(content);
+            TableColumn startTimeCol = new TableColumn("Start Time");
+            TableColumn durationCol = new TableColumn("Duration");
+            startTimeCol.setPrefWidth(300);
+            startTimeCol.setCellFactory(
+                    new PropertyValueFactory<ActivityPerformHobby, String>("startTime") );
+            durationCol.setPrefWidth(300);
+            durationCol.setCellFactory(
+                    new PropertyValueFactory<ActivityPerformHobby, String>("duration") );
+            content.getColumns().addAll(startTimeCol, durationCol);
+
+            ObservableList<ActivityPerformHobby> data = FXCollections.observableArrayList(new ActivityPerformHobby("test", "test"));
+            /*String[] startTime = testLifePattern.getActivityStartTimeClusterer().get(activityList.get(i)).getStartTime();
+            for (int j = 0; j < startTime.length; j++) {
+                data.add(new ActivityPerformHobby(startTime[j], "test"));
+            }*/
+            content.setItems(data);
+            content.getColumns().addAll(startTimeCol, durationCol);
 
 
             MainTabPane.getTabs().add(tab);
@@ -128,23 +143,24 @@ public class MainController {
 
 
     private void setSizetPropertyListener(boolean isHeight, Pane root, Pane follow, int offset) {
-       if (isHeight) {
-           root.heightProperty().addListener(new ChangeListener<Number>() {
-               @Override
-               public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                   follow.setPrefHeight(newValue.doubleValue() + offset);
-               }
-           });
-       } else {
-           root.widthProperty().addListener(new ChangeListener<Number>() {
-               @Override
-               public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                   follow.setPrefWidth(newValue.doubleValue() + offset);
-               }
-           });
-       }
+        if (isHeight) {
+            root.heightProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                    follow.setPrefHeight(newValue.doubleValue() + offset);
+                }
+            });
+        } else {
+            root.widthProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                    follow.setPrefWidth(newValue.doubleValue() + offset);
+                }
+            });
+        }
 
     }
+
     private void setSizetPropertyListener(boolean isHeight, Pane root, Control follow, int offset) {
         if (isHeight) {
             root.heightProperty().addListener(new ChangeListener<Number>() {

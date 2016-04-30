@@ -75,7 +75,7 @@ public class Clustering {
             mean = new double[clusterer.numberOfClusters()];
             stdDev = new double[clusterer.numberOfClusters()];
             calculateMeanNStdDev();
-            getStartTime();
+            //getStartTime();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -118,6 +118,9 @@ public class Clustering {
     public void loadModel() {
         try {
             clusterer = (weka.clusterers.Clusterer) weka.core.SerializationHelper.read("report/model/" + fileName + ".sModel");
+            mean = new double[clusterer.numberOfClusters()];
+            stdDev = new double[clusterer.numberOfClusters()];
+            calculateMeanNStdDev();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -126,6 +129,9 @@ public class Clustering {
     public void loadModel(String fileName) {
         try {
             clusterer = (weka.clusterers.Clusterer) weka.core.SerializationHelper.read(fileName);
+            mean = new double[clusterer.numberOfClusters()];
+            stdDev = new double[clusterer.numberOfClusters()];
+            calculateMeanNStdDev();
         } catch (Exception e) {
             e.printStackTrace();
         }
