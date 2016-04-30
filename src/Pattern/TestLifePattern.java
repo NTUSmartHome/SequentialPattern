@@ -1,8 +1,11 @@
+package Pattern;
+
 import DataStructure.ActivityInstance;
 import Learning.Classifier;
 import Learning.Clustering;
 import Learning.WekaRegression;
 import tool.ActivityInstanceParser;
+import weka.clusterers.EM;
 
 import java.io.File;
 import java.io.IOException;
@@ -45,6 +48,7 @@ public class TestLifePattern {
             }
 
         } else {
+            activityList = new ArrayList<>();
             regressors = loadRegressors();
             activityStartTimeClusterer = loadActivityStartTimeClusterer();
             relationer = loadRelationer();
@@ -59,6 +63,7 @@ public class TestLifePattern {
 
         for (int i = 0; i < fileList.length; i++) {
             String[] tmp = fileList[i].split("\\.");
+            activityList.add(tmp[0]);
             Clustering clustering = new Clustering(tmp[0]);
             clustering.loadModel(fileParentFolder + "/" + fileList[i]);
             activityStartTimeClusterer.put(tmp[0], clustering);
@@ -100,7 +105,7 @@ public class TestLifePattern {
     }
 
     public static void main(String[] args) throws IOException, ParseException {
-        TestLifePattern testLifePattern = new TestLifePattern(true);
+        TestLifePattern testLifePattern = new TestLifePattern(false);
         Map<String, Integer> resultMap = new HashMap<>();
         for (int i = 0; i < 7; i++) {
             resultMap.put(String.valueOf(i), 0);

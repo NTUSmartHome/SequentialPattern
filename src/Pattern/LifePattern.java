@@ -1,4 +1,4 @@
-//import dpmm.MDPMMTrain;
+package Pattern;//import dpmm.MDPMMTrain;
 
 import ALZ.ActiveLzTree;
 import ALZ.PPM;

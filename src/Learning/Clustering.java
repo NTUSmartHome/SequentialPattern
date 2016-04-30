@@ -19,7 +19,8 @@ public class Clustering {
     private String fileName;
     private ArrayList<Integer>[] instanceBelongToCluster;
     private String Topic;
-
+    private double[] mean;
+    private double[] stdDev;
 
     public Clustering(String topic, String fileName) {
         this.Topic = topic;
@@ -57,6 +58,7 @@ public class Clustering {
             eval.setClusterer(clusterer);                                   // the cluster to evaluate
             eval.evaluateClusterer(trainingData);                                // data to evaluate the clusterer on
             System.out.println(Topic);
+            System.out.println(clusterer);
             System.out.println(eval.clusterResultsToString() + "\n\n");
 
             //Specify each instance(use index instead) belong to which cluster
@@ -67,13 +69,15 @@ public class Clustering {
             for (int i = 0; i < trainingData.size(); i++) {
                 instanceBelongToCluster[clusterer.clusterInstance(trainingData.get(i))].add(i);
             }
-
+            mean = new double[clusterer.numberOfClusters()];
+            stdDev = new double[clusterer.numberOfClusters()];
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     public boolean isFeatureExist() {
         File file = new File("report/features/" + this.fileName + ".arff");
@@ -83,7 +87,7 @@ public class Clustering {
 
     public void saveModel() {
         try {
-            weka.core.SerializationHelper.write("report/model/" + fileName + ".cModel", clusterer);
+            weka.core.SerializationHelper.write("report/model/" + fileName + ".sModel", clusterer);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -91,7 +95,7 @@ public class Clustering {
 
     public void loadModel() {
         try {
-            clusterer = (weka.clusterers.Clusterer) weka.core.SerializationHelper.read("report/model/" + fileName + ".cModel");
+            clusterer = (weka.clusterers.Clusterer) weka.core.SerializationHelper.read("report/model/" + fileName + ".sModel");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -103,6 +107,14 @@ public class Clustering {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public double[] getMean() {
+        return mean;
+    }
+
+    public double[] getStdDev() {
+        return stdDev;
     }
 
     // public ArrayList<>

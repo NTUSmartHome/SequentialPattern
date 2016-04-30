@@ -1,4 +1,4 @@
-/**
+package Pattern; /**
  * Created by MingJe on 2016/4/18.
  */
 

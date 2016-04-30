@@ -70,7 +70,7 @@ public class WekaRegression {
 
     public void saveModel() {
         try {
-            weka.core.SerializationHelper.write("report/model/" + fileName + ".rModel", regressor);
+            weka.core.SerializationHelper.write("report/model/" + fileName + ".dModel", regressor);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -78,7 +78,7 @@ public class WekaRegression {
 
     public void loadModel() {
         try {
-            regressor = (Classifier) weka.core.SerializationHelper.read("report/model/" + fileName + ".rModel");
+            regressor = (Classifier) weka.core.SerializationHelper.read("report/model/" + fileName + ".dModel");
         } catch (Exception e) {
             e.printStackTrace();
         }
