@@ -1,0 +1,14 @@
+@RELATION 2-0_duration
+@ATTRIBUTE startTime Numeric
+@ATTRIBUTE duration Numeric
+@data
+3,14
+32,11
+8,87
+28,3
+2,13
+18,27
+61,31
+2,17
+76,9
+69,28

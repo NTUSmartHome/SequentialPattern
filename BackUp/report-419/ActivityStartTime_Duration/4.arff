@@ -1,0 +1,7 @@
+@RELATION 4_startTime
+@ATTRIBUTE startTime Numeric
+@ATTRIBUTE duration Numeric
+@data
+424,1
+721,1
+934,24

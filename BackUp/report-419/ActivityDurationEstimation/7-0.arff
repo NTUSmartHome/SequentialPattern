@@ -1,0 +1,14 @@
+@RELATION 7-0_duration
+@ATTRIBUTE startTime Numeric
+@ATTRIBUTE duration Numeric
+@data
+1118,0
+1119,0
+1098,0
+1099,0
+1088,0
+1142,0
+1077,0
+1090,0
+1108,0
+1080,0

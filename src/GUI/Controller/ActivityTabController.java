@@ -2,6 +2,7 @@ package GUI.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -12,7 +13,12 @@ public class ActivityTabController {
     protected AnchorPane MainPane;
     @FXML
     protected ScrollPane MainScrollPane;
+    @FXML
+    protected TableView contentTable;
 
+    public TableView getContentTable() {
+        return contentTable;
+    }
 
     public ScrollPane getMainScrollPane() {
         return MainScrollPane;

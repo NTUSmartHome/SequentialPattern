@@ -3,6 +3,8 @@ package Learning;
 import weka.classifiers.Classifier;
 import weka.classifiers.evaluation.Evaluation;
 import weka.classifiers.meta.AdditiveRegression;
+import weka.core.DenseInstance;
+import weka.core.Instance;
 import weka.core.Instances;
 
 import java.io.BufferedReader;
@@ -66,6 +68,18 @@ public class WekaRegression {
     public boolean isFeatureExist() {
         File file = new File("report/features/" + this.fileName + ".arff");
         return file.exists();
+    }
+
+    public double predict(String startTime) {
+        Instance test = new DenseInstance(1);
+        test.setValue(1, Double.parseDouble(startTime));
+        double result = 0;
+        try {
+            result = regressor.classifyInstance(test);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     public void saveModel() {

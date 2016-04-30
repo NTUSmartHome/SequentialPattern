@@ -9,7 +9,9 @@ import weka.clusterers.EM;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,14 +28,18 @@ public class TestLifePattern {
     Map<String, Clustering> activityStartTimeClusterer;
     //Store activity name
     ArrayList<String> activityList;
-
+    //Transform start time
+    DateFormat dateFormat;
     public TestLifePattern() {
+        activityList = new ArrayList<>();
         regressors = loadRegressors();
         activityStartTimeClusterer = loadActivityStartTimeClusterer();
         relationer = loadRelationer();
+        dateFormat = new SimpleDateFormat("HH:mm");
     }
 
     public TestLifePattern(boolean isTrain) {
+        dateFormat = new SimpleDateFormat("HH:mm");
         if (isTrain) {
             try {
                 TrainLifePattern trainLifePattern = new TrainLifePattern();
@@ -102,6 +108,26 @@ public class TestLifePattern {
     public String nextActivity(ActivityInstance currentActivity) {
         //relationer.predict()
         return null;
+    }
+
+    public Classifier getRelationer() {
+        return relationer;
+    }
+
+    public Map<String, ArrayList<WekaRegression>> getRegressors() {
+        return regressors;
+    }
+
+    public Map<String, Clustering> getActivityStartTimeClusterer() {
+        return activityStartTimeClusterer;
+    }
+
+    public ArrayList<String> getActivityList() {
+        return activityList;
+    }
+
+    public DateFormat getDateFormat() {
+        return dateFormat;
     }
 
     public static void main(String[] args) throws IOException, ParseException {

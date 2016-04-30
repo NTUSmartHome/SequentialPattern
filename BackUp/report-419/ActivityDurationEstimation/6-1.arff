@@ -1,0 +1,8 @@
+@RELATION 6-1_duration
+@ATTRIBUTE startTime Numeric
+@ATTRIBUTE duration Numeric
+@data
+1339,1
+1424,1
+1379,1
+1423,2

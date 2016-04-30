@@ -1,0 +1,20 @@
+@RELATION 6-2_duration
+@ATTRIBUTE startTime Numeric
+@ATTRIBUTE duration Numeric
+@data
+34,0
+30,2
+37,1
+24,0
+36,0
+17,3
+37,2
+48,3
+39,1
+40,2
+20,2
+42,0
+23,0
+54,0
+31,1
+33,0

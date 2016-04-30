@@ -2,15 +2,14 @@ package GUI.Controller;
 
 import Pattern.TestLifePattern;
 import SDLE.Activity;
+import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -19,6 +18,7 @@ import javafx.stage.Stage;
 import weka.datagenerators.Test;
 
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * Created by g2525_000 on 2016/4/27.
@@ -62,19 +62,10 @@ public class MainController {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/ActivityTab.fxml"));
                         tab.setContent(loader.load());
                         ActivityTabController activityTabController = loader.getController();
-                        MainTabPane.heightProperty().addListener(new ChangeListener<Number>() {
-                            @Override
-                            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                                activityTabController.getMainPane().setPrefHeight(newValue.doubleValue() - 20);
-                            }
-                        });
-                        MainTabPane.widthProperty().addListener(new ChangeListener<Number>() {
-                            @Override
-                            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                                activityTabController.getMainPane().setPrefWidth(newValue.doubleValue() - 10);
-                            }
-                        });
+                        setSizetPropertyListener(true, MainTabPane, activityTabController.getMainPane(), -20);
+                        setSizetPropertyListener(false, MainTabPane, activityTabController.getMainPane(), -10);
                         MainTabPane.getTabs().add(tab);
+
                     }
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -87,8 +78,26 @@ public class MainController {
         }
     }
     @FXML
-    protected void load (ActionEvent event) {
+    protected void load (ActionEvent event) throws IOException {
         testLifePattern = new TestLifePattern();
+        ArrayList<String> activityList = testLifePattern.getActivityList();
+        for (int i = 0; i < activityList.size(); i++) {
+            Tab tab = new Tab(activityList.get(i));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/ActivityTab.fxml"));
+            tab.setContent(loader.load());
+            ActivityTabController activityTabController = loader.getController();
+            setSizetPropertyListener(true, MainTabPane, activityTabController.getMainPane(), -20);
+            setSizetPropertyListener(false, MainTabPane, activityTabController.getMainPane(), -10);
+
+            TableView content = new TableView();
+            TableColumn startTime = new TableColumn("Start Time");
+            TableColumn duration = new TableColumn("Duration");
+            content.getColumns().addAll(startTime, duration);
+            tab.setContent(content);
+
+
+            MainTabPane.getTabs().add(tab);
+        }
     }
 
     @FXML
@@ -115,6 +124,82 @@ public class MainController {
 
     public javafx.scene.layout.VBox getVBox() {
         return VBox;
+    }
+
+
+    private void setSizetPropertyListener(boolean isHeight, Pane root, Pane follow, int offset) {
+       if (isHeight) {
+           root.heightProperty().addListener(new ChangeListener<Number>() {
+               @Override
+               public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                   follow.setPrefHeight(newValue.doubleValue() + offset);
+               }
+           });
+       } else {
+           root.widthProperty().addListener(new ChangeListener<Number>() {
+               @Override
+               public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                   follow.setPrefWidth(newValue.doubleValue() + offset);
+               }
+           });
+       }
+
+    }
+    private void setSizetPropertyListener(boolean isHeight, Pane root, Control follow, int offset) {
+        if (isHeight) {
+            root.heightProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                    follow.setPrefHeight(newValue.doubleValue() + offset);
+                }
+            });
+        } else {
+            root.widthProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                    follow.setPrefWidth(newValue.doubleValue() + offset);
+                }
+            });
+        }
+
+    }
+
+    private void setSizetPropertyListener(boolean isHeight, Control root, Pane follow, int offset) {
+        if (isHeight) {
+            root.heightProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                    follow.setPrefHeight(newValue.doubleValue() + offset);
+                }
+            });
+        } else {
+            root.widthProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                    follow.setPrefWidth(newValue.doubleValue() + offset);
+                }
+            });
+        }
+
+    }
+
+    private void setSizetPropertyListener(boolean isHeight, Control root, Control follow, int offset) {
+        if (isHeight) {
+            root.heightProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                    follow.setPrefHeight(newValue.doubleValue() + offset);
+                }
+            });
+        } else {
+            root.widthProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                    follow.setPrefWidth(newValue.doubleValue() + offset);
+                }
+            });
+        }
+
     }
 
 }
