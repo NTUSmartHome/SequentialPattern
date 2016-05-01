@@ -12,11 +12,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.TimeZone;
 
 public class BehaviorPattern extends Application {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    { TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         launch(args);
     }
 

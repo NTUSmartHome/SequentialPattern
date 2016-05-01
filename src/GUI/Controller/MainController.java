@@ -1,7 +1,7 @@
 package GUI.Controller;
 
-import GUI.Model.ActivityPerformHobby;
 import Pattern.TestLifePattern;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -34,7 +34,6 @@ public class MainController {
 
     @FXML
     protected VBox VBox;
-
 
     @FXML
     protected void exit(ActionEvent event) {
@@ -84,31 +83,26 @@ public class MainController {
         ArrayList<String> activityList = testLifePattern.getActivityList();
         for (int i = 0; i < activityList.size(); i++) {
             Tab tab = new Tab(activityList.get(i));
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/View/ActivityTab.fxml"));
-            /*tab.setContent(loader.load());
-            ActivityTabController activityTabController = loader.getController();
-            setSizetPropertyListener(true, MainTabPane, activityTabController.getMainPane(), -20);
-            setSizetPropertyListener(false, MainTabPane, activityTabController.getMainPane(), -10);*/
 
-            TableView content = new TableView();
-            tab.setContent(content);
+            TableView<ActivityPerformHobby> table = new TableView();
+            table.setEditable(true);
             TableColumn startTimeCol = new TableColumn("Start Time");
             TableColumn durationCol = new TableColumn("Duration");
             startTimeCol.setPrefWidth(300);
-            startTimeCol.setCellFactory(
-                    new PropertyValueFactory<ActivityPerformHobby, String>("startTime") );
+            startTimeCol.setCellValueFactory(
+                    new PropertyValueFactory<ActivityPerformHobby, String>("startTime"));
             durationCol.setPrefWidth(300);
-            durationCol.setCellFactory(
-                    new PropertyValueFactory<ActivityPerformHobby, String>("duration") );
-            content.getColumns().addAll(startTimeCol, durationCol);
+            durationCol.setCellValueFactory(
+                    new PropertyValueFactory<ActivityPerformHobby, String>("duration"));
 
-            ObservableList<ActivityPerformHobby> data = FXCollections.observableArrayList(new ActivityPerformHobby("test", "test"));
-            /*String[] startTime = testLifePattern.getActivityStartTimeClusterer().get(activityList.get(i)).getStartTime();
+            ObservableList<ActivityPerformHobby> data = FXCollections.observableArrayList();
+            String[] startTime = testLifePattern.getActivityStartTimeClusterer().get(activityList.get(i)).getStartTime();
             for (int j = 0; j < startTime.length; j++) {
                 data.add(new ActivityPerformHobby(startTime[j], "test"));
-            }*/
-            content.setItems(data);
-            content.getColumns().addAll(startTimeCol, durationCol);
+            }
+            tab.setContent(table);
+            table.setItems(data);
+            table.getColumns().addAll(startTimeCol, durationCol);
 
 
             MainTabPane.getTabs().add(tab);
@@ -216,6 +210,41 @@ public class MainController {
             });
         }
 
+    }
+
+
+    public static class ActivityPerformHobby {
+        private final SimpleStringProperty startTime;
+        private final SimpleStringProperty duration;
+
+        public ActivityPerformHobby(String startTime, String duration) {
+            this.startTime = new SimpleStringProperty(startTime);
+            this.duration = new SimpleStringProperty(duration);
+        }
+
+        public String getStartTime() {
+            return startTime.get();
+        }
+
+        public SimpleStringProperty startTimeProperty() {
+            return startTime;
+        }
+
+        public String getDuration() {
+            return duration.get();
+        }
+
+        public SimpleStringProperty durationProperty() {
+            return duration;
+        }
+
+        public void setDuration(String duration) {
+            this.duration.set(duration);
+        }
+
+        public void setStartTime(String startTime) {
+            this.startTime.set(startTime);
+        }
     }
 
 }

@@ -11,6 +11,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 public class WekaRegression {
     private weka.classifiers.Classifier regressor;
     private String fileName;
+    private String duration;
 
     public ArrayList<Integer>[] getInstanceBelongToCluster() {
         return instanceBelongToCluster;
@@ -30,6 +33,8 @@ public class WekaRegression {
 
     private ArrayList<Integer>[] instanceBelongToCluster;
     private String Topic;
+    private String idx;
+    private DateFormat dateFormat = new SimpleDateFormat("HH:mm");
 
     public WekaRegression(String activity, String fileName) {
         this.Topic = activity;
@@ -43,7 +48,6 @@ public class WekaRegression {
     public Classifier getRegressor() {
         return regressor;
     }
-
 
     public void train(String fileName) {
         try {
@@ -92,6 +96,9 @@ public class WekaRegression {
 
     public void loadModel() {
         try {
+            String[] kind = fileName.split("-\\.");
+            Topic = kind[0];
+            idx = kind[1];
             regressor = (Classifier) weka.core.SerializationHelper.read("report/model/" + fileName + ".dModel");
         } catch (Exception e) {
             e.printStackTrace();
@@ -105,5 +112,15 @@ public class WekaRegression {
             e.printStackTrace();
         }
     }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+
 
 }

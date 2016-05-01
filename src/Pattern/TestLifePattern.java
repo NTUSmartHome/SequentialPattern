@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 /**
  * Created by g2525_000 on 2016/4/21.
@@ -34,6 +35,15 @@ public class TestLifePattern {
         activityList = new ArrayList<>();
         regressors = loadRegressors();
         activityStartTimeClusterer = loadActivityStartTimeClusterer();
+        for (int i = 0; i < activityList.size(); i++) {
+            ArrayList<WekaRegression> durations = regressors.get(activityList.get(i));
+            Clustering allStartTime = activityStartTimeClusterer.get(activityList.get(i));
+            for (int j = 0; j < allStartTime.getMean().length; j++) {
+                double[] means = allStartTime.getMean();
+                durations.get(i).predict(String.valueOf(means[j]));
+            }
+
+        }
         relationer = loadRelationer();
         dateFormat = new SimpleDateFormat("HH:mm");
     }
@@ -131,7 +141,9 @@ public class TestLifePattern {
     }
 
     public static void main(String[] args) throws IOException, ParseException {
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         TestLifePattern testLifePattern = new TestLifePattern(false);
+        System.out.println(testLifePattern.getActivityStartTimeClusterer().get("Meal_Preparation").getStartTime());
         Map<String, Integer> resultMap = new HashMap<>();
         for (int i = 0; i < 7; i++) {
             resultMap.put(String.valueOf(i), 0);

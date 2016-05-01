@@ -11,12 +11,14 @@ import tool.ActivityInstanceParser;
 import tool.LogPreProcessing;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 
 public class TrainLifePattern {
+
     static double rh = 0.05, beta = 0.01;
     ArrayList<ArrayList<SDLE>> weekSDLEList;
     ArrayList<SDLE> sdleList;
@@ -82,6 +84,7 @@ public class TrainLifePattern {
 
     public static void main(String[] args) throws InterruptedException, IOException, ParseException {
         TrainLifePattern lifePattern = new TrainLifePattern();
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         //lifePattern.readFile(5, 1, rh, beta);
         //lifePattern.perDayActivityEstimation(66);
 
@@ -369,12 +372,12 @@ public class TrainLifePattern {
                 activityStartTimeClusterer.put(activityInstance.getActivity(), clustering);
 
                 //write feature for activity duration estimation
-                //ArrayList<Integer>[] instanceBelongToCluster = clustering.getInstanceBelongToCluster();
-                ArrayList<Integer>[] instanceBelongToCluster = new ArrayList[1];
+                ArrayList<Integer>[] instanceBelongToCluster = clustering.getInstanceBelongToCluster();
+                /*ArrayList<Integer>[] instanceBelongToCluster = new ArrayList[1];
                 instanceBelongToCluster[0] = new ArrayList<>();
                 for (int j = 0; j < activityInstances.size(); j++) {
                     instanceBelongToCluster[0].add(j);
-                }
+                }*/
 
                 for (int k = 0; k < instanceBelongToCluster.length; k++) {
                     fileName = "ActivityDurationEstimation/" + activityInstance.getActivity() + "-" + k;
@@ -387,6 +390,8 @@ public class TrainLifePattern {
                         activityInstance = activityInstances.get(instanceBelongToCluster[k].get(l));
                         Date date = startTimeDateFormat.parse(activityInstance.getStartTime());
                         long startTime = date.getTime() / 1000 / 60;
+                        DateFormat test = new SimpleDateFormat("HH:mm");
+                        System.out.println(test.format(new Date(65413242)));
                         featureString.append(startTime + "," + activityInstance.getDuration() + "\n");
                     }
                     fw.write(featureString.toString());
