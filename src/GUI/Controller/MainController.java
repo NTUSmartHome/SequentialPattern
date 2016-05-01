@@ -83,22 +83,24 @@ public class MainController {
         ArrayList<String> activityList = testLifePattern.getActivityList();
         for (int i = 0; i < activityList.size(); i++) {
             Tab tab = new Tab(activityList.get(i));
-
+            tab.setStyle("-fx-font-size: 16;");
             TableView<ActivityPerformHobby> table = new TableView();
+            table.setFixedCellSize(80);
+            table.setStyle("-fx-font-size: 16;");
             table.setEditable(true);
             TableColumn startTimeCol = new TableColumn("Start Time");
             TableColumn durationCol = new TableColumn("Duration");
-            startTimeCol.setPrefWidth(300);
+            startTimeCol.setPrefWidth(500);
             startTimeCol.setCellValueFactory(
                     new PropertyValueFactory<ActivityPerformHobby, String>("startTime"));
-            durationCol.setPrefWidth(300);
+            durationCol.setPrefWidth(500);
             durationCol.setCellValueFactory(
                     new PropertyValueFactory<ActivityPerformHobby, String>("duration"));
 
             ObservableList<ActivityPerformHobby> data = FXCollections.observableArrayList();
             String[] startTime = testLifePattern.getActivityStartTimeClusterer().get(activityList.get(i)).getStartTime();
             for (int j = 0; j < startTime.length; j++) {
-                data.add(new ActivityPerformHobby(startTime[j], "test"));
+                data.add(new ActivityPerformHobby(startTime[j], testLifePattern.getRegressors().get(activityList.get(i)).get(j).getDuration()));
             }
             tab.setContent(table);
             table.setItems(data);

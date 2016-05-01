@@ -390,8 +390,6 @@ public class TrainLifePattern {
                         activityInstance = activityInstances.get(instanceBelongToCluster[k].get(l));
                         Date date = startTimeDateFormat.parse(activityInstance.getStartTime());
                         long startTime = date.getTime() / 1000 / 60;
-                        DateFormat test = new SimpleDateFormat("HH:mm");
-                        System.out.println(test.format(new Date(65413242)));
                         featureString.append(startTime + "," + activityInstance.getDuration() + "\n");
                     }
                     fw.write(featureString.toString());

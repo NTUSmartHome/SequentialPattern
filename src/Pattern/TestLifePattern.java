@@ -5,7 +5,6 @@ import Learning.Classifier;
 import Learning.Clustering;
 import Learning.WekaRegression;
 import tool.ActivityInstanceParser;
-import weka.clusterers.EM;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,21 +30,14 @@ public class TestLifePattern {
     ArrayList<String> activityList;
     //Transform start time
     DateFormat dateFormat;
+
     public TestLifePattern() {
         activityList = new ArrayList<>();
         regressors = loadRegressors();
         activityStartTimeClusterer = loadActivityStartTimeClusterer();
-        for (int i = 0; i < activityList.size(); i++) {
-            ArrayList<WekaRegression> durations = regressors.get(activityList.get(i));
-            Clustering allStartTime = activityStartTimeClusterer.get(activityList.get(i));
-            for (int j = 0; j < allStartTime.getMean().length; j++) {
-                double[] means = allStartTime.getMean();
-                durations.get(i).predict(String.valueOf(means[j]));
-            }
-
-        }
         relationer = loadRelationer();
         dateFormat = new SimpleDateFormat("HH:mm");
+        durationSetting();
     }
 
     public TestLifePattern(boolean isTrain) {
@@ -69,13 +61,14 @@ public class TestLifePattern {
             activityStartTimeClusterer = loadActivityStartTimeClusterer();
             relationer = loadRelationer();
         }
+        durationSetting();
     }
 
-    public Map<String, Clustering> loadActivityStartTimeClusterer(){
+    public Map<String, Clustering> loadActivityStartTimeClusterer() {
         String fileParentFolder = "report/model/ActivityStartTime";
         File folder = new File(fileParentFolder);
         String[] fileList = folder.list();
-        Map<String, Clustering> activityStartTimeClusterer =new HashMap<>();
+        Map<String, Clustering> activityStartTimeClusterer = new HashMap<>();
 
         for (int i = 0; i < fileList.length; i++) {
             String[] tmp = fileList[i].split("\\.");
@@ -156,6 +149,32 @@ public class TestLifePattern {
         }
 
 
+    }
 
+
+    private void durationSetting() {
+        for (int i = 0; i < activityList.size(); i++) {
+            ArrayList<WekaRegression> durations = regressors.get(activityList.get(i));
+            Clustering allStartTime = activityStartTimeClusterer.get(activityList.get(i));
+            for (int j = 0; j < allStartTime.getMean().length; j++) {
+                double[] means = allStartTime.getMean();
+                double[] stdDev = allStartTime.getStdDev();
+                long durationShort = durations.get(j).predict(String.valueOf(means[j] - stdDev[j]));
+                long durationLong = durations.get(j).predict(String.valueOf(means[j] + stdDev[j]));
+                if (durationShort > durationLong) {
+                    long tmp = durationLong;
+                    durationLong = durationShort;
+                    durationShort = tmp;
+                }
+                String durationShortString;
+                String durationLongString;
+                durationShortString = durationShort / 60 + " Hour and " + durationShort % 60 + " minute";
+                durationLongString = durationLong / 60+ " Hour and " + durationLong % 60 + " minute";
+
+
+                durations.get(j).setDuration(durationShortString + " ~ " + durationLongString);
+            }
+
+        }
     }
 }

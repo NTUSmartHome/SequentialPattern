@@ -3,6 +3,7 @@ package Learning;
 import weka.classifiers.Classifier;
 import weka.classifiers.evaluation.Evaluation;
 import weka.classifiers.meta.AdditiveRegression;
+import weka.core.Attribute;
 import weka.core.DenseInstance;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -74,16 +75,22 @@ public class WekaRegression {
         return file.exists();
     }
 
-    public double predict(String startTime) {
-        Instance test = new DenseInstance(1);
-        test.setValue(1, Double.parseDouble(startTime));
+    public long predict(String startTime) {
+        ArrayList<Attribute> attributes = new ArrayList<>();
+        attributes.add(new Attribute(String.valueOf("startTime")));
+        attributes.add(new Attribute(String.valueOf("duration")));
+        Instances predictSet = new Instances("train", attributes, 0);
+        predictSet.setClassIndex(predictSet.numAttributes() - 1);
+        Instance inst = new DenseInstance(predictSet.numAttributes());
+        inst.setDataset(predictSet);
+        inst.setValue(0, Double.parseDouble(startTime));
         double result = 0;
         try {
-            result = regressor.classifyInstance(test);
+            result = regressor.classifyInstance(inst);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return result;
+        return Math.round(result);
     }
 
     public void saveModel() {

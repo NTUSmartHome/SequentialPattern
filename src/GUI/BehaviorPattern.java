@@ -54,7 +54,7 @@ public class BehaviorPattern extends Application {
         });
 
         //用讀進來FXML的作為Scene的root node
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(root, 1200, 800);
         primaryStage.setScene(scene);
 
         //顯示Stage
