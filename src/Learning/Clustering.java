@@ -150,8 +150,8 @@ public class Clustering {
         for (int i = 0; i < mean.length; i++) {
             if (i > 0) sb.append(",");
 
-            sb.append(dateFormat.format(new Date(((int)(mean[i] - stdDev[i])) * 60000)) + "~"
-                    + dateFormat.format(new Date(((int)(mean[i] + stdDev[i])) * 60000)));
+            sb.append(dateFormat.format(new Date(((int) (mean[i] - 0.5 * stdDev[i])) * 60000)) + "~"
+                    + dateFormat.format(new Date(((int) (mean[i] + 0.5 * stdDev[i])) * 60000)));
         }
         String[] result = sb.toString().split(",");
         return result;

@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1a91a9b-284d-4c05-aebf-69aa866e6ac1" name="Default" comment="Fix bug of  activelezi&#10;Now SDLE parser&#10;">
+    <list default="true" id="f1a91a9b-284d-4c05-aebf-69aa866e6ac1" name="Default" comment="GOOD">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/ActivityInstance/0" afterPath="$PROJECT_DIR$/report/ActivityInstance/0" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Bed_to_Toilet-0.arff" afterPath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Bed_to_Toilet-0.arff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Eating-0.arff" afterPath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Eating-0.arff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Enter_Home-0.arff" afterPath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Enter_Home-0.arff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Leave_Home-0.arff" afterPath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Leave_Home-0.arff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Meal_Preparation-0.arff" afterPath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Meal_Preparation-0.arff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Relax-0.arff" afterPath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Relax-0.arff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Sleeping-0.arff" afterPath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Sleeping-0.arff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Wash_Dishes-0.arff" afterPath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Wash_Dishes-0.arff" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Work-0.arff" afterPath="$PROJECT_DIR$/report/features/ActivityDurationEstimation/Work-0.arff" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/BehaviorPattern.java" afterPath="$PROJECT_DIR$/src/GUI/BehaviorPattern.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/Controller/MainController.java" afterPath="$PROJECT_DIR$/src/GUI/Controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Learning/WekaRegression.java" afterPath="$PROJECT_DIR$/src/Learning/WekaRegression.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Pattern/TestLifePattern.java" afterPath="$PROJECT_DIR$/src/Pattern/TestLifePattern.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Pattern/TrainLifePattern.java" afterPath="$PROJECT_DIR$/src/Pattern/TrainLifePattern.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/View/Main.fxml" afterPath="$PROJECT_DIR$/src/GUI/View/Main.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Learning/Clustering.java" afterPath="$PROJECT_DIR$/src/Learning/Clustering.java" />
     </list>
     <ignored path="SDLE.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,8 +34,8 @@
       <file leaf-file-name="TrainLifePattern.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Pattern/TrainLifePattern.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="384" column="55" selection-start-line="384" selection-start-column="55" selection-end-line="384" selection-end-column="55" />
+            <state relative-caret-position="28">
+              <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,9 +46,11 @@
       <file leaf-file-name="TestLifePattern.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Pattern/TestLifePattern.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="171" column="99" selection-start-line="171" selection-start-column="99" selection-end-line="171" selection-end-column="99" />
-              <folding />
+            <state relative-caret-position="560">
+              <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,18 +58,18 @@
       <file leaf-file-name="BehaviorPattern.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/BehaviorPattern.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+            <state relative-caret-position="1232">
+              <caret line="56" column="47" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/Controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="85" column="45" selection-start-line="85" selection-start-column="45" selection-end-line="85" selection-end-column="45" />
+            <state relative-caret-position="438">
+              <caret line="99" column="90" selection-start-line="99" selection-start-column="90" selection-end-line="99" selection-end-column="90" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Clustering.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Clustering.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Learning/Clustering.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="167" column="57" selection-start-line="167" selection-start-column="57" selection-end-line="167" selection-end-column="57" />
+            <state relative-caret-position="382">
+              <caret line="153" column="72" selection-start-line="153" selection-start-column="72" selection-end-line="153" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -100,9 +90,67 @@
       <file leaf-file-name="WekaRegression.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Learning/WekaRegression.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="77" column="15" selection-start-line="77" selection-start-column="15" selection-end-line="77" selection-end-column="15" />
-              <folding />
+            <state relative-caret-position="2856">
+              <caret line="127" column="33" selection-start-line="127" selection-start-column="33" selection-end-line="127" selection-end-column="33" />
+              <folding>
+                <element signature="e#3901#3902#0" expanded="true" />
+                <element signature="e#3932#3933#0" expanded="true" />
+                <element signature="e#3980#3981#0" expanded="true" />
+                <element signature="e#4020#4021#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActivityInstanceParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tool/ActivityInstanceParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="19" column="57" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActivityTabController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GUI/Controller/ActivityTabController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#436#437#0" expanded="false" />
+                <element signature="e#471#472#0" expanded="false" />
+                <element signature="e#516#517#0" expanded="false" />
+                <element signature="e#553#554#0" expanded="false" />
+                <element signature="e#592#593#0" expanded="false" />
+                <element signature="e#623#624#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TableViewSample.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GUI/TableViewSample.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="31" column="14" selection-start-line="24" selection-start-column="4" selection-end-line="31" selection-end-column="14" />
+              <folding>
+                <element signature="e#2826#2827#0" expanded="false" />
+                <element signature="e#2872#2873#0" expanded="false" />
+                <element signature="e#2931#2932#0" expanded="false" />
+                <element signature="e#2971#2972#0" expanded="false" />
+                <element signature="e#3010#3011#0" expanded="false" />
+                <element signature="e#3055#3056#0" expanded="false" />
+                <element signature="e#3113#3114#0" expanded="false" />
+                <element signature="e#3152#3153#0" expanded="false" />
+                <element signature="e#3204#3205#0" expanded="false" />
+                <element signature="e#3255#3256#0" expanded="false" />
+                <element signature="e#3309#3310#0" expanded="false" />
+                <element signature="e#3362#3363#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -176,12 +224,12 @@
         <option value="$PROJECT_DIR$/src/LifePattern.java" />
         <option value="$PROJECT_DIR$/src/sdle/Activity.java" />
         <option value="$PROJECT_DIR$/src/GUI/TableViewSample.java" />
-        <option value="$PROJECT_DIR$/src/Learning/Clustering.java" />
         <option value="$PROJECT_DIR$/src/Pattern/TrainLifePattern.java" />
+        <option value="$PROJECT_DIR$/src/GUI/Controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/Learning/WekaRegression.java" />
         <option value="$PROJECT_DIR$/src/Pattern/TestLifePattern.java" />
         <option value="$PROJECT_DIR$/src/GUI/BehaviorPattern.java" />
-        <option value="$PROJECT_DIR$/src/GUI/Controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/Learning/Clustering.java" />
       </list>
     </option>
   </component>
@@ -198,10 +246,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-11" />
+    <option name="y" value="-11" />
+    <option name="width" value="1942" />
+    <option name="height" value="1242" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -329,8 +377,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -689,25 +737,20 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="BashConfigurationType" factoryName="Bash">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="INTERPRETER_PATH" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="BatchConfigurationType" factoryName="Batch">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <module name="" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -806,6 +849,62 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.TrainLifePattern" />
       <item index="1" class="java.lang.String" itemvalue="Application.BehaviorPattern" />
@@ -816,8 +915,8 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.BehaviorPattern" />
-        <item index="1" class="java.lang.String" itemvalue="Application.TrainLifePattern" />
-        <item index="2" class="java.lang.String" itemvalue="Application.TestLifePattern" />
+        <item index="1" class="java.lang.String" itemvalue="Application.TestLifePattern" />
+        <item index="2" class="java.lang.String" itemvalue="Application.TrainLifePattern" />
         <item index="3" class="java.lang.String" itemvalue="Application.ActivityInstanceParser" />
         <item index="4" class="java.lang.String" itemvalue="Application.TableViewSample" />
       </list>
@@ -984,38 +1083,45 @@
       <option name="project" value="LOCAL" />
       <updated>1456380478057</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="GOOD">
+      <created>1462066927930</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1462066927930</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-11" y="-11" width="1942" height="1242" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3209607" sideWeight="0.44337606" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3216266" sideWeight="0.4452269" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4323144" sideWeight="0.50213677" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25873363" sideWeight="0.49091882" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4323144" sideWeight="0.49786323" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.49785867" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43253234" sideWeight="0.49791667" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25970426" sideWeight="0.49114582" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43253234" sideWeight="0.50208336" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20032051" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20052083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37882096" sideWeight="0.866453" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37892792" sideWeight="0.8776042" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="5.2083336E-4" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.49785867" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280255" sideWeight="0.4875" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
@@ -1054,7 +1160,8 @@
     <MESSAGE value="Backup old activelezi" />
     <MESSAGE value="automation activelezi&#10;" />
     <MESSAGE value="Fix bug of  activelezi&#10;Now SDLE parser&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug of  activelezi&#10;Now SDLE parser&#10;" />
+    <MESSAGE value="GOOD" />
+    <option name="LAST_COMMIT_MESSAGE" value="GOOD" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1067,12 +1174,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Pattern/TestLifePattern.java</url>
-          <line>63</line>
+          <line>138</line>
           <properties />
-          <option name="timeStamp" value="415" />
+          <option name="timeStamp" value="409" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="418" />
+      <option name="time" value="414" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1086,6 +1193,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/datumbox/datumbox-framework/0.6.1/datumbox-framework-0.6.1.jar!/com/datumbox/framework/machinelearning/regression/MatrixLinearRegression.class" />
+    <entry file="jar://$PROJECT_DIR$/lib/datumbox-framework-0.6.1-sources.jar!/com/datumbox/common/utilities/RandomGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/datumbox-framework-0.6.1.jar!/datumbox.config.default.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1273,6 +1388,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="89" column="64" selection-start-line="89" selection-start-column="64" selection-end-line="89" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/Controller/ActivityTabController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#436#437#0" expanded="false" />
+            <element signature="e#471#472#0" expanded="false" />
+            <element signature="e#516#517#0" expanded="false" />
+            <element signature="e#553#554#0" expanded="false" />
+            <element signature="e#592#593#0" expanded="false" />
+            <element signature="e#623#624#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1283,97 +1415,93 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tool/ActivityInstanceParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="19" column="57" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/TableViewSample.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="31" column="13" selection-start-line="24" selection-start-column="4" selection-end-line="31" selection-end-column="13" />
+        <state relative-caret-position="476">
+          <caret line="31" column="14" selection-start-line="24" selection-start-column="4" selection-end-line="31" selection-end-column="14" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2826#2827#0" expanded="false" />
+            <element signature="e#2872#2873#0" expanded="false" />
+            <element signature="e#2931#2932#0" expanded="false" />
+            <element signature="e#2971#2972#0" expanded="false" />
+            <element signature="e#3010#3011#0" expanded="false" />
+            <element signature="e#3055#3056#0" expanded="false" />
+            <element signature="e#3113#3114#0" expanded="false" />
+            <element signature="e#3152#3153#0" expanded="false" />
+            <element signature="e#3204#3205#0" expanded="false" />
+            <element signature="e#3255#3256#0" expanded="false" />
+            <element signature="e#3309#3310#0" expanded="false" />
+            <element signature="e#3362#3363#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/Controller/ActivityTabController.java">
+    <entry file="file://$PROJECT_DIR$/src/tool/ActivityInstanceParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataStructure/Mean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Learning/Smile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Learning/Clustering.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="167" column="57" selection-start-line="167" selection-start-column="57" selection-end-line="167" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pattern/TrainLifePattern.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="384" column="55" selection-start-line="384" selection-start-column="55" selection-end-line="384" selection-end-column="55" />
+        <state relative-caret-position="308">
+          <caret line="19" column="57" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="57" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Learning/WekaRegression.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="77" column="15" selection-start-line="77" selection-start-column="15" selection-end-line="77" selection-end-column="15" />
-          <folding />
+        <state relative-caret-position="2856">
+          <caret line="127" column="33" selection-start-line="127" selection-start-column="33" selection-end-line="127" selection-end-column="33" />
+          <folding>
+            <element signature="e#3901#3902#0" expanded="true" />
+            <element signature="e#3932#3933#0" expanded="true" />
+            <element signature="e#3980#3981#0" expanded="true" />
+            <element signature="e#4020#4021#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Pattern/TestLifePattern.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="171" column="99" selection-start-line="171" selection-start-column="99" selection-end-line="171" selection-end-column="99" />
-          <folding />
+        <state relative-caret-position="560">
+          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/BehaviorPattern.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+        <state relative-caret-position="1232">
+          <caret line="56" column="47" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pattern/TrainLifePattern.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/Controller/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="85" column="45" selection-start-line="85" selection-start-column="45" selection-end-line="85" selection-end-column="45" />
+        <state relative-caret-position="438">
+          <caret line="99" column="90" selection-start-line="99" selection-start-column="90" selection-end-line="99" selection-end-column="90" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Learning/Clustering.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="153" column="72" selection-start-line="153" selection-start-column="72" selection-end-line="153" selection-end-column="72" />
+          <folding />
         </state>
       </provider>
     </entry>

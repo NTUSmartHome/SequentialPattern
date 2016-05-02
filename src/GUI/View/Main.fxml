@@ -18,7 +18,10 @@
                               <KeyCodeCombination alt="UP" code="O" control="ANY" meta="UP" shift="UP" shortcut="UP" />
                            </accelerator>
                         </MenuItem>
-                        <MenuItem mnemonicParsing="false" onAction="#load" text="Load" />
+                        <MenuItem mnemonicParsing="false" onAction="#load" text="Load">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="L" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
                         <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" />
                      </items>
                   </Menu>
