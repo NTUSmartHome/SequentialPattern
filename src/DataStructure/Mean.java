@@ -25,6 +25,13 @@ public class Mean implements Regression {
         return mean / x.length;
     }
 
+    public static double staticMean(double[] x) {
+        double mean = 0;
+        for (int i = 0; i < x.length; i++) {
+            mean += x[i];
+        }
+        return mean / x.length;
+    }
 
     @Override
     public double predict(Object o) {

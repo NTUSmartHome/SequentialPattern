@@ -4,29 +4,31 @@ import weka.clusterers.ClusterEvaluation;
 import weka.clusterers.Clusterer;
 import weka.clusterers.EM;
 import weka.core.Instances;
+import weka.core.pmml.Array;
+import weka.core.pmml.jaxbbindings.INTERPOLATIONMETHOD;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 /**
  * Created by g2525_000 on 2016/4/18.
  */
 public class Clustering {
-    private weka.clusterers.Clusterer clusterer;
+    private weka.clusterers.EM clusterer;
     private String fileName;
     private ArrayList<Integer>[] instanceBelongToCluster;
     private String Topic;
     private double[] mean;
     private double[] stdDev;
     private DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-
+    private ArrayList<Integer> outlier;
     public Clustering(String topic, String fileName) {
         this.Topic = topic;
         this.fileName = fileName;
@@ -58,10 +60,33 @@ public class Clustering {
             // structure.setClassIndex(structure.numAttributes() - 1);
             if (fileName != null) this.fileName = fileName;
             clusterer = new EM();
+            clusterer.setMaxIterations(500);
+            clusterer.setSeed(trainingData.size()/4);
+            clusterer.setMaximumNumberOfClusters(4);
             clusterer.buildClusterer(trainingData);
+
+            double[][][] modelsNumericAtts = clusterer.getClusterModelsNumericAtts();
 
             System.out.println(Topic);
             System.out.println(clusterer);
+
+            outlier = new ArrayList();
+            for (int i = 0; i < trainingData.size(); i++) {
+                int cluster = clusterer.clusterInstance(trainingData.get(i));
+                if (modelsNumericAtts[cluster][0][2] / trainingData.size() <= 0.05) {
+                    outlier.add(i);
+                }
+            }
+            Collections.sort(outlier);
+            for (int i = outlier.size() - 1; i >= 0; i--) {
+                trainingData.remove((int)outlier.get(i));
+            }
+            if (outlier.size() > 0) {
+                clusterer.buildClusterer(trainingData);
+                modelsNumericAtts = clusterer.getClusterModelsNumericAtts();
+                System.out.println(Topic);
+                System.out.println(clusterer);
+            }
 
 
             //Specify each instance(use index instead) belong to which cluster
@@ -74,7 +99,11 @@ public class Clustering {
             }
             mean = new double[clusterer.numberOfClusters()];
             stdDev = new double[clusterer.numberOfClusters()];
-            calculateMeanNStdDev();
+            for (int i = 0; i < mean.length; i++) {
+                mean[i] = modelsNumericAtts[i][0][0];
+                stdDev[i] = modelsNumericAtts[i][0][1];
+            }
+            //calculateMeanNStdDev();
             //getStartTime();
         } catch (IOException e) {
             e.printStackTrace();
@@ -117,7 +146,7 @@ public class Clustering {
 
     public void loadModel() {
         try {
-            clusterer = (weka.clusterers.Clusterer) weka.core.SerializationHelper.read("report/model/" + fileName + ".sModel");
+            clusterer = (weka.clusterers.EM) weka.core.SerializationHelper.read("report/model/" + fileName + ".sModel");
             mean = new double[clusterer.numberOfClusters()];
             stdDev = new double[clusterer.numberOfClusters()];
             calculateMeanNStdDev();
@@ -128,7 +157,7 @@ public class Clustering {
 
     public void loadModel(String fileName) {
         try {
-            clusterer = (weka.clusterers.Clusterer) weka.core.SerializationHelper.read(fileName);
+            clusterer = (weka.clusterers.EM) weka.core.SerializationHelper.read(fileName);
             mean = new double[clusterer.numberOfClusters()];
             stdDev = new double[clusterer.numberOfClusters()];
             calculateMeanNStdDev();
@@ -150,14 +179,20 @@ public class Clustering {
         for (int i = 0; i < mean.length; i++) {
             if (i > 0) sb.append(",");
 
-            sb.append(dateFormat.format(new Date(((int) (mean[i] - 0.5 * stdDev[i])) * 60000)) + "~"
-                    + dateFormat.format(new Date(((int) (mean[i] + 0.5 * stdDev[i])) * 60000)));
+            sb.append(dateFormat.format(new Date(((int) (mean[i] - stdDev[i])) * 60000)) + "~"
+                    + dateFormat.format(new Date(((int) (mean[i] + stdDev[i])) * 60000)));
         }
         String[] result = sb.toString().split(",");
         return result;
     }
 
+    public ArrayList<Integer> getOutlier() {
+        return outlier;
+    }
+
     private void calculateMeanNStdDev() {
+
+
         String result = clusterer.toString();
         int meanIDX = result.indexOf("mean");
         int stdDevIDX = result.indexOf("std.");

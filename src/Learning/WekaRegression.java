@@ -1,5 +1,6 @@
 package Learning;
 
+import DataStructure.Mean;
 import weka.classifiers.Classifier;
 import weka.classifiers.evaluation.Evaluation;
 import weka.classifiers.meta.AdditiveRegression;
@@ -23,6 +24,7 @@ public class WekaRegression {
     private weka.classifiers.Classifier regressor;
     private String fileName;
     private String duration;
+    private Evaluation eval;
 
     public ArrayList<Integer>[] getInstanceBelongToCluster() {
         return instanceBelongToCluster;
@@ -59,10 +61,19 @@ public class WekaRegression {
             trainingData.setClassIndex(trainingData.numAttributes() - 1);
             regressor = new AdditiveRegression();
             regressor.buildClassifier(trainingData);
-            Evaluation eval = new Evaluation(trainingData);
+            eval = new Evaluation(trainingData);
             eval.evaluateModel(regressor, trainingData);
             System.out.println(eval.toSummaryString("\nResults\n======\n", false));
-
+            double[] durations = new double[trainingData.size()];
+            for (int i = 0; i < trainingData.size(); i++) {
+                durations[i] = trainingData.get(i).value(1);
+            }
+            double mean = Mean.staticMean(durations);
+            double meanError = 0;
+            for (int i = 0; i < trainingData.size(); i++) {
+                meanError += Math.abs(mean - trainingData.get(i).value(1));
+            }
+            System.out.println("meanError : " + meanError / trainingData.size());
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -124,10 +135,13 @@ public class WekaRegression {
         return duration;
     }
 
+    public Evaluation getEval() {
+        return eval;
+    }
+
     public void setDuration(String duration) {
         this.duration = duration;
     }
-
 
 
 }

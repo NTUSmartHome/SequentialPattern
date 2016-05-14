@@ -11,16 +11,18 @@ import weka.core.Instances;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by MingJe on 2016/4/18.
  */
 public class Classifier {
 
-    private weka.classifiers.Classifier cModel;
+    private BayesNet cModel;
     private String fileName;
     private String Topic;
-
+    private ArrayList<Attribute> attributes;
     public Classifier(String topic, String fileName) {
         this.Topic = topic;
         this.fileName = fileName;
@@ -36,6 +38,10 @@ public class Classifier {
         try {
             if (fileName != null) this.fileName = fileName;
             Instances trainingData = new Instances(new BufferedReader(new FileReader("report/features/" + this.fileName + ".arff")));
+            attributes = new ArrayList<>();
+            for (int i = 0; i < trainingData.numAttributes(); i++) {
+                attributes.add(trainingData.attribute(i));
+            }
             trainingData.setClassIndex(trainingData.numAttributes() - 1);
             cModel = new BayesNet();
             cModel.buildClassifier(trainingData);
@@ -51,9 +57,26 @@ public class Classifier {
 
     }
 
-    public String predict(ActivityInstance currentActivity) {
-        DenseInstance act = new DenseInstance(2);
-        //act.setValue();
+    public String predict(ActivityInstance lastActivity, ActivityInstance currentActivity) {
+        /*Attribute act_last_two = new Attribute("act_last_two");
+        Attribute act_last = new Attribute("act_last");
+        Attribute startTime = new Attribute("startTime");
+        Attribute act = new Attribute("act");*/
+        Instances predictSet = new Instances("predict", attributes, 0);
+        predictSet.setClassIndex(predictSet.numAttributes() - 1);
+        DenseInstance inst = new DenseInstance(predictSet.numAttributes());
+        inst.setDataset(predictSet);
+        inst.setValue(attributes.get(0), lastActivity.getActivity());
+        inst.setValue(attributes.get(1), currentActivity.getActivity());
+        String[] startTime = currentActivity.getStartTime().split(":");
+        int startTimeHour = Integer.parseInt(startTime[0]);
+        inst.setValue(attributes.get(2), startTimeHour);
+        try {
+            double prd = cModel.classifyInstance(inst);
+            return inst.classAttribute().value((int) prd);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         //cModel.classifyInstance();
         return null;
     }
@@ -77,7 +100,12 @@ public class Classifier {
 
     public void loadModel(String fileName) {
         try {
-            cModel = (weka.classifiers.Classifier) weka.core.SerializationHelper.read(fileName);
+            cModel = (BayesNet) weka.core.SerializationHelper.read(fileName);
+            Instances trainingData = new Instances(new BufferedReader(new FileReader("report/features/relationAtt.arff")));
+            attributes = new ArrayList<>();
+            for (int i = 0; i < trainingData.numAttributes(); i++) {
+                attributes.add(trainingData.attribute(i));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -85,7 +113,7 @@ public class Classifier {
 
     public void loadModel() {
         try {
-            cModel = (weka.classifiers.Classifier) weka.core.SerializationHelper.read("report/model/" + this.fileName + ".cModel");
+            cModel = (BayesNet) weka.core.SerializationHelper.read("report/model/" + this.fileName + ".rModel");
         } catch (Exception e) {
             e.printStackTrace();
         }

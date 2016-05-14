@@ -262,6 +262,10 @@ public class TrainLifePattern {
                 if (i == 0) featureString.append(activityList.get(i));
                 else featureString.append("," + activityList.get(i));
             }
+            //write attribute
+            FileWriter attWriter = new FileWriter("report/features/relationAtt.arff");
+            attWriter.write(featureString.toString() +"} \n @data");
+            attWriter.close();
 
             featureString.append("}\n@data\n");
             for (int i = 2; i < weekActivityInstances[0].size(); i++) {
@@ -378,7 +382,9 @@ public class TrainLifePattern {
                 for (int j = 0; j < activityInstances.size(); j++) {
                     instanceBelongToCluster[0].add(j);
                 }*/
-
+                for (int j = clustering.getOutlier().size() - 1; j >= 0; j--) {
+                    activityInstances.remove((int)clustering.getOutlier().get(j));
+                }
                 for (int k = 0; k < instanceBelongToCluster.length; k++) {
                     fileName = "ActivityDurationEstimation/" + activityInstance.getActivity() + "-" + k;
                     fw = new FileWriter("report/features/" + fileName + ".arff");
@@ -411,6 +417,8 @@ public class TrainLifePattern {
             int cluster = 0;
             ArrayList<WekaRegression> eachActivityRegressions = new ArrayList<>();
             System.out.println("Activity:" + activity);
+            double absoluteError = 0;
+            int numOfInstances = 0;
             while (true) {
                 String fileName = "ActivityDurationEstimation/" + activity + "-" + cluster;
                 WekaRegression regression = new WekaRegression(activity, fileName);
@@ -419,7 +427,10 @@ public class TrainLifePattern {
                 regression.saveModel();
                 eachActivityRegressions.add(regression);
                 cluster++;
+                absoluteError += regression.getEval().numInstances() * regression.getEval().meanAbsoluteError();
+                numOfInstances += regression.getEval().numInstances();
             }
+            System.out.println("Overall nean absolute error " + (absoluteError /=   numOfInstances));
             regressors.put(activity, eachActivityRegressions);
         }
     }

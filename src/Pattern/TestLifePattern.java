@@ -108,9 +108,9 @@ public class TestLifePattern {
         return regressors;
     }
 
-    public String nextActivity(ActivityInstance currentActivity) {
-        //relationer.predict()
-        return null;
+    public String nextActivity(ActivityInstance lastActivity, ActivityInstance currentActivity) {
+
+        return relationer.predict(lastActivity, currentActivity);
     }
 
     public Classifier getRelationer() {
@@ -141,12 +141,25 @@ public class TestLifePattern {
         for (int i = 0; i < 7; i++) {
             resultMap.put(String.valueOf(i), 0);
         }
-        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.original(84, resultMap);
+        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.original(90, resultMap);
         ArrayList<ActivityInstance>[] weekActivityInstances = total[0];
         ArrayList<ActivityInstance>[] testWeekActivityInstances = total[1];
-        for (int i = 0; i < testWeekActivityInstances[0].size(); i++) {
 
+        ActivityInstance last = weekActivityInstances[0].get(weekActivityInstances[0].size() - 2);
+        ActivityInstance current = weekActivityInstances[0].get(weekActivityInstances[0].size() - 1);
+
+        String nextActivity = testLifePattern.nextActivity(last, current);
+        float right = 0;
+        for (int i = 0; i < testWeekActivityInstances[0].size(); i++) {
+            String realNextActivity = testWeekActivityInstances[0].get(i).getActivity();
+            if (nextActivity.equals(realNextActivity)) {
+                right++;
+            }
+            last = current;
+            current = testWeekActivityInstances[0].get(i);
+            nextActivity = testLifePattern.nextActivity(last, current);
         }
+        System.out.println(right / testWeekActivityInstances[0].size());
 
 
     }
@@ -169,7 +182,7 @@ public class TestLifePattern {
                 String durationShortString;
                 String durationLongString;
                 durationShortString = durationShort / 60 + " Hour and " + durationShort % 60 + " minute";
-                durationLongString = durationLong / 60+ " Hour and " + durationLong % 60 + " minute";
+                durationLongString = durationLong / 60 + " Hour and " + durationLong % 60 + " minute";
 
 
                 durations.get(j).setDuration(durationShortString + " ~ " + durationLongString);
