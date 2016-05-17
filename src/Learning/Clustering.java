@@ -1,11 +1,13 @@
 package Learning;
 
+import org.apache.commons.lang3.ArrayUtils;
 import weka.clusterers.ClusterEvaluation;
 import weka.clusterers.Clusterer;
 import weka.clusterers.EM;
+import weka.core.Attribute;
+import weka.core.DenseInstance;
 import weka.core.Instances;
 import weka.core.pmml.Array;
-import weka.core.pmml.jaxbbindings.INTERPOLATIONMETHOD;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,6 +16,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 
@@ -29,6 +32,7 @@ public class Clustering {
     private double[] stdDev;
     private DateFormat dateFormat = new SimpleDateFormat("HH:mm");
     private ArrayList<Integer> outlier;
+
     public Clustering(String topic, String fileName) {
         this.Topic = topic;
         this.fileName = fileName;
@@ -51,7 +55,37 @@ public class Clustering {
         return clusterer;
     }
 
-
+    /*public double predict(String startTime) {
+        ArrayList<Attribute> attributes = new ArrayList<>();
+        attributes.add(new Attribute("startTime", Attribute.NUMERIC));
+        Instances predictSet = new Instances("predict", attributes, 0);
+        predictSet.setClassIndex(0);
+        DenseInstance inst = new DenseInstance(1);
+        String[] time = startTime.split(":");
+        int timeInt = Integer.parseInt(time[0]) * 60 + Integer.parseInt(time[1]);
+        inst.setDataset(predictSet);
+        inst.setValue(attributes.get(0), timeInt);
+        double[] prd;
+        try {
+            prd = clusterer.distributionForInstance(inst);
+            return Collections.max(Arrays.asList(ArrayUtils.toObject(prd)));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }*/
+    public double predict(String startTime) {
+        String[] time = startTime.split(":");
+        int timeInt = Integer.parseInt(time[0]) * 60 + Integer.parseInt(time[1]);
+        double min = Math.abs(timeInt-mean[0]) ;
+        for (int i = 1; i < mean.length; i++) {
+            double tmp = Math.abs(timeInt-mean[i]);
+            if (Double.compare(tmp, min) < 0) {
+                min = tmp;
+            }
+        }
+        return min;
+    }
     public void train(String fileName) {
         try {
             //ArffLoader loader = new ArffLoader();
@@ -61,8 +95,8 @@ public class Clustering {
             if (fileName != null) this.fileName = fileName;
             clusterer = new EM();
             clusterer.setMaxIterations(500);
-            clusterer.setSeed(trainingData.size()/4);
-            clusterer.setMaximumNumberOfClusters(4);
+            clusterer.setSeed(trainingData.size() / 4 +  (int)(Math.random()*10));
+            //clusterer.setMaximumNumberOfClusters(4);
             clusterer.buildClusterer(trainingData);
 
             double[][][] modelsNumericAtts = clusterer.getClusterModelsNumericAtts();
@@ -79,16 +113,16 @@ public class Clustering {
             }
             Collections.sort(outlier);
             for (int i = outlier.size() - 1; i >= 0; i--) {
-                trainingData.remove((int)outlier.get(i));
+                trainingData.remove((int) outlier.get(i));
             }
             if (outlier.size() > 0) {
                 clusterer.buildClusterer(trainingData);
-                modelsNumericAtts = clusterer.getClusterModelsNumericAtts();
+
                 System.out.println(Topic);
                 System.out.println(clusterer);
             }
 
-
+            modelsNumericAtts = clusterer.getClusterModelsNumericAtts();
             //Specify each instance(use index instead) belong to which cluster
             instanceBelongToCluster = new ArrayList[clusterer.numberOfClusters()];
             for (int i = 0; i < instanceBelongToCluster.length; i++) {
@@ -97,6 +131,7 @@ public class Clustering {
             for (int i = 0; i < trainingData.size(); i++) {
                 instanceBelongToCluster[clusterer.clusterInstance(trainingData.get(i))].add(i);
             }
+
             mean = new double[clusterer.numberOfClusters()];
             stdDev = new double[clusterer.numberOfClusters()];
             for (int i = 0; i < mean.length; i++) {
@@ -190,10 +225,16 @@ public class Clustering {
         return outlier;
     }
 
-    private void calculateMeanNStdDev() {
+    private void calculateMeanNStdDev() throws Exception {
 
-
-        String result = clusterer.toString();
+        double[][][] modelsNumericAtts = clusterer.getClusterModelsNumericAtts();
+        mean = new double[clusterer.numberOfClusters()];
+        stdDev = new double[clusterer.numberOfClusters()];
+        for (int i = 0; i < mean.length; i++) {
+            mean[i] = modelsNumericAtts[i][0][0];
+            stdDev[i] = modelsNumericAtts[i][0][1];
+        }
+        /*String result = clusterer.toString();
         int meanIDX = result.indexOf("mean");
         int stdDevIDX = result.indexOf("std.");
         String test = result.substring(meanIDX + 4, stdDevIDX - 1);
@@ -202,7 +243,7 @@ public class Clustering {
         for (int i = 0; i < mean.length; i++) {
             mean[i] = Double.parseDouble(allMean[i + 1]);
             stdDev[i] = Double.parseDouble(allStdDev[i + 1]);
-        }
+        }*/
 
     }
 

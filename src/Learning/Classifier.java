@@ -5,24 +5,25 @@ import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.BayesNet;
 import weka.core.Attribute;
 import weka.core.DenseInstance;
-import weka.core.Instance;
 import weka.core.Instances;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by MingJe on 2016/4/18.
  */
 public class Classifier {
-
+    private Evaluation eval;
     private BayesNet cModel;
     private String fileName;
     private String Topic;
     private ArrayList<Attribute> attributes;
+
     public Classifier(String topic, String fileName) {
         this.Topic = topic;
         this.fileName = fileName;
@@ -45,7 +46,7 @@ public class Classifier {
             trainingData.setClassIndex(trainingData.numAttributes() - 1);
             cModel = new BayesNet();
             cModel.buildClassifier(trainingData);
-            Evaluation eval = new Evaluation(trainingData);
+            eval = new Evaluation(trainingData);
             System.out.println(Topic);
             eval.evaluateModel(cModel, trainingData);
             System.out.println(eval.toSummaryString("\nResults\n======\n", false));
@@ -57,7 +58,7 @@ public class Classifier {
 
     }
 
-    public String predict(ActivityInstance lastActivity, ActivityInstance currentActivity) {
+    public Map<String, Double> predict(ActivityInstance lastActivity, ActivityInstance currentActivity) {
         /*Attribute act_last_two = new Attribute("act_last_two");
         Attribute act_last = new Attribute("act_last");
         Attribute startTime = new Attribute("startTime");
@@ -66,14 +67,25 @@ public class Classifier {
         predictSet.setClassIndex(predictSet.numAttributes() - 1);
         DenseInstance inst = new DenseInstance(predictSet.numAttributes());
         inst.setDataset(predictSet);
-        inst.setValue(attributes.get(0), lastActivity.getActivity());
-        inst.setValue(attributes.get(1), currentActivity.getActivity());
+        inst.setValue(attributes.get(0), currentActivity.getActivity());
+        String[] endTime = currentActivity.getEndTime().split(":");
+        int endTimeHour = Integer.parseInt(endTime[0]);
+        inst.setValue(attributes.get(1), endTimeHour);
+        //inst.setValue(attributes.get(2), currentActivity.getDayOfWeek());
         String[] startTime = currentActivity.getStartTime().split(":");
         int startTimeHour = Integer.parseInt(startTime[0]);
         inst.setValue(attributes.get(2), startTimeHour);
+
         try {
-            double prd = cModel.classifyInstance(inst);
-            return inst.classAttribute().value((int) prd);
+            //double prd = cModel.classifyInstance(inst);
+            //String test = inst.classAttribute().value((int) prd);
+            Map<String, Double> resultSet = new HashMap<>();
+            double[] distributionForInstance = cModel.distributionForInstance(inst);
+            for (int i = 0; i < distributionForInstance.length; i++) {
+                resultSet.put(attributes.get(attributes.size() - 1).value(i), distributionForInstance[i]);
+            }
+            return resultSet;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -119,5 +131,7 @@ public class Classifier {
         }
     }
 
-
+    public Evaluation getEval() {
+        return eval;
+    }
 }

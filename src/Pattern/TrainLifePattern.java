@@ -9,9 +9,9 @@ import Learning.WekaRegression;
 import SDLE.SDLE;
 import tool.ActivityInstanceParser;
 import tool.LogPreProcessing;
+
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -33,6 +33,7 @@ public class TrainLifePattern {
     Map<String, ArrayList<WekaRegression>> regressors;
     //Use BayesNet to train relationship between activity
     Classifier relationer;
+    Classifier[] multipleRelationer;
     //Use Expectation Maximization to cluster each activity start time
     Map<String, Clustering> activityStartTimeClusterer;
     //Store activity name
@@ -41,7 +42,6 @@ public class TrainLifePattern {
     //----------------------------------Ming data begins on Sat------------------------------------//
     final int weekDayStart = 5;
     //-----------------------------------------------------------------------------------------------//
-
 
 
     public TrainLifePattern() throws IOException, ParseException {
@@ -80,6 +80,9 @@ public class TrainLifePattern {
         activityDurationEstimation();
         //Activity Relation Construction
         activityRelationConstruction();
+
+        //Multiple Activity Relation Construction
+        activityRelationConstructionMutiple();
     }
 
     public static void main(String[] args) throws InterruptedException, IOException, ParseException {
@@ -223,6 +226,110 @@ public class TrainLifePattern {
         return weekSDLEList;
     }*/
 
+
+    /**
+     * Learn the relationships between activities
+     */
+    private void activityRelationConstructionMutiple() {
+
+        try {
+            String fileName = "ActivityRelationConstruction";
+            FileWriter[] fw = new FileWriter[5];
+            multipleRelationer = new Classifier[5];
+            StringBuilder featureString = new StringBuilder("@RELATION activityRelation \n");
+
+           /* featureString.append("@ATTRIBUTE act_last_two {");
+            for (int i = 0; i < activityList.size(); i++) {
+                if (i == 0) featureString.append(activityList.get(i));
+                else featureString.append("," + activityList.get(i));
+            }*/
+
+            featureString.append("\n@ATTRIBUTE currentActivity {");
+            for (int i = 0; i < activityList.size(); i++) {
+                if (i == 0) featureString.append(activityList.get(i));
+                else featureString.append("," + activityList.get(i));
+            }
+
+            featureString.append("}\n@ATTRIBUTE nextStartTime {");
+            for (int i = 0; i < 24; i++) {
+                if (i == 0) featureString.append(i);
+                else featureString.append("," + i);
+            }
+
+            /*featureString.append("}\n@ATTRIBUTE dayofweek {");
+            for (int i = 0; i < 7; i++) {
+                if (i == 0) featureString.append(i);
+                else featureString.append("," + i);
+            }*/
+
+            featureString.append("}\n@ATTRIBUTE nextActivity {");
+            for (int i = 0; i < activityList.size(); i++) {
+                if (i == 0) featureString.append(activityList.get(i));
+                else featureString.append("," + activityList.get(i));
+            }
+            //write attribute
+            FileWriter attWriter = new FileWriter("report/features/relationAtt.arff");
+            attWriter.write(featureString.toString() + "} \n @data");
+            attWriter.close();
+
+            featureString.append("}\n@data\n");
+
+            for (int i = 0; i < 5; i++) {
+                fw[i] = new FileWriter("report/features/" + fileName + "_" + i + ".arff");
+                fw[i].write(featureString.toString());
+            }
+
+            for (int i = 2; i < weekActivityInstances[0].size(); i++) {
+                ActivityInstance activityInstance = weekActivityInstances[0].get(i);
+                String[] startTime = activityInstance.getStartTime().split(":");
+                int startTimeHour = Integer.parseInt(startTime[0]);
+                int startTimeMinute = Integer.parseInt(startTime[1]);
+                String[] preEndTime = weekActivityInstances[0].get(i - 1).getEndTime().split(":");
+                int preEndTimeHour = Integer.parseInt(preEndTime[0]);
+                int segment = startTimeHour * 12 + startTimeMinute / 5;
+                if (segment >= 4 && segment <= 64) {
+                    fw[4].write(/*weekActivityInstances[0].get(i - 2).getActivity() + "," +*/ weekActivityInstances[0].get(i - 1).getActivity()
+                            + "," + preEndTimeHour + /*"," + activityInstance.getDayOfWeek() +*/ "," + activityInstance.getActivity() + "\n");
+                    segment = 4;
+                } else if ((segment > 64 && segment <= 81) || (segment >= 270 && segment <= 287) || segment < 4) {
+                    fw[3].write(/*weekActivityInstances[0].get(i - 2).getActivity() + "," +*/ weekActivityInstances[0].get(i - 1).getActivity()
+                            + "," + preEndTimeHour + /*"," + activityInstance.getDayOfWeek() +*/ "," + activityInstance.getActivity() + "\n");
+                    segment = 3;
+                } else if (segment > 81 && segment <= 100) {
+                    fw[0].write(/*weekActivityInstances[0].get(i - 2).getActivity() + "," +*/ weekActivityInstances[0].get(i - 1).getActivity()
+                            + "," + preEndTimeHour + /*"," + activityInstance.getDayOfWeek() +*/ "," + activityInstance.getActivity() + "\n");
+                    segment = 0;
+                } else if (segment > 100 && segment <= 225) {
+                    fw[1].write(/*weekActivityInstances[0].get(i - 2).getActivity() + "," +*/ weekActivityInstances[0].get(i - 1).getActivity()
+                            + "," + preEndTimeHour + /*"," + activityInstance.getDayOfWeek() +*/ "," + activityInstance.getActivity() + "\n");
+                    segment = 1;
+                } else {
+                    fw[2].write(/*weekActivityInstances[0].get(i - 2).getActivity() + "," +*/ weekActivityInstances[0].get(i - 1).getActivity()
+                            + "," + preEndTimeHour + /*"," + activityInstance.getDayOfWeek() +*/ "," + activityInstance.getActivity() + "\n");
+                    segment = 2;
+                }
+
+            }
+            double correct = 0;
+            double total = 0;
+            for (int i = 0; i < 5; i++) {
+                fw[i].flush();
+                fw[i].close();
+                multipleRelationer[i] = new Classifier("Relation" + "i", fileName + "_" + i);
+                multipleRelationer[i].train(null);
+                multipleRelationer[i].saveModel();
+                correct += multipleRelationer[i].getEval().correct();
+                total += multipleRelationer[i].getEval().numInstances();
+            }
+            System.out.println("Results\n======\n\n" +
+                    "Correctly Classified Instances " + correct + "\n                 " + correct / total + "\n" +
+                    "Total Number of Instances " + total);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Learn the relationships between activities
      */
@@ -233,46 +340,58 @@ public class TrainLifePattern {
             FileWriter fw = new FileWriter("report/features/" + fileName + ".arff");
             StringBuilder featureString = new StringBuilder("@RELATION activityRelation \n");
 
-            featureString.append("@ATTRIBUTE act_last_two {");
+            /*featureString.append("@ATTRIBUTE act_last_two {");
+            for (int i = 0; i < activityList.size(); i++) {
+                if (i == 0) featureString.append(activityList.get(i));
+                else featureString.append("," + activityList.get(i));
+            }*/
+
+            featureString.append("\n@ATTRIBUTE currentActivity {");
             for (int i = 0; i < activityList.size(); i++) {
                 if (i == 0) featureString.append(activityList.get(i));
                 else featureString.append("," + activityList.get(i));
             }
 
-            featureString.append("}\n@ATTRIBUTE act_last {");
-            for (int i = 0; i < activityList.size(); i++) {
-                if (i == 0) featureString.append(activityList.get(i));
-                else featureString.append("," + activityList.get(i));
-            }
+            /*featureString.append("}\n@ATTRIBUTE prestartTime {");
+            for (int i = 0; i < 24; i++) {
+                if (i == 0) featureString.append(i);
+                else featureString.append("," + i);
+            }*/
 
-            featureString.append("}\n@ATTRIBUTE startTime {");
+            featureString.append("}\n@ATTRIBUTE currentStartTime {");
             for (int i = 0; i < 24; i++) {
                 if (i == 0) featureString.append(i);
                 else featureString.append("," + i);
             }
 
             /*featureString.append("}\n@ATTRIBUTE dayofweek {");
-            for (int i = 1; i < 8; i++) {
+            for (int i = 0; i < 7; i++) {
                 if (i == 0) featureString.append(i);
                 else featureString.append("," + i);
             }*/
 
-            featureString.append("}\n@ATTRIBUTE act {");
+            featureString.append("}\n@ATTRIBUTE nextActivity {");
             for (int i = 0; i < activityList.size(); i++) {
                 if (i == 0) featureString.append(activityList.get(i));
                 else featureString.append("," + activityList.get(i));
             }
             //write attribute
             FileWriter attWriter = new FileWriter("report/features/relationAtt.arff");
-            attWriter.write(featureString.toString() +"} \n @data");
+            attWriter.write(featureString.toString() + "} \n @data");
             attWriter.close();
 
             featureString.append("}\n@data\n");
             for (int i = 2; i < weekActivityInstances[0].size(); i++) {
+
                 ActivityInstance activityInstance = weekActivityInstances[0].get(i);
                 String[] startTime = activityInstance.getStartTime().split(":");
                 int startTimeHour = Integer.parseInt(startTime[0]);
                 int startTimeMinute = Integer.parseInt(startTime[1]);
+
+                String[] preEndTime = weekActivityInstances[0].get(i - 1).getEndTime().split(":");
+                int preEndTimeHour = Integer.parseInt(preEndTime[0]);
+
+
                 int segment = startTimeHour * 12 + startTimeMinute / 5;
                 if (segment >= 4 && segment <= 64)
                     segment = 4;
@@ -285,8 +404,8 @@ public class TrainLifePattern {
                 else
                     segment = 2;
 
-                featureString.append(weekActivityInstances[0].get(i - 2).getActivity() + "," + weekActivityInstances[0].get(i - 1).getActivity()
-                        + "," + startTimeHour + "," + /*activityInstance.getDayOfWeek() + "," +*/ activityInstance.getActivity() + "\n");
+                featureString.append(/*weekActivityInstances[0].get(i - 2).getActivity() + "," + */weekActivityInstances[0].get(i - 1).getActivity()
+                        + "," /*+ prestartTimeHour + "," */ + preEndTimeHour +/* "," + activityInstance.getDayOfWeek() + "," +*/ activityInstance.getActivity() + "\n");
             }
             fw.write(featureString.toString());
             fw.flush();
@@ -302,6 +421,7 @@ public class TrainLifePattern {
 
     /**
      * Re-structure activity instances
+     *
      * @param weekActivityInstances
      * @return activity instances which is categorized by activity name
      */
@@ -383,7 +503,7 @@ public class TrainLifePattern {
                     instanceBelongToCluster[0].add(j);
                 }*/
                 for (int j = clustering.getOutlier().size() - 1; j >= 0; j--) {
-                    activityInstances.remove((int)clustering.getOutlier().get(j));
+                    activityInstances.remove((int) clustering.getOutlier().get(j));
                 }
                 for (int k = 0; k < instanceBelongToCluster.length; k++) {
                     fileName = "ActivityDurationEstimation/" + activityInstance.getActivity() + "-" + k;
@@ -430,11 +550,10 @@ public class TrainLifePattern {
                 absoluteError += regression.getEval().numInstances() * regression.getEval().meanAbsoluteError();
                 numOfInstances += regression.getEval().numInstances();
             }
-            System.out.println("Overall nean absolute error " + (absoluteError /=   numOfInstances));
+            System.out.println("Overall nean absolute error " + (absoluteError /= numOfInstances));
             regressors.put(activity, eachActivityRegressions);
         }
     }
-
 
 
     public Classifier getRelationer() {

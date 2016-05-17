@@ -17,10 +17,23 @@ public class LogPreProcessing {
             for (int i = 1; i < activityList.size(); i++) {
                 ActivityInstance currentActivityInstance = activityList.get(i);
                 ActivityInstance preActivityInstance = activityList.get(i - 1);
+                //Filter relax for test
+               /* if (currentActivityInstance.getActivity().equals("Relax")) {
+                    i++;
+                    continue;
+                }
+                if (preActivityInstance.getActivity().equals("Relax")) {
+                    continue;
+                }*/
+
+                if (preActivityInstance.getActivity().equals("Leave_Home") && !currentActivityInstance.getActivity().equals("Enter_Home")) {
+                    continue;
+                }
+
                 long currentStartTime = timeFormat.parse(currentActivityInstance.getStartTime()).getTime() / 1000 / 60; //unit : minute
                 long preEndTime = timeFormat.parse(preActivityInstance.getEndTime()).getTime() / 1000 / 60;
                 if (currentActivityInstance.getActivity().equals(preActivityInstance.getActivity())) {
-                    if (currentStartTime >= preEndTime && (currentStartTime - preEndTime) <= 10) {
+                    if (currentStartTime >= preEndTime && (currentStartTime - preEndTime) <= 150) {
                         String activity = preActivityInstance.getActivity();
                         String startTime = preActivityInstance.getStartTime();
                         String endTime = currentActivityInstance.getEndTime();
@@ -28,7 +41,7 @@ public class LogPreProcessing {
                         int dayOfWeek = preActivityInstance.getDayOfWeek();
                         proceededList.add(new ActivityInstance(activity, startTime, endTime, duration, dayOfWeek));
                         i++;
-                    } else if (currentStartTime < preEndTime && (287 - preEndTime + currentStartTime) <= 10) {
+                    } else if (currentStartTime < preEndTime && (287 - preEndTime + currentStartTime) <= 150) {
                         String activity = preActivityInstance.getActivity();
                         String startTime = preActivityInstance.getStartTime();
                         String endTime = currentActivityInstance.getEndTime();

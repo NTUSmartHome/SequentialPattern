@@ -5,16 +5,14 @@ import Learning.Classifier;
 import Learning.Clustering;
 import Learning.WekaRegression;
 import tool.ActivityInstanceParser;
+import tool.LogPreProcessing;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TimeZone;
+import java.util.*;
 
 /**
  * Created by g2525_000 on 2016/4/21.
@@ -24,6 +22,7 @@ public class TestLifePattern {
     Map<String, ArrayList<WekaRegression>> regressors;
     //Use BayesNet to train relationship between activity
     Classifier relationer;
+    List<Classifier> multipleRelationer;
     //Use Expectation Maximization to cluster each activity start time
     Map<String, Clustering> activityStartTimeClusterer;
     //Store activity name
@@ -60,6 +59,7 @@ public class TestLifePattern {
             regressors = loadRegressors();
             activityStartTimeClusterer = loadActivityStartTimeClusterer();
             relationer = loadRelationer();
+            multipleRelationer = loadMultipleRelationer();
         }
         durationSetting();
     }
@@ -79,6 +79,19 @@ public class TestLifePattern {
         }
 
         return activityStartTimeClusterer;
+    }
+
+    public List<Classifier> loadMultipleRelationer() {
+        List<Classifier> multipleRelationer = new ArrayList<>();
+        File file = new File("report/model/ActivityRelationConstruction_0.rModel");
+        int i = 0;
+        while (file.exists()) {
+            Classifier classifier = new Classifier("Relation_" + i);
+            classifier.loadModel(file.getPath());
+            multipleRelationer.add(classifier);
+            file = new File("report/model/ActivityRelationConstruction_" + (++i) + ".rModel");
+        }
+        return multipleRelationer;
     }
 
     public Classifier loadRelationer() {
@@ -109,9 +122,95 @@ public class TestLifePattern {
     }
 
     public String nextActivity(ActivityInstance lastActivity, ActivityInstance currentActivity) {
+        Map<String, Double> relationPredict = relationer.predict(lastActivity, currentActivity);
+        int activityIdx = 0;
+        double max  = relationPredict.get(activityList.get(0));
+        for (int i = 0; i < activityList.size(); i++) {
+            double tmp = relationPredict.get(activityList.get(i));
+            if (tmp > max) {
+                max = tmp;
+                activityIdx = i;
+            }
+        }
 
-        return relationer.predict(lastActivity, currentActivity);
+        return activityList.get(activityIdx);
     }
+
+    public String nextActivity(int idx, ActivityInstance lastActivity, ActivityInstance currentActivity) {
+        Map<String, Double> startTimePredict = new HashMap<>();
+        for (int i = 0; i < activityList.size(); i++) {
+           // Date date = dateFormat.parse(currentActivity.getStartTime());
+            startTimePredict.put(activityList.get(i),
+                    activityStartTimeClusterer.get(activityList.get(i)).predict(currentActivity.getEndTime()));
+        }
+        Map<String, Double> relationPredict = multipleRelationer.get(idx).predict(lastActivity, currentActivity);
+        int activityIdx = 0;
+        double max =   relationPredict.get(activityList.get(0)) + 1 / startTimePredict.get(activityList.get(0));
+        for (int i = 1; i < activityList.size(); i++) {
+            double tmp = relationPredict.get(activityList.get(i)) + 1 / startTimePredict.get(activityList.get(i));
+            if (tmp > max) {
+                max = tmp;
+                activityIdx = i;
+            }
+        }
+
+        return activityList.get(activityIdx);
+    }
+
+    //Only multiple relation(sequential) prediction
+    public String sequentialNextActivity(int idx, ActivityInstance lastActivity, ActivityInstance currentActivity) {
+        Map<String, Double> relationPredict = multipleRelationer.get(idx).predict(lastActivity, currentActivity);
+        int activityIdx = 0;
+        double max =   relationPredict.get(activityList.get(0));
+        for (int i = 1; i < activityList.size(); i++) {
+            double tmp = relationPredict.get(activityList.get(i));
+            if (tmp > max) {
+                max = tmp;
+                activityIdx = i;
+            }
+        }
+
+        return activityList.get(activityIdx);
+    }
+    //Only single relation(sequential) prediction
+
+    public String sequentialNextActivity(ActivityInstance lastActivity, ActivityInstance currentActivity) {
+        Map<String, Double> relationPredict = relationer.predict(lastActivity, currentActivity);
+        int activityIdx = 0;
+        double max =   relationPredict.get(activityList.get(0));
+        for (int i = 1; i < activityList.size(); i++) {
+            double tmp = relationPredict.get(activityList.get(i));
+            if (tmp > max) {
+                max = tmp;
+                activityIdx = i;
+            }
+        }
+
+        return activityList.get(activityIdx);
+    }
+
+    //Only start time(periodic) predict
+    public String periodicNextActivity(int idx, ActivityInstance lastActivity, ActivityInstance currentActivity) {
+        Map<String, Double> startTimePredict = new HashMap<>();
+        for (int i = 0; i < activityList.size(); i++) {
+            // Date date = dateFormat.parse(currentActivity.getStartTime());
+            startTimePredict.put(activityList.get(i),
+                    activityStartTimeClusterer.get(activityList.get(i)).predict(currentActivity.getEndTime()));
+        }
+
+        int activityIdx = 0;
+        double max =   1 / startTimePredict.get(activityList.get(0));
+        for (int i = 1; i < activityList.size(); i++) {
+            double tmp = 1 / startTimePredict.get(activityList.get(i));
+            if (tmp > max) {
+                max = tmp;
+                activityIdx = i;
+            }
+        }
+
+        return activityList.get(activityIdx);
+    }
+
 
     public Classifier getRelationer() {
         return relationer;
@@ -136,8 +235,10 @@ public class TestLifePattern {
     public static void main(String[] args) throws IOException, ParseException {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         TestLifePattern testLifePattern = new TestLifePattern(false);
-        System.out.println(testLifePattern.getActivityStartTimeClusterer().get("Meal_Preparation").getStartTime());
-        Map<String, Integer> resultMap = new HashMap<>();
+        //testLifePattern.testRelation();
+        testLifePattern.testRelation();
+
+       /* Map<String, Integer> resultMap = new HashMap<>();
         for (int i = 0; i < 7; i++) {
             resultMap.put(String.valueOf(i), 0);
         }
@@ -159,9 +260,100 @@ public class TestLifePattern {
             current = testWeekActivityInstances[0].get(i);
             nextActivity = testLifePattern.nextActivity(last, current);
         }
+        System.out.println(right / testWeekActivityInstances[0].size());*/
+
+
+    }
+
+    private int whichSegment(String[] startTime) {
+        int startTimeHour = Integer.parseInt(startTime[0]);
+        int startTimeMinute = Integer.parseInt(startTime[1]);
+        int segment = startTimeHour * 12 + startTimeMinute / 5;
+        if (segment >= 4 && segment <= 64)
+            segment = 4;
+        else if ((segment > 64 && segment <= 81) || (segment >= 270 && segment <= 287) || segment < 4)
+            segment = 3;
+        else if (segment > 81 && segment <= 100)
+            segment = 0;
+        else if (segment > 100 && segment <= 225)
+            segment = 1;
+        else
+            segment = 2;
+
+        return segment;
+    }
+
+    private void testMultipleRelation() throws IOException, ParseException {
+        Map<String, Integer> resultMap = new HashMap<>();
+        for (int i = 0; i < 7; i++) {
+            resultMap.put(String.valueOf(i), 0);
+        }
+        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.original(90, resultMap);
+        ArrayList<ActivityInstance>[] weekActivityInstances = total[0];
+        ArrayList<ActivityInstance>[] testWeekActivityInstances = total[1];
+
+        while (true) {
+            int size = testWeekActivityInstances[0].size();
+            testWeekActivityInstances[0] = LogPreProcessing.preProcessing(testWeekActivityInstances[0]);
+            if (size == testWeekActivityInstances[0].size())
+                break;
+        }
+
+        ActivityInstance last = weekActivityInstances[0].get(weekActivityInstances[0].size() - 2);
+        ActivityInstance current = weekActivityInstances[0].get(weekActivityInstances[0].size() - 1);
+
+        String[] startTime = current.getStartTime().split(":");
+        int segment = whichSegment(startTime);
+
+        String nextActivity = sequentialNextActivity(segment, last, current);
+        float right = 0;
+        for (int i = 0; i < testWeekActivityInstances[0].size(); i++) {
+            String realNextActivity = testWeekActivityInstances[0].get(i).getActivity();
+            if (nextActivity.equals(realNextActivity)) {
+                right++;
+            }
+            last = current;
+            current = testWeekActivityInstances[0].get(i);
+            startTime = current.getStartTime().split(":");
+            segment = whichSegment(startTime);
+            nextActivity = sequentialNextActivity(segment, last, current);
+        }
         System.out.println(right / testWeekActivityInstances[0].size());
+    }
+
+    private void testRelation() throws IOException, ParseException {
+
+        Map<String, Integer> resultMap = new HashMap<>();
+        for (int i = 0; i < 7; i++) {
+            resultMap.put(String.valueOf(i), 0);
+        }
+        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.original(90, resultMap);
+        ArrayList<ActivityInstance>[] weekActivityInstances = total[0];
+        ArrayList<ActivityInstance>[] testWeekActivityInstances = total[1];
+
+        while (true) {
+            int size = testWeekActivityInstances[0].size();
+            testWeekActivityInstances[0] = LogPreProcessing.preProcessing(testWeekActivityInstances[0]);
+            if (size == testWeekActivityInstances[0].size())
+                break;
+        }
 
 
+        ActivityInstance last = weekActivityInstances[0].get(weekActivityInstances[0].size() - 2);
+        ActivityInstance current = weekActivityInstances[0].get(weekActivityInstances[0].size() - 1);
+
+        String nextActivity = sequentialNextActivity(last, current);
+        float right = 0;
+        for (int i = 0; i < testWeekActivityInstances[0].size(); i++) {
+            String realNextActivity = testWeekActivityInstances[0].get(i).getActivity();
+            if (nextActivity.equals(realNextActivity)) {
+                right++;
+            }
+            last = current;
+            current = testWeekActivityInstances[0].get(i);
+            nextActivity = sequentialNextActivity(last, current);
+        }
+        System.out.println(right / testWeekActivityInstances[0].size());
     }
 
 
@@ -183,8 +375,6 @@ public class TestLifePattern {
                 String durationLongString;
                 durationShortString = durationShort / 60 + " Hour and " + durationShort % 60 + " minute";
                 durationLongString = durationLong / 60 + " Hour and " + durationLong % 60 + " minute";
-
-
                 durations.get(j).setDuration(durationShortString + " ~ " + durationLongString);
             }
 

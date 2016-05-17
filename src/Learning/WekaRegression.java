@@ -75,9 +75,11 @@ public class WekaRegression {
             }
             System.out.println("meanError : " + meanError / trainingData.size());
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e);
+            //e.printStackTrace();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
+            // e.printStackTrace();
         }
     }
 
