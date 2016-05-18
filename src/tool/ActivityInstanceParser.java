@@ -54,8 +54,10 @@ public class ActivityInstanceParser {
                     // unit: minute
                     long duration = (weekFormat.parse(data[0] + " " + data[1]).getTime()
                             - weekFormat.parse(startDate + " " + startTime).getTime()) / 60000;
-
-                    week[dayOfGroup].add(new ActivityInstance(activity, startTime, data[1], duration, dayOfWeek-1));
+                    if (duration < 0) {
+                        System.out.println("test");
+                    }
+                    week[dayOfGroup].add(new ActivityInstance(activity, startTime, data[1], duration, dayOfWeek - 1, startDate, data[0]));
 
                     long differenceOfDays = (weekFormat.parse(data[0] + " " + data[1]).getTime()
                             - weekFormat.parse(startDay).getTime()) / 86400000;
@@ -84,7 +86,7 @@ public class ActivityInstanceParser {
                     long duration = (weekFormat.parse(data[0] + " " + data[1]).getTime()
                             - weekFormat.parse(startDate + " " + startTime).getTime()) / 60000;
 
-                    testWeek[dayOfGroup].add(new ActivityInstance(activity, startTime, data[1], duration, dayOfWeek-1));
+                    testWeek[dayOfGroup].add(new ActivityInstance(activity, startTime, data[1], duration, dayOfWeek - 1, startDate, data[0]));
 
                 }
             }
@@ -159,7 +161,7 @@ public class ActivityInstanceParser {
                     long duration = (weekFormat.parse(data[0] + " " + data[1]).getTime()
                             - weekFormat.parse(startDate + " " + startTime).getTime()) / 60000;
 
-                    week[dayOfGroup].add(new ActivityInstance(activity, startTime, data[1], duration, dayOfWeek-1));
+                    week[dayOfGroup].add(new ActivityInstance(activity, startTime, data[1], duration, dayOfWeek - 1, startDate, data[0]));
 
                     long differenceOfDays = (weekFormat.parse(data[0] + " " + data[1]).getTime()
                             - weekFormat.parse(startDay).getTime()) / 86400000;
@@ -188,7 +190,7 @@ public class ActivityInstanceParser {
                     long duration = (weekFormat.parse(data[0] + " " + data[1]).getTime()
                             - weekFormat.parse(startDate + " " + startTime).getTime()) / 60000;
 
-                    testWeek[dayOfGroup].add(new ActivityInstance(activity, startTime, data[1], duration, dayOfWeek-1));
+                    testWeek[dayOfGroup].add(new ActivityInstance(activity, startTime, data[1], duration, dayOfWeek - 1, startDate, data[0]));
 
                 }
             }
@@ -268,7 +270,7 @@ public class ActivityInstanceParser {
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
                 if (duration >= 0)
-                    week[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[1], duration, dayOfWeek-1));
+                    week[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[1], duration, dayOfWeek - 1, startTime.split("-")[0], date.split("-")[0]));
                 startTime = date;
                 //startTimestamp = unixTimestamp;
                 preActivity = activity;
@@ -305,7 +307,7 @@ public class ActivityInstanceParser {
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
                 if (duration >= 0)
-                    testWeek[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[1], duration, dayOfWeek-1));
+                    testWeek[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[1], duration, dayOfWeek - 1, startTime.split("-")[0], date.split("-")[0]));
                 startTime = date;
                 //startTimestamp = unixTimestamp;
                 preActivity = activity;
@@ -351,7 +353,7 @@ public class ActivityInstanceParser {
         String startDay = "";
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat original = new SimpleDateFormat("yyyy/MM/dd HH:mm");
-        SimpleDateFormat weekFormat = new SimpleDateFormat("yyyy.MM.dd-HH:mm:ss");
+        SimpleDateFormat weekFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
         ArrayList<ActivityInstance>[][] total = new ArrayList[2][resultMap.size()];
         ArrayList<ActivityInstance>[] week = new ArrayList[resultMap.size()];
         ArrayList<ActivityInstance>[] testWeek = new ArrayList[resultMap.size()];
@@ -387,7 +389,8 @@ public class ActivityInstanceParser {
             int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
             int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
             if (duration >= 0)
-                week[dayOfGroup].add(new ActivityInstance(activity, startTime.split("-")[1], endDate.split("-")[1], duration, dayOfWeek-1));
+                week[dayOfGroup].add(new ActivityInstance(activity, startTime.split("_")[1], endDate.split("_")[1],
+                        duration, dayOfWeek - 1, startTime.split("_")[0], endDate.split("_")[0]));
 
             long differenceOfDays = (weekFormat.parse(endDate).getTime() - weekFormat.parse(startDay).getTime()) / 86400000;
             if (differenceOfDays >= trainedDays) {
@@ -418,7 +421,8 @@ public class ActivityInstanceParser {
             int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
             int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
             if (duration >= 0)
-                week[dayOfGroup].add(new ActivityInstance(activity, startTime.split("-")[1], endDate.split("-")[1], duration, dayOfWeek-1));
+                week[dayOfGroup].add(new ActivityInstance(activity, startTime.split("_")[1], endDate.split("_")[1],
+                        duration, dayOfWeek - 1, startTime.split("_")[0], endDate.split("_")[0]));
 
             long differenceOfDays = (weekFormat.parse(endDate).getTime() - weekFormat.parse(startDay).getTime()) / 86400000;
         }
@@ -497,7 +501,7 @@ public class ActivityInstanceParser {
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
                 if (duration >= 0)
-                    week[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[1], duration, dayOfWeek-1));
+                    week[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[1], duration, dayOfWeek - 1,startTime.split("-")[0], date.split("-")[0]));
                 startTime = date;
                 //startTimestamp = unixTimestamp;
                 preActivity = activity;
@@ -532,7 +536,7 @@ public class ActivityInstanceParser {
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
                 if (duration >= 0)
-                    testWeek[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[0], duration, dayOfWeek-1));
+                    testWeek[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[0], duration, dayOfWeek - 1,startTime.split("-")[0], date.split("-")[0]));
                 startTime = date;
                 //startTimestamp = unixTimestamp;
                 preActivity = activity;
@@ -729,6 +733,33 @@ public class ActivityInstanceParser {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Re-structure activity instances
+     *
+     * @param weekActivityInstances
+     * @return activity instances which is categorized by activity name
+     */
+    public static Map<String, ArrayList<ActivityInstance>>[] eachActivity(ArrayList<ActivityInstance>[]
+                                                                                  weekActivityInstances) {
+        Map<String, ArrayList<ActivityInstance>>[] eachActivity = new HashMap[weekActivityInstances.length];
+        for (int i = 0; i < eachActivity.length; i++) {
+            eachActivity[i] = new HashMap<>();
+        }
+        //Map<String, Integer> activities = new HashMap<>();
+        for (int i = 0; i < weekActivityInstances.length; i++) {
+            for (int j = 0; j < weekActivityInstances[i].size(); j++) {
+                ActivityInstance activityInstance = weekActivityInstances[i].get(j);
+                String activity = activityInstance.getActivity();
+                if (!eachActivity[i].containsKey(activity)) {
+                    eachActivity[i].put(activity, new ArrayList<>());
+                }
+                eachActivity[i].get(activity).add(activityInstance);
+            }
+        }
+
+        return eachActivity;
     }
 
     public static void main(String[] args) {

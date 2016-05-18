@@ -8,10 +8,12 @@ public class ActivityInstance {
     private String activity;
     private String startTime;
     private String endTime;
+    private String startDay;
+    private String endDay;
     private long duration;
     private int dayOfWeek;
 
-
+    @Deprecated
     public ActivityInstance(String activity, String startTime, long duration) {
         this.activity = activity;
         this.startTime = startTime;
@@ -25,8 +27,11 @@ public class ActivityInstance {
         this.endTime = old.getEndTime();
         this.duration = old.getDuration();
         this.dayOfWeek = old.getDayOfWeek();
+        this.startDay = old.getStartDay();
+        this.endDay = old.getEndDay();
     }
 
+    @Deprecated
     public ActivityInstance(String activity, String startTime, long duration, int dayOfWeek) {
         this.activity = activity;
         this.startTime = startTime;
@@ -35,12 +40,14 @@ public class ActivityInstance {
 
     }
 
-    public ActivityInstance(String activity, String startTime, String endTime, long duration, int dayOfWeek) {
+    public ActivityInstance(String activity, String startTime, String endTime, long duration, int dayOfWeek, String startDay, String endDay) {
         this.activity = activity;
         this.startTime = startTime;
         this.endTime = endTime;
         this.duration = duration;
         this.dayOfWeek = dayOfWeek;
+        this.startDay = startDay;
+        this.endDay = endDay;
 
     }
 
@@ -84,6 +91,13 @@ public class ActivityInstance {
         return endTime;
     }
 
+    public String getStartDay() {
+        return startDay;
+    }
+
+    public String getEndDay() {
+        return endDay;
+    }
 
     public String toSting() {
         return activity + " " + startTime + " " + duration;

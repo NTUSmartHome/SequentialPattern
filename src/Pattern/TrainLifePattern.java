@@ -10,8 +10,7 @@ import SDLE.SDLE;
 import tool.ActivityInstanceParser;
 import tool.LogPreProcessing;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -89,142 +88,9 @@ public class TrainLifePattern {
         TrainLifePattern lifePattern = new TrainLifePattern();
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         //lifePattern.readFile(5, 1, rh, beta);
-        //lifePattern.perDayActivityEstimation(66);
-
-      /*  //Activity Instance parse, return an object and write the file;
-        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.original(84, lifePattern.weekResultMap);
-        lifePattern.weekActivityInstances = total[0];
-        lifePattern.testWeekActivityInstances = total[1];*/
-
-      /*  //Activity Start Time Clustering
-        lifePattern.activityStartTimeClustering();
-        //Activity Duration Estimation
-        lifePattern.activityDurationEstimation();
-        //Activity Relation Construction
-        lifePattern.activityRelationConstruction();*/
 
     }
 
-    /*private void perDayActivityEstimation(int trainedDays) {
-
-        try {
-            // perDayActivityEstimation for day merge
-            String file = "report/WeekSDLE/Features/";
-            newWeekSDLEList = newWeekSDLEList(7);
-            int day = weekDayStart;
-            for (int i = 0; i < trainedDays; i++) {
-                for (int j = 0; j < instanceLabel.size(); j++) {
-                    String[] acts = instanceLabel.get(j).get(i).split(",");
-                    newWeekSDLEList.get(day).get(j).parameterUpdating(acts);
-                    day = (day + 1) % 7;
-                }
-            }
-            //write feature for day merge
-            FileWriter fw = new FileWriter(file + "WeekSDLEFeatures.csv");
-            StringBuilder stringBuilder = new StringBuilder(); //initStringBuilder(3168);
-            for (int i = 0; i < 7; i++) {
-                for (int j = 0; j < instanceLabel.size(); j++) {
-                    ArrayList<Double> cellDistribution = newWeekSDLEList.get(i).get(j).getDistribution();
-                    for (int k = 1; k < cellDistribution.size() - 1; k++) {
-                        stringBuilder.append(String.valueOf(cellDistribution.get(k).doubleValue() * 100) + ",");
-                    }
-                }
-                stringBuilder.append("\n");
-            }
-            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-            fw.write(stringBuilder.toString());
-            fw.close();
-            weekResultMap = contextDayMerge(file + "WeekSDLEFeatures.csv");
-
-            //perDayActivityEstimation for day segmentation
-            int numOfGroup = weekResultMap.get("size");
-            daySegmentationMap = new HashMap[numOfGroup];
-            for (int i = 0; i < daySegmentationMap.length; i++) {
-                daySegmentationMap[i] = new HashMap<>();
-            }
-            newWeekSDLEList = newWeekSDLEList(numOfGroup);
-            day = weekDayStart;
-            for (int i = 0; i < trainedDays; i++) {
-                for (int j = 0; j < instanceLabel.size(); j++) {
-                    String[] acts = instanceLabel.get(j).get(i).split(",");
-                    newWeekSDLEList.get(weekResultMap.get(String.valueOf(day))).get(j).parameterUpdating(acts);
-                    day = (day + 1) % 7;
-                }
-            }
-            //write feature for day segmentation
-            for (int i = 0; i < numOfGroup; i++) {
-                fw = new FileWriter(file + "Segmentation/" + i + ".csv");
-                stringBuilder = new StringBuilder();//initStringBuilder(11);
-                for (int j = 0; j < instanceLabel.size(); j++) {
-                    ArrayList<Double> cellDistribution = newWeekSDLEList.get(weekResultMap.get(String.valueOf(i))).get(j).getDistribution();
-                    stringBuilder.append(String.valueOf(cellDistribution.get(1).doubleValue() * 8));
-                    for (int k = 2; k < cellDistribution.size() - 1; k++) {
-                        stringBuilder.append("," + String.valueOf(cellDistribution.get(k).doubleValue() * 8));
-                    }
-                    stringBuilder.append("\n");
-                }
-                fw.write(stringBuilder.toString());
-                fw.close();
-            }
-            contextDaySegmentation(file + "Segmentation/");
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    private Map<String, Integer> contextDayMerge(String file) {
-
-        try {
-            //return Learning.DPMM.MDPMMTrain("Model/dayMerge", file, 0.5, 1, 500);
-            return DPMM.oneCluster(file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-
-    }
-
-    private void contextDaySegmentation(String path) {
-        int idx = 0;
-        String fileName = path + idx++ + ".csv";
-        File file = new File(fileName);
-        while (file.exists()) {
-
-            try {
-                System.out.println("\n\n");
-                daySegmentationMap[idx - 1] = DPMM.GDPMMTrain("/Model/" + idx + "Seg", fileName, 0.9, 1, 500);
-                //daySegmentationMap[idx-1] = Learning.DPMM.HierarchicalAgglomerativeTrain(fileName);
-                //daySegmentationMap[idx - 1] = Learning.DPMM.oneCluster(fileName);
-                System.out.println(fileName + "\n\n");
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            fileName = path + idx++ + ".csv";
-            file = new File(fileName);
-
-        }
-
-
-    private ArrayList<SDLE> newSDLEList() {
-        ArrayList<SDLE> newSDLEList = new ArrayList<>();
-        for (int i = 0; i < sdleList.size(); i++) {
-            newSDLEList.add(new SDLE(rh, beta));
-        }
-        return newSDLEList;
-    }
-
-    private ArrayList<ArrayList<SDLE>> newWeekSDLEList(int weekDays) {
-        ArrayList<ArrayList<SDLE>> weekSDLEList = new ArrayList<>();
-        for (int i = 0; i < weekDays; i++) {
-            weekSDLEList.add(newSDLEList());
-
-        }
-        return weekSDLEList;
-    }*/
 
 
     /**
@@ -587,5 +453,77 @@ public class TrainLifePattern {
     public void setRegressors(Map<String, ArrayList<WekaRegression>> regressors) {
         this.regressors = regressors;
     }
+
+
+    /*private void perDayActivityEstimation(int trainedDays) {
+
+        try {
+            // perDayActivityEstimation for day merge
+            String file = "report/WeekSDLE/Features/";
+            newWeekSDLEList = newWeekSDLEList(7);
+            int day = weekDayStart;
+            for (int i = 0; i < trainedDays; i++) {
+                for (int j = 0; j < instanceLabel.size(); j++) {
+                    String[] acts = instanceLabel.get(j).get(i).split(",");
+                    newWeekSDLEList.get(day).get(j).parameterUpdating(acts);
+                    day = (day + 1) % 7;
+                }
+            }
+        }
+
+    public void readFile(int timeInterval, int option, double rh, double beta) {
+        int id = 0;
+        StringBuilder inputFile = new StringBuilder("db/");
+        timeInterval = getTimeInterval(timeInterval, option);
+        switch (option) {
+            case 0:
+                inputFile.append((int) (timeInterval / Math.pow(60, option)));
+                inputFile.append("second/");
+                break;
+            case 1:
+                inputFile.append((int) (timeInterval / Math.pow(60, option)));
+                inputFile.append("minute/");
+                break;
+            case 2:
+                inputFile.append((int) (timeInterval / Math.pow(60, option)));
+                inputFile.append("hour/");
+                break;
+            case 3:
+                inputFile.append((int) (timeInterval / Math.pow(60, option)));
+                inputFile.append("day/");
+                break;
+        }
+        //String inputFile = "db/SDLE" + id + ".txt";
+        String fileString = inputFile.toString() + id + ".txt";
+        File file = new File(fileString);
+
+        while (file.exists()) {
+
+            try {
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                String line;
+                instanceLabel.add(new ArrayList<>());
+                sdleList.add(new SDLE(rh, beta));
+                //---------------------Day of Week-----------------//
+                for (int i = 0; i < weekSDLEList.size(); i++) {
+                    weekSDLEList.get(i).add(new SDLE(rh, beta));
+                }
+                //------------------------------------------------//
+                while ((line = br.readLine()) != null) {
+                    instanceLabel.get(id).add(line);
+                }
+                fr.close();
+                br.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            id++;
+            fileString = inputFile.toString() + id + ".txt";
+            file = new File(fileString);
+        }
+    }*/
 
 }

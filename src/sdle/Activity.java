@@ -14,7 +14,7 @@ public class Activity {
     ArrayList<Double> TOfActs = new ArrayList<Double>();
     ArrayList<Double> QOfActs = new ArrayList<Double>();
 
-    Activity() {
+    public Activity() {
         //For M2 i <= 14, M1 <= 12
         for (int i = 1; i <=14; i++) {
             String act = String.valueOf(i);
@@ -26,6 +26,15 @@ public class Activity {
         possibleSets = numberOfActivities + 1;
         // Multiple Activity in same time slot;
         // possibleSets = (int) Math.pow(2, numberOfActivities);
+        initializePOfActs();
+    }
+
+    public Activity(List<String> activity) {
+        for (int i = 0; i < activity.size(); i++) {
+            Activities.add(activity.get(i));
+        }
+        numberOfActivities = Activities.size();
+        possibleSets = numberOfActivities + 1;
         initializePOfActs();
     }
 

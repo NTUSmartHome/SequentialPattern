@@ -250,7 +250,13 @@ public class LifePattern {
     }
 
     private void preProcessingWSU() {
-        new WSUParser(5, 1, 0);
+        try {
+            new WSUParser(5, 1, 0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     private void perDayActivityEstimation(int trainedDays) {

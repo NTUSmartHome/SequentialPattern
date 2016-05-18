@@ -1,12 +1,13 @@
 package tool;
 
+import DataStructure.ActivityInstance;
 import SDLE.DB;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
+import java.sql.Time;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.TimeZone;
+import java.util.*;
 
 /**
  * Created by YaHung on 2015/8/27.
@@ -17,7 +18,7 @@ public class WSUParser {
     FileReader fr;
     BufferedReader br;
 
-    public WSUParser(int timeInterval, int option, int option2) {
+    public WSUParser(int timeInterval, int option, int option2) throws IOException, ParseException {
         this.timeInterval = timeInterval;
         this.option = option;
 
@@ -28,10 +29,31 @@ public class WSUParser {
             case 1:
                 toSDLEMing();
                 break;
+            case 2:
+
+                Map<String, Integer> resultMap = new HashMap<>();
+                for (int i = 0; i < 7; i++) {
+                    resultMap.put(String.valueOf(i), 0);
+                }
+                //Activity Instance parse, return an object and write the file;
+                ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.original(400, resultMap);
+                ArrayList<ActivityInstance>[] weekActivityInstances;
+                weekActivityInstances = total[0];
+                while (true) {
+                    int size = weekActivityInstances[0].size();
+                    weekActivityInstances[0] = LogPreProcessing.preProcessing(weekActivityInstances[0]);
+                    if (size == weekActivityInstances[0].size())
+                        break;
+                }
+
+                toSDLEFromActivityInstance(weekActivityInstances[0].get(0).getStartDay(),
+                        weekActivityInstances[0].get(weekActivityInstances[0].size() - 1).getEndDay(),
+                        ActivityInstanceParser.eachActivity(weekActivityInstances));
+                break;
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ParseException {
         /**Generate Database
          * timeInterval set time interval
          * option 0:second, 1:minute, 2:hour, 3:day*/
@@ -46,11 +68,10 @@ public class WSUParser {
         } catch (ParseException e) {
             e.printStackTrace();
         }*/
-
-        new WSUParser(5, 1, 1);
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
+        new WSUParser(5, 1, 2);
 
     }
-
 
 
     private void toSDLE() {
@@ -246,7 +267,7 @@ public class WSUParser {
                                     tmpNoSDLE = 0;
                                 }
                             }
-                            while ((belongToWhichSDLE - tmpNoSDLE) > 0 ) {
+                            while ((belongToWhichSDLE - tmpNoSDLE) > 0) {
                                 db.addInstance(instanceLable, tmpNoSDLE);
                                 //System.out.print("*");
                                 tmpNoSDLE++;
@@ -282,31 +303,151 @@ public class WSUParser {
         }
     }
 
-    private void toSDLENew() {
+    //For building SDLE file to 1 or 0 (happen or not)
+    private void toSDLEFromActivityInstance(String startDay, String endDay, Map<String, ArrayList<ActivityInstance>>[] eachActivityInstance) throws ParseException, IOException {
+        SimpleDateFormat timeDateFormat = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat dayDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         DB db = new DB(timeInterval, option);
-        try {
+        long ll = (dayDateFormat.parse(endDay).getTime() - dayDateFormat.parse(startDay).getTime()) / (24*60*60*1000) + 1;
 
-            fr = new FileReader("db/MingT.csv");
-            br = new BufferedReader(fr);
-            int lastNoSDLE = -1;
-            long lastUnixTimestamp = 0;
-            ArrayList<String> instance = new ArrayList<String>();
-            ArrayList<String> preInstance = new ArrayList<String>();
-            String line;
+        for (int i = 0; i < eachActivityInstance.length; i++) {
+            Set<String> activitySet = eachActivityInstance[i].keySet();
 
+            for (String activity : activitySet) {
+                int count = 0;
+                ArrayList<ActivityInstance> activityInstanceList = eachActivityInstance[i].get(activity);
+                boolean[] happen = new boolean[db.getSDLEQuantity()];
+                StringBuilder[] sb = new StringBuilder[db.getSDLEQuantity()];
+                for (int j = 0; j < sb.length; j++) {
+                    sb[j] = new StringBuilder();
+                }
+                ActivityInstance preActivityInstance = null;
+                ActivityInstance activityInstance = null;
+                for (int j = 0; j < activityInstanceList.size(); j++) {
+                    activityInstance = activityInstanceList.get(j);
+                    if (j == 0) {
+                        long start = dayDateFormat.parse(startDay).getTime() / (24 * 60 * 60 * 1000);
+                        long curDay = dayDateFormat.parse(activityInstance.getStartDay()).getTime() / (24 * 60 * 60 * 1000);
+                        for (long k = start; k < curDay; k++) {
+                            for (int i1 = 0; i1 < happen.length; i1++) {
+                                if (sb[i1].length() == 0) {
+                                    sb[i1].append(happen[i1]);
+                                } else {
+                                    sb[i1].append("\n" + happen[i1]);
+                                }
+                            }
+                            count++;
+                            happen = new boolean[happen.length];
+                        }
+                    }
 
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
-            while ((line = br.readLine()) != null) {
-                String[] rawData = line.split(",");
+                    if (preActivityInstance != null) {
+
+                        long preDay = dayDateFormat.parse(preActivityInstance.getEndDay()).getTime() / (24 * 60 * 60 * 1000);
+                        long curDay = dayDateFormat.parse(activityInstance.getStartDay()).getTime() / (24 * 60 * 60 * 1000);
+                        if (preDay < curDay) {
+                            for (long k = preDay; k < curDay; k++) {
+                                for (int i1 = 0; i1 < happen.length; i1++) {
+                                    if (sb[i1].length() == 0) {
+                                        sb[i1].append(happen[i1]);
+                                    } else {
+                                        sb[i1].append("\n" + happen[i1]);
+                                    }
+                                }
+                                count++;
+                                happen = new boolean[happen.length];
+
+                                long start = dayDateFormat.parse(startDay).getTime() / (24 * 60 * 60 * 1000);
+                                long diff = preDay - start + 1;
+                               // System.out.println(count + " : " + diff);
+
+                            }
+                        }
+                    }
+                    long startTime = timeDateFormat.parse(activityInstance.getStartTime()).getTime();
+                    long endTime = timeDateFormat.parse(activityInstance.getEndTime()).getTime();
+                    if (startTime <= endTime) {
+                        int startSDLE = db.belongToWhichSDLE(startTime / 1000);
+                        int endSDLE = db.belongToWhichSDLE(endTime / 1000);
+                        for (int k = startSDLE; k <= endSDLE; k++) {
+                            happen[k] = true;
+                        }
+                    } else {
+                        int startSDLE = db.belongToWhichSDLE(startTime / 1000);
+                        int endSDLE = db.belongToWhichSDLE(endTime / 1000);
+                        for (int k = startSDLE; k < happen.length; k++) {
+                            happen[k] = true;
+                        }
+                        for (int k = 0; k < happen.length; k++) {
+                            if (sb[k].length() == 0) {
+                                sb[k].append(happen[k]);
+                            } else {
+                                sb[k].append("\n" + happen[k]);
+                            }
+                        }
+                        happen = new boolean[happen.length];
+                        count++;
+                        long start = dayDateFormat.parse(startDay).getTime() / (24 * 60 * 60 * 1000);
+                        long diff = dayDateFormat.parse(activityInstance.getStartDay()).getTime() /  (24 * 60 * 60 * 1000) - start + 1;
+                        //System.out.println(count + " : " + diff);
+                        for (int k = 0; k <= endSDLE; k++) {
+                            happen[k] = true;
+                        }
+
+                    }
+                    preActivityInstance = activityInstance;
+
+                }
+                long start = dayDateFormat.parse(startDay).getTime() / (24 * 60 * 60 * 1000);
+                long diff = dayDateFormat.parse(activityInstance.getStartDay()).getTime() /  (24 * 60 * 60 * 1000) - start + 1;
+               // System.out.println(count + " : " + diff);
+
+                long curDay = dayDateFormat.parse(activityInstance.getEndDay()).getTime() / (24 * 60 * 60 * 1000);
+                long end = dayDateFormat.parse(endDay).getTime() / (24 * 60 * 60 * 1000);
+                for (long j = curDay; j <= end; j++) {
+                    for (int i1 = 0; i1 < happen.length; i1++) {
+                        if (sb[i1].length() == 0) {
+                            sb[i1].append(happen[i1]);
+                        } else {
+                            sb[i1].append("\n" + happen[i1]);
+                        }
+                    }
+                    count++;
+                    happen = new boolean[happen.length];
+                }
+                StringBuilder SDLEDBName = new StringBuilder();
+                SDLEDBName.append("db/");
+                System.out.println(count);
+                switch (option) {
+                    case 0:
+                        SDLEDBName.append(timeInterval);
+                        SDLEDBName.append("second/");
+                        break;
+                    case 1:
+                        SDLEDBName.append(timeInterval);
+                        SDLEDBName.append("minute/");
+                        break;
+                    case 2:
+                        SDLEDBName.append(timeInterval);
+                        SDLEDBName.append("hour/");
+                        break;
+                    case 3:
+                        SDLEDBName.append(timeInterval);
+                        SDLEDBName.append("day/");
+                        break;
+
+                }
+                for (int j = 0; j < happen.length; j++) {
+                    File file = new File(SDLEDBName.toString() + "/" + activity);
+                    file.mkdirs();
+                    FileWriter fileWriter = new FileWriter(file + "/" + j + ".txt");
+                    fileWriter.write(sb[j].toString());
+                    fileWriter.close();
+                }
 
             }
-
-            br.close();
-            fr.close();
-            db.printDB();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
+
 
 }
