@@ -17,7 +17,7 @@ public class ActiveLzTree {
 
    /* public static void wsuOneDay() {
         ActiveLzTree ALZ = new ActiveLzTree();
-        ALZ.init();
+        ALZ.initMain();
         ArrayList<String> actSeq = new ArrayList<>();
         try {
             FileReader fr = new FileReader("db/SeqOneDay.txt");
@@ -38,7 +38,7 @@ public class ActiveLzTree {
             ALZ.step(actSeq.get(i));
         }
         ALZ.levelOrderPrint();
-        PPM.init(ALZ);
+        PPM.initMain(ALZ);
         PPM.addSeenActivity("1", 0);
         PPM.addSeenActivity("1", 0);
         // Map<String, Double> pre = PPM.prediction(0);
@@ -46,14 +46,14 @@ public class ActiveLzTree {
 
     /*public static void main(String[] args) {
         ActiveLzTree ALZ = new ActiveLzTree();
-        ALZ.init();
+        ALZ.initMain();
         String s = "a,a,a,b,a,b,b,b,b,b,a,a,b,c,c,d,d,c,b,a,a,a,a";
         String[] ss = s.split(",");
         for (int i = 0; i < ss.length; i++) {
             ALZ.step(ss[i]);
         }
         //ALZ.finish();
-        PPM.init(ALZ);
+        PPM.initMain(ALZ);
         //PPM.addSeenActivity("a", 0);
         //PPM.addSeenActivity("a", 0);
         List<Map.Entry<String, Double>> abc = PPM.prediction(0);

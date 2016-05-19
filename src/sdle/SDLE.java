@@ -42,6 +42,14 @@ public class SDLE {
         k = A.getPossibleActSet();
     }
 
+    public SDLE(double rh, double beta, List<String> activity) {
+        this.rh = rh;
+        this.beta = beta;
+        A = new Activity(activity);
+        t = 1;
+        k = A.getPossibleActSet();
+    }
+
     public static void main(String[] args) {
         new SDLE("db/SDLE1.txt", "result.txt", 0.01, 0.0001);
     }
@@ -138,14 +146,15 @@ public class SDLE {
     }
 
     private void updateDiscountingOfT() {
-        for (int i = 1; i < A.getPossibleActSet(); i++) {
+        for (int i = 0; i < A.getPossibleActSet(); i++) {
             A.setTOfActs(i, (1 - rh) * A.getTOfActs(i));
         }
     }
 
+    //2016/5/18 i從0開始。原本使用數字當活動，必須從1開始
     private void updateDiscountingOfQMJ() {
         //t--;
-        for (int i = 1; i < A.getPossibleActSet(); i++) {
+        for (int i = 0; i < A.getPossibleActSet(); i++) {
 
             if (rh != 0)
                 A.setQOfActs(i, (A.getTOfActs(i) + beta) / (((1 - Math.pow(1 - rh, t)) / rh) + k * beta));
@@ -175,10 +184,11 @@ public class SDLE {
         }
         return -entropy;
     }
-    
+
     public ArrayList<Double> getDistribution() {
         return A.QOfActs;
     }
+
     public String toStringSimple() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < A.Activities.size(); i++) {

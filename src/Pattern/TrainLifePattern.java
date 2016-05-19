@@ -17,17 +17,19 @@ import java.util.*;
 
 
 public class TrainLifePattern {
-
     static double rh = 0.05, beta = 0.01;
-    ArrayList<ArrayList<SDLE>> weekSDLEList;
-    ArrayList<SDLE> sdleList;
-    ArrayList<ArrayList<String>> instanceLabel;
+    //----------------------------------WSU M1 data begins on Friday------------------------------------//
+    //----------------------------------Ming data begins on Sat------------------------------------//
+    final int weekDayStart = 5;
+    List<String> sdleAct = new ArrayList<>();
+    ArrayList<Map<String, ArrayList<SDLE>>> weekSDLEList;
+    Map<String, ArrayList<SDLE>> sdleList;
+    Map<String, ArrayList<ArrayList<String>>> instanceLabel;
     ArrayList<ArrayList<SDLE>> newWeekSDLEList;
     Map<String, Integer> weekResultMap;
-    Map<String, Integer>[] daySegmentationMap;
     ArrayList<ActivityInstance>[] weekActivityInstances;
     ArrayList<ActivityInstance>[] testWeekActivityInstances;
-
+    Map<String, ArrayList<ActivityInstance>>[] eachActivity;
     //Use GBRT to learn the relation between start time and duration. And this model use to infer activity duration
     Map<String, ArrayList<WekaRegression>> regressors;
     //Use BayesNet to train relationship between activity
@@ -37,21 +39,16 @@ public class TrainLifePattern {
     Map<String, Clustering> activityStartTimeClusterer;
     //Store activity name
     ArrayList<String> activityList;
-    //----------------------------------WSU M1 data begins on Friday------------------------------------//
-    //----------------------------------Ming data begins on Sat------------------------------------//
-    final int weekDayStart = 5;
     //-----------------------------------------------------------------------------------------------//
 
 
     public TrainLifePattern() throws IOException, ParseException {
-        sdleList = new ArrayList<>();
-        instanceLabel = new ArrayList<>();
+        sdleList = new HashMap<>();
+        instanceLabel = new HashMap<>();
         weekSDLEList = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
-            weekSDLEList.add(new ArrayList<>());
+            weekSDLEList.add(new HashMap<>());
         }
-
-
         Map<String, Integer> resultMap = new HashMap<>();
         for (int i = 0; i < 7; i++) {
             resultMap.put(String.valueOf(i), 0);
@@ -72,6 +69,14 @@ public class TrainLifePattern {
             if (size == weekActivityInstances[0].size())
                 break;
         }
+        sdleAct.add("true");
+        sdleAct.add("false");
+
+        //test sdle
+        readSDLEFile(5, 1, rh, beta);
+        SDLEAccumulate(100);
+        writeSDLE();
+        System.out.println("Thread test");
 
         //Activity Start Time Clustering
         activityStartTimeClustering();
@@ -87,10 +92,9 @@ public class TrainLifePattern {
     public static void main(String[] args) throws InterruptedException, IOException, ParseException {
         TrainLifePattern lifePattern = new TrainLifePattern();
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
-        //lifePattern.readFile(5, 1, rh, beta);
+        //lifePattern.readSDLEFile(5, 1, rh, beta);
 
     }
-
 
 
     /**
@@ -321,7 +325,7 @@ public class TrainLifePattern {
      */
 
     private void activityStartTimeClustering() throws IOException, ParseException {
-        Map<String, ArrayList<ActivityInstance>>[] eachActivity = eachActivity(weekActivityInstances);
+        eachActivity = eachActivity(weekActivityInstances);
         StringBuilder featureString = new StringBuilder();
         SimpleDateFormat startTimeDateFormat = new SimpleDateFormat("HH:mm:ss");
         FileWriter fw = null;
@@ -455,24 +459,28 @@ public class TrainLifePattern {
     }
 
 
-    /*private void perDayActivityEstimation(int trainedDays) {
-
-        try {
-            // perDayActivityEstimation for day merge
-            String file = "report/WeekSDLE/Features/";
-            newWeekSDLEList = newWeekSDLEList(7);
-            int day = weekDayStart;
-            for (int i = 0; i < trainedDays; i++) {
-                for (int j = 0; j < instanceLabel.size(); j++) {
-                    String[] acts = instanceLabel.get(j).get(i).split(",");
-                    newWeekSDLEList.get(day).get(j).parameterUpdating(acts);
-                    day = (day + 1) % 7;
+    private void SDLEAccumulate(int trainedDays) {
+        int realTrainedDays = Math.min(trainedDays, instanceLabel.get(activityList.get(0)).get(0).size());
+        for (int i = 0; i < activityList.size(); i++) {
+            for (int j = 0; j < instanceLabel.get(activityList.get(i)).size(); j++) {
+                for (int k = 0; k < realTrainedDays; k++) {
+                    String[] acts = instanceLabel.get(activityList.get(i)).get(j).get(k).split(",");
+                    sdleList.get(activityList.get(i)).get(j).parameterUpdating(acts);
                 }
             }
         }
+        System.out.println("SDLE accumulate " + realTrainedDays + " days");
+        writeSDLE();
+        for (int i = 0; i < activityList.size(); i++) {
+            sdleList.put(activityList.get(i), newSDLEList(i));
+        }
 
-    public void readFile(int timeInterval, int option, double rh, double beta) {
-        int id = 0;
+
+    }
+
+    public void readSDLEFile(int timeInterval, int option, double rh, double beta) {
+
+
         StringBuilder inputFile = new StringBuilder("db/");
         timeInterval = getTimeInterval(timeInterval, option);
         switch (option) {
@@ -494,36 +502,104 @@ public class TrainLifePattern {
                 break;
         }
         //String inputFile = "db/SDLE" + id + ".txt";
-        String fileString = inputFile.toString() + id + ".txt";
-        File file = new File(fileString);
+        for (int i = 0; i < activityList.size(); i++) {
+            int id = 0;
+            String fileString = inputFile.toString() + activityList.get(i) + "/" + id + ".txt";
+            File file = new File(fileString);
 
-        while (file.exists()) {
+            while (file.exists()) {
 
+                try {
+                    FileReader fr = new FileReader(file);
+                    BufferedReader br = new BufferedReader(fr);
+                    String line;
+                    if (!instanceLabel.containsKey(activityList.get(i))) {
+                        instanceLabel.put(activityList.get(i), new ArrayList<>());
+                        sdleList.put(activityList.get(i), new ArrayList<>());
+                        for (int j = 0; j < weekSDLEList.size(); j++) {
+                            weekSDLEList.get(j).put(activityList.get(i), new ArrayList<>());
+                        }
+                    }
+                    instanceLabel.get(activityList.get(i)).add(new ArrayList<>());
+                    sdleList.get(activityList.get(i)).add(new SDLE(rh, beta, sdleAct));
+                    //---------------------Day of Week-----------------//
+                    for (int j = 0; j < weekSDLEList.size(); j++) {
+                        weekSDLEList.get(j).get(activityList.get(i)).add(new SDLE(rh, beta, sdleAct));
+                    }
+                    //------------------------------------------------//
+                    while ((line = br.readLine()) != null) {
+                        instanceLabel.get(activityList.get(i)).get(id).add(line);
+                    }
+                    fr.close();
+                    br.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                id++;
+                fileString = inputFile.toString() + activityList.get(i) + "/" + id + ".txt";
+                file = new File(fileString);
+            }
+        }
+
+    }
+
+    public void writeSDLE() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < activityList.size(); i++) {
+            for (int j = 0; j < sdleList.get(activityList.get(i)).size(); j++) {
+                if (j == 0) {
+                    sb.append(sdleList.get(activityList.get(i)).get(j).getDistribution().get(0));
+                } else {
+                    sb.append("," + sdleList.get(activityList.get(i)).get(j).getDistribution().get(0));
+                }
+            }
+            sb.append("\n");
             try {
-                FileReader fr = new FileReader(file);
-                BufferedReader br = new BufferedReader(fr);
-                String line;
-                instanceLabel.add(new ArrayList<>());
-                sdleList.add(new SDLE(rh, beta));
-                //---------------------Day of Week-----------------//
-                for (int i = 0; i < weekSDLEList.size(); i++) {
-                    weekSDLEList.get(i).add(new SDLE(rh, beta));
-                }
-                //------------------------------------------------//
-                while ((line = br.readLine()) != null) {
-                    instanceLabel.get(id).add(line);
-                }
-                fr.close();
-                br.close();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+                FileWriter fw = new FileWriter("report/SDLE/" + activityList.get(i) + ".txt");
+                fw.write(sb.toString());
+                fw.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            id++;
-            fileString = inputFile.toString() + id + ".txt";
-            file = new File(fileString);
+            sb.setLength(0);
         }
+    }
+
+    private int getTimeInterval(int timeInterval, int option) {
+        switch (option) {
+            case 1:
+                timeInterval *= 60;
+                break;
+            case 2:
+                timeInterval *= 60 * 60;
+                break;
+            case 3:
+                timeInterval *= 60 * 60 * 24;
+                break;
+
+        }
+        return timeInterval;
+    }
+
+
+   /* private ArrayList<ArrayList<SDLE>> newWeekSDLEList(int weekDays) {
+        ArrayList<ArrayList<SDLE>> weekSDLEList = new ArrayList<>();
+        for (int i = 0; i < weekDays; i++) {
+            weekSDLEList.add(newSDLEList());
+
+        }
+        return weekSDLEList;
     }*/
+
+    private ArrayList<SDLE> newSDLEList(int idx) {
+        ArrayList<SDLE> newSDLEList = new ArrayList<>();
+        for (int i = 0; i < sdleList.get(activityList.get(idx)).size(); i++) {
+            newSDLEList.add(new SDLE(rh, beta, sdleAct));
+        }
+        return newSDLEList;
+    }
+
 
 }

@@ -41,7 +41,7 @@ public class LogPreProcessing {
                         int dayOfWeek = preActivityInstance.getDayOfWeek();
                         String startDay = preActivityInstance.getStartDay();
                         String endDay = currentActivityInstance.getEndDay();
-                        proceededList.add(new ActivityInstance(activity, startTime, endTime, duration, dayOfWeek,startDay,endDay));
+                        proceededList.add(new ActivityInstance(activity, startTime, endTime, duration, dayOfWeek, startDay, endDay));
                         i++;
                     } else if (currentStartTime < preEndTime && (287 - preEndTime + currentStartTime) <= 150) {
                         String activity = preActivityInstance.getActivity();
@@ -51,7 +51,7 @@ public class LogPreProcessing {
                         int dayOfWeek = preActivityInstance.getDayOfWeek();
                         String startDay = preActivityInstance.getStartDay();
                         String endDay = currentActivityInstance.getEndDay();
-                        proceededList.add(new ActivityInstance(activity, startTime, endTime, duration, dayOfWeek,startDay,endDay));
+                        proceededList.add(new ActivityInstance(activity, startTime, endTime, duration, dayOfWeek, startDay, endDay));
                         i++;
                     } else {
                         proceededList.add(new ActivityInstance(preActivityInstance));

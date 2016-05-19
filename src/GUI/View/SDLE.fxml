@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<SplitPane xmlns:fx="http://javafx.com/fxml/1" dividerPositions="0.1984924623115578" maxHeight="-Infinity" maxWidth="-Infinity"
+           minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0"
+           prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
+           fx:controller="GUI.Controller.SDLEController">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            <children>
+                <DatePicker fx:id="SDLE_startDate" layoutX="103.0" layoutY="3.0" maxHeight="-Infinity"
+                            maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"/>
+                <DatePicker fx:id="SDLE_endDate" layoutX="408.0" layoutY="3.0" maxHeight="-Infinity"
+                            maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"/>
+                <ComboBox fx:id="SDLE_activityComboBox" layoutX="120.0" layoutY="38.0" maxHeight="-Infinity"
+                          maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"/>
+                <Label layoutX="30.0" layoutY="7.0" text="Start Date"/>
+                <Label layoutX="330.0" layoutY="7.0" text="End Date"/>
+                <Label layoutX="30.0" layoutY="42.0" text="Activity"/>
+                <Button fx:id="SDLE_generateButton" layoutX="473.0" layoutY="38.0" mnemonicParsing="false"
+                        text="Generate"/>
+                <TextField fx:id="SDLE_trainedDayText" layoutX="287.0" layoutY="38.0"/>
+            </children>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            <children>
+                <AreaChart fx:id="SDLE_areaChart" layoutX="-2.0" prefHeight="316.0" prefWidth="600.0"
+                           AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="0.0"
+                           AnchorPane.topAnchor="0.0">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT"/>
+                    </yAxis>
+                </AreaChart>
+            </children>
+        </AnchorPane>
+    </items>
+</SplitPane>

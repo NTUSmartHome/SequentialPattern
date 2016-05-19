@@ -6,15 +6,15 @@ import java.util.*;
  * Created by MingJe on 2015/9/4.
  */
 public class PPM {
-    private static Map<String,List<String>> allSeenActivity = new HashMap<>();
+    private static Map<String, List<String>> allSeenActivity = new HashMap<>();
     private static HashMap<String, Integer> allMaxLength = new HashMap<>();
     private static Map<String, ActiveLzTree> allActiveLzTrees = new HashMap<>();
 
     public static void init(String id, ActiveLzTree alz) {
         //allSeenActivity.add(new ArrayList<>());
-        allSeenActivity.put(id,alz.getWindow());
-        allMaxLength.put(id,alz.getMaxLength());
-        allActiveLzTrees.put(id,alz);
+        allSeenActivity.put(id, alz.getWindow());
+        allMaxLength.put(id, alz.getMaxLength());
+        allActiveLzTrees.put(id, alz);
     }
 
     public static List<Map.Entry<String, Double>> prediction(String id) {

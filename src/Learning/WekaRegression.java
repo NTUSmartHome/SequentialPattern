@@ -25,6 +25,17 @@ public class WekaRegression {
     private String fileName;
     private String duration;
     private Evaluation eval;
+    private ArrayList<Integer>[] instanceBelongToCluster;
+    private String Topic;
+    private String idx;
+    private DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+    public WekaRegression(String activity, String fileName) {
+        this.Topic = activity;
+        this.fileName = fileName;
+    }
+    public WekaRegression(String activity) {
+        this.Topic = activity;
+    }
 
     public ArrayList<Integer>[] getInstanceBelongToCluster() {
         return instanceBelongToCluster;
@@ -32,20 +43,6 @@ public class WekaRegression {
 
     public String getTopic() {
         return Topic;
-    }
-
-    private ArrayList<Integer>[] instanceBelongToCluster;
-    private String Topic;
-    private String idx;
-    private DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-
-    public WekaRegression(String activity, String fileName) {
-        this.Topic = activity;
-        this.fileName = fileName;
-    }
-
-    public WekaRegression(String activity) {
-        this.Topic = activity;
     }
 
     public Classifier getRegressor() {
@@ -137,12 +134,12 @@ public class WekaRegression {
         return duration;
     }
 
-    public Evaluation getEval() {
-        return eval;
-    }
-
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+    public Evaluation getEval() {
+        return eval;
     }
 
 

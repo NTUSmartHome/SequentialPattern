@@ -16,7 +16,7 @@ public class Activity {
 
     public Activity() {
         //For M2 i <= 14, M1 <= 12
-        for (int i = 1; i <=14; i++) {
+        for (int i = 1; i <= 14; i++) {
             String act = String.valueOf(i);
             Activities.add(act);
         }
@@ -34,7 +34,7 @@ public class Activity {
             Activities.add(activity.get(i));
         }
         numberOfActivities = Activities.size();
-        possibleSets = numberOfActivities + 1;
+        possibleSets = numberOfActivities;
         initializePOfActs();
     }
 
@@ -115,13 +115,15 @@ public class Activity {
             QOfActs.add(0.0);
         }
     }
+
     // Single Activity version
     public String[] getNameOfActs(int index) {
 
         return new String[]{String.valueOf(index)};
     }
+
     // original one. Mutiple activity in one time slot
-    public String[] getNameOfActsMultipleActivity(int index ) {
+    public String[] getNameOfActsMultipleActivity(int index) {
         boolean[] occurActs = new boolean[Activities.size()];
 
         int quantityOfOccurActs = 0;
@@ -152,9 +154,21 @@ public class Activity {
         return Index;
     }
     //2016/2/4 new
-    public int getIndexOfActs(String OccurActs) {
+    /*public int getIndexOfActs(String OccurActs) {
         int Index = 0;
         Index += getActValue(OccurActs);
+        return Index;
+    }*/
+
+    //2016/5/18 不再使用數字當活動
+    public int getIndexOfActs(String OccurActs) {
+        int Index = 0;
+        for (int i = 0; i < Activities.size(); i++) {
+            if (Activities.get(i).equals(OccurActs)) {
+                Index = i;
+                break;
+            }
+        }
         return Index;
     }
 
@@ -166,11 +180,13 @@ public class Activity {
         int index = getIndexOfActs(OccurActs);
         return TOfActs.get(index);
     }
+
     //2016/2/4 new
     public double getTOfActs(String OccurActs) {
         int index = getIndexOfActs(OccurActs);
         return TOfActs.get(index);
     }
+
     public void setTOfActs(int index, double value) {
         TOfActs.set(index, value);
     }
@@ -181,6 +197,7 @@ public class Activity {
             TOfActs.set(index, value);
         }
     }
+
     //2016/2/4 new
     public void setTOfActs(String OccurActs, double value) {
 

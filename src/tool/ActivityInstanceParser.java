@@ -501,7 +501,7 @@ public class ActivityInstanceParser {
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
                 if (duration >= 0)
-                    week[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[1], duration, dayOfWeek - 1,startTime.split("-")[0], date.split("-")[0]));
+                    week[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[1], duration, dayOfWeek - 1, startTime.split("-")[0], date.split("-")[0]));
                 startTime = date;
                 //startTimestamp = unixTimestamp;
                 preActivity = activity;
@@ -536,7 +536,7 @@ public class ActivityInstanceParser {
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
                 int dayOfGroup = resultMap.get(String.valueOf(dayOfWeek - 1));
                 if (duration >= 0)
-                    testWeek[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[0], duration, dayOfWeek - 1,startTime.split("-")[0], date.split("-")[0]));
+                    testWeek[dayOfGroup].add(new ActivityInstance(preActivity, startTime.split("-")[1], date.split("-")[0], duration, dayOfWeek - 1, startTime.split("-")[0], date.split("-")[0]));
                 startTime = date;
                 //startTimestamp = unixTimestamp;
                 preActivity = activity;

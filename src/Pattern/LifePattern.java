@@ -22,6 +22,9 @@ import java.util.*;
  */
 public class LifePattern {
     static double rh = 0.05, beta = 0.01;
+    //----------------------------------WSU M1 data begins on Friday------------------------------------//
+    //----------------------------------Ming data begins on Sat------------------------------------//
+    final int weekDayStart = 5;
     ArrayList<ArrayList<SDLE>> weekSDLEList;
     ArrayList<SDLE> sdleList;
     ArrayList<ArrayList<String>> instanceLabel;
@@ -30,11 +33,7 @@ public class LifePattern {
     Map<String, Integer>[] daySegmentationMap;
     ArrayList<ActivityInstance>[] weekActivityInstances;
     ArrayList<ActivityInstance>[] testWeekActivityInstances;
-
     int MaxCluster;
-    //----------------------------------WSU M1 data begins on Friday------------------------------------//
-    //----------------------------------Ming data begins on Sat------------------------------------//
-    final int weekDayStart = 5;
     //-----------------------------------------------------------------------------------------------//
 
     public LifePattern() {
@@ -340,8 +339,8 @@ public class LifePattern {
     private Map<String, Integer> contextDayMerge(String file) {
 
         try {
-           //return Learning.DPMM.MDPMMTrain("Model/dayMerge", file, 0.5, 1, 500);
-           return DPMM.oneCluster(file);
+            //return Learning.DPMM.MDPMMTrain("Model/dayMerge", file, 0.5, 1, 500);
+            return DPMM.oneCluster(file);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -359,7 +358,7 @@ public class LifePattern {
                 System.out.println("\n\n");
                 daySegmentationMap[idx - 1] = DPMM.GDPMMTrain("/Model/" + idx + "Seg", fileName, 0.9, 1, 500);
                 //daySegmentationMap[idx-1] = Learning.DPMM.HierarchicalAgglomerativeTrain(fileName);
-               //daySegmentationMap[idx - 1] = Learning.DPMM.oneCluster(fileName);
+                //daySegmentationMap[idx - 1] = Learning.DPMM.oneCluster(fileName);
                 System.out.println(fileName + "\n\n");
 
             } catch (IOException e) {

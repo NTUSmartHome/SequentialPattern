@@ -18,6 +18,10 @@ public class ActivityPerformHobby {
         return startTime.get();
     }
 
+    public void setStartTime(String startTime) {
+        this.startTime.set(startTime);
+    }
+
     public SimpleStringProperty startTimeProperty() {
         return startTime;
     }
@@ -26,15 +30,11 @@ public class ActivityPerformHobby {
         return duration.get();
     }
 
-    public SimpleStringProperty durationProperty() {
-        return duration;
-    }
-
     public void setDuration(String duration) {
         this.duration.set(duration);
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime.set(startTime);
+    public SimpleStringProperty durationProperty() {
+        return duration;
     }
 }

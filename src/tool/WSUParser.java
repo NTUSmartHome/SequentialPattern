@@ -4,7 +4,6 @@ import DataStructure.ActivityInstance;
 import SDLE.DB;
 
 import java.io.*;
-import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -308,7 +307,7 @@ public class WSUParser {
         SimpleDateFormat timeDateFormat = new SimpleDateFormat("HH:mm:ss");
         SimpleDateFormat dayDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         DB db = new DB(timeInterval, option);
-        long ll = (dayDateFormat.parse(endDay).getTime() - dayDateFormat.parse(startDay).getTime()) / (24*60*60*1000) + 1;
+        long ll = (dayDateFormat.parse(endDay).getTime() - dayDateFormat.parse(startDay).getTime()) / (24 * 60 * 60 * 1000) + 1;
 
         for (int i = 0; i < eachActivityInstance.length; i++) {
             Set<String> activitySet = eachActivityInstance[i].keySet();
@@ -359,7 +358,7 @@ public class WSUParser {
 
                                 long start = dayDateFormat.parse(startDay).getTime() / (24 * 60 * 60 * 1000);
                                 long diff = preDay - start + 1;
-                               // System.out.println(count + " : " + diff);
+                                // System.out.println(count + " : " + diff);
 
                             }
                         }
@@ -388,7 +387,7 @@ public class WSUParser {
                         happen = new boolean[happen.length];
                         count++;
                         long start = dayDateFormat.parse(startDay).getTime() / (24 * 60 * 60 * 1000);
-                        long diff = dayDateFormat.parse(activityInstance.getStartDay()).getTime() /  (24 * 60 * 60 * 1000) - start + 1;
+                        long diff = dayDateFormat.parse(activityInstance.getStartDay()).getTime() / (24 * 60 * 60 * 1000) - start + 1;
                         //System.out.println(count + " : " + diff);
                         for (int k = 0; k <= endSDLE; k++) {
                             happen[k] = true;
@@ -399,8 +398,8 @@ public class WSUParser {
 
                 }
                 long start = dayDateFormat.parse(startDay).getTime() / (24 * 60 * 60 * 1000);
-                long diff = dayDateFormat.parse(activityInstance.getStartDay()).getTime() /  (24 * 60 * 60 * 1000) - start + 1;
-               // System.out.println(count + " : " + diff);
+                long diff = dayDateFormat.parse(activityInstance.getStartDay()).getTime() / (24 * 60 * 60 * 1000) - start + 1;
+                // System.out.println(count + " : " + diff);
 
                 long curDay = dayDateFormat.parse(activityInstance.getEndDay()).getTime() / (24 * 60 * 60 * 1000);
                 long end = dayDateFormat.parse(endDay).getTime() / (24 * 60 * 60 * 1000);

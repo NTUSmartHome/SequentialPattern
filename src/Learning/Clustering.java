@@ -1,13 +1,9 @@
 package Learning;
 
-import org.apache.commons.lang3.ArrayUtils;
 import weka.clusterers.ClusterEvaluation;
 import weka.clusterers.Clusterer;
 import weka.clusterers.EM;
-import weka.core.Attribute;
-import weka.core.DenseInstance;
 import weka.core.Instances;
-import weka.core.pmml.Array;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,7 +12,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 
@@ -77,15 +72,16 @@ public class Clustering {
     public double predict(String startTime) {
         String[] time = startTime.split(":");
         int timeInt = Integer.parseInt(time[0]) * 60 + Integer.parseInt(time[1]);
-        double min = Math.abs(timeInt-mean[0]) ;
+        double min = Math.abs(timeInt - mean[0]);
         for (int i = 1; i < mean.length; i++) {
-            double tmp = Math.abs(timeInt-mean[i]);
+            double tmp = Math.abs(timeInt - mean[i]);
             if (Double.compare(tmp, min) < 0) {
                 min = tmp;
             }
         }
         return min;
     }
+
     public void train(String fileName) {
         try {
             //ArffLoader loader = new ArffLoader();
@@ -95,7 +91,7 @@ public class Clustering {
             if (fileName != null) this.fileName = fileName;
             clusterer = new EM();
             clusterer.setMaxIterations(500);
-            clusterer.setSeed(trainingData.size() / 4 +  (int)(Math.random()*10));
+            clusterer.setSeed(trainingData.size() / 4 + (int) (Math.random() * 10));
             //clusterer.setMaximumNumberOfClusters(4);
             clusterer.buildClusterer(trainingData);
 

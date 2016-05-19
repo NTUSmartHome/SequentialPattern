@@ -24,16 +24,14 @@ import java.util.ArrayList;
  * Created by g2525_000 on 2016/4/27.
  */
 public class MainController {
-    private Stage stage;
-    private TestLifePattern testLifePattern;
-
     @FXML
     protected AnchorPane MainPane;
     @FXML
     protected TabPane MainTabPane;
-
     @FXML
     protected VBox VBox;
+    private Stage stage;
+    private TestLifePattern testLifePattern;
 
     @FXML
     protected void exit(ActionEvent event) {
@@ -79,7 +77,7 @@ public class MainController {
 
     @FXML
     protected void load(ActionEvent event) throws IOException {
-        testLifePattern = new TestLifePattern();
+        //testLifePattern = new TestLifePattern();
         ArrayList<String> activityList = testLifePattern.getActivityList();
         for (int i = 0; i < activityList.size(); i++) {
             Tab tab = new Tab(activityList.get(i));
@@ -116,17 +114,16 @@ public class MainController {
         System.out.println(MainTabPane.getHeight());
     }
 
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
-
     public TabPane getMainTabPane() {
         return MainTabPane;
     }
 
     public Stage getStage() {
         return stage;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 
     public Pane getMainPane() {
@@ -214,6 +211,13 @@ public class MainController {
 
     }
 
+    public TestLifePattern getTestLifePattern() {
+        return testLifePattern;
+    }
+
+    public void setTestLifePattern(TestLifePattern testLifePattern) {
+        this.testLifePattern = testLifePattern;
+    }
 
     public static class ActivityPerformHobby {
         private final SimpleStringProperty startTime;
@@ -228,6 +232,10 @@ public class MainController {
             return startTime.get();
         }
 
+        public void setStartTime(String startTime) {
+            this.startTime.set(startTime);
+        }
+
         public SimpleStringProperty startTimeProperty() {
             return startTime;
         }
@@ -236,17 +244,12 @@ public class MainController {
             return duration.get();
         }
 
-        public SimpleStringProperty durationProperty() {
-            return duration;
-        }
-
         public void setDuration(String duration) {
             this.duration.set(duration);
         }
 
-        public void setStartTime(String startTime) {
-            this.startTime.set(startTime);
+        public SimpleStringProperty durationProperty() {
+            return duration;
         }
     }
-
 }

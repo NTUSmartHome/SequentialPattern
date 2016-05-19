@@ -9,7 +9,8 @@ import smile.regression.Regression;
 public class Mean implements Regression {
     double[] xMean;
     double yMean;
-    public Mean(double[][] x, double[]y) {
+
+    public Mean(double[][] x, double[] y) {
         xMean = new double[x.length];
         for (int i = 0; i < x.length; i++) {
             xMean[i] = mean(x[i]);
@@ -17,7 +18,7 @@ public class Mean implements Regression {
         yMean = mean(y);
     }
 
-    public double mean(double[] x) {
+    public static double staticMean(double[] x) {
         double mean = 0;
         for (int i = 0; i < x.length; i++) {
             mean += x[i];
@@ -25,7 +26,7 @@ public class Mean implements Regression {
         return mean / x.length;
     }
 
-    public static double staticMean(double[] x) {
+    public double mean(double[] x) {
         double mean = 0;
         for (int i = 0; i < x.length; i++) {
             mean += x[i];

@@ -18,7 +18,7 @@ public class MingParser {
             String line;
             FileWriter fw = new FileWriter("db/MingT.csv");
             String[] preData = null;
-            DB db = new DB(5,1);
+            DB db = new DB(5, 1);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
@@ -28,10 +28,10 @@ public class MingParser {
                     int cur = db.belongToWhichSDLE(curDate.getTime() / 1000);
                     int pre = db.belongToWhichSDLE(preDate.getTime() / 1000);
                     if ((cur - pre) > 1) {
-                        preDate.setTime(preDate.getTime() + 60*1000*1);
-                        fw.write("8," + simpleDateFormat.format(preDate)+"\n");
-                        preDate.setTime(curDate.getTime() - 60*1000*1);
-                        fw.write("8," + simpleDateFormat.format(preDate)+"\n");
+                        preDate.setTime(preDate.getTime() + 60 * 1000 * 1);
+                        fw.write("8," + simpleDateFormat.format(preDate) + "\n");
+                        preDate.setTime(curDate.getTime() - 60 * 1000 * 1);
+                        fw.write("8," + simpleDateFormat.format(preDate) + "\n");
 
                     }
 
