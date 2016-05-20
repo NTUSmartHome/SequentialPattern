@@ -1,21 +1,34 @@
 package GUI.Controller;
 
 import Pattern.TestLifePattern;
+import SDLE.SDLE;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.chart.AreaChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Created by g2525_000 on 2016/5/19.
  */
 public class SDLEController {
 
+
     @FXML
-    protected AreaChart SDLE_areaChart;
+    protected AnchorPane SDLE_chartPane;
     @FXML
     protected TextField SDLE_trainedDayText;
     @FXML
@@ -26,8 +39,12 @@ public class SDLEController {
     protected ComboBox SDLE_activityComboBox;
     @FXML
     protected Button SDLE_generateButton;
+    @FXML
+    protected Button SDLE_clearButton;
+
     private TestLifePattern testLifePattern;
     private Stage stage;
+    private AreaChart<Number, Number> sdleChart;
 
     public DatePicker getSDLE_endDate() {
         return SDLE_endDate;
@@ -61,11 +78,44 @@ public class SDLEController {
         this.testLifePattern = testLifePattern;
     }
 
-    public AreaChart getSDLE_areaChart() {
-        return SDLE_areaChart;
+    public AnchorPane getSDLE_chartPane() {
+        return SDLE_chartPane;
     }
 
-    public void setSDLE_areaChart(AreaChart SDLE_areaChart) {
-        this.SDLE_areaChart = SDLE_areaChart;
+    public AreaChart<Number, Number> getSdleChart() {
+        return sdleChart;
     }
+
+    public void setSdleChart(AreaChart<Number, Number> sdleChart) {
+        this.sdleChart = sdleChart;
+    }
+
+    public void generate() {
+        if (sdleChart == null) return;
+        if (testLifePattern == null) return;
+        Timeline tl = new Timeline();
+        tl.getKeyFrames().add(new KeyFrame(Duration.millis(500),
+                new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent actionEvent) {
+                        testLifePattern.SDLEAccumulate(Integer.parseInt(SDLE_trainedDayText.getText()));
+                        ArrayList<SDLE> sdleEstimationList = testLifePattern.getSdleList().get(SDLE_activityComboBox.getValue());
+                        XYChart.Series sdleSeries = new XYChart.Series();
+                        sdleSeries.setName(SDLE_activityComboBox.getValue() + "_" + SDLE_trainedDayText.getText());
+                        for (int i = 0; i < sdleEstimationList.size(); i++) {
+                            sdleSeries.getData().add(new XYChart.Data(i, sdleEstimationList.get(i).getDistribution().get(0)));
+                        }
+                        sdleChart.getData().add(sdleSeries);
+                    }
+                }));
+        tl.play();
+
+    }
+
+    public void clear() {
+        for (int i = sdleChart.getData().size() - 1; i >= 0 ; i--) {
+            sdleChart.getData().remove(i);
+        }
+    }
+
 }

@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.DatePicker;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
@@ -106,7 +107,12 @@ public class BehaviorPattern extends Application {
                 new AreaChart<Number, Number>(xAxis, yAxis);
         xAxis.setMinorTickCount(0);
         yAxis.setMinorTickCount(0);
-        controller.setSDLE_areaChart(sdleAreaChart);
+        controller.getSDLE_chartPane().getChildren().add(sdleAreaChart);
+        AnchorPane.setTopAnchor(sdleAreaChart, 2.0);
+        AnchorPane.setBottomAnchor(sdleAreaChart, 2.0);
+        AnchorPane.setLeftAnchor(sdleAreaChart, 2.0);
+        AnchorPane.setRightAnchor(sdleAreaChart, 2.0);
+        controller.setSdleChart(sdleAreaChart);
 
         //用讀進來FXML的作為Scene的root node
         Scene scene = new Scene(root, 1000, 700);

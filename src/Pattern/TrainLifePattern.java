@@ -17,7 +17,7 @@ import java.util.*;
 
 
 public class TrainLifePattern {
-    static double rh = 0.05, beta = 0.01;
+    final double rh = 0.05, beta = 0.01;
     //----------------------------------WSU M1 data begins on Friday------------------------------------//
     //----------------------------------Ming data begins on Sat------------------------------------//
     final int weekDayStart = 5;
@@ -49,6 +49,10 @@ public class TrainLifePattern {
         for (int i = 0; i < 7; i++) {
             weekSDLEList.add(new HashMap<>());
         }
+        sdleAct.add("true");
+        sdleAct.add("false");
+
+
         Map<String, Integer> resultMap = new HashMap<>();
         for (int i = 0; i < 7; i++) {
             resultMap.put(String.valueOf(i), 0);
@@ -69,14 +73,9 @@ public class TrainLifePattern {
             if (size == weekActivityInstances[0].size())
                 break;
         }
-        sdleAct.add("true");
-        sdleAct.add("false");
 
-        //test sdle
-        readSDLEFile(5, 1, rh, beta);
-        SDLEAccumulate(100);
-        writeSDLE();
-        System.out.println("Thread test");
+
+
 
         //Activity Start Time Clustering
         activityStartTimeClustering();
@@ -84,6 +83,12 @@ public class TrainLifePattern {
         activityDurationEstimation();
         //Activity Relation Construction
         activityRelationConstruction();
+
+        //test sdle
+        readSDLEFile(5, 1, rh, beta);
+        SDLEAccumulate(100);
+        writeSDLE();
+        System.out.println("Thread test");
 
         //Multiple Activity Relation Construction
         activityRelationConstructionMutiple();
