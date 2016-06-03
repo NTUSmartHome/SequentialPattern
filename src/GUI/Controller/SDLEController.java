@@ -93,22 +93,43 @@ public class SDLEController {
     public void generate() {
         if (sdleChart == null) return;
         if (testLifePattern == null) return;
-        Timeline tl = new Timeline();
-        tl.getKeyFrames().add(new KeyFrame(Duration.millis(500),
-                new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent actionEvent) {
-                        testLifePattern.SDLEAccumulate(Integer.parseInt(SDLE_trainedDayText.getText()));
-                        ArrayList<SDLE> sdleEstimationList = testLifePattern.getSdleList().get(SDLE_activityComboBox.getValue());
-                        XYChart.Series sdleSeries = new XYChart.Series();
-                        sdleSeries.setName(SDLE_activityComboBox.getValue() + "_" + SDLE_trainedDayText.getText());
-                        for (int i = 0; i < sdleEstimationList.size(); i++) {
-                            sdleSeries.getData().add(new XYChart.Data(i, sdleEstimationList.get(i).getDistribution().get(0)));
+        if(SDLE_startDate.getValue() != null && SDLE_endDate.getValue() != null) {
+            Timeline tl = new Timeline();
+            tl.getKeyFrames().add(new KeyFrame(Duration.millis(500),
+                    new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent actionEvent) {
+                            testLifePattern.SDLEAccumulate(SDLE_startDate.getValue(), SDLE_endDate.getValue());
+                            ArrayList<SDLE> sdleEstimationList = testLifePattern.getSdleList().get(SDLE_activityComboBox.getValue());
+                            XYChart.Series sdleSeries = new XYChart.Series();
+                            sdleSeries.setName(SDLE_activityComboBox.getValue() + "_" + SDLE_trainedDayText.getText());
+                            for (int i = 0; i < sdleEstimationList.size(); i++) {
+                                sdleSeries.getData().add(new XYChart.Data(i, sdleEstimationList.get(i).getDistribution().get(0)));
+                            }
+                            sdleChart.getData().add(sdleSeries);
                         }
-                        sdleChart.getData().add(sdleSeries);
-                    }
-                }));
-        tl.play();
+                    }));
+            tl.play();
+        }
+        else {
+            Timeline tl = new Timeline();
+            tl.getKeyFrames().add(new KeyFrame(Duration.millis(500),
+                    new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent actionEvent) {
+                            testLifePattern.SDLEAccumulate(Integer.parseInt(SDLE_trainedDayText.getText()));
+                            ArrayList<SDLE> sdleEstimationList = testLifePattern.getSdleList().get(SDLE_activityComboBox.getValue());
+                            XYChart.Series sdleSeries = new XYChart.Series();
+                            sdleSeries.setName(SDLE_activityComboBox.getValue() + "_" + SDLE_trainedDayText.getText());
+                            for (int i = 0; i < sdleEstimationList.size(); i++) {
+                                sdleSeries.getData().add(new XYChart.Data(i, sdleEstimationList.get(i).getDistribution().get(0)));
+                            }
+                            sdleChart.getData().add(sdleSeries);
+                        }
+                    }));
+            tl.play();
+        }
+
 
     }
 

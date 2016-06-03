@@ -13,9 +13,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import javafx.util.StringConverter;
 
 import java.io.IOException;
@@ -113,7 +115,60 @@ public class BehaviorPattern extends Application {
         AnchorPane.setLeftAnchor(sdleAreaChart, 2.0);
         AnchorPane.setRightAnchor(sdleAreaChart, 2.0);
         controller.setSdleChart(sdleAreaChart);
+        //Disable days
+        DatePicker startDayDatePicker = controller.getSDLE_startDate();
+        System.out.println(startDayDatePicker.getValue());
+        final Callback<DatePicker, DateCell> startDayCellFactory =
+                new Callback<DatePicker, DateCell>() {
+                    @Override
+                    public DateCell call(final DatePicker datePicker) {
+                        return new DateCell() {
+                            @Override
+                            public void updateItem(LocalDate item, boolean empty) {
+                                super.updateItem(item, empty);
 
+                                if (item.isBefore(LocalDate.of(2010, 11, 4))) {
+                                    setDisable(true);
+                                    setStyle("-fx-background-color: #ffc0cb;");
+                                }
+                                if (item.isAfter(LocalDate.of(2011, 06, 11))) {
+                                    setDisable(true);
+                                    setStyle("-fx-background-color: #ffc0cb;");
+                                }
+                            }
+                        };
+                    }
+                };
+        startDayDatePicker.setDayCellFactory(startDayCellFactory);
+        DatePicker endDayDatePicker = controller.getSDLE_endDate();
+        final Callback<DatePicker, DateCell> endDayCellFactory =
+                new Callback<DatePicker, DateCell>() {
+                    @Override
+                    public DateCell call(final DatePicker datePicker) {
+                        return new DateCell() {
+                            @Override
+                            public void updateItem(LocalDate item, boolean empty) {
+                                super.updateItem(item, empty);
+                                if (item.isBefore(LocalDate.of(2010, 11, 4))) {
+                                    setDisable(true);
+                                    setStyle("-fx-background-color: #ffc0cb;");
+                                }
+                                if (item.isAfter(LocalDate.of(2011, 06, 11))) {
+                                    setDisable(true);
+                                    setStyle("-fx-background-color: #ffc0cb;");
+                                }
+                                if (startDayDatePicker.getValue() == null) {
+                                    setDisable(true);
+                                    setStyle("-fx-background-color: #ffc0cb;");
+                                } else if(item.isBefore(startDayDatePicker.getValue().plusDays(1))) {
+                                    setDisable(true);
+                                    setStyle("-fx-background-color: #ffc0cb;");
+                                }
+                            }
+                        };
+                    }
+                };
+        endDayDatePicker.setDayCellFactory(endDayCellFactory);
         //用讀進來FXML的作為Scene的root node
         Scene scene = new Scene(root, 1000, 700);
 

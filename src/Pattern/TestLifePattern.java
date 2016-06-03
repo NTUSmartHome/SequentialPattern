@@ -5,6 +5,7 @@ import Learning.Classifier;
 import Learning.Clustering;
 import Learning.WekaRegression;
 import SDLE.SDLE;
+import sun.util.resources.LocaleData;
 import tool.ActivityInstanceParser;
 import tool.LogPreProcessing;
 
@@ -12,12 +13,18 @@ import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 /**
  * Created by g2525_000 on 2016/4/21.
  */
 public class TestLifePattern {
+    final LocalDate startDay = LocalDate.of(2010, 11,4);
+    final LocalDate endDay = LocalDate.of(2011, 6,11);
+
     final double rh = 0.05, beta = 0.01;
     //Use GBRT to learn the relation between start time and duration. And this model use to infer activity duration
     Map<String, ArrayList<WekaRegression>> regressors;
@@ -496,7 +503,25 @@ public class TestLifePattern {
         System.out.println("SDLE accumulate " + realTrainedDays + " days");
         writeSDLE();
 
+    }
+    public void SDLEAccumulate(LocalDate startDay, LocalDate endDay) {
+        for (int i = 0; i < activityList.size(); i++) {
+            sdleList.put(activityList.get(i), newSDLEList(i));
+        }
+        long start = ChronoUnit.DAYS.between(this.startDay, startDay);
+        long end = ChronoUnit.DAYS.between(endDay, this.endDay);
 
+        //int realTrainedDays = Math.min(trainedDays, instanceLabel.get(activityList.get(0)).get(0).size());
+        for (int i = 0; i < activityList.size(); i++) {
+            for (int j = 0; j < instanceLabel.get(activityList.get(i)).size(); j++) {
+                for (long k = start; k < instanceLabel.get(activityList.get(0)).get(0).size() - end; k++) {
+                    String[] acts = instanceLabel.get(activityList.get(i)).get(j).get((int) k).split(",");
+                    sdleList.get(activityList.get(i)).get(j).parameterUpdating(acts);
+                }
+            }
+        }
+        System.out.println("SDLE accumulate " + ChronoUnit.DAYS.between(startDay, endDay) + " days");
+        writeSDLE();
 
     }
 
