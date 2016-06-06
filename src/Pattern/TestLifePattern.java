@@ -576,10 +576,10 @@ public class TestLifePattern {
         return sdleList;
     }
 
-    public double KLDivergence(ArrayList<SDLE> x, ArrayList<SDLE> y) {
+    public double KLDivergence(ArrayList<Double> x, ArrayList<Double> y) {
         double KLD = 0;
         for (int i = 0; i < x.size(); i++) {
-            KLD += x.get(i).getDistribution().get(0) * Math.log(x.get(i).getDistribution().get(0) / y.get(i).getDistribution().get(0));
+            KLD += x.get(i) * Math.log(x.get(i) / y.get(i));
         }
         return KLD;
     }

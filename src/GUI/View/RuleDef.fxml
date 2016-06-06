@@ -4,34 +4,34 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Rules definition" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Rules definition" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.RuleController">
   <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+    <AnchorPane>
          <children>
-            <Label layoutX="22.0" layoutY="59.0" text="If" />
-            <ComboBox layoutX="51.0" layoutY="55.0" prefHeight="23.0" prefWidth="123.0" />
-            <Label layoutX="355.0" layoutY="59.0" text="start time is" />
-            <ComboBox layoutX="427.0" layoutY="55.0" prefHeight="23.0" prefWidth="112.0" />
-            <ComboBox layoutX="182.0" layoutY="55.0" prefWidth="150.0" />
-            <Label layoutX="22.0" layoutY="157.0" text="If" />
+            <Label layoutX="22.0" layoutY="59.0" text="1.If" />
+            <ComboBox fx:id="Rule_startTimeActivityComboBox" layoutX="51.0" layoutY="55.0" prefHeight="23.0" prefWidth="123.0" />
+            <Label layoutX="199.0" layoutY="59.0" text="start time is" />
+            <ComboBox fx:id="Rule_startTimeCondition" layoutX="286.0" layoutY="55.0" prefHeight="23.0" prefWidth="112.0" />
+            <Label layoutX="22.0" layoutY="157.0" text="3.If" />
             <Label layoutX="49.0" layoutY="157.0" text="next activity  of" />
-            <ComboBox layoutX="148.0" layoutY="153.0" prefHeight="23.0" prefWidth="123.0" />
-            <ComboBox layoutX="292.0" layoutY="153.0" prefHeight="23.0" prefWidth="26.0" />
-            <ComboBox layoutX="360.0" layoutY="153.0" prefHeight="23.0" prefWidth="123.0" />
-            <Label layoutX="22.0" layoutY="109.0" prefHeight="15.0" prefWidth="2.0" text="If" />
+            <ComboBox fx:id="Rule_nextOfActivityComboBox" layoutX="148.0" layoutY="153.0" prefHeight="23.0" prefWidth="123.0" />
+            <ComboBox fx:id="Rule_nextOfConditionComboBox" layoutX="292.0" layoutY="153.0" prefHeight="23.0" prefWidth="26.0" />
+            <ComboBox fx:id="Rule_nextOfNextActivityComboBox" layoutX="360.0" layoutY="153.0" prefHeight="23.0" prefWidth="123.0" />
+            <Label layoutX="22.0" layoutY="109.0" prefHeight="15.0" prefWidth="21.0" text="2.If" />
             <Label layoutX="51.0" layoutY="109.0" text="duration of " />
-            <ComboBox layoutX="121.0" layoutY="105.0" prefHeight="23.0" prefWidth="123.0" />
+            <ComboBox fx:id="Rule_durationActivityComboBox" layoutX="121.0" layoutY="105.0" prefHeight="23.0" prefWidth="128.0" />
             <Label layoutX="259.0" layoutY="109.0" text="is " />
-            <ComboBox layoutX="284.0" layoutY="105.0" prefHeight="23.0" prefWidth="82.0" />
-            <ComboBox layoutX="382.0" layoutY="105.0" prefHeight="23.0" prefWidth="82.0" />
+            <ComboBox fx:id="Rule_durationConditionComboBox" layoutX="284.0" layoutY="105.0" prefHeight="23.0" prefWidth="82.0" />
+            <ComboBox fx:id="Rule_durationLengthComboBox" layoutX="382.0" layoutY="105.0" prefHeight="23.0" prefWidth="82.0" />
             <Label layoutX="484.0" layoutY="109.0" text="minutes" />
-            <Button layoutX="138.0" layoutY="281.0" mnemonicParsing="false" text="Insert rule" />
+            <Button fx:id="Rule_insertButton" layoutX="138.0" layoutY="281.0" mnemonicParsing="false" text="Insert rule" />
             <Label layoutX="138.0" layoutY="329.0" text="Rules" />
-            <ComboBox layoutX="183.0" layoutY="325.0" prefHeight="23.0" prefWidth="255.0" />
-            <Button layoutX="464.0" layoutY="325.0" mnemonicParsing="false" text="Remove" />
-            <Label layoutX="22.0" layoutY="207.0" text="If" />
+            <ComboBox fx:id="Rule_rulesComboBox" layoutX="183.0" layoutY="325.0" prefHeight="23.0" prefWidth="255.0" />
+            <Button fx:id="Rule_removeButton" layoutX="464.0" layoutY="325.0" mnemonicParsing="false" text="Remove" />
+            <Label layoutX="22.0" layoutY="207.0" text="4.If" />
             <Label layoutX="49.0" layoutY="207.0" text="next activity  is" />
-            <ComboBox layoutX="148.0" layoutY="203.0" prefHeight="23.0" prefWidth="123.0" />
-         </children></AnchorPane>
+            <ComboBox fx:id="Rule_nextActivityComboBox" layoutX="148.0" layoutY="203.0" prefHeight="23.0" prefWidth="123.0" />
+         </children>
+      </AnchorPane>
   </content>
 </TitledPane>
