@@ -233,7 +233,7 @@ public class TrainLifePattern {
                 else featureString.append("," + i);
             }*/
 
-            featureString.append("}\n@ATTRIBUTE currentStartTime {");
+            featureString.append("}\n@ATTRIBUTE preEndTime {");
             for (int i = 0; i < 24; i++) {
                 if (i == 0) featureString.append(i);
                 else featureString.append("," + i);

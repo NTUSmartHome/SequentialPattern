@@ -117,7 +117,6 @@ public class BehaviorPattern extends Application {
         controller.setSdleChart(sdleAreaChart);
         //Disable days
         DatePicker startDayDatePicker = controller.getSDLE_startDate();
-        System.out.println(startDayDatePicker.getValue());
         final Callback<DatePicker, DateCell> startDayCellFactory =
                 new Callback<DatePicker, DateCell>() {
                     @Override
