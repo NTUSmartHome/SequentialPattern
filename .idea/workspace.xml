@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1a91a9b-284d-4c05-aebf-69aa866e6ac1" name="Default" comment="Accomplish to transform data to SDLE from activity instance">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GUI/Controller/RuleController.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Test_DummyXMinMaxNormalizer.p" afterPath="" />
+    <list default="true" id="f1a91a9b-284d-4c05-aebf-69aa866e6ac1" name="Default" comment="Processing Rule Definition and KLD linechart">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityDurationEstimation/Bed_to_Toilet-0.dModel" afterPath="$PROJECT_DIR$/report/model/ActivityDurationEstimation/Bed_to_Toilet-0.dModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityDurationEstimation/Enter_Home-0.dModel" afterPath="$PROJECT_DIR$/report/model/ActivityDurationEstimation/Enter_Home-0.dModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityDurationEstimation/Meal_Preparation-0.dModel" afterPath="$PROJECT_DIR$/report/model/ActivityDurationEstimation/Meal_Preparation-0.dModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityDurationEstimation/Sleeping-0.dModel" afterPath="$PROJECT_DIR$/report/model/ActivityDurationEstimation/Sleeping-0.dModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityDurationEstimation/Wash_Dishes-0.dModel" afterPath="$PROJECT_DIR$/report/model/ActivityDurationEstimation/Wash_Dishes-0.dModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityDurationEstimation/Work-0.dModel" afterPath="$PROJECT_DIR$/report/model/ActivityDurationEstimation/Work-0.dModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityRelationConstruction.rModel" afterPath="$PROJECT_DIR$/report/model/ActivityRelationConstruction.rModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityStartTime/Bed_to_Toilet.sModel" afterPath="$PROJECT_DIR$/report/model/ActivityStartTime/Bed_to_Toilet.sModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityStartTime/Eating.sModel" afterPath="$PROJECT_DIR$/report/model/ActivityStartTime/Eating.sModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityStartTime/Enter_Home.sModel" afterPath="$PROJECT_DIR$/report/model/ActivityStartTime/Enter_Home.sModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityStartTime/Housekeeping.sModel" afterPath="$PROJECT_DIR$/report/model/ActivityStartTime/Housekeeping.sModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityStartTime/Leave_Home.sModel" afterPath="$PROJECT_DIR$/report/model/ActivityStartTime/Leave_Home.sModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityStartTime/Meal_Preparation.sModel" afterPath="$PROJECT_DIR$/report/model/ActivityStartTime/Meal_Preparation.sModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityStartTime/Relax.sModel" afterPath="$PROJECT_DIR$/report/model/ActivityStartTime/Relax.sModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityStartTime/Resperate.sModel" afterPath="$PROJECT_DIR$/report/model/ActivityStartTime/Resperate.sModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityStartTime/Sleeping.sModel" afterPath="$PROJECT_DIR$/report/model/ActivityStartTime/Sleeping.sModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityStartTime/Wash_Dishes.sModel" afterPath="$PROJECT_DIR$/report/model/ActivityStartTime/Wash_Dishes.sModel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/model/ActivityStartTime/Work.sModel" afterPath="$PROJECT_DIR$/report/model/ActivityStartTime/Work.sModel" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/BehaviorPattern.java" afterPath="$PROJECT_DIR$/src/GUI/BehaviorPattern.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/Controller/SDLEController.java" afterPath="$PROJECT_DIR$/src/GUI/Controller/SDLEController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/View/RuleDef.fxml" afterPath="$PROJECT_DIR$/src/GUI/View/RuleDef.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/View/SDLE.fxml" afterPath="$PROJECT_DIR$/src/GUI/View/SDLE.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Pattern/TestLifePattern.java" afterPath="$PROJECT_DIR$/src/Pattern/TestLifePattern.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/features/ActivityRelationConstruction.arff" afterPath="$PROJECT_DIR$/report/features/ActivityRelationConstruction.arff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Learning/Clustering.java" afterPath="$PROJECT_DIR$/src/Learning/Clustering.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Pattern/TrainLifePattern.java" afterPath="$PROJECT_DIR$/src/Pattern/TrainLifePattern.java" />
     </list>
     <ignored path="SDLE.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,11 +49,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="TrainLifePattern.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TrainLifePattern.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Pattern/TrainLifePattern.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2895">
-              <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,11 +61,31 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="WekaRegression.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Learning/WekaRegression.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="55" column="59" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Clustering.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Learning/Clustering.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="463">
+              <caret line="133" column="53" selection-start-line="133" selection-start-column="53" selection-end-line="133" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="BehaviorPattern.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/BehaviorPattern.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1980">
-              <caret line="158" column="53" selection-start-line="158" selection-start-column="53" selection-end-line="158" selection-end-column="53" />
+            <state relative-caret-position="225">
+              <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
               <folding>
                 <element signature="e#4806#4822#0" expanded="true" />
               </folding>
@@ -113,10 +147,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SDLEController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SDLEController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI/Controller/SDLEController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
+            <state relative-caret-position="468">
               <caret line="174" column="0" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -229,7 +263,6 @@
         <option value="$PROJECT_DIR$/src/GUI/TableViewSample.java" />
         <option value="$PROJECT_DIR$/src/DataStructure/Mean.java" />
         <option value="$PROJECT_DIR$/src/Learning/WekaRegression.java" />
-        <option value="$PROJECT_DIR$/src/Learning/Clustering.java" />
         <option value="$PROJECT_DIR$/src/Learning/Classifier.java" />
         <option value="$PROJECT_DIR$/src/DataStructure/ActivityInstance.java" />
         <option value="$PROJECT_DIR$/src/tool/LogPreProcessing.java" />
@@ -240,7 +273,6 @@
         <option value="$PROJECT_DIR$/src/SDLE/SDLE.java" />
         <option value="$PROJECT_DIR$/src/GUI/Controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/GUI/View/SDLE.fxml" />
-        <option value="$PROJECT_DIR$/src/Pattern/TrainLifePattern.java" />
         <option value="$PROJECT_DIR$/src/GUI/TEST.java" />
         <option value="C:/Program Files/Java/jdk1.8.0_25/javafx-src.zip!/javafx/scene/control/TextInputControl.java" />
         <option value="C:/Program Files/Java/jdk1.8.0_25/javafx-src.zip!/javafx/scene/control/TextField.java" />
@@ -254,6 +286,8 @@
         <option value="$PROJECT_DIR$/src/GUI/BehaviorPattern.java" />
         <option value="$PROJECT_DIR$/src/Pattern/TestLifePattern.java" />
         <option value="$PROJECT_DIR$/src/GUI/Controller/SDLEController.java" />
+        <option value="$PROJECT_DIR$/src/Learning/Clustering.java" />
+        <option value="$PROJECT_DIR$/src/Pattern/TrainLifePattern.java" />
       </list>
     </option>
   </component>
@@ -619,7 +653,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/Users/g2525_000/IdeaProjects/SequentialPattern/src/Pattern/TrainLifePattern.java" />
   </component>
-  <component name="RunManager" selected="Application.BehaviorPattern">
+  <component name="RunManager" selected="Application.TrainLifePattern">
     <configuration default="false" name="TrainLifePattern" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -864,9 +898,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.BehaviorPattern" />
-        <item index="1" class="java.lang.String" itemvalue="Application.TEST" />
-        <item index="2" class="java.lang.String" itemvalue="Application.TrainLifePattern" />
+        <item index="0" class="java.lang.String" itemvalue="Application.TrainLifePattern" />
+        <item index="1" class="java.lang.String" itemvalue="Application.BehaviorPattern" />
+        <item index="2" class="java.lang.String" itemvalue="Application.TEST" />
         <item index="3" class="java.lang.String" itemvalue="Application.WSUParser" />
         <item index="4" class="java.lang.String" itemvalue="Application.TestLifePattern" />
       </list>
@@ -1054,7 +1088,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463560101928</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Processing Rule Definition and KLD linechart">
+      <created>1465216959163</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1465216959163</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1066,10 +1107,10 @@
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31964484" sideWeight="0.4277302" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2576419" sideWeight="0.5272436" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41375545" sideWeight="0.5293803" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25873363" sideWeight="0.48875803" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2576419" sideWeight="0.47275642" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41375545" sideWeight="0.47061965" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.49785867" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286026" sideWeight="0.49786323" order="11" side_tool="false" content_ui="tabs" />
@@ -1079,7 +1120,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26813188" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38053098" sideWeight="0.6846405" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37991267" sideWeight="0.68162394" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1127,7 +1168,8 @@
     <MESSAGE value="Accomplish to display start time and duration" />
     <MESSAGE value="Accomplish to use ming data to train.&#10;And finish test function" />
     <MESSAGE value="Accomplish to transform data to SDLE from activity instance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Accomplish to transform data to SDLE from activity instance" />
+    <MESSAGE value="Processing Rule Definition and KLD linechart" />
+    <option name="LAST_COMMIT_MESSAGE" value="Processing Rule Definition and KLD linechart" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1169,7 +1211,7 @@
           <option name="timeStamp" value="633" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="634" />
+      <option name="time" value="637" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1267,24 +1309,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Learning/WekaRegression.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/weka.jar!/weka/classifiers/bayes/BayesNet.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Learning/Clustering.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1453,26 +1481,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pattern/TrainLifePattern.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2895">
-          <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/BehaviorPattern.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="158" column="53" selection-start-line="158" selection-start-column="53" selection-end-line="158" selection-end-column="53" />
-          <folding>
-            <element signature="e#4806#4822#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/Controller/RuleController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -1528,7 +1536,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/Controller/SDLEController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
+        <state relative-caret-position="468">
           <caret line="174" column="0" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1540,6 +1548,42 @@
             <element signature="e#2016#2017#0" expanded="true" />
             <element signature="e#5598#5606#0" expanded="true" />
             <element signature="e#6553#6561#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Learning/WekaRegression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="55" column="59" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Learning/Clustering.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="133" column="53" selection-start-line="133" selection-start-column="53" selection-end-line="133" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/BehaviorPattern.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+          <folding>
+            <element signature="e#4806#4822#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pattern/TrainLifePattern.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

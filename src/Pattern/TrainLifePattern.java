@@ -83,15 +83,15 @@ public class TrainLifePattern {
         activityDurationEstimation();
         //Activity Relation Construction
         activityRelationConstruction();
-
+        //Multiple Activity Relation Construction
+        activityRelationConstructionMutiple();
         //test sdle
         readSDLEFile(5, 1, rh, beta);
         SDLEAccumulate(100);
         writeSDLE();
         System.out.println("Thread test");
 
-        //Multiple Activity Relation Construction
-        activityRelationConstructionMutiple();
+
     }
 
     public static void main(String[] args) throws InterruptedException, IOException, ParseException {
@@ -190,7 +190,7 @@ public class TrainLifePattern {
             for (int i = 0; i < 5; i++) {
                 fw[i].flush();
                 fw[i].close();
-                multipleRelationer[i] = new Classifier("Relation" + "i", fileName + "_" + i);
+                multipleRelationer[i] = new Classifier("Relation" + i, fileName + "_" + i);
                 multipleRelationer[i].train(null);
                 multipleRelationer[i].saveModel();
                 correct += multipleRelationer[i].getEval().correct();
@@ -280,7 +280,7 @@ public class TrainLifePattern {
                     segment = 2;
 
                 featureString.append(/*weekActivityInstances[0].get(i - 2).getActivity() + "," + */weekActivityInstances[0].get(i - 1).getActivity()
-                        + "," /*+ prestartTimeHour + "," */ + preEndTimeHour +/* "," + activityInstance.getDayOfWeek() + "," +*/ activityInstance.getActivity() + "\n");
+                        + "," /*+ prestartTimeHour + "," */ + preEndTimeHour +/* "," + activityInstance.getDayOfWeek() +*/ "," + activityInstance.getActivity() + "\n");
             }
             fw.write(featureString.toString());
             fw.flush();

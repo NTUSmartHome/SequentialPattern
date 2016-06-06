@@ -128,6 +128,12 @@ public class Clustering {
                 instanceBelongToCluster[clusterer.clusterInstance(trainingData.get(i))].add(i);
             }
 
+            //有一個bug，暫時有這爛方法解
+            for (int i = 0; i < instanceBelongToCluster.length; i++) {
+                if (instanceBelongToCluster[i].size() == 0)
+                    instanceBelongToCluster[i].add(0);
+            }
+
             mean = new double[clusterer.numberOfClusters()];
             stdDev = new double[clusterer.numberOfClusters()];
             for (int i = 0; i < mean.length; i++) {
