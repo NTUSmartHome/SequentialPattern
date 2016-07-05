@@ -90,9 +90,9 @@ public class Clustering {
             // structure.setClassIndex(structure.numAttributes() - 1);
             if (fileName != null) this.fileName = fileName;
             clusterer = new EM();
-            clusterer.setMaxIterations(500);
+            clusterer.setMaxIterations(200);
             clusterer.setSeed(trainingData.size() / 4 + (int) (Math.random() * 10));
-            //clusterer.setMaximumNumberOfClusters(4);
+            clusterer.setMaximumNumberOfClusters(0);
             clusterer.buildClusterer(trainingData);
 
             double[][][] modelsNumericAtts = clusterer.getClusterModelsNumericAtts();

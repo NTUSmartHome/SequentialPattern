@@ -17,7 +17,7 @@ public class WSUParser {
     FileReader fr;
     BufferedReader br;
 
-    public WSUParser(int timeInterval, int option, int option2) throws IOException, ParseException {
+    public WSUParser(int timeInterval, int option, int option2, int whichDataset) throws IOException, ParseException {
         this.timeInterval = timeInterval;
         this.option = option;
 
@@ -35,7 +35,18 @@ public class WSUParser {
                     resultMap.put(String.valueOf(i), 0);
                 }
                 //Activity Instance parse, return an object and write the file;
-                ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.original(400, resultMap);
+                ArrayList<ActivityInstance>[][] total = null;
+                switch (whichDataset) {
+                    case 0:
+                        total = ActivityInstanceParser.original(400, resultMap);
+                        break;
+                    case 1:
+                        total = ActivityInstanceParser.M2Original(400, resultMap);
+                        break;
+                    case 2:
+                        total = ActivityInstanceParser.MingOriginal(400, resultMap);
+                }
+
                 ArrayList<ActivityInstance>[] weekActivityInstances;
                 weekActivityInstances = total[0];
                 while (true) {
@@ -68,7 +79,7 @@ public class WSUParser {
             e.printStackTrace();
         }*/
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
-        new WSUParser(5, 1, 2);
+        new WSUParser(5, 1, 2, 0);
 
     }
 

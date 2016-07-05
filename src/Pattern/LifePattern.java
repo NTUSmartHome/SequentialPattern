@@ -250,7 +250,7 @@ public class LifePattern {
 
     private void preProcessingWSU() {
         try {
-            new WSUParser(5, 1, 0);
+            new WSUParser(5, 1, 0,0);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {

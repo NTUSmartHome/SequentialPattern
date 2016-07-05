@@ -9,6 +9,7 @@ import Learning.WekaRegression;
 import SDLE.SDLE;
 import tool.ActivityInstanceParser;
 import tool.LogPreProcessing;
+import tool.WSUParser;
 
 import java.io.*;
 import java.text.ParseException;
@@ -64,7 +65,8 @@ public class TrainLifePattern {
         regressors = new HashMap<>();
 
         //Activity Instance parse, return an object and write the file;
-        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.original(400, weekResultMap);
+        new WSUParser(5, 1, 2, 2);
+        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.MingOriginal(400, weekResultMap);
         weekActivityInstances = total[0];
         testWeekActivityInstances = total[1];
         while (true) {
@@ -88,7 +90,6 @@ public class TrainLifePattern {
         //test sdle
         readSDLEFile(5, 1, rh, beta);
         SDLEAccumulate(100);
-        writeSDLE();
         System.out.println("Thread test");
 
 
