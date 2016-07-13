@@ -45,6 +45,7 @@ public class Classifier {
             }
             trainingData.setClassIndex(trainingData.numAttributes() - 1);
             cModel = new BayesNet();
+            cModel.setBIFFile("BayesNet/test1.xml");
             cModel.buildClassifier(trainingData);
             eval = new Evaluation(trainingData);
             System.out.println(Topic);
@@ -58,7 +59,7 @@ public class Classifier {
 
     }
 
-    public Map<String, Double> predict(ActivityInstance lastActivity, ActivityInstance currentActivity) {
+    public Map<String, Double> predict(ActivityInstance preActivity, ActivityInstance currentActivity, ActivityInstance nextActivity) {
         /*Attribute act_last_two = new Attribute("act_last_two");
         Attribute act_last = new Attribute("act_last");
         Attribute startTime = new Attribute("startTime");
@@ -67,14 +68,20 @@ public class Classifier {
         predictSet.setClassIndex(predictSet.numAttributes() - 1);
         DenseInstance inst = new DenseInstance(predictSet.numAttributes());
         inst.setDataset(predictSet);
-        inst.setValue(attributes.get(0), currentActivity.getActivity());
-        String[] endTime = currentActivity.getEndTime().split(":");
-        int endTimeHour = Integer.parseInt(endTime[0]);
-        inst.setValue(attributes.get(1), endTimeHour);
-        //inst.setValue(attributes.get(2), currentActivity.getDayOfWeek());
-        String[] startTime = currentActivity.getStartTime().split(":");
-        int startTimeHour = Integer.parseInt(startTime[0]);
-        inst.setValue(attributes.get(2), startTimeHour);
+        inst.setValue(attributes.get(0), preActivity.getActivity());
+        inst.setValue(attributes.get(1), currentActivity.getActivity());
+
+        String[] currentStartTime = currentActivity.getStartTime().split(":");
+        int currentStartTimeHour = Integer.parseInt(currentStartTime[0]);
+        inst.setValue(attributes.get(2), currentStartTimeHour);
+
+        String[] nextStartTime = nextActivity.getStartTime().split(":");
+        int nextStartTimeHour = Integer.parseInt(nextStartTime[0]);
+        inst.setValue(attributes.get(3), currentStartTimeHour);
+
+        inst.setValue(attributes.get(4), currentActivity.getDuration());
+        inst.setValue(attributes.get(5), currentActivity.getDayOfWeek());
+
 
         try {
             //double prd = cModel.classifyInstance(inst);
@@ -92,6 +99,7 @@ public class Classifier {
         //cModel.classifyInstance();
         return null;
     }
+
 
 
     public void saveModel() {
@@ -113,7 +121,7 @@ public class Classifier {
     public void loadModel(String fileName) {
         try {
             cModel = (BayesNet) weka.core.SerializationHelper.read(fileName);
-            Instances trainingData = new Instances(new BufferedReader(new FileReader("report/features/relationAtt.arff")));
+            Instances trainingData = new Instances(new BufferedReader(new FileReader("report/features/ActivityRelationConstruction.arff")));
             attributes = new ArrayList<>();
             for (int i = 0; i < trainingData.numAttributes(); i++) {
                 attributes.add(trainingData.attribute(i));

@@ -19,7 +19,7 @@ public class ActivityInstanceParser {
     public static ArrayList<ActivityInstance>[][] original(int trainedDays, Map<String, Integer> resultMap) throws IOException, ParseException {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         SimpleDateFormat weekFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        FileReader fr = new FileReader("db/data");
+        FileReader fr = new FileReader("db/DB_M1_ori.txt");
         BufferedReader br = new BufferedReader(fr);
         String line;
         String startTime = "";
@@ -345,8 +345,9 @@ public class ActivityInstanceParser {
     // Parse out activity instance using MING data format.
     // This way with others
     public static ArrayList<ActivityInstance>[][] MingOriginal(int trainedDays, Map<String, Integer> resultMap) throws IOException, ParseException {
+
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
-        FileReader fr = new FileReader("db/Ming.csv");
+        FileReader fr = new FileReader("db/pei-hsuan_final.csv");
         BufferedReader br = new BufferedReader(fr);
         String line;
         String startTime = "";

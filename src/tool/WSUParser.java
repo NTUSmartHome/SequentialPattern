@@ -427,7 +427,7 @@ public class WSUParser {
                 }
                 StringBuilder SDLEDBName = new StringBuilder();
                 SDLEDBName.append("db/");
-                System.out.println(count);
+                //System.out.println(count);
                 switch (option) {
                     case 0:
                         SDLEDBName.append(timeInterval);

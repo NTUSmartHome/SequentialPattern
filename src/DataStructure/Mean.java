@@ -26,6 +26,20 @@ public class Mean implements Regression {
         return mean / x.length;
     }
 
+    public static double staticVariance(double[] x) {
+        double mean = 0;
+        double meansqure = 0;
+        double variance = 0;
+        for (int i = 0; i < x.length; i++) {
+            mean += x[i];
+            meansqure += Math.pow(x[i],2);
+        }
+        for (int i = 0; i < x.length; i++) {
+            variance += Math.pow((x[i] - mean / x.length),2);
+        }
+        return Math.sqrt(variance / x.length);
+    }
+
     public double mean(double[] x) {
         double mean = 0;
         for (int i = 0; i < x.length; i++) {

@@ -5,7 +5,6 @@ import Learning.Classifier;
 import Learning.Clustering;
 import Learning.WekaRegression;
 import SDLE.SDLE;
-import sun.util.resources.LocaleData;
 import tool.ActivityInstanceParser;
 import tool.LogPreProcessing;
 
@@ -13,7 +12,6 @@ import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
@@ -22,8 +20,8 @@ import java.util.*;
  * Created by g2525_000 on 2016/4/21.
  */
 public class TestLifePattern {
-    final LocalDate startDay = LocalDate.of(2010, 11,4);
-    final LocalDate endDay = LocalDate.of(2011, 6,11);
+    final LocalDate startDay = LocalDate.of(2010, 11, 4);
+    final LocalDate endDay = LocalDate.of(2011, 6, 11);
 
     final double rh = 0.05, beta = 0.01;
     //Use GBRT to learn the relation between start time and duration. And this model use to infer activity duration
@@ -108,8 +106,8 @@ public class TestLifePattern {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         TestLifePattern testLifePattern = new TestLifePattern(false);
         //testLifePattern.testRelation();
-        testLifePattern.testRelation();
-
+        //testLifePattern.testRelationTrainingData();
+        testLifePattern.anomalyDetection();
        /* Map<String, Integer> resultMap = new HashMap<>();
         for (int i = 0; i < 7; i++) {
             resultMap.put(String.valueOf(i), 0);
@@ -194,7 +192,7 @@ public class TestLifePattern {
         return regressors;
     }
 
-    public String nextActivity(ActivityInstance lastActivity, ActivityInstance currentActivity) {
+    /*public String nextActivity(ActivityInstance lastActivity, ActivityInstance currentActivity) {
         Map<String, Double> relationPredict = relationer.predict(lastActivity, currentActivity);
         int activityIdx = 0;
         double max = relationPredict.get(activityList.get(0));
@@ -207,9 +205,9 @@ public class TestLifePattern {
         }
 
         return activityList.get(activityIdx);
-    }
+    }*/
 
-    public String nextActivity(int idx, ActivityInstance lastActivity, ActivityInstance currentActivity) {
+    /*public String nextActivity(int idx, ActivityInstance lastActivity, ActivityInstance currentActivity) {
         Map<String, Double> startTimePredict = new HashMap<>();
         for (int i = 0; i < activityList.size(); i++) {
             // Date date = dateFormat.parse(currentActivity.getStartTime());
@@ -228,11 +226,11 @@ public class TestLifePattern {
         }
 
         return activityList.get(activityIdx);
-    }
+    }*/
     //Only single relation(sequential) prediction
 
     //Only multiple relation(sequential) prediction
-    public String sequentialNextActivity(int idx, ActivityInstance lastActivity, ActivityInstance currentActivity) {
+    /*public String sequentialNextActivity(int idx, ActivityInstance lastActivity, ActivityInstance currentActivity) {
         Map<String, Double> relationPredict = multipleRelationer.get(idx).predict(lastActivity, currentActivity);
         int activityIdx = 0;
         double max = relationPredict.get(activityList.get(0));
@@ -245,11 +243,19 @@ public class TestLifePattern {
         }
 
         return activityList.get(activityIdx);
-    }
+    }*/
 
-    public String sequentialNextActivity(ActivityInstance lastActivity, ActivityInstance currentActivity) {
-        Map<String, Double> relationPredict = relationer.predict(lastActivity, currentActivity);
-        int activityIdx = 0;
+    public ArrayList<Map.Entry<String, Double>> sequentialNextActivity(ActivityInstance preActivity, ActivityInstance currentActivity, ActivityInstance nextActivity) {
+        Map<String, Double> relationPredict = relationer.predict(preActivity, currentActivity, nextActivity);
+        ArrayList<Map.Entry<String, Double>> list =
+                new ArrayList<>(relationPredict.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<String, Double>>() {
+            public int compare(Map.Entry<String, Double> o1, Map.Entry<String, Double> o2) {
+                return -(o1.getValue()).compareTo(o2.getValue());
+            }
+        });
+
+        /*int activityIdx = 0;
         double max = relationPredict.get(activityList.get(0));
         for (int i = 1; i < activityList.size(); i++) {
             double tmp = relationPredict.get(activityList.get(i));
@@ -257,9 +263,9 @@ public class TestLifePattern {
                 max = tmp;
                 activityIdx = i;
             }
-        }
+        }*/
 
-        return activityList.get(activityIdx);
+        return list;
     }
 
     //Only start time(periodic) predict
@@ -322,7 +328,7 @@ public class TestLifePattern {
         return segment;
     }
 
-    private void testMultipleRelation() throws IOException, ParseException {
+    /*private void testMultipleRelation() throws IOException, ParseException {
         Map<String, Integer> resultMap = new HashMap<>();
         for (int i = 0; i < 7; i++) {
             resultMap.put(String.valueOf(i), 0);
@@ -358,9 +364,9 @@ public class TestLifePattern {
             nextActivity = sequentialNextActivity(segment, last, current);
         }
         System.out.println(right / testWeekActivityInstances[0].size());
-    }
+    }*/
 
-    private void testRelation() throws IOException, ParseException {
+   /* private void testRelation() throws IOException, ParseException {
 
         Map<String, Integer> resultMap = new HashMap<>();
         for (int i = 0; i < 7; i++) {
@@ -377,7 +383,6 @@ public class TestLifePattern {
                 break;
         }
 
-
         ActivityInstance last = weekActivityInstances[0].get(weekActivityInstances[0].size() - 2);
         ActivityInstance current = weekActivityInstances[0].get(weekActivityInstances[0].size() - 1);
 
@@ -393,18 +398,57 @@ public class TestLifePattern {
             nextActivity = sequentialNextActivity(last, current);
         }
         System.out.println(right / testWeekActivityInstances[0].size());
+    }*/
+
+    private void testRelationTrainingData() throws IOException, ParseException {
+
+        Map<String, Integer> resultMap = new HashMap<>();
+        for (int i = 0; i < 7; i++) {
+            resultMap.put(String.valueOf(i), 0);
+        }
+        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.original(400, resultMap);
+        ArrayList<ActivityInstance>[] weekActivityInstances = total[0];
+        ArrayList<ActivityInstance>[] testWeekActivityInstances = total[1];
+
+        while (true) {
+            int size = weekActivityInstances[0].size();
+            weekActivityInstances[0] = LogPreProcessing.preProcessing(weekActivityInstances[0]);
+            if (size == weekActivityInstances[0].size())
+                break;
+        }
+        double right = 0;
+        int count = 0;
+        for (int i = 1; i < weekActivityInstances[0].size() - 1; i++) {
+            ActivityInstance currentActivityInstance = weekActivityInstances[0].get(i);
+            ActivityInstance preActivityInstance = weekActivityInstances[0].get(i - 1);
+            ActivityInstance nextActivityInstance = weekActivityInstances[0].get(i + 1);
+            ArrayList<Map.Entry<String, Double>> nextActivity = sequentialNextActivity(preActivityInstance, currentActivityInstance, nextActivityInstance);
+            if (nextActivity.get(0).getKey().equals(nextActivityInstance.getActivity()) ||
+                    nextActivity.get(1).getKey().equals(nextActivityInstance.getActivity())) {
+                right++;
+            }
+            count++;
+        }
+        System.out.println(right / count);
+
+
     }
 
-
     private void durationSetting() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
         for (int i = 0; i < activityList.size(); i++) {
             ArrayList<WekaRegression> durations = regressors.get(activityList.get(i));
             Clustering allStartTime = activityStartTimeClusterer.get(activityList.get(i));
             for (int j = 0; j < allStartTime.getMean().length; j++) {
                 double[] means = allStartTime.getMean();
                 double[] stdDev = allStartTime.getStdDev();
-                long durationShort = durations.get(j).predict(String.valueOf(means[j] - stdDev[j]));
-                long durationLong = durations.get(j).predict(String.valueOf(means[j] + stdDev[j]));
+                long durationShort = (long) (means[j] - stdDev[j]);
+                long durationLong = (long) (means[j] + stdDev[j]);
+
+                durationShort = durations.get(j).predict(durationShort / 60 + ":" + durationShort % 60);
+                durationLong = durations.get(j).predict(durationLong / 60 + ":" + durationLong % 60);
+
+
                 if (durationShort > durationLong) {
                     long tmp = durationLong;
                     durationLong = durationShort;
@@ -487,6 +531,54 @@ public class TestLifePattern {
 
     }
 
+    private void anomalyDetection() throws IOException, ParseException {
+        Map<String, Integer> resultMap = new HashMap<>();
+        for (int i = 0; i < 7; i++) {
+            resultMap.put(String.valueOf(i), 0);
+        }
+        ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.MingOriginal(400, resultMap);
+        ArrayList<ActivityInstance>[] weekActivityInstances = total[0];
+        ArrayList<ActivityInstance>[] testWeekActivityInstances = total[1];
+
+        while (true) {
+            int size = weekActivityInstances[0].size();
+            weekActivityInstances[0] = LogPreProcessing.preProcessing(weekActivityInstances[0]);
+            if (size == weekActivityInstances[0].size())
+                break;
+        }
+        int startTimeAnomalyCount = 0;
+        int durationAnomalyCount = 0;
+        int sequentialAnomalyCount = 0;
+        for (int i = 0; i < weekActivityInstances[0].size(); i++) {
+            ActivityInstance activityInstance = weekActivityInstances[0].get(i);
+
+            Clustering startTimeGroup = activityStartTimeClusterer.get(activityInstance.getActivity());
+            int whichCluster = startTimeGroup.clusterInstance(activityInstance.getStartTime());
+            if (startTimeGroup.isAnomaly(activityInstance.getStartTime()))
+                startTimeAnomalyCount++;
+
+            WekaRegression durationRegression = regressors.get(activityInstance.getActivity()).get(whichCluster);
+            if (durationRegression.isAnomaly(activityInstance.getDuration())) {
+                durationAnomalyCount++;
+            }
+            if (i != 0 && i != weekActivityInstances[0].size() - 1) {
+                ActivityInstance nextActivityInstance = weekActivityInstances[0].get(i + 1);
+                ArrayList<Map.Entry<String, Double>> nextActivityDistribution = sequentialNextActivity(weekActivityInstances[0].get(i - 1),
+                        activityInstance, nextActivityInstance);
+                if (!(nextActivityInstance.getActivity().equals(nextActivityDistribution.get(0).getKey()) ||
+                        (nextActivityDistribution.get(1).getValue() != 0 && !nextActivityInstance.getActivity().equals(nextActivityDistribution.get(1).getKey())) ||
+                        (nextActivityDistribution.get(2).getValue() != 0 && !nextActivityInstance.getActivity().equals(nextActivityDistribution.get(2).getKey())))) {
+                    sequentialAnomalyCount++;
+                }
+            }
+        }
+        System.out.println("Total activity instances : " + weekActivityInstances[0].size());
+        System.out.println("startTime anomaly : " + startTimeAnomalyCount);
+        System.out.println("duration anomaly : " + durationAnomalyCount);
+        System.out.println("sequential anomaly : " + sequentialAnomalyCount);
+
+    }
+
     public void SDLEAccumulate(int trainedDays) {
         for (int i = 0; i < activityList.size(); i++) {
             sdleList.put(activityList.get(i), newSDLEList(i));
@@ -504,6 +596,7 @@ public class TestLifePattern {
         writeSDLE();
 
     }
+
     public void SDLEAccumulate(LocalDate startDay, LocalDate endDay) {
         for (int i = 0; i < activityList.size(); i++) {
             sdleList.put(activityList.get(i), newSDLEList(i));
@@ -532,6 +625,16 @@ public class TestLifePattern {
             newSDLEList.add(new SDLE(rh, beta, sdleAct));
         }
         return newSDLEList;
+    }
+
+    private int timeStringToIntMinute(String time) {
+        String[] tmp = time.split(":");
+        int timeInt = Integer.parseInt(tmp[0]) * 60 + Integer.parseInt(tmp[1]);
+        return timeInt;
+    }
+
+    private String timeIntToString(int time) {
+        return time / 60 + ":" + time % 60;
     }
 
     private void writeSDLE() {

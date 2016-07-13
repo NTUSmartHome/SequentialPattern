@@ -8,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane dividerPositions="0.1984924623115578, 0.6608040201005025" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.SDLEController">
+<SplitPane dividerPositions="0.271356783919598, 0.7964824120603015" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.SDLEController">
     <items>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="149.0" prefWidth="598.0">
             <children>
                 <DatePicker fx:id="SDLE_startDate" layoutX="103.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
                 <DatePicker fx:id="SDLE_endDate" layoutX="408.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
@@ -18,13 +18,13 @@
                 <Label layoutX="30.0" layoutY="7.0" text="Start Date" />
                 <Label layoutX="330.0" layoutY="7.0" text="End Date" />
                 <Label layoutX="30.0" layoutY="42.0" text="Activity" />
-                <Button fx:id="SDLE_generatePatternButton" layoutX="213.0" layoutY="38.0" mnemonicParsing="false" onAction="#generatePattern" text="GeneratePattern" />
-                <TextField fx:id="SDLE_trainedDayText" layoutX="220.0" layoutY="38.0" text="100" visible="false" />
-            <Button fx:id="SDLE_clearButton" layoutX="478.0" layoutY="38.0" mnemonicParsing="false" onAction="#clear" text="Clear" />
-            <Button fx:id="SDLE_generateDifferenceButton" layoutX="330.0" layoutY="38.0" mnemonicParsing="false" onAction="#generateDifference" text="GenerateDifference" />
+                <Button fx:id="SDLE_generatePatternButton" layoutX="328.0" layoutY="38.0" mnemonicParsing="false" onAction="#generatePattern" text="GeneratePattern" />
+                <TextField fx:id="SDLE_trainedDayText" layoutX="59.0" layoutY="63.0" />
+            <Button fx:id="SDLE_clearButton" layoutX="328.0" layoutY="63.0" mnemonicParsing="false" onAction="#clear" text="Clear" />
+            <Button fx:id="SDLE_generateDifferenceButton" layoutX="457.0" layoutY="38.0" mnemonicParsing="false" onAction="#generateDifference" text="GenerateDifference" />
             </children>
         </AnchorPane>
-        <AnchorPane fx:id="SDLE_chartPane" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+        <AnchorPane fx:id="SDLE_chartPane" minHeight="0.0" minWidth="0.0" prefHeight="216.0" prefWidth="598.0" />
       <AnchorPane fx:id="SDLE_KLDChartPane" prefHeight="200.0" prefWidth="200.0" />
         
     </items>

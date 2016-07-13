@@ -2,6 +2,8 @@ package Pattern; /**
  * Created by MingJe on 2016/4/18.
  */
 
+import ALZ.ActiveLzTree;
+import ALZ.PPM;
 import DataStructure.ActivityInstance;
 import Learning.Classifier;
 import Learning.Clustering;
@@ -65,7 +67,7 @@ public class TrainLifePattern {
         regressors = new HashMap<>();
 
         //Activity Instance parse, return an object and write the file;
-        new WSUParser(5, 1, 2, 2);
+        new WSUParser(5, 1, 2, 1);
         ArrayList<ActivityInstance>[][] total = ActivityInstanceParser.MingOriginal(400, weekResultMap);
         weekActivityInstances = total[0];
         testWeekActivityInstances = total[1];
@@ -76,10 +78,10 @@ public class TrainLifePattern {
                 break;
         }
 
+//        activityRelationConstructionALZ();
 
 
-
-        //Activity Start Time Clustering
+        //Activity Start Time Clusteringf
         activityStartTimeClustering();
         //Activity Duration Estimation
         activityDurationEstimation();
@@ -87,10 +89,12 @@ public class TrainLifePattern {
         activityRelationConstruction();
         //Multiple Activity Relation Construction
         activityRelationConstructionMutiple();
+        //Test prediction of start time
+        startTimeAccuracyTest();
+
         //test sdle
         readSDLEFile(5, 1, rh, beta);
         SDLEAccumulate(100);
-        System.out.println("Thread test");
 
 
     }
@@ -216,37 +220,41 @@ public class TrainLifePattern {
             FileWriter fw = new FileWriter("report/features/" + fileName + ".arff");
             StringBuilder featureString = new StringBuilder("@RELATION activityRelation \n");
 
-            /*featureString.append("@ATTRIBUTE act_last_two {");
-            for (int i = 0; i < activityList.size(); i++) {
-                if (i == 0) featureString.append(activityList.get(i));
-                else featureString.append("," + activityList.get(i));
-            }*/
-
-            featureString.append("\n@ATTRIBUTE currentActivity {");
+            featureString.append("@ATTRIBUTE preActivity {");
             for (int i = 0; i < activityList.size(); i++) {
                 if (i == 0) featureString.append(activityList.get(i));
                 else featureString.append("," + activityList.get(i));
             }
 
-            /*featureString.append("}\n@ATTRIBUTE prestartTime {");
-            for (int i = 0; i < 24; i++) {
-                if (i == 0) featureString.append(i);
-                else featureString.append("," + i);
-            }*/
+            featureString.append("}\n@ATTRIBUTE currentActivity {");
+            for (int i = 0; i < activityList.size(); i++) {
+                if (i == 0) featureString.append(activityList.get(i));
+                else featureString.append("," + activityList.get(i));
+            }
 
-            featureString.append("}\n@ATTRIBUTE preEndTime {");
+            featureString.append("}\n@ATTRIBUTE startTime {");
             for (int i = 0; i < 24; i++) {
                 if (i == 0) featureString.append(i);
                 else featureString.append("," + i);
             }
 
-            /*featureString.append("}\n@ATTRIBUTE dayofweek {");
+            featureString.append("}\n@ATTRIBUTE nextStartTime {");
+            for (int i = 0; i < 24; i++) {
+                if (i == 0) featureString.append(i);
+                else featureString.append("," + i);
+            }
+
+            featureString.append("}\n@ATTRIBUTE duration ");
+            featureString.append("NUMERIC");
+
+
+            featureString.append("\n@ATTRIBUTE dayofweek {");
             for (int i = 0; i < 7; i++) {
                 if (i == 0) featureString.append(i);
                 else featureString.append("," + i);
-            }*/
+            }
 
-            featureString.append("}\n@ATTRIBUTE nextActivity {");
+            featureString.append("}\n@ATTRIBUTE NextActivity {");
             for (int i = 0; i < activityList.size(); i++) {
                 if (i == 0) featureString.append(activityList.get(i));
                 else featureString.append("," + activityList.get(i));
@@ -260,15 +268,18 @@ public class TrainLifePattern {
             for (int i = 2; i < weekActivityInstances[0].size(); i++) {
 
                 ActivityInstance activityInstance = weekActivityInstances[0].get(i);
-                String[] startTime = activityInstance.getStartTime().split(":");
-                int startTimeHour = Integer.parseInt(startTime[0]);
-                int startTimeMinute = Integer.parseInt(startTime[1]);
+                String[] nextStartTime = activityInstance.getStartTime().split(":");
+                int nextStartTimeHour = Integer.parseInt(nextStartTime[0]);
+                int nextStartTimeMinute = Integer.parseInt(nextStartTime[1]);
 
-                String[] preEndTime = weekActivityInstances[0].get(i - 1).getEndTime().split(":");
-                int preEndTimeHour = Integer.parseInt(preEndTime[0]);
+                String[] currentEndTime = weekActivityInstances[0].get(i - 1).getEndTime().split(":");
+                int currentEndTimeHour = Integer.parseInt(currentEndTime[0]);
+
+                String[] currentStartTime = weekActivityInstances[0].get(i - 1).getEndTime().split(":");
+                int currentTimeHour = Integer.parseInt(currentEndTime[0]);
 
 
-                int segment = startTimeHour * 12 + startTimeMinute / 5;
+                int segment = nextStartTimeHour * 12 + nextStartTimeMinute / 5;
                 if (segment >= 4 && segment <= 64)
                     segment = 4;
                 else if ((segment > 64 && segment <= 81) || (segment >= 270 && segment <= 287) || segment < 4)
@@ -280,8 +291,12 @@ public class TrainLifePattern {
                 else
                     segment = 2;
 
-                featureString.append(/*weekActivityInstances[0].get(i - 2).getActivity() + "," + */weekActivityInstances[0].get(i - 1).getActivity()
-                        + "," /*+ prestartTimeHour + "," */ + preEndTimeHour +/* "," + activityInstance.getDayOfWeek() +*/ "," + activityInstance.getActivity() + "\n");
+                //featureString.append(/*weekActivityInstances[0].get(i - 2).getActivity() + "," + */weekActivityInstances[0].get(i - 1).getActivity()
+                //      + "," /*+ prestartTimeHour + "," */ + preEndTimeHour +/* "," + activityInstance.getDayOfWeek() +*/ "," + activityInstance.getActivity() + "\n");
+                featureString.append(weekActivityInstances[0].get(i - 2).getActivity() + "," +
+                        weekActivityInstances[0].get(i - 1).getActivity() + "," + currentTimeHour + ","
+                        + nextStartTimeHour + "," + weekActivityInstances[0].get(i - 1).getDuration() + ","
+                        + weekActivityInstances[0].get(i - 1).getDayOfWeek() + "," + weekActivityInstances[0].get(i).getActivity() + "\n");
             }
             fw.write(featureString.toString());
             fw.flush();
@@ -373,14 +388,17 @@ public class TrainLifePattern {
 
                 //write feature for activity duration estimation
                 ArrayList<Integer>[] instanceBelongToCluster = clustering.getInstanceBelongToCluster();
+                //Without start time group first
                 /*ArrayList<Integer>[] instanceBelongToCluster = new ArrayList[1];
                 instanceBelongToCluster[0] = new ArrayList<>();
                 for (int j = 0; j < activityInstances.size(); j++) {
                     instanceBelongToCluster[0].add(j);
                 }*/
+
                 for (int j = clustering.getOutlier().size() - 1; j >= 0; j--) {
                     activityInstances.remove((int) clustering.getOutlier().get(j));
                 }
+
                 for (int k = 0; k < instanceBelongToCluster.length; k++) {
                     fileName = "ActivityDurationEstimation/" + activityInstance.getActivity() + "-" + k;
                     fw = new FileWriter("report/features/" + fileName + ".arff");
@@ -414,6 +432,7 @@ public class TrainLifePattern {
             ArrayList<WekaRegression> eachActivityRegressions = new ArrayList<>();
             System.out.println("Activity:" + activity);
             double absoluteError = 0;
+            double normalError = 0;
             int numOfInstances = 0;
             while (true) {
                 String fileName = "ActivityDurationEstimation/" + activity + "-" + cluster;
@@ -425,8 +444,12 @@ public class TrainLifePattern {
                 cluster++;
                 absoluteError += regression.getEval().numInstances() * regression.getEval().meanAbsoluteError();
                 numOfInstances += regression.getEval().numInstances();
+                normalError += regression.getNormalError();
             }
-            System.out.println("Overall nean absolute error " + (absoluteError /= numOfInstances));
+
+            System.out.println("\nOverall nean absolute error " + (absoluteError /= numOfInstances));
+            System.out.println("Overall normal error " + (normalError /= numOfInstances));
+
             regressors.put(activity, eachActivityRegressions);
         }
     }
@@ -571,6 +594,113 @@ public class TrainLifePattern {
             }
             sb.setLength(0);
         }
+    }
+
+    private void activityRelationConstructionALZ() {
+
+
+        ActiveLzTree[] activeLzTree = new ActiveLzTree[5];
+        for (int i = 0; i < activeLzTree.length; i++) {
+            activeLzTree[i] = new ActiveLzTree();
+            activeLzTree[i].init();
+            PPM.init(String.valueOf(i), activeLzTree[i]);
+        }
+        int countDays = 0;
+        int preDayOfWeek = weekActivityInstances[0].get(0).getDayOfWeek();
+        int i;
+        for (i = 0; countDays < 30; i++) {
+            String[] startTime = weekActivityInstances[0].get(i).getStartTime().split(":");
+            int segment = Integer.parseInt(startTime[0]) * 12 + Integer.parseInt(startTime[1]) / 5;
+            if (segment >= 4 && segment <= 64)
+                segment = 4;
+            else if ((segment > 64 && segment <= 81) || (segment >= 270 && segment <= 287) || segment < 4)
+                segment = 3;
+            else if (segment > 81 && segment <= 100)
+                segment = 0;
+            else if (segment > 100 && segment <= 225)
+                segment = 1;
+            else
+                segment = 2;
+
+            if (weekActivityInstances[0].get(i).getDayOfWeek() != preDayOfWeek) {
+                countDays++;
+                for (int j = 0; j < activeLzTree.length; j++) {
+                    activeLzTree[j].finish();
+                }
+                if (countDays == 30) break;
+            }
+            activeLzTree[segment].step(weekActivityInstances[0].get(i).getActivity());
+            preDayOfWeek = weekActivityInstances[0].get(i).getDayOfWeek();
+        }
+        int alzRight = 0;
+        int total = 0;
+        for (int j = i; j < weekActivityInstances[0].size(); j++) {
+            String[] startTime = weekActivityInstances[0].get(i).getStartTime().split(":");
+            int segment = Integer.parseInt(startTime[0]) * 12 + Integer.parseInt(startTime[1]) / 5;
+            if (segment >= 4 && segment <= 64)
+                segment = 4;
+            else if ((segment > 64 && segment <= 81) || (segment >= 270 && segment <= 287) || segment < 4)
+                segment = 3;
+            else if (segment > 81 && segment <= 100)
+                segment = 0;
+            else if (segment > 100 && segment <= 225)
+                segment = 1;
+            else
+                segment = 2;
+
+
+            if (weekActivityInstances[0].get(j).getDayOfWeek() != preDayOfWeek) {
+                for (int i1 = 0; i1 < activeLzTree.length; i1++) {
+                    activeLzTree[i1].finish();
+                }
+            }
+            List<Map.Entry<String, Double>> predictedActsByALZ = PPM.prediction(String.valueOf(segment));
+            String currentActivity = weekActivityInstances[0].get(j).getActivity();
+            if (predictedActsByALZ.get(0).getKey().equals(currentActivity)
+                    /*|| ((predictedActsByALZ.size() > 1) && (predictedActsByALZ.get(1).getKey().equals(currentActivity)) && !predictedActsByALZ.get(1).getValue().equals(0.0))
+                    || ((predictedActsByALZ.size() > 2) && (predictedActsByALZ.get(2).getKey().equals(currentActivity)) && !predictedActsByALZ.get(2).getValue().equals(0.0))*/) {
+                alzRight++;
+            }
+            activeLzTree[segment].step(currentActivity);
+            preDayOfWeek = weekActivityInstances[0].get(j).getDayOfWeek();
+            total++;
+
+        }
+        System.out.println((double) alzRight / total);
+
+    }
+
+    private double startTimeAccuracyTest() {
+        SimpleDateFormat startTimeDateFormat = new SimpleDateFormat("HH:mm:ss");
+        double error = 0;
+        for (int i = 0; i < weekActivityInstances[0].size() - 1; i++) {
+            ActivityInstance activityInstance = weekActivityInstances[0].get(i);
+            ActivityInstance nextActivityInstance = weekActivityInstances[0].get(i + 1);
+            int whichCluster = activityStartTimeClusterer.get(activityInstance.getActivity())
+                    .clusterInstance(activityInstance.getStartTime());
+            long durationOfCurrentActivity = regressors.get(activityInstance.getActivity())
+                    .get(whichCluster).predict(activityInstance.getStartTime());
+            int nextStartTime = (int) (timeStringToIntMinute(activityInstance.getStartTime()) + durationOfCurrentActivity) % 1440;
+            int nextWhichCluster = activityStartTimeClusterer.get(nextActivityInstance.getActivity())
+                    .clusterInstance(timeIntToString(nextStartTime));
+
+            //error += Math.abs(activityStartTimeClusterer.get(nextActivityInstance.getActivity()).getMean()[nextWhichCluster]
+            //- timeStringToIntMinute(nextActivityInstance.getStartTime()));
+            error += Math.abs(timeStringToIntMinute(nextActivityInstance.getStartTime()) - nextStartTime);
+        }
+        error /= (weekActivityInstances[0].size() - 1);
+        System.out.println("Start time : " + error);
+        return error;
+    }
+
+    private int timeStringToIntMinute(String time) {
+        String[] tmp = time.split(":");
+        int timeInt = Integer.parseInt(tmp[0]) * 60 + Integer.parseInt(tmp[1]);
+        return timeInt;
+    }
+
+    private String timeIntToString(int time) {
+        return time / 60 + ":" + time % 60;
     }
 
     private int getTimeInterval(int timeInterval, int option) {

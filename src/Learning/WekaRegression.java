@@ -9,10 +9,7 @@ import weka.core.DenseInstance;
 import weka.core.Instance;
 import weka.core.Instances;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,6 +19,8 @@ import java.util.ArrayList;
  */
 public class WekaRegression {
     private weka.classifiers.Classifier regressor;
+    private double mean;
+    private double variance;
     private String fileName;
     private String duration;
     private Evaluation eval;
@@ -29,10 +28,13 @@ public class WekaRegression {
     private String Topic;
     private String idx;
     private DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+    private double normalError;
+
     public WekaRegression(String activity, String fileName) {
         this.Topic = activity;
         this.fileName = fileName;
     }
+
     public WekaRegression(String activity) {
         this.Topic = activity;
     }
@@ -65,11 +67,13 @@ public class WekaRegression {
             for (int i = 0; i < trainingData.size(); i++) {
                 durations[i] = trainingData.get(i).value(1);
             }
-            double mean = Mean.staticMean(durations);
+            mean = Mean.staticMean(durations);
+            variance = Mean.staticVariance(durations);
             double meanError = 0;
             for (int i = 0; i < trainingData.size(); i++) {
                 meanError += Math.abs(mean - trainingData.get(i).value(1));
             }
+            normalError = meanError;
             System.out.println("meanError : " + meanError / trainingData.size());
         } catch (IOException e) {
             System.out.println(e);
@@ -86,6 +90,8 @@ public class WekaRegression {
     }
 
     public long predict(String startTime) {
+        String[] time = startTime.split(":");
+        int timeInt = Integer.parseInt(time[0]) * 60 + Integer.parseInt(time[1]);
         ArrayList<Attribute> attributes = new ArrayList<>();
         attributes.add(new Attribute(String.valueOf("startTime")));
         attributes.add(new Attribute(String.valueOf("duration")));
@@ -93,7 +99,7 @@ public class WekaRegression {
         predictSet.setClassIndex(predictSet.numAttributes() - 1);
         Instance inst = new DenseInstance(predictSet.numAttributes());
         inst.setDataset(predictSet);
-        inst.setValue(0, Double.parseDouble(startTime));
+        inst.setValue(0, timeInt);
         double result = 0;
         try {
             result = regressor.classifyInstance(inst);
@@ -103,9 +109,24 @@ public class WekaRegression {
         return Math.round(result);
     }
 
+    public boolean isAnomaly(double duration) {
+        double shortDuration = mean - 2 * variance;
+        double longDuration = mean + 2 * variance;
+        if (shortDuration < 0) {
+            System.out.println("impossible");
+            shortDuration = 0;
+        }
+
+        return duration < shortDuration || duration > longDuration;
+    }
+
     public void saveModel() {
         try {
             weka.core.SerializationHelper.write("report/model/" + fileName + ".dModel", regressor);
+            FileWriter fw = new FileWriter("report/model/" + "Normal" + fileName + ".normalModel");
+            fw.write(mean + "\n" + variance);
+            fw.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -124,7 +145,13 @@ public class WekaRegression {
 
     public void loadModel(String fileName) {
         try {
-            regressor = (Classifier) weka.core.SerializationHelper.read(fileName);
+            if (fileName.contains("dModel")) {
+                regressor = (Classifier) weka.core.SerializationHelper.read(fileName);
+                FileReader fr = new FileReader(fileName.replace(".dModel", ".normalModel").replace("ActivityDuration", "NormalActivityDuration"));
+                BufferedReader br = new BufferedReader(fr);
+                mean = Double.parseDouble(br.readLine());
+                variance = Double.parseDouble(br.readLine());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -142,5 +169,7 @@ public class WekaRegression {
         return eval;
     }
 
-
+    public double getNormalError() {
+        return normalError;
+    }
 }

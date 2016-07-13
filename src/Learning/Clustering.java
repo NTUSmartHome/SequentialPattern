@@ -3,6 +3,8 @@ package Learning;
 import weka.clusterers.ClusterEvaluation;
 import weka.clusterers.Clusterer;
 import weka.clusterers.EM;
+import weka.core.Attribute;
+import weka.core.DenseInstance;
 import weka.core.Instances;
 
 import java.io.BufferedReader;
@@ -27,10 +29,12 @@ public class Clustering {
     private double[] stdDev;
     private DateFormat dateFormat = new SimpleDateFormat("HH:mm");
     private ArrayList<Integer> outlier;
+    private ArrayList<Attribute> attributes;
 
     public Clustering(String topic, String fileName) {
         this.Topic = topic;
         this.fileName = fileName;
+        attributes = new ArrayList<>();
     }
 
     public Clustering(String topic) {
@@ -92,22 +96,32 @@ public class Clustering {
             clusterer = new EM();
             clusterer.setMaxIterations(200);
             clusterer.setSeed(trainingData.size() / 4 + (int) (Math.random() * 10));
-            clusterer.setMaximumNumberOfClusters(0);
+            clusterer.setMaximumNumberOfClusters(4);
             clusterer.buildClusterer(trainingData);
-
+            for (int i = 0; i < trainingData.numAttributes(); i++) {
+                attributes.add(trainingData.attribute(i));
+            }
             double[][][] modelsNumericAtts = clusterer.getClusterModelsNumericAtts();
-
             System.out.println(Topic);
             System.out.println(clusterer);
 
             outlier = new ArrayList();
+            double[] numOfInstinCluster = new double[clusterer.numberOfClusters()];
             for (int i = 0; i < trainingData.size(); i++) {
                 int cluster = clusterer.clusterInstance(trainingData.get(i));
-                if (modelsNumericAtts[cluster][0][2] / trainingData.size() <= 0.05) {
+                numOfInstinCluster[cluster]++;
+
+            }
+            for (int i = 0; i < trainingData.size(); i++) {
+                int cluster = clusterer.clusterInstance(trainingData.get(i));
+                if (numOfInstinCluster[cluster] / trainingData.size() <= 0.05) {
                     outlier.add(i);
                 }
             }
             Collections.sort(outlier);
+            if (outlier.size() == trainingData.size()) {
+                System.out.println("fuck");
+            }
             for (int i = outlier.size() - 1; i >= 0; i--) {
                 trainingData.remove((int) outlier.get(i));
             }
@@ -198,6 +212,9 @@ public class Clustering {
             mean = new double[clusterer.numberOfClusters()];
             stdDev = new double[clusterer.numberOfClusters()];
             calculateMeanNStdDev();
+            //Instances trainingData = new Instances(new BufferedReader(new FileReader("report/features/ActivityStartTime/.arff")));
+            attributes = new ArrayList<>();
+            attributes.add(new Attribute("startTime"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -225,6 +242,33 @@ public class Clustering {
 
     public ArrayList<Integer> getOutlier() {
         return outlier;
+    }
+
+    public int clusterInstance(String startTime) {
+        String[] time = startTime.split(":");
+        int timeInt = Integer.parseInt(time[0]) * 60 + Integer.parseInt(time[1]);
+        Instances predictSet = new Instances("startTimeGroup", attributes, 0);
+        predictSet.setClassIndex(predictSet.numAttributes() - 1);
+        DenseInstance inst = new DenseInstance(predictSet.numAttributes());
+        inst.setDataset(predictSet);
+        inst.setValue(attributes.get(0), timeInt);
+        int whichCluster = -1;
+        try {
+            whichCluster = clusterer.clusterInstance(inst);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return whichCluster;
+    }
+
+    public boolean isAnomaly(String startTime) {
+        String[] time = startTime.split(":");
+        int timeInt = Integer.parseInt(time[0]) * 60 + Integer.parseInt(time[1]);
+        int whichCluster = clusterInstance(startTime);
+        double earlyStartTime = ((mean[whichCluster] - 2 * stdDev[whichCluster]) + 1440) % 1440;
+        double laterStartTime = ((mean[whichCluster] + 2 * stdDev[whichCluster]) - 1440) % 1440;
+        if (laterStartTime < 0) laterStartTime += 1440;
+        return timeInt < earlyStartTime || timeInt > laterStartTime;
     }
 
     private void calculateMeanNStdDev() throws Exception {
